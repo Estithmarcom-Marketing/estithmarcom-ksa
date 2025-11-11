@@ -2,7 +2,8 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import ServiceDetailCard from "@/components/services/ServiceDetailCard";
 import { useLanguage } from "@/contexts/LanguageContext";
-import heroImage from "@/assets/hero-cityscape.jpg";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import professionalPerson from "@/assets/professional-person.jpg";
 import establishmentImg from "@/assets/services/establishment.jpg";
 import administrativeImg from "@/assets/services/administrative.jpg";
 import marketingImg from "@/assets/services/marketing.jpg";
@@ -83,21 +84,37 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
-        </div>
-        
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-cairo font-bold mb-4">
-            {t('servicesPage.title')}
-          </h1>
-          <p className="text-lg md:text-xl lg:text-2xl font-cairo opacity-95">
-            {t('servicesPage.subtitle')}
-          </p>
+      <section className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden">
+        <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${dir === 'rtl' ? 'lg:flex-row-reverse' : ''}`}>
+            {/* Professional Image */}
+            <div className={`${dir === 'rtl' ? 'lg:order-2' : 'lg:order-1'}`}>
+              <div className="relative max-w-md mx-auto lg:mx-0">
+                <div className="absolute inset-0 bg-accent/30 rounded-lg transform translate-x-4 translate-y-4"></div>
+                <div className="relative bg-accent/40 rounded-lg p-2 overflow-hidden">
+                  <img 
+                    src={professionalPerson} 
+                    alt="Professional"
+                    className="w-full h-auto rounded-lg object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className={`text-white ${dir === 'rtl' ? 'lg:order-1 text-right' : 'lg:order-2 text-left'}`}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-cairo font-bold mb-4">
+                {t('servicesPage.title')}
+              </h1>
+              <p className="text-xl md:text-2xl lg:text-3xl font-cairo mb-8 opacity-95">
+                {t('servicesPage.subtitle')}
+              </p>
+              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-8 py-4 rounded-full font-cairo font-semibold text-lg flex items-center gap-3 transition-all hover:scale-105 mx-auto lg:mx-0">
+                <span>{dir === 'rtl' ? 'تواصل معنا الآن' : 'Contact Us Now'}</span>
+                {dir === 'rtl' ? <ArrowLeft className="w-5 h-5" /> : <ArrowRight className="w-5 h-5" />}
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
