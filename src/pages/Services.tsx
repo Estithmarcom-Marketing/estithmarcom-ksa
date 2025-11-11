@@ -90,14 +90,14 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden pb-16 md:pb-24" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 0 100%)' }}>
-        <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+      <section className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden pb-8 md:pb-12" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 60%)' }}>
+        <div className="container mx-auto px-4 py-8 md:py-10 lg:py-12">
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${dir === 'rtl' ? 'lg:flex-row-reverse' : ''}`}>
             {/* Professional Image */}
             <div className={`${dir === 'rtl' ? 'lg:order-2' : 'lg:order-1'}`}>
               <div className="relative max-w-md mx-auto lg:mx-0">
                 <div className="absolute inset-0 bg-accent/30 rounded-lg transform translate-x-4 translate-y-4"></div>
-                <div className="relative bg-accent/40 rounded-lg p-2 overflow-hidden">
+                <div className="relative bg-accent/40 rounded-lg p-2 overflow-hidden" >
                   <img 
                     src={professionalPerson} 
                     alt="Professional"
