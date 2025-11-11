@@ -86,6 +86,15 @@ export const translations = {
     // Services Page
     'servicesPage.title': 'خدماتنا',
     'servicesPage.subtitle': 'هدفنا تبسيط ممارسة الأعمال',
+    
+    // Service Detail Page
+    'serviceDetail.hero.services': 'خدمات',
+    'serviceDetail.requestService': 'اطلب الخدمة الآن',
+    'serviceDetail.form.name': 'الاسم بالكامل',
+    'serviceDetail.form.phone': 'رقم الهاتف',
+    'serviceDetail.form.email': 'البريد الإلكتروني',
+    'serviceDetail.form.notes': 'الملاحظات',
+    'serviceDetail.form.submit': 'إرسال',
     'servicesPage.establishment.title': 'خدمات التأسيس',
     'servicesPage.establishment.description': 'توفر لك حاضنة أعمال استثماركوم استشارات في الإدارة والتسويق لأنواع الأعمال، وخدمات الدعم إلى جانب خبرات الإدارة لنمو الشركة أعمال شركتك عند إطلاق شركتك من خلال:',
     'servicesPage.establishment.bullet1': 'تقديم استراتيجيات',
@@ -314,6 +323,16 @@ export const translations = {
     // Services Page
     'servicesPage.title': 'Our services',
     'servicesPage.subtitle': 'Our goal is to simplify business practice.',
+    
+    // Service Detail Page
+    'serviceDetail.hero.services': 'Services',
+    'serviceDetail.requestService': 'Request Service Now',
+    'serviceDetail.form.name': 'Full Name',
+    'serviceDetail.form.phone': 'Phone Number',
+    'serviceDetail.form.email': 'Email',
+    'serviceDetail.form.notes': 'Notes',
+    'serviceDetail.form.submit': 'Submit',
+    
     'servicesPage.establishment.title': 'Establishment services',
     'servicesPage.establishment.description': 'We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies:',
     'servicesPage.establishment.bullet1': 'Designing Strategies',

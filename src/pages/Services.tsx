@@ -16,6 +16,7 @@ const Services = () => {
 
   const services = [
     {
+      serviceId: "establishment",
       image: establishmentImg,
       titleKey: "servicesPage.establishment.title",
       descriptionKey: "servicesPage.establishment.description",
@@ -27,6 +28,7 @@ const Services = () => {
       ]
     },
     {
+      serviceId: "administrative",
       image: administrativeImg,
       titleKey: "servicesPage.administrative.title",
       descriptionKey: "servicesPage.administrative.description",
@@ -40,11 +42,13 @@ const Services = () => {
       ]
     },
     {
+      serviceId: "marketing",
       image: marketingImg,
       titleKey: "servicesPage.marketing.title",
       descriptionKey: "servicesPage.marketing.description",
     },
     {
+      serviceId: "government",
       image: governmentImg,
       titleKey: "servicesPage.government.title",
       descriptionKey: "servicesPage.government.description",
@@ -59,11 +63,13 @@ const Services = () => {
       ]
     },
     {
+      serviceId: "workspace",
       image: workspaceImg,
       titleKey: "servicesPage.workspace.title",
       descriptionKey: "servicesPage.workspace.description",
     },
     {
+      serviceId: "feasibility",
       image: feasibilityImg,
       titleKey: "servicesPage.feasibility.title",
       descriptionKey: "servicesPage.feasibility.description",
