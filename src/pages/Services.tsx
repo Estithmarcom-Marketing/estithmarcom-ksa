@@ -84,7 +84,7 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden pb-16 md:pb-24" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 0 100%)' }}>
         <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${dir === 'rtl' ? 'lg:flex-row-reverse' : ''}`}>
             {/* Professional Image */}

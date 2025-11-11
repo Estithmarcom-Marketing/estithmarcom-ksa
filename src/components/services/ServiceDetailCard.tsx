@@ -12,7 +12,7 @@ const ServiceDetailCard = ({ image, titleKey, descriptionKey, bullets }: Service
   const isRTL = language === 'ar';
 
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 duration-300 group h-full">
+    <div className="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 duration-300 group h-full" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 95%, 0 100%)' }}>
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
