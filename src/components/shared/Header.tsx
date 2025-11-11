@@ -58,7 +58,7 @@ const Header = () => {
           </Button>
           
           <nav className="flex items-center gap-4 md:gap-8 font-cairo font-semibold text-sm md:text-base order-3 lg:order-2 w-full lg:w-auto justify-center">
-            <a href="#contact" className="hover:text-accent transition-colors">{t('nav.contact')}</a>
+            <a href="/contact" className="hover:text-accent transition-colors">{t('nav.contact')}</a>
             <a href="#incubator" className="hover:text-accent transition-colors">{t('nav.bookHall')}</a>
             <a href="/about" className="hover:text-accent transition-colors">{t('nav.about')}</a>
             <a href="#sectors" className="hover:text-accent transition-colors">{t('nav.sectors')}</a>
