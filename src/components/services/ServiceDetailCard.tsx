@@ -26,7 +26,7 @@ const ServiceDetailCard = ({ image, titleKey, descriptionKey, bullets, serviceId
 
       {/* Text Part - Below, overlapping image by 10% with diagonal bottom */}
       <div
-        className="relative bg-primary rounded-3xl p-6 md:p-8 -mt-[10%] mx-4"
+        className="relative bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-6 md:p-8 -mt-[10%] mx-4"
         style={{ clipPath: dir === 'rtl' ?  'polygon(0 0, 100% 0, 100% 100%, 0% 80%)': 'polygon(0 0, 100% 0, 100% 80%, 0% 100%)'}}
       >
         <h3 className={`text-xl md:text-2xl font-cairo font-bold text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>

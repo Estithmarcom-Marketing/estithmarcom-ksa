@@ -111,17 +111,26 @@ const Services = () => {
             </div>
 
             {/* Content */}
-            <div className={`text-white lg:order-1 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-cairo font-bold mb-4">
+            <div className={` lg:order-1 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-cairo font-bold mb-4">
                 {t('servicesPage.title')}
               </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl font-cairo mb-8 opacity-95">
+              <p className="text-xl font-bold text-accent  md:text-2xl lg:text-3xl font-cairo mb-8 opacity-95">
                 {t('servicesPage.subtitle')}
               </p>
-              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-8 py-4 rounded-full font-cairo font-semibold text-lg flex items-center gap-3 transition-all hover:scale-105 mx-auto lg:mx-0">
+              {/* <button className={`${dir === 'rtl' ? 'bg-gradient-to-r': 'bg-gradient-to-l' } from-white/60 to-white/5 hover:from-white/80 hover:to-white/60 text-primary px-5 py-2 rounded-full font-tajwal text-white font-bold text-lg flex items-center gap-3 transition-all hover:scale-105 mx-auto lg:mx-0`}>
                 <span>{dir === 'rtl' ? 'تواصل معنا الآن' : 'Contact Us Now'}</span>
-                {dir === 'rtl' ? <ArrowLeft className="w-5 h-5" /> : <ArrowRight className="w-5 h-5" />}
-              </button>
+                <span className="bg-accent rounded   p-3">
+                  {dir === 'rtl' ? <ArrowLeft className="w-5 h-5 text-black" /> : <ArrowRight className="w-5 h-5 text-black" />}
+                </span>
+              </button> */}
+              <button className={`${dir === 'rtl' ? 'bg-gradient-to-r': 'bg-gradient-to-l' } from-white/60 to-white/5 hover:from-white/80 hover:to-white/60 backdrop-blur-sm text-white px-5 py-2 rounded-full font-cairo font-semibold text-lg flex items-center gap-3 transition-all hover:scale-105 mx-auto lg:mx-0`}>
+                <span >{dir === 'rtl' ? 'تواصل معنا الآن' : 'Contact Us Now'}</span>
+                <span className="bg-accent rounded   p-3">
+                  {dir === 'rtl' ? <ArrowLeft className="w-5 h-5 text-black" /> : <ArrowRight className="w-5 h-5 text-black" />}
+                </span>
+               
+              </button> 
             </div>
           </div>
         </div>
