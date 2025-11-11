@@ -89,8 +89,8 @@ const ServiceDetail = () => {
       {/* Content Section with Images */}
       <section className="container mx-auto px-4 -mt-32 relative z-20 mb-16">
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Images */}
-          <div className="space-y-8">
+          {/* Left Images - Always on the left */}
+          <div className="space-y-8 order-1">
             <div className="rounded-3xl overflow-hidden shadow-xl">
               <img src={service.image} alt="" className="w-full h-64 object-cover" />
             </div>
@@ -99,8 +99,8 @@ const ServiceDetail = () => {
             </div>
           </div>
 
-          {/* Right Text */}
-          <div className={`space-y-6 ${isRTL ? 'text-right' : 'text-left'}`}>
+          {/* Right Text - Always on the right */}
+          <div className={`space-y-6 order-2 ${isRTL ? 'text-right' : 'text-left'}`}>
             <p className="text-foreground font-cairo leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
