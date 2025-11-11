@@ -90,16 +90,19 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden pb-8 md:pb-12" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 60%)' }}>
+      <section
+        className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden pb-8 md:pb-12"
+        style={{ clipPath: dir === 'rtl' ?  'polygon(0 0, 100% 0, 100% 100%, 0% 60%)': 'polygon(0 0, 100% 0, 100% 60%, 0% 100%)' }}
+      >
         <div className="container mx-auto px-4 py-8 md:py-10 lg:py-12">
-          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${dir === 'rtl' ? 'lg:flex-row-reverse' : ''}`}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Professional Image */}
-            <div className={`${dir === 'rtl' ? 'lg:order-2' : 'lg:order-1'}`}>
+            <div className="lg:order-2">
               <div className="relative max-w-md mx-auto lg:mx-0">
                 <div className="absolute inset-0 bg-accent/30 rounded-lg transform translate-x-4 translate-y-4"></div>
                 <div className="relative bg-accent/40 rounded-lg p-2 overflow-hidden" >
-                  <img 
-                    src={professionalPerson} 
+                  <img
+                    src={professionalPerson}
                     alt="Professional"
                     className="w-full h-auto rounded-lg object-cover"
                   />
@@ -108,7 +111,7 @@ const Services = () => {
             </div>
 
             {/* Content */}
-            <div className={`text-white ${dir === 'rtl' ? 'lg:order-1 text-right' : 'lg:order-2 text-left'}`}>
+            <div className={`text-white lg:order-1 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-cairo font-bold mb-4">
                 {t('servicesPage.title')}
               </h1>
