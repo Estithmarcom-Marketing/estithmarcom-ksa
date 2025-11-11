@@ -62,8 +62,8 @@ const Header = () => {
             <a href="#incubator" className="hover:text-accent transition-colors">{t('nav.bookHall')}</a>
             <a href="#about" className="hover:text-accent transition-colors">{t('nav.about')}</a>
             <a href="#sectors" className="hover:text-accent transition-colors">{t('nav.sectors')}</a>
-            <a href="#services" className="hover:text-accent transition-colors">{t('nav.services')}</a>
-            <a href="#" className="hover:text-accent transition-colors">{t('nav.home')}</a>
+            <a href="/services" className="hover:text-accent transition-colors">{t('nav.services')}</a>
+            <a href="/" className="hover:text-accent transition-colors">{t('nav.home')}</a>
           </nav>
 
           <div className="flex items-center gap-3 order-2 lg:order-3">
