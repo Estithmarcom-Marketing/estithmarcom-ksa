@@ -14,7 +14,7 @@ const ServiceDetailCard = ({ image, titleKey, descriptionKey, bullets, serviceId
   const isRTL = language === 'ar';
 
   return (
-    <div className="relative h-full shadow-2xl hover:shadow-3xl transition-all duration-300 group">
+    <div className="relative h-full transition-all duration-300 group">
       {/* Image Part - On Top */}
       <div className="relative h-[250px] rounded-t-3xl overflow-hidden">
         <img 
@@ -26,8 +26,8 @@ const ServiceDetailCard = ({ image, titleKey, descriptionKey, bullets, serviceId
 
       {/* Text Part - Below, overlapping image by 10% with diagonal bottom */}
       <div 
-        className="relative bg-primary rounded-3xl p-6 md:p-8 -mt-[10%] mx-4 border-4 border-accent border-t-0"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)' }}
+        className="relative bg-primary rounded-3xl p-6 md:p-8 -mt-[10%] mx-4    "
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 80%)' }}
       >
         <h3 className={`text-xl md:text-2xl font-cairo font-bold text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
           {t(titleKey)}
@@ -38,7 +38,7 @@ const ServiceDetailCard = ({ image, titleKey, descriptionKey, bullets, serviceId
         </p>
 
         <Link to={`/services/${serviceId}`}>
-          <button className="mt-6 bg-accent hover:bg-accent/90 text-primary px-8 py-3 rounded-full font-cairo font-semibold transition-all hover:scale-105">
+          <button className="mt-6 bg-transparent hover:bg-accent border-2 border-accent text-white px-8 py-3 rounded-full font-cairo font-bold transition-all hover:scale-105">
             {isRTL ? 'المزيد' : 'More'}
           </button>
         </Link>
