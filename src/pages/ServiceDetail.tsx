@@ -71,15 +71,15 @@ const ServiceDetail = () => {
       <Header />
       
       {/* Hero Section with Diagonal Border */}
-      <section 
-        className="relative bg-primary pt-32 pb-48 overflow-hidden"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)' }}
+      <section
+        className=" bg-primary pt-32 pb-48 overflow-hidden"
+        style={{ clipPath: isRTL ? 'polygon(0 0, 100% 0, 100% 100%, 0 85%)' : 'polygon(0 0, 100% 0, 100% 85%, 0 100%)' }}
       >
-        <div className="container mx-auto px-4 text-center text-white relative z-10">
-          <h2 className="text-2xl md:text-3xl font-cairo font-bold mb-8">
+        <div className="container mx-auto px-4 text-center text-white ">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
             {t('serviceDetail.hero.services')}
           </h2>
-          <h1 className="text-4xl md:text-6xl font-cairo font-bold">
+          <h1 className="text-4xl md:text-6xl font-bold">
             {t(service.titleKey)}
             <span className="block h-1 w-32 bg-accent mx-auto mt-6"></span>
           </h1>
@@ -87,7 +87,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Content Section with Images */}
-      <section className="container mx-auto px-4 -mt-32 relative z-20 mb-16">
+      <section className="container mx-auto px-4 -mt-32  mb-16">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Images - Always on the left */}
           <div className="space-y-8 order-1">
@@ -101,19 +101,19 @@ const ServiceDetail = () => {
 
           {/* Right Text - Always on the right */}
           <div className={`space-y-6 order-2 ${isRTL ? 'text-right' : 'text-left'}`}>
-            <p className="text-foreground font-cairo leading-relaxed text-lg">
+            <p className="text-foreground  leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
-            <p className="text-foreground font-cairo leading-relaxed text-lg">
+            <p className="text-foreground  leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
-            <p className="text-foreground font-cairo leading-relaxed text-lg">
+            <p className="text-foreground  leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
-            <p className="text-foreground font-cairo leading-relaxed text-lg">
+            <p className="text-foreground  leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
-            <p className="text-foreground font-cairo leading-relaxed text-lg">
+            <p className="text-foreground  leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
           </div>
@@ -124,13 +124,13 @@ const ServiceDetail = () => {
       <section className="container mx-auto px-4 mb-16">
         <div className="relative bg-primary rounded-3xl p-8 md:p-12 border-4 border-accent">
           <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-            <p className="text-white font-cairo leading-relaxed text-lg mb-6">
+            <p className="text-white  leading-relaxed text-lg mb-6">
               {t(service.descriptionKey)}
             </p>
-            <p className="text-white font-cairo leading-relaxed text-lg mb-6">
+            <p className="text-white  leading-relaxed text-lg mb-6">
               {t(service.descriptionKey)}
             </p>
-            <p className="text-white font-cairo leading-relaxed text-lg">
+            <p className="text-white  leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
           </div>
@@ -153,7 +153,7 @@ const ServiceDetail = () => {
             {/* Right Form */}
             <div className={`order-1 md:order-2 p-8 md:p-12 ${isRTL ? 'text-right' : 'text-left'}`}>
               <div className="bg-accent rounded-full px-8 py-4 inline-block mb-8">
-                <h3 className="text-primary font-cairo font-bold text-xl md:text-2xl">
+                <h3 className="text-primary  font-bold text-xl md:text-2xl">
                   {t('serviceDetail.requestService')}
                 </h3>
               </div>
@@ -163,33 +163,33 @@ const ServiceDetail = () => {
                   <input
                     type="text"
                     placeholder={t('serviceDetail.form.name')}
-                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background font-cairo"
+                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background "
                   />
                 </div>
                 <div>
                   <input
                     type="tel"
                     placeholder={t('serviceDetail.form.phone')}
-                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background font-cairo"
+                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background "
                   />
                 </div>
                 <div>
                   <input
                     type="email"
                     placeholder={t('serviceDetail.form.email')}
-                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background font-cairo"
+                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background "
                   />
                 </div>
                 <div>
                   <textarea
                     placeholder={t('serviceDetail.form.notes')}
                     rows={4}
-                    className="w-full px-6 py-4 rounded-3xl border-2 border-border bg-background font-cairo resize-none"
+                    className="w-full px-6 py-4 rounded-3xl border-2 border-border bg-background  resize-none"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-cairo font-bold text-lg transition-all"
+                  className="w-full bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full  font-bold text-lg transition-all"
                 >
                   {t('serviceDetail.form.submit')}
                 </button>
