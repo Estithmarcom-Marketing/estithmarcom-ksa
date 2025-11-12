@@ -87,50 +87,33 @@ const ServiceDetail = () => {
       </section>
 
       {/* Content Section with Images */}
-      <section className="container mx-auto px-4 -mt-32  mb-16">
+      <section className="container mx-auto px-4 mb-16 mt-32">
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Images - Always on the left */}
-          <div className="space-y-8 order-1">
-            <div className="rounded-3xl overflow-hidden shadow-xl">
-              <img src={service.image} alt="" className="w-full h-64 object-cover" />
-            </div>
-            <div className="rounded-3xl overflow-hidden shadow-xl">
-              <img src={service.image} alt="" className="w-full h-64 object-cover" />
-            </div>
+          {/* Right Text - Always on the right */}
+          <div className={`space-y-3 order-1 ${isRTL ? 'text-right' : 'text-left'}`}>
+            <p className="text-foreground leading-relaxed text-lg">
+              {t(service.descriptionKey)}
+            </p>
           </div>
 
-          {/* Right Text - Always on the right */}
-          <div className={`space-y-6 order-2 ${isRTL ? 'text-right' : 'text-left'}`}>
-            <p className="text-foreground  leading-relaxed text-lg">
-              {t(service.descriptionKey)}
-            </p>
-            <p className="text-foreground  leading-relaxed text-lg">
-              {t(service.descriptionKey)}
-            </p>
-            <p className="text-foreground  leading-relaxed text-lg">
-              {t(service.descriptionKey)}
-            </p>
-            <p className="text-foreground  leading-relaxed text-lg">
-              {t(service.descriptionKey)}
-            </p>
-            <p className="text-foreground  leading-relaxed text-lg">
-              {t(service.descriptionKey)}
-            </p>
+          {/* Left Images - Always on the left */}
+          <div className="space-y-6 order-2">
+            <div className=" overflow-hidden  flex justify-between gap-6 h-48">
+              <img src={service.image} alt="" className="w-full  object-cover " />
+              <img src={service.image} alt="" className="w-full  object-cover " />
+            </div>
+            <div className="rounded-br-3xl overflow-hidden ">
+              <img src={service.image} alt="" className="w-full h-48 object-cover" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Purple Box with Yellow Border */}
       <section className="container mx-auto px-4 mb-16">
-        <div className="relative bg-primary rounded-3xl p-8 md:p-12 border-4 border-accent">
+        <div className="relative bg-primary rounded-tl-[60px] rounded-br-[60px] p-8 md:p-12  ">
           <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-            <p className="text-white  leading-relaxed text-lg mb-6">
-              {t(service.descriptionKey)}
-            </p>
-            <p className="text-white  leading-relaxed text-lg mb-6">
-              {t(service.descriptionKey)}
-            </p>
-            <p className="text-white  leading-relaxed text-lg">
+            <p className="text-white leading-relaxed text-lg">
               {t(service.descriptionKey)}
             </p>
           </div>

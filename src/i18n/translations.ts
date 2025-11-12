@@ -96,7 +96,7 @@ export const translations = {
     'serviceDetail.form.notes': 'الملاحظات',
     'serviceDetail.form.submit': 'إرسال',
     'servicesPage.establishment.title': 'خدمات التأسيس',
-    'servicesPage.establishment.description': 'توفر لك حاضنة أعمال استثماركوم استشارات في الإدارة والتسويق لأنواع الأعمال، وخدمات الدعم إلى جانب خبرات الإدارة لنمو الشركة أعمال شركتك عند إطلاق شركتك من خلال:',
+    'servicesPage.establishment.description': 'توفر لك حاضنة أعمال استثماركوم استشارات في الإدارة والتسويق لأنواع الأعمال، وخدمات الدعم إلى جانب خبرات الإدارة لنمو الشركة أعمال شركتك عند إطلاق شركتك من خلال توفر لك حاضنة أعمال استثماركوم استشارات في الإدارة والتسويق لأنواع الأعمال، وخدمات الدعم إلى جانب خبرات الإدارة لنمو الشركة أعمال شركتك عند إطلاق شركتك من خلالتوفر لك حاضنة أعمال استثماركوم استشارات في الإدارة والتسويق لأنواع الأعمال، وخدمات الدعم إلى جانب خبرات الإدارة لنمو الشركة أعمال شركتك عند إطلاق شركتك من خلال توفر لك حاضنة أعمال استثماركوم استشارات في الإدارة والتسويق لأنواع الأعمال، وخدمات الدعم إلى جانب خبرات الإدارة لنمو الشركة أعمال شركتك عند إطلاق شركتك من خلال:',
     'servicesPage.establishment.bullet1': 'تقديم استراتيجيات',
     'servicesPage.establishment.bullet2': 'تقديم خطة التسويقية',
     'servicesPage.establishment.bullet3': 'إيجاد دراسات الجدوى',
@@ -334,7 +334,7 @@ export const translations = {
     'serviceDetail.form.submit': 'Submit',
     
     'servicesPage.establishment.title': 'Establishment services',
-    'servicesPage.establishment.description': 'We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies:',
+    'servicesPage.establishment.description': 'We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies:',
     'servicesPage.establishment.bullet1': 'Designing Strategies',
     'servicesPage.establishment.bullet2': 'Creating Marketing Plans',
     'servicesPage.establishment.bullet3': 'Conducting Feasibility Studies',
