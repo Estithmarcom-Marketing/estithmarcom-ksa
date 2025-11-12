@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+// @ts-ignore: no type declarations for this module
+import textshadow from "tailwindcss-textshadow";
+import tailwindAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -15,6 +18,11 @@ export default {
     extend: {
       fontFamily: {
         cairo: ['Cairo', 'sans-serif'],
+      },
+      textShadow: {
+        sm: '0 1px 2px rgba(0,0,0,0.25)',
+        DEFAULT: '0 2px 8px rgba(0,0,0,0.3)',
+        lg: '0 4px 16px rgba(0,0,0,0.35)',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -88,5 +96,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimate , textshadow],
 } satisfies Config;

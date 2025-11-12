@@ -11,6 +11,8 @@ import imgOM from "@/assets/home slider/oman.jpeg";
 import imgAE from "@/assets/home slider/UAE.jpeg";
 import imgUK from "@/assets/home slider/UK.jpeg";
 import imgUS from "@/assets/home slider/usa.jpeg";
+import imgSA1 from "@/assets/home slider/KSA1.jpg";
+import imgSA2 from "@/assets/home slider/KSA2.jpg";
 
 const AUTOPLAY_MS = 5000;
 
@@ -28,6 +30,8 @@ const HeroSlider = () => {
       { id: "om", img: imgOM },
       { id: "uk", img: imgUK },
       { id: "us", img: imgUS },
+      // { id: "sa1", img: imgSA1 },
+      // { id: "sa2", img: imgSA2 },
     ],
     []
   );
@@ -123,23 +127,26 @@ const HeroSlider = () => {
                 style={{ backgroundImage: `url(${s.img})` }}
               />
               {/* overlay */}
-              {/* <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/70" /> */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/70" />
             </div>
           );
         })}
       </div>
 
       {/* Content (same text on all slides) */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-start justify-center text-white text-start">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-cairo font-bold mb-4 md:mb-6 leading-tight">
-          {t("hero.title")}
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-start justify-center text-white text-start text-shadow-lg ">
+        <h2 className=" md:text-5xl lg:text-6xl  font-bold mb-4 md:mb-6 leading-tight text-accent">
+          <span className="text-3xl">
+            {t("hero.title")}
+          </span>
+          
           <br />
-          <span className="text-accent">{t("hero.subtitle")}</span>
+          <span className=" text-accent">{t("hero.subtitle")}</span>
         </h2>
-        <p className="text-lg md:text-xl lg:text-2xl font-cairo mb-2 md:mb-4 opacity-95">
+        <p className="text-lg md:text-xl lg:text-2xl font-bold mb-2 md:mb-4 ">
           {t("hero.description1")}
         </p>
-        <p className="text-base md:text-lg font-cairo opacity-90">
+        <p className="text-base md:text-lg font-bold ">
           {t("hero.description2")}
         </p>
       </div>
