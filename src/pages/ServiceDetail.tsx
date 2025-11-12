@@ -121,22 +121,22 @@ const ServiceDetail = () => {
       </section>
 
       {/* Request Service Form Section */}
-      <section className="container mx-auto px-4 mb-16">
+      <section className="container mx-auto px-4 mb-16 max-w-7xl">
         <div className="relative rounded-3xl border-4 border-accent overflow-hidden bg-background">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Left Image */}
-            <div className="order-2 md:order-1">
-              <img 
-                src={professionalPerson} 
-                alt="" 
-                className="w-full h-full object-cover min-h-[400px]"
+            <div className="order-1 md:order-2 flex items-center justify-center p-8">
+              <img
+                src={professionalPerson}
+                alt=""
+                className="w-full h-auto object-cover rounded-2xl"
               />
             </div>
 
             {/* Right Form */}
-            <div className={`order-1 md:order-2 p-8 md:p-12 ${isRTL ? 'text-right' : 'text-left'}`}>
-              <div className="bg-accent rounded-full px-8 py-4 inline-block mb-8">
-                <h3 className="text-primary  font-bold text-xl md:text-2xl">
+            <div className={`order-2 md:order-1 p-6 md:p-8 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <div className={`bg-accent   px-8 py-4 inline-block mb-8 ${isRTL ? "-mr-8 rounded-bl-3xl"  : "-ml-8 rounded-br-3xl" } `}>
+                <h3 className="text-primary  font-bold text-2xl md:text-3xl">
                   {t('serviceDetail.requestService')}
                 </h3>
               </div>
@@ -146,28 +146,28 @@ const ServiceDetail = () => {
                   <input
                     type="text"
                     placeholder={t('serviceDetail.form.name')}
-                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background "
+                    className="w-full px-6 py-4 rounded-full border-2 border-black bg-background "
                   />
                 </div>
                 <div>
                   <input
                     type="tel"
                     placeholder={t('serviceDetail.form.phone')}
-                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background "
+                    className="w-full px-6 py-4 rounded-full border-2 border-black bg-background "
                   />
                 </div>
                 <div>
                   <input
                     type="email"
                     placeholder={t('serviceDetail.form.email')}
-                    className="w-full px-6 py-4 rounded-full border-2 border-border bg-background "
+                    className="w-full px-6 py-4 rounded-full border-2 border-black bg-background "
                   />
                 </div>
                 <div>
                   <textarea
                     placeholder={t('serviceDetail.form.notes')}
                     rows={4}
-                    className="w-full px-6 py-4 rounded-3xl border-2 border-border bg-background  resize-none"
+                    className="w-full px-6 py-4 rounded-3xl border-2 border-black bg-background  resize-none"
                   />
                 </div>
                 <button
