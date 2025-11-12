@@ -2,6 +2,7 @@ import Header from "@/components/shared/Header";
 import Hero from "@/components/home/Hero";
 import ServicesIntro from "@/components/home/ServicesIntro";
 import ServicesGrid from "@/components/home/ServicesGrid";
+import BannerSection from "@/components/home/BannerSection";
 import VideoSection from "@/components/home/VideoSection";
 import ProcessSteps from "@/components/home/ProcessSteps";
 import PartnersSection from "@/components/home/PartnersSection";
@@ -19,6 +20,7 @@ const Index = () => {
       <Hero />
       <ServicesIntro />
       <ServicesGrid />
+      <BannerSection />
       <VideoSection />
       <ProcessSteps />
       <PartnersSection />
