@@ -37,7 +37,7 @@ const Header = () => {
                   <MapPin className="w-4 h-4" />
                 </a>
               </div>
-              <select 
+              <select
                 className="bg-transparent border border-primary-foreground/30 rounded px-2 py-1 text-xs font-cairo cursor-pointer"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as 'ar' | 'en')}
@@ -53,30 +53,29 @@ const Header = () => {
       {/* Main Navigation */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center flex-wrap gap-4">
-          <Button className="bg-accent hover:bg-accent/90 text-primary font-cairo font-bold rounded-full px-6">
+
+          <div className="flex w-100">
+            <div className="flex items-center gap-3 order-3 lg:order-2 ">
+              <img
+                src="/logo-white.png"
+                alt={t('header.title')}
+                className="w-24 h-24 md:w-18 md:h-18 object-contain flex-shrink-0"
+              />
+            </div>
+
+            <nav className="flex items-center gap-4 md:gap-8 font-cairo font-semibold text-sm md:text-base order-2 lg:order-3 w-full lg:w-auto justify-center lg:mx-5 lg:px-5">
+              <a href="/" className="hover:text-accent transition-colors">{t('nav.home')}</a>
+              <a href="/services" className="hover:text-accent transition-colors">{t('nav.services')}</a>
+              <a href="/contact" className="hover:text-accent transition-colors">{t('nav.contact')}</a>
+              {/* <a href="#incubator" className="hover:text-accent transition-colors">{t('nav.bookHall')}</a> */}
+              <a href="/about" className="hover:text-accent transition-colors">{t('nav.about')}</a>
+              <a href="#sectors" className="hover:text-accent transition-colors">{t('nav.sectors')}</a>
+            </nav>
+          </div>
+
+          <Button className=" order-4 text-white hover:bg-accent/90  font-bold border px-6">
             {t('header.requestService')}
           </Button>
-          
-          <nav className="flex items-center gap-4 md:gap-8 font-cairo font-semibold text-sm md:text-base order-3 lg:order-2 w-full lg:w-auto justify-center">
-            <a href="/contact" className="hover:text-accent transition-colors">{t('nav.contact')}</a>
-            <a href="#incubator" className="hover:text-accent transition-colors">{t('nav.bookHall')}</a>
-            <a href="/about" className="hover:text-accent transition-colors">{t('nav.about')}</a>
-            <a href="#sectors" className="hover:text-accent transition-colors">{t('nav.sectors')}</a>
-            <a href="/services" className="hover:text-accent transition-colors">{t('nav.services')}</a>
-            <a href="/" className="hover:text-accent transition-colors">{t('nav.home')}</a>
-          </nav>
-
-          <div className="flex items-center gap-3 order-2 lg:order-3">
-            <div className={`text-${language === 'ar' ? 'right' : 'left'}`}>
-              <h1 className="text-xl md:text-2xl font-cairo font-bold text-accent">{t('header.title')}</h1>
-              <p className="text-xs font-cairo opacity-90">{t('header.subtitle')}</p>
-            </div>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-accent rounded flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 md:w-8 md:h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L8 8h3v6H9l4 6 4-6h-2V8h3l-4-6z"/>
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
     </header>
