@@ -11,29 +11,25 @@ const Footer: React.FC = () => {
   const { language, t } = useLanguage();
   const isRTL = language === "ar";
 
-  const ContactRow: React.FC<{ icon: React.ReactNode; label: string }> = ({
-    icon,
-    label,
-  }) => (
-    <div className="flex items-center justify-center gap-3">
-      {/* RTL: text then icon (icon on the right). LTR: icon then text (icon on the left) */}
-      {isRTL ? (
-        <>
-          <span className="text-base">{label}</span>
-          <span aria-hidden="true" className="shrink-0">
-            {icon}
-          </span>
-        </>
-      ) : (
-        <>
-          <span aria-hidden="true" className="shrink-0">
-            {icon}
-          </span>
-          <span className="text-base">{label}</span>
-        </>
-      )}
-    </div>
-  );
+const ContactRow: React.FC<{
+  icon: React.ReactNode;
+  label: string;
+  isRTL: boolean;
+}> = ({ icon, label, isRTL }) => (
+  <div
+    className={[
+      "flex items-center gap-3",
+      // في العربي نعكس اتجاه الصف عشان الأيقونة تطلع يمين النص
+      isRTL ? "flex-row-reverse  justify-end" : "flex-row  justify-start",
+    ].join(" ")}
+  >
+    <span className="shrink-0" hidden={isRTL} aria-hidden="true">{icon}</span>
+    <span className="text-base">{label}</span>
+    <span className="shrink-0" hidden={!isRTL} aria-hidden="true">{icon}</span>
+  </div>
+);
+
+
 
   const LogoSection = () => (
     <div
@@ -63,16 +59,20 @@ const Footer: React.FC = () => {
     </div>
   );
 
-  const ContactSection = () => (
-    <div className="text-center space-y-4">
-      <h3 className="text-2xl md:text-3xl font-bold mb-6">{t("footer.contactInfo")}</h3>
-      <div className="space-y-4">
-        <ContactRow icon={<MapPin className="w-5 h-5" />} label={t("footer.location")} />
-        <ContactRow icon={<Phone className="w-5 h-5" />} label={t("header.phone")} />
-        <ContactRow icon={<Mail className="w-5 h-5" />} label={t("header.email")} />
-      </div>
+  // Contact Section
+const ContactSection = () => (
+  <div className={isRTL ? "space-y-4 text-right" : "space-y-4 text-left"}>
+    <h3 className={["text-2xl md:text-3xl font-bold mb-6", isRTL ? "text-right" : "text-left"].join(" ")}>
+      {t("footer.contactInfo")}
+    </h3>
+
+    <div className="space-y-4">
+      <ContactRow icon={<MapPin className="w-5 h-5" />} label={t("footer.location")} isRTL={isRTL} />
+      <ContactRow icon={<Phone className="w-5 h-5" />} label={t("header.phone")} isRTL={isRTL} />
+      <ContactRow icon={<Mail className="w-5 h-5" />} label={t("header.email")} isRTL={isRTL} />
     </div>
-  );
+  </div>
+);
 
   const SubscribeSection = () => (
     <div
