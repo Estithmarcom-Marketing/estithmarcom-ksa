@@ -1,8 +1,40 @@
 import { Play, Pause, Plus } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState, useRef } from "react";
+import videoFile from "@/assets/estsmarkm56.mp4";
 
 const VideoSection = () => {
   const { t } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handlePause = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleFullscreen = () => {
+    if (videoRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        videoRef.current.requestFullscreen();
+      }
+    }
+  };
   
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-primary via-primary to-purple-light">
@@ -22,28 +54,50 @@ const VideoSection = () => {
 
         <div className="max-w-2xl mx-auto">
           <div className="relative aspect-[9/16] md:aspect-video bg-primary/50 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center px-4">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-accent/90 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
-                  <svg className="w-10 h-10 md:w-12 md:h-12 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L8 8h3v6H9l4 6 4-6h-2V8h3l-4-6z"/>
-                  </svg>
+            <video
+              ref={videoRef}
+              src={videoFile}
+              className="w-full h-full object-cover"
+              onClick={togglePlay}
+            />
+
+            {!isPlaying && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
+                <div className="text-center px-4">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-accent/90 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+                    <svg className="w-10 h-10 md:w-12 md:h-12 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2L8 8h3v6H9l4 6 4-6h-2V8h3l-4-6z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-cairo font-bold text-accent mb-2">{t('header.subtitle')}</h3>
+                  <p className="text-white font-cairo text-lg md:text-xl mb-1">{t('header.title')}</p>
+                  <p className="text-accent/90 font-cairo text-xs md:text-sm mb-1">{t('header.incubator')}</p>
+                  <p className="text-white/70 font-cairo text-xs">{t('header.incubatorEn')}</p>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-cairo font-bold text-accent mb-2">{t('header.subtitle')}</h3>
-                <p className="text-white font-cairo text-lg md:text-xl mb-1">{t('header.title')}</p>
-                <p className="text-accent/90 font-cairo text-xs md:text-sm mb-1">{t('header.incubator')}</p>
-                <p className="text-white/70 font-cairo text-xs">{t('header.incubatorEn')}</p>
               </div>
-            </div>
-            
-            <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 md:gap-4">
-              <button className="w-10 h-10 md:w-12 md:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors">
-                <Play className="w-5 h-5 md:w-6 md:h-6 text-white" />
+            )}
+
+            <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 md:gap-4 z-10">
+              <button
+                onClick={togglePlay}
+                className="w-10 h-10 md:w-12 md:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors"
+              >
+                {isPlaying ? (
+                  <Pause className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                ) : (
+                  <Play className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                )}
               </button>
-              <button className="w-10 h-10 md:w-12 md:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors">
+              <button
+                onClick={handlePause}
+                className="w-10 h-10 md:w-12 md:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors"
+              >
                 <Pause className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </button>
-              <button className="w-10 h-10 md:w-12 md:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors">
+              <button
+                onClick={toggleFullscreen}
+                className="w-10 h-10 md:w-12 md:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm transition-colors"
+              >
                 <Plus className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </button>
             </div>
