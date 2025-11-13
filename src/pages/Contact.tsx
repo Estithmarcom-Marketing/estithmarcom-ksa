@@ -99,7 +99,7 @@ const Contact = () => {
       </section>
 
       {/* Services Cards Section */}
-      <section className="py-12 md:py-16 bg-secondary/20">
+      {/* <section className="py-12 md:py-16 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary mb-4">
@@ -116,10 +116,10 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-r from-primary to-purple-light">
+      {/* <section className="py-12 md:py-16 bg-gradient-to-r from-primary to-purple-light">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-cairo font-bold text-white mb-6">
             {t('contactPage.cta.title')}
@@ -128,7 +128,7 @@ const Contact = () => {
             {t('contactPage.cta.button')}
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* Services Grid with Images */}
       <section className="py-12 md:py-16 bg-background">
@@ -171,7 +171,7 @@ const Contact = () => {
       </section>
 
       {/* Roles Section */}
-      <section className="py-12 md:py-16 bg-background">
+      {/* <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary text-center mb-8 md:mb-12">
             {t('contactPage.roles.title')}
@@ -193,10 +193,10 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Partners Section */}
-      <PartnersSection />
+      {/* <PartnersSection /> */}
 
       {/* FAQ Section */}
       <FAQSection />
