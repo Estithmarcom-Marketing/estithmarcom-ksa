@@ -15,6 +15,16 @@ export const translations = {
     'nav.about': 'من نحن',
     'nav.bookHall': 'حجز قاعة',
     'nav.contact': 'التواصل',
+
+    // Homepage - Services Showcase
+    'showcase.heading': 'الخدمات',
+    'showcase.subheading': 'نقدّم خدمات داعمة واستشارية للشركات لتقديم حلول وتسهيل الخدمات وإنجازها بشكل كامل',
+    'showcase.service.legal': 'الدعم القانوني',
+    'showcase.service.admin': 'الدعم الإداري',
+    'showcase.service.consult': 'الدعم الاستشاري والتأهيلي',
+    'showcase.service.tech': 'الدعم التقني',
+    'showcase.service.marketing': 'الاستشارات التسويقية والإدارية',
+    'showcase.service.licenses': 'إصدار التراخيص الحكومية',
     
     // Hero
     'hero.title': 'حاضنة ومسرعة الأعمال',
@@ -252,6 +262,16 @@ export const translations = {
     'nav.about': 'About',
     'nav.bookHall': 'Book Hall',
     'nav.contact': 'Contact',
+
+    // Homepage - Services Showcase
+    'showcase.heading': 'Services',
+    'showcase.subheading': 'We provide supportive and consulting services to companies to deliver solutions, facilitate services, and complete them fully',
+    'showcase.service.legal': 'Legal Support',
+    'showcase.service.admin': 'Administrative Support',
+    'showcase.service.consult': 'Consulting and Training Support',
+    'showcase.service.tech': 'Technical Support',
+    'showcase.service.marketing': 'Marketing and Management Consulting',
+    'showcase.service.licenses': 'Government Licensing',
     
     // Hero
     'hero.title': 'Business Incubator and Accelerator',
