@@ -3,6 +3,7 @@ import Hero from "@/components/home/Hero";
 import ServicesIntro from "@/components/home/ServicesIntro";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import BannerSection from "@/components/home/BannerSection";
+import ServicesShowcase from "@/components/home/ServicesShowcase";
 import VideoSection from "@/components/home/VideoSection";
 import ProcessSteps from "@/components/home/ProcessSteps";
 import PartnersSection from "@/components/home/PartnersSection";
@@ -21,6 +22,7 @@ const Index = () => {
       <ServicesIntro />
       <ServicesGrid />
       <BannerSection />
+      <ServicesShowcase />
       <VideoSection />
       <ProcessSteps />
       <PartnersSection />
