@@ -77,11 +77,11 @@ export const translations = {
     // FAQ
     'faq.title': 'الأسئلة الشائعة',
     'faq.q1': 'ما الذي يجعل حاضنة أعمال استثماركوم مع غيرها من الشركات؟',
-    'faq.a1': 'نحن نقدم خدمات متكاملة تشمل الاستشارات القانونية، التمويل، والدعم الفني لضمان نجاح مشروعك.',
+    'faq.a1': 'تتميز حاضنة الأعمال إستثماركوم بسرعة إنهاء جميع الإجراءات الحكومية، وبأقل تكلفه عن غيرها من الشركات الأخرى، كما يوجد أيضاً فريق عمل على أعلى مستوى من الكفاءة والخبرة، حيث إن حاضنة الأعمال إستثماركوم تمتلك منفذين ومندوبين وخدمه عملاء للرد على جميع أستفسارتكم. فهدفنا راحة العميل وتوفير الوقت والجهد له',
     'faq.q2': 'كم الفترة التي سنستغرقها حاضنة أعمال استثماركوم لإنهاء الخدمة؟',
-    'faq.a2': 'تختلف المدة حسب نوع الخدمة، لكننا نلتزم بتقديم خدمات سريعة وفعالة مع الحفاظ على أعلى معايير الجودة.',
+    'faq.a2': 'تتنوع الخدمات التي تقوم بها إستثماركوم والتي تتمثل في عده قطاعات: قطاع الجوازات: (إصدار تأشيرة المستثمر – إصدار الإقامة الاستثمارية داخل الدولة). قطاع الشؤون القانونية: (تسجيل علامات تجارية – إصدار تراخيص الاستثمار (تجاري- خدمي- صناعي) – إصدار سجلات تجارية – فتح الحسابات البنكية). حيث يتم متابعة وتعقيب وإنهاء كافة الإجراءات المذكورة حتى استلام العميل جميع أوراقه القانونية.',
     'faq.q3': 'هل يتم توفير التمويل للمشاريع الحكومية لإنهاء الخدمة؟',
-    'faq.a3': 'نعم، نساعد في ربط المشاريع مع الجهات التمويلية المناسبة وتقديم الدعم اللازم للحصول على التمويل.',
+    'faq.a3': 'في كثير من الأحيان لا يلزم تواجد العميل بالمصالح الحكومية إلا للضرورة القصوى، حيث ينوب موظفي إستثماركوم لإدارة الأعمال وإنهاء كافة الخدمات الحكومية التي يحتاجها العميل حتى استلام كامل أوراقه الرسمية.',
     
     // Footer
     'footer.contactInfo': 'معلومات الاتصال',
@@ -324,11 +324,11 @@ export const translations = {
     // FAQ
     'faq.title': 'Frequently Asked Questions',
     'faq.q1': 'What makes Estithmarcom Business Incubator different from other companies?',
-    'faq.a1': 'We provide comprehensive services including legal consultations, financing, and technical support to ensure your project\'s success.',
+    'faq.a1': 'Estithmarcom Business Incubator is distinguished by its speed in completing all government procedures, and at the lowest cost compared to other companies. We also have a highly competent and experienced team. Estithmarcom Business Incubator has outlets, representatives, and customer service to answer all your inquiries. Our goal is client comfort and saving their time and effort.',
     'faq.q2': 'How long will it take Estithmarcom Business Incubator to complete the service?',
-    'faq.a2': 'The duration varies depending on the type of service, but we are committed to providing fast and efficient services while maintaining the highest quality standards.',
+    'faq.a2': 'Estithmarcom provides diverse services represented in several sectors: Passport Sector: (issuing investor visa - issuing investment residency within the country). Legal Affairs Sector: (registering trademarks - issuing investment licenses (commercial - service - industrial) - issuing commercial registrations - opening bank accounts). All mentioned procedures are followed up and completed until the client receives all their legal documents.',
     'faq.q3': 'Is funding provided for government projects to complete the service?',
-    'faq.a3': 'Yes, we help connect projects with appropriate financing entities and provide necessary support to obtain funding.',
+    'faq.a3': 'In many cases, the client does not need to be present at government offices except when absolutely necessary, as Estithmarcom employees act on behalf of the client to manage affairs and complete all government services the client needs until receiving all official documents.',
     
     // Footer
     'footer.contactInfo': 'Contact Information',
