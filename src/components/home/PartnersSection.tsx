@@ -48,9 +48,9 @@ const PartnersSection = () => {
   }, [emblaApi]);
 
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl  font-bold text-primary text-center mb-8 md:mb-12">
+        <h2 className="text-3xl md:text-4xl  font-bold text-primary text-center ">
           {t('partners.title')}
         </h2>
 
