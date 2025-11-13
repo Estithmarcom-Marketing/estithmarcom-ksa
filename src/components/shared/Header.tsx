@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, Facebook, Youtube, Instagram, MapPin, Menu, X } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram, Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
+import { FaTiktok, FaSnapchatGhost } from "react-icons/fa";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -26,17 +27,41 @@ const Header = () => {
             <div className="flex items-center gap-4">
               <span className=" hidden sm:inline">{t('header.followUs')}</span>
               <div className="flex gap-3">
-                <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
+                <a
+                  href="https://www.facebook.com/aistithmarkom"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                  aria-label="Facebook"
+                >
                   <Facebook className="w-4 h-4" />
                 </a>
-                <a href="#" className="hover:text-accent transition-colors" aria-label="YouTube">
-                  <Youtube className="w-4 h-4" />
+                <a
+                  href="https://www.snapchat.com/@shrkstthmrkwm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                  aria-label="Snapchat"
+                >
+                  <FaSnapchatGhost className="w-4 h-4" />
                 </a>
-                <a href="#" className="hover:text-accent transition-colors" aria-label="Instagram">
+                <a
+                  href="https://www.instagram.com/aistithmarkom/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                  aria-label="Instagram"
+                >
                   <Instagram className="w-4 h-4" />
                 </a>
-                <a href="#" className="hover:text-accent transition-colors" aria-label="Location">
-                  <MapPin className="w-4 h-4" />
+                <a
+                  href="https://www.tiktok.com/@aistithmarkom"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                  aria-label="TikTok"
+                >
+                  <FaTiktok className="w-4 h-4" />
                 </a>
               </div>
               <select
