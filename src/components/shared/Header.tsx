@@ -16,15 +16,15 @@ const Header = () => {
             <div className="flex items-center gap-4 md:gap-6">
               <a href={`tel:${t('header.phone')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Phone className="w-4 h-4" />
-                <span className="font-cairo">{t('header.phone')}</span>
+                <span className="">{t('header.phone')}</span>
               </a>
               <a href={`mailto:${t('header.email')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail className="w-4 h-4" />
-                <span className="font-cairo hidden sm:inline">{t('header.email')}</span>
+                <span className=" hidden sm:inline">{t('header.email')}</span>
               </a>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-cairo hidden sm:inline">{t('header.followUs')}</span>
+              <span className=" hidden sm:inline">{t('header.followUs')}</span>
               <div className="flex gap-3">
                 <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
                   <Facebook className="w-4 h-4" />
@@ -40,7 +40,7 @@ const Header = () => {
                 </a>
               </div>
               <select
-                className="bg-transparent border border-primary-foreground/30 rounded px-2 py-1 text-xs font-cairo cursor-pointer"
+                className="bg-transparent border border-primary-foreground/30 rounded px-2 py-1 text-xs  cursor-pointer"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as 'ar' | 'en')}
               >
@@ -65,20 +65,20 @@ const Header = () => {
             />
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6 font-cairo font-semibold text-sm md:text-base">
+            <nav className="hidden lg:flex items-center gap-6  font-semibold text-sm md:text-base">
               <a href="/" className="hover:text-accent transition-colors">{t('nav.home')}</a>
               <a href="/services" className="hover:text-accent transition-colors">{t('nav.services')}</a>
               <a href="/contact" className="hover:text-accent transition-colors">{t('nav.contact')}</a>
               {/* <a href="#incubator" className="hover:text-accent transition-colors">{t('nav.bookHall')}</a> */}
               <a href="/about" className="hover:text-accent transition-colors">{t('nav.about')}</a>
-              <a href="#sectors" className="hover:text-accent transition-colors">{t('nav.sectors')}</a>
+              {/* <a href="#sectors" className="hover:text-accent transition-colors">{t('nav.sectors')}</a> */}
             </nav>
           </div>
 
           {/* Desktop Request Button */}
-          <Button className="hidden lg:block text-white hover:bg-accent/90 font-bold border px-6">
+          {/* <Button className="hidden lg:block text-white hover:bg-accent/90 font-bold border px-6">
             {t('header.requestService')}
-          </Button>
+          </Button> */}
 
           {/* Mobile Menu Button */}
           <button
@@ -118,7 +118,7 @@ const Header = () => {
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col p-6 gap-2 font-cairo font-semibold text-base">
+              <nav className="flex flex-col p-6 gap-2  font-semibold text-base">
                 <a
                   href="/"
                   className="hover:text-accent hover:bg-primary-foreground/10 transition-colors py-3 px-4 rounded-lg"
@@ -147,17 +147,17 @@ const Header = () => {
                 >
                   {t('nav.about')}
                 </a>
-                <a
+                {/* <a
                   href="#sectors"
                   className="hover:text-accent hover:bg-primary-foreground/10 transition-colors py-3 px-4 rounded-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {t('nav.sectors')}
-                </a>
+                </a> */}
 
-                <Button className="mt-4 text-white hover:bg-accent/90 font-bold border w-full py-6">
+                {/* <Button className="mt-4 text-white hover:bg-accent/90 font-bold border w-full py-6">
                   {t('header.requestService')}
-                </Button>
+                </Button> */}
               </nav>
             </div>
           </>
