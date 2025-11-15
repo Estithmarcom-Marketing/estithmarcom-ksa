@@ -34,7 +34,7 @@ const ServiceDetailCard = ({ image, titleKey, descriptionKey, bullets, serviceId
         </h3>
         
         <p className={`text-sm md:text-base font-cairo leading-relaxed text-white/90 ${isRTL ? 'text-right' : 'text-left'}`}>
-          Professional solutions tailored to your business needs with expert consultation and seamless execution.
+           {t(descriptionKey)}
         </p>
 
         <Link to={`/services/${serviceId}`}>

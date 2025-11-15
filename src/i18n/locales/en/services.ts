@@ -14,15 +14,15 @@ export const services = {
 
   // Establishment Services
   'servicesPage.establishment.title': 'Establishment services',
-  'servicesPage.establishment.description': 'We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies We provide you with full support in everything related to company formation and processing all paperwork to help you establish your company. We provide legal assistance to investors or commercial entities to prove their legal activities. In addition, we offer services for opening branches in Arab and foreign countries. We establish all types of companies:',
+  'servicesPage.establishment.description': 'We offer innovative solutions for establishing and developing companies according to the highest legal and professional standards. We provide a stimulating investment environment that connects investors, entrepreneurs, and free zones in various countries, ensuring the professional, high-quality, and sustainable establishment of companies.',
   'servicesPage.establishment.bullet1': 'Designing Strategies',
   'servicesPage.establishment.bullet2': 'Creating Marketing Plans',
   'servicesPage.establishment.bullet3': 'Conducting Feasibility Studies',
   'servicesPage.establishment.bullet4': 'Business Links and Development',
 
   // Administrative Services
-  'servicesPage.administrative.title': 'Administrative services',
-  'servicesPage.administrative.description': 'The Istithmarcom Business Incubator focuses on nurturing and developing innovative ideas and applied research, transforming them from the research and development stage to implementation. It facilitates an increase in the number of new, advanced projects through:',
+  'servicesPage.administrative.title': 'Legal Affairs',
+  'servicesPage.administrative.description': "Comprehensive legal advice and services for individuals and companies",
   'servicesPage.administrative.bullet1': 'Sequential Registrations',
   'servicesPage.administrative.bullet2': 'Training business owners and management arrangements',
   'servicesPage.administrative.bullet3': 'Creating project development structures',
@@ -31,12 +31,12 @@ export const services = {
   'servicesPage.administrative.bullet6': 'Solving Accounting Problems',
 
   // Marketing Services
-  'servicesPage.marketing.title': 'Marketing and management consulting',
-  'servicesPage.marketing.description': 'The Istithmarcom Business Incubator provides management and marketing consulting to entrepreneurs, as well as support services. In addition to problem-solving and overcoming the difficulties entrepreneurs face while establishing their companies through:',
+  'servicesPage.marketing.title': 'Project incubation',
+  'servicesPage.marketing.description': "Supporting and developing startup projects from start to success",
 
   // Government Services
-  'servicesPage.government.title': 'Government services and assistance in issuing government licenses',
-  'servicesPage.government.description': 'Istithmarcom business incubator acts as a mediator between the investor and the government. It provides multiple options for investors and entrepreneurs to facilitate registration procedures and issue approvals for project licenses. This reduces the time required to issue and renew investment licenses (commercial - service - industrial) without any effort from the investor, such as: simple limited partnerships, joint-liability companies, limited liability companies, and joint-stock companies.',
+  'servicesPage.government.title': 'Ready-made factory workspaces to help you expand your business globally',
+  'servicesPage.government.description': "At Istithmar.com, we provide flexible offices, fully equipped workspaces, ready-made factories, and industrial land in strategic locations around the world, to enable investors and entrepreneurs to launch with confidence and achieve sustainable growth.",
   'servicesPage.government.bullet1': 'Issuing Commercial Licenses',
   'servicesPage.government.bullet2': 'Facilitating commercial procedures and documentation services',
   'servicesPage.government.bullet3': 'Issuing various types and determining commercial shares',
@@ -46,8 +46,8 @@ export const services = {
   'servicesPage.government.bullet7': 'And more',
 
   // Feasibility Studies
-  'servicesPage.feasibility.title': 'feasibility studies',
-  'servicesPage.feasibility.description': 'Istithmarcom Business Incubator conducts a comprehensive study of all administrative aspects related to the project. This study helps investors evaluate the project and identify the challenges, opportunities, and risks. We provide all types of feasibility studies:',
+  'servicesPage.feasibility.title': "Investment, Premium, and Golden Residency",
+  'servicesPage.feasibility.description':"At Estithmarcom, we offer investment, premium, and gold residency services in various countries to facilitate investment procedures and enable investors to obtain sustainable legal residency that supports their businesses.",
   'servicesPage.feasibility.bullet1': 'Marketing feasibility study',
   'servicesPage.feasibility.bullet2': 'Operational feasibility study',
   'servicesPage.feasibility.bullet3': 'Legal feasibility study',
@@ -57,6 +57,6 @@ export const services = {
   'servicesPage.feasibility.bullet7': 'Technical feasibility study',
 
   // Workspace Services
-  'servicesPage.workspace.title': 'Business Space Management Services',
-  'servicesPage.workspace.description': 'Providing shared workspaces, providing separate work spaces, providing shared seats, providing standard entrance and technology community, providing basic services, installations, internet networks and strategic development and marketing, providing consulting services and entrepreneurship, providing business accelerators, providing separate business spaces, and links and networking between companies, entrepreneurs and investors',
+  'servicesPage.workspace.title': 'Government procedures',
+  'servicesPage.workspace.description': "Monitoring and managing government transactions efficiently and quickly",
 };
