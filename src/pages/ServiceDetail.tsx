@@ -10,6 +10,36 @@ import marketing from "@/assets/services/marketing.jpg";
 import workspace from "@/assets/services/workspace.jpg";
 import professionalPerson from "@/assets/professional-person.jpg";
 
+// Establishment service images
+import establishmentImg1 from "@/assets/service-details/establishment/establishment-services-1.png";
+import establishmentImg2 from "@/assets/service-details/establishment/establishment-services-2.png";
+import establishmentImg3 from "@/assets/service-details/establishment/establishment-services-3.png";
+
+// Administrative service images
+import administrativeImg1 from "@/assets/service-details/adminstration/administrative-services-1.png";
+import administrativeImg2 from "@/assets/service-details/adminstration/administrative-services-2.png";
+import administrativeImg3 from "@/assets/service-details/adminstration/administrative-services-3.png";
+
+// Marketing service images
+import marketingImg1 from "@/assets/service-details/marketing/marketing-and-administrative-consultations-1.png";
+import marketingImg2 from "@/assets/service-details/marketing/marketing-and-administrative-consultations-2.png";
+import marketingImg3 from "@/assets/service-details/marketing/marketing-and-administrative-consultations-3.png";
+
+// Government service images
+import governmentImg1 from "@/assets/service-details/government/government-services-and-licensing-assistance-1.png";
+import governmentImg2 from "@/assets/service-details/government/government-services-and-licensing-assistance-2.png";
+import governmentImg3 from "@/assets/service-details/government/government-services-and-licensing-assistance-3.png";
+
+// Feasibility service images
+import feasibilityImg1 from "@/assets/service-details/feasability/feasibility-study-1.png";
+import feasibilityImg2 from "@/assets/service-details/feasability/feasibility-study-2.png";
+import feasibilityImg3 from "@/assets/service-details/feasability/feasibility-study-3.png";
+
+// Workspace service images
+import workspaceImg1 from "@/assets/service-details/workspace/workspace-management-services-1.png";
+import workspaceImg2 from "@/assets/service-details/workspace/workspace-management-services-2.png";
+import workspaceImg3 from "@/assets/service-details/workspace/workspace-management-services-3.png";
+
 const ServiceDetail = () => {
   const { serviceId } = useParams();
   const { t, language } = useLanguage();
@@ -19,42 +49,64 @@ const ServiceDetail = () => {
   const serviceData: Record<string, {
     titleKey: string;
     image: string;
+    imageRight?: string;
+    imageLeft?: string;
+    imageBelow?: string;
     descriptionKey: string;
     detailKey: string;
   }> = {
     companyFormation: {
       titleKey: 'servicesPage.companyFormation.title',
       image: establishment,
+      imageRight: establishmentImg1,
+      imageLeft: establishmentImg3,
+      imageBelow: establishmentImg2,
       descriptionKey: 'servicesPage.companyFormation.description',
       detailKey: 'servicesPage.companyFormation.detail'
     },
     legal: {
       titleKey: 'servicesPage.legal.title',
       image: administrative,
+      imageRight: administrativeImg1,
+      imageLeft: administrativeImg2,
+      imageBelow: administrativeImg3,
       descriptionKey: 'servicesPage.legal.description',
       detailKey: 'servicesPage.legal.detail'
     },
     incubation: {
       titleKey: 'servicesPage.incubation.title',
       image: marketing,
+      imageRight: marketingImg1,
+      imageLeft: marketingImg2,
+      imageBelow: marketingImg3,
       descriptionKey: 'servicesPage.incubation.description',
       detailKey: 'servicesPage.incubation.detail'
     },
     workspace: {
       titleKey: 'servicesPage.workspace.title',
       image: government,
+      imageRight: governmentImg1,
+      imageLeft: governmentImg2,
+      imageBelow: governmentImg3,
       descriptionKey: 'servicesPage.workspace.description',
       detailKey: 'servicesPage.workspace.detail'
     },
     residency: {
       titleKey: 'servicesPage.residency.title',
       image: feasibility,
+      imageRight: feasibilityImg1,
+      imageLeft: feasibilityImg2,
+      imageBelow: feasibilityImg3,
       descriptionKey: 'servicesPage.residency.description',
       detailKey: 'servicesPage.residency.detail'
     },
     government: {
       titleKey: 'servicesPage.government.title',
       image: workspace,
+      imageRight: workspaceImg1,
+      imageLeft: workspaceImg2,
+      imageBelow: workspaceImg3,
+      
       descriptionKey: 'servicesPage.government.description',
       detailKey: 'servicesPage.government.detail'
     }
@@ -99,11 +151,11 @@ const ServiceDetail = () => {
           {/* Left Images - Always on the left */}
           <div className="space-y-6 order-2">
             <div className=" overflow-hidden  flex justify-between gap-6 h-48">
-              <img src={service.image} alt="" className="w-full  object-cover " />
-              <img src={service.image} alt="" className="w-full  object-cover " />
+              <img src={service.imageRight || service.image} alt="" className="w-full  object-cover " />
+              <img src={service.imageLeft || service.image} alt="" className="w-full  object-cover " />
             </div>
             <div className="rounded-br-3xl overflow-hidden ">
-              <img src={service.image} alt="" className="w-full h-48 object-cover" />
+              <img src={service.imageBelow || service.image} alt="" className="w-full h-48 object-cover" />
             </div>
           </div>
         </div>
