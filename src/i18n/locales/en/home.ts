@@ -45,13 +45,13 @@ export const home = {
   'video.description2': 'and celebrities at Estithmarcom Business Incubator',
 
   // Process Steps
-  'process.title': 'The Role of Estithmarcom Business Incubator and Accelerator',
-  'process.step1': 'Establishing all types of companies and handling all transactions for company formation',
-  'process.step2': 'Connecting incubated projects within the incubator with each other to benefit from their expertise',
-  'process.step3': 'Providing shared and private offices and meeting rooms to support companies and entrepreneurs',
-  'process.step4': 'Issuing the most suitable premium residency for you',
-  'process.step5': 'Creating a prototype by developing the idea into a business model, testing it, and bringing it to market',
-  'process.step6': 'Preparing feasibility studies, plans, and strategies aligned with the Kingdom\'s vision for entrepreneurial projects',
+  'process.title': 'The role of the business incubator and accelerator Estithmarcom with all its international branches',
+  'process.step1': 'Establishing companies and projects in free zones around the world, while adhering to the highest legal and professional standards in various Arab and foreign countries.',
+  'process.step2': 'Establishing companies and projects in free zones around the world, while adhering to the highest legal and professional standards in various Arab and foreign countries.',
+  'process.step3': 'Providing an integrated international work environment that includes shared and private offices, fully equipped meeting rooms, as well as ready-made factories and industrial lands, to support business growth and the expansion of investments globally.',
+  'process.step4': 'Issuing investment, premium and golden residency permits in various countries, in order to meet the needs of international investors and entrepreneurs.',
+  'process.step5': 'Transforming ideas into globally viable business models, and testing them before introducing them to the international market to ensure the success of projects.',
+  'process.step6': 'Preparing feasibility studies, plans, and international strategies that are consistent with the Kingdom’s Vision 2030, to guide entrepreneurial projects towards growth and sustainability globally.',
 
   // FAQ
   'faq.title': 'Frequently Asked Questions',
