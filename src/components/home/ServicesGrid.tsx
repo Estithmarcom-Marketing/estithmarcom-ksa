@@ -30,8 +30,8 @@ const ServicesGrid = () => {
     },
     {
       icon: Briefcase,
-      titleKey: "service.technical.title",
-      descriptionKey: "service.technical.description"
+      titleKey: "service.government.title",
+      descriptionKey: "service.government.description"
     }
   ];
 

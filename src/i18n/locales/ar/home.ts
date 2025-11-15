@@ -20,18 +20,18 @@ export const home = {
   'services.intro.description': 'نقدم باقة متكاملة من الخدمات لمساعدة الشركات الناشئة في النمو والانطلاق، ودعم الشركات القائمة بخدمات متخصصة تشمل المحاماة والشؤون القانونية والأعمال التقنية بأعلى معايير الجودة',
 
   // Services Cards
-  'service.legal.title': 'المحاماة والشؤون القانونية',
+  'service.legal.title': 'الشؤون القانونية',
   'service.legal.description': 'استشارات وخدمات قانونية متكاملة للأفراد والشركات',
   'service.company.title': 'تأسيس الشركات',
-  'service.company.description': 'تأسيس الشركات وإنهاء جميع الإجراءات المطلوبة',
+  'service.company.description': "تقدم حلول مبتكرة لتأسيس وتطوير الشركات وفقآ أعلى المعايير القانونية والمهنية  نوفر بيئة استثمارية محفزة تربط بين المستثمرين ورواد الأعمال والمناطق الحرة في مختلف الدول بمايضمن تأسيس الشركات بكل احترافية وجودة واستدامة",
   'service.incubation.title': 'احتضان المشاريع',
   'service.incubation.description': 'دعم وتطوير المشاريع الناشئة من البداية إلى النجاح',
   'service.workspace.title': 'حجز مكتب أو مساحة عمل',
   'service.workspace.description': 'مساحات عمل جاهزة بالكامل لتبدأ أعمالك',
   'service.residency.title': 'الإقامة المميزة',
   'service.residency.description': 'خدمات الإقامة المميزة وتسهيل إجراءات الاستثمار',
-  'service.technical.title': 'الأعمال التقنية',
-  'service.technical.description': 'متابعة وإدارة المعاملات الحكومية بكفاءة وسرعة',
+  'service.government.title': 'الإجراءات الحكومية',
+  'service.government.description': 'متابعة وإدارة المعاملات الحكومية بكفاءة وسرعة',
   'service.requestNow': 'اطلب الخدمة الآن',
 
   // Video Section

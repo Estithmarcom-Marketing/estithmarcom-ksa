@@ -23,15 +23,15 @@ export const home = {
   'service.legal.title': 'Legal Services',
   'service.legal.description': 'Comprehensive legal consultations and services for individuals and companies',
   'service.company.title': 'Company Formation',
-  'service.company.description': 'Establish companies and complete all legal procedures',
+  'service.company.description': 'We offer innovative solutions for establishing and developing companies according to the highest legal and professional standards. We provide a stimulating investment environment that connects investors, entrepreneurs, and free zones in various countries, ensuring the professional, high-quality, and sustainable establishment of companies',
   'service.incubation.title': 'Project Incubation',
   'service.incubation.description': 'Supporting startups from concept to implementation',
   'service.workspace.title': 'Office & Workspace Booking',
   'service.workspace.description': 'Fully equipped workspaces to enhance your business success',
   'service.residency.title': 'Premium Residency',
   'service.residency.description': 'Premium residency services and investment facilitation',
-  'service.technical.title': 'Administrative Services',
-  'service.technical.description': 'Efficient management of government transactions',
+  'service.government.title': 'Government Procedures',
+  'service.government.description': 'Efficient management of government transactions',
   'service.requestNow': 'Request Service Now',
 
   // Video Section
