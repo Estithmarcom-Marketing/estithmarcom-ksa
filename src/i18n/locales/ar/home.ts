@@ -34,6 +34,10 @@ export const home = {
   'service.government.description': 'متابعة وإدارة المعاملات الحكومية بكفاءة وسرعة',
   'service.requestNow': 'اطلب الخدمة الآن',
 
+  // Banner Section
+  'banner.title': 'احجز مكتبك، مصنعك، أو مساحتك الصناعية مع حاضنة ومسرّعة الأعمال استثمار كوم',
+  'banner.cta': 'اضغط هنا',
+
   // Video Section
   'video.title1': 'كل ما يحتاجه الناجحون',
   'video.title2': 'في عالم الأعمال',

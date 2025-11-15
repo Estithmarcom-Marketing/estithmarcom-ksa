@@ -34,6 +34,10 @@ export const home = {
   'service.government.description': 'Efficient management of government transactions',
   'service.requestNow': 'Request Service Now',
 
+  // Banner Section
+  'banner.title': 'Book your office, factory, or industrial space with Estithmarcom Business Incubator and Accelerator',
+  'banner.cta': 'Click Here',
+
   // Video Section
   'video.title1': 'Everything Successful Entrepreneurs Need',
   'video.title2': 'In the Business World',

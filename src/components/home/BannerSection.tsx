@@ -1,4 +1,5 @@
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Props = {
   bgUrl?: string;          // رابط الخلفية
@@ -11,12 +12,17 @@ type Props = {
 export default function HeroEstithmarSection({
   bgUrl = "/images/hero.jpg",
   onCta,
-  title = "احجز مكتبك في حاضنة ومسـرعة الأعمال استثماركوم",
+  title,
   subtitle = "",
-  cta = "اضغط هنا",
+  cta,
 }: Props) {
+  const { t, dir } = useLanguage();
+
+  const displayTitle = title || t('banner.title');
+  const displayCta = cta || t('banner.cta');
+
   return (
-    <section dir="rtl" className="py-8">
+    <section dir={dir} className="py-8">
       <div className="container">
         <div className="relative h-[200px] md:h-[200px] lg:h-[200px] overflow-hidden rounded-3xl shadow-xl">
           {/* الخلفية */}
@@ -35,7 +41,7 @@ export default function HeroEstithmarSection({
             <div className="px-4 md:px-8 text-center">
               <h2 className=" font-bold text-white text-xl md:text-2xl lg:text-3xl ">
                 <span className="[text-shadow:0_2px_10px_rgba(0,0,0,.35)]">
-                  {title}
+                  {displayTitle}
                 </span>
                 {subtitle ? (
                   <>
@@ -52,9 +58,9 @@ export default function HeroEstithmarSection({
                 <button
                   onClick={onCta}
                   className="inline-flex items-center justify-center rounded-xl bg-gold px-8 py-3 text-lg font-semibold text-white hover:bg-gold-dark transition-colors shadow-md hover:shadow-lg [text-shadow:0_1px_0_rgba(0,0,0,.2)]"
-                  aria-label={cta}
+                  aria-label={displayCta}
                 >
-                  {cta}
+                  {displayCta}
                 </button>
               </div>
             </div>
