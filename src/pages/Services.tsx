@@ -85,6 +85,77 @@ const Services = () => {
     },
   ];
 
+    const servicesOld = [
+    {
+      serviceId: "establishment",
+      image: establishmentImg,
+      titleKey: "servicesPage.establishment.title",
+      descriptionKey: "servicesPage.establishment.description",
+      bullets: [
+        "servicesPage.establishment.bullet1",
+        "servicesPage.establishment.bullet2",
+        "servicesPage.establishment.bullet3",
+        "servicesPage.establishment.bullet4",
+      ]
+    },
+    {
+      serviceId: "administrative",
+      image: administrativeImg,
+      titleKey: "servicesPage.administrative.title",
+      descriptionKey: "servicesPage.administrative.description",
+      bullets: [
+        "servicesPage.administrative.bullet1",
+        "servicesPage.administrative.bullet2",
+        "servicesPage.administrative.bullet3",
+        "servicesPage.administrative.bullet4",
+        "servicesPage.administrative.bullet5",
+        "servicesPage.administrative.bullet6",
+      ]
+    },
+    {
+      serviceId: "marketing",
+      image: marketingImg,
+      titleKey: "servicesPage.marketing.title",
+      descriptionKey: "servicesPage.marketing.description",
+    },
+    {
+      serviceId: "government",
+      image: governmentImg,
+      titleKey: "servicesPage.government.title",
+      descriptionKey: "servicesPage.government.description",
+      bullets: [
+        "servicesPage.government.bullet1",
+        "servicesPage.government.bullet2",
+        "servicesPage.government.bullet3",
+        "servicesPage.government.bullet4",
+        "servicesPage.government.bullet5",
+        "servicesPage.government.bullet6",
+        "servicesPage.government.bullet7",
+      ]
+    },
+    {
+      serviceId: "workspace",
+      image: workspaceImg,
+      titleKey: "servicesPage.workspace.title",
+      descriptionKey: "servicesPage.workspace.description",
+    },
+    {
+      serviceId: "feasibility",
+      image: feasibilityImg,
+      titleKey: "servicesPage.feasibility.title",
+      descriptionKey: "servicesPage.feasibility.description",
+      bullets: [
+        "servicesPage.feasibility.bullet1",
+        "servicesPage.feasibility.bullet2",
+        "servicesPage.feasibility.bullet3",
+        "servicesPage.feasibility.bullet4",
+        "servicesPage.feasibility.bullet5",
+        "servicesPage.feasibility.bullet6",
+        "servicesPage.feasibility.bullet7",
+      ]
+    },
+  ];
+
   return (
     <div className="min-h-screen font-cairo" dir={dir}>
       <Header />

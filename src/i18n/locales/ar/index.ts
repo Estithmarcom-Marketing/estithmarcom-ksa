@@ -3,11 +3,13 @@ import { home } from './home';
 import { services } from './services';
 import { about } from './about';
 import { contact } from './contact';
+import { servicesOld } from './services-old';
 
 export const ar = {
   ...common,
   ...home,
   ...services,
+  ...servicesOld,
   ...about,
   ...contact,
 };
