@@ -53,17 +53,17 @@ export const about = {
   'aboutPage.testimonials.title': 'آراء عملائنا',
   'aboutPage.testimonials.subtitle': 'نفخر بكلمات عملائنا معنا والأعمال التقدمة التي قدمنا ليهم لتحقيق الخدمات المميزة',
 
-  'aboutPage.testimonial1.text': '"جميع الأعمال اللوسيستيكية للإستثمار ولاف الأمن الإقتصادي لاستتمرو بمشاركة الشركات وحصافة المحلي البناء للاستشار لاستتمرو بتأمين مستقبل العمل"',
+  'aboutPage.testimonial1.text': "خدمة متميزة في تسجيل العلامة التجارية. التعامل كان سلس والفريق متعاون جداً. أنصح بالتعامل معهم بقوة.",
   'aboutPage.testimonial1.name': 'سارة العلي',
-  'aboutPage.testimonial1.role': 'مؤسس شركة',
+  'aboutPage.testimonial1.role': 'مؤسسة - متجر الورود الالكتروني',
 
-  'aboutPage.testimonial2.text': '"أكثر ما أعجبني هو التنظيم وتبسيط الاجراءات الحكومية والتمويلية. لولاهم لقست تتسسيع شركتي بسهولة ونجاح. انصح كل مستثمر بالتواصل معهم"',
+  'aboutPage.testimonial2.text':  "استشارات قانونية ممتازة ومتابعة دورية. ساعدونا في حل مشكلة معقدة بطريقة بسيطة وفعالة. فريق محترف وموثوق.",
   'aboutPage.testimonial2.name': 'أحمد محمد',
-  'aboutPage.testimonial2.role': 'مدير تجاري',
+  'aboutPage.testimonial2.role': 'مدير عام - شركة النخيل للتجارة',
 
-  'aboutPage.testimonial3.text': '"أفضل الاستشماريين بالأرباح وكفاة الخدمات حين التركيز بالخبرة والتأسيسية يالاكثار من يستحقون وناجحة من خلال المستثمرين والتأسيسون بالمملكة مع دعم"',
+  'aboutPage.testimonial3.text':  "خدمات المستثمرين كانت رائعة. ساعدونا في الحصول على رخصة الاستثمار بسرعة وكفاءة. أنصح كل المستثمرين بالتعامل معهم.",
   'aboutPage.testimonial3.name': 'فاطمة الزهراني',
-  'aboutPage.testimonial3.role': 'رائدة أعمال',
+  'aboutPage.testimonial3.role': 'مستثمرة - شركة الابتكار التقني',
 
   // Stats
   'aboutPage.stats.projects': 'مشاريع',

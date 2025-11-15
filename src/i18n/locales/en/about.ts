@@ -51,19 +51,19 @@ export const about = {
 
   // Testimonials
   'aboutPage.testimonials.title': 'Client Testimonials',
-  'aboutPage.testimonials.subtitle': 'WE are proud of our client5 trust and positive feedback that enalablen us to proxode the best services',
+  'aboutPage.testimonials.subtitle': 'We are proud of our clients\' words and the distinguished services we have provided to achieve excellence',
 
-  'aboutPage.testimonial1.text': '"Exceptional experience with excellent team. They helped us establish our business very smoothly and professionally. Highly recommend their services to all entrepreneurs."',
-  'aboutPage.testimonial1.name': 'Fatima Al Zahrani',
-  'aboutPage.testimonial1.role': 'Founder - T',
+  'aboutPage.testimonial1.text': '"Distinguished service in trademark registration. The process was smooth and the team was very cooperative. I highly recommend working with them."',
+  'aboutPage.testimonial1.name': 'Sarah Al Ali',
+  'aboutPage.testimonial1.role': 'Founder - Electronic Flowers Store',
 
-  'aboutPage.testimonial2.text': '"Amazing experience and excellent services. They helped establish my company very smoothly and professionally. I advise everyone to deal with them."',
+  'aboutPage.testimonial2.text': '"Excellent legal consultations and regular follow-up. They helped us solve a complex problem in a simple and effective way. Professional and trustworthy team."',
   'aboutPage.testimonial2.name': 'Ahmad Mohammad',
-  'aboutPage.testimonial2.role': 'CEO - PBrand Inc',
+  'aboutPage.testimonial2.role': 'General Manager - Al Nakeel Trading Company',
 
-  'aboutPage.testimonial3.text': '"Excellent services in establishing companies. They made all procedures easy and quick. Highly professional team that I highly recommend."',
-  'aboutPage.testimonial3.name': 'Sarah Al Ali',
-  'aboutPage.testimonial3.role': 'Founder - B003',
+  'aboutPage.testimonial3.text': '"Investor services were wonderful. They helped us obtain the investment license quickly and efficiently. I recommend all investors to work with them."',
+  'aboutPage.testimonial3.name': 'Fatima Al Zahrani',
+  'aboutPage.testimonial3.role': 'Investor - Innovation Technology Company',
 
   // Stats
   'aboutPage.stats.projects': 'Projects',
