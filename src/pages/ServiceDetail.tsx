@@ -85,9 +85,12 @@ const ServiceDetail = () => {
     workspace: {
       titleKey: 'servicesPage.workspace.title',
       image: government,
-      imageRight: governmentImg1,
-      imageLeft: governmentImg2,
-      imageBelow: governmentImg3,
+      // imageRight: governmentImg1,
+      // imageLeft: governmentImg2,
+      // imageBelow: governmentImg3,
+      imageRight: workspaceImg1,
+      imageLeft: workspaceImg2,
+      imageBelow: workspaceImg3,
       descriptionKey: 'servicesPage.workspace.description',
       detailKey: 'servicesPage.workspace.detail'
     },
@@ -103,10 +106,12 @@ const ServiceDetail = () => {
     government: {
       titleKey: 'servicesPage.government.title',
       image: workspace,
-      imageRight: workspaceImg1,
-      imageLeft: workspaceImg2,
-      imageBelow: workspaceImg3,
-      
+      // imageRight: workspaceImg1,
+      // imageLeft: workspaceImg2,
+      // imageBelow: workspaceImg3,
+      imageRight: governmentImg1,
+      imageLeft: governmentImg2,
+      imageBelow: governmentImg3,
       descriptionKey: 'servicesPage.government.description',
       detailKey: 'servicesPage.government.detail'
     }
