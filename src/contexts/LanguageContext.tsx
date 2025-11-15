@@ -25,9 +25,15 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children, translations }) => {
-  const [language, setLanguage] = useState<Language>('ar');
+  // Initialize language from localStorage or default to 'ar'
+  const [language, setLanguage] = useState<Language>(() => {
+    const savedLanguage = localStorage.getItem('language');
+    return (savedLanguage === 'ar' || savedLanguage === 'en') ? savedLanguage : 'ar';
+  });
 
+  // Save language to localStorage and update document attributes
   useEffect(() => {
+    localStorage.setItem('language', language);
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
   }, [language]);
