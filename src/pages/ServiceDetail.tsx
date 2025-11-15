@@ -16,51 +16,51 @@ const ServiceDetail = () => {
   const isRTL = language === 'ar';
 
   // Service data mapping
-  const serviceData: Record<string, { 
-    titleKey: string; 
+  const serviceData: Record<string, {
+    titleKey: string;
     image: string;
     descriptionKey: string;
     detailKey: string;
   }> = {
-    establishment: {
-      titleKey: 'servicesPage.establishment.title',
+    companyFormation: {
+      titleKey: 'servicesPage.companyFormation.title',
       image: establishment,
-      descriptionKey: 'servicesPage.establishment.description',
-      detailKey: 'servicesPage.establishment.detail'
+      descriptionKey: 'servicesPage.companyFormation.description',
+      detailKey: 'servicesPage.companyFormation.detail'
     },
-    administrative: {
-      titleKey: 'servicesPage.administrative.title',
+    legal: {
+      titleKey: 'servicesPage.legal.title',
       image: administrative,
-      descriptionKey: 'servicesPage.administrative.description',
-      detailKey: 'servicesPage.administrative.detail'
+      descriptionKey: 'servicesPage.legal.description',
+      detailKey: 'servicesPage.legal.detail'
     },
-    feasibility: {
-      titleKey: 'servicesPage.feasibility.title',
-      image: feasibility,
-      descriptionKey: 'servicesPage.feasibility.description',
-      detailKey: 'servicesPage.feasibility.detail'
-    },
-    government: {
-      titleKey: 'servicesPage.government.title',
-      image: government,
-      descriptionKey: 'servicesPage.government.description',
-      detailKey: 'servicesPage.government.detail'
-    },
-    marketing: {
-      titleKey: 'servicesPage.marketing.title',
+    incubation: {
+      titleKey: 'servicesPage.incubation.title',
       image: marketing,
-      descriptionKey: 'servicesPage.marketing.description',
-      detailKey: 'servicesPage.marketing.detail'
+      descriptionKey: 'servicesPage.incubation.description',
+      detailKey: 'servicesPage.incubation.detail'
     },
     workspace: {
       titleKey: 'servicesPage.workspace.title',
-      image: workspace,
+      image: government,
       descriptionKey: 'servicesPage.workspace.description',
       detailKey: 'servicesPage.workspace.detail'
+    },
+    residency: {
+      titleKey: 'servicesPage.residency.title',
+      image: feasibility,
+      descriptionKey: 'servicesPage.residency.description',
+      detailKey: 'servicesPage.residency.detail'
+    },
+    government: {
+      titleKey: 'servicesPage.government.title',
+      image: workspace,
+      descriptionKey: 'servicesPage.government.description',
+      detailKey: 'servicesPage.government.detail'
     }
   };
 
-  const service = serviceData[serviceId || 'establishment'];
+  const service = serviceData[serviceId || 'companyFormation'];
 
   if (!service) {
     return <div>Service not found</div>;
