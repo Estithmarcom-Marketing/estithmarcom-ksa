@@ -8,13 +8,13 @@ const StatsSection = () => {
     {
       icon: Briefcase,
       labelKey: "stats.companies",
-      value: "+550",
+      value: "+1000",
       color: "text-accent"
     },
     {
       icon: Building,
       labelKey: "stats.residency",
-      value: "+180",
+      value: "+300",
       color: "text-accent"
     },
     {

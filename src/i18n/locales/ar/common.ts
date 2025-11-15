@@ -32,6 +32,6 @@ export const common = {
 
   // Stats
   'stats.companies': 'تأسيس الشركات',
-  'stats.residency': 'الإقامة المميزة',
+  'stats.residency': 'الأقامة الاستثمارية والمميزة والذهبي',
   'stats.incubation': 'الاحتضان',
 };

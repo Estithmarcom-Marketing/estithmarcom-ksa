@@ -68,7 +68,7 @@ const ContactSection = () => (
 
     <div className="space-y-4">
       <ContactRow icon={<MapPin className="w-5 h-5" />} label={t("footer.location")} isRTL={isRTL} />
-      <ContactRow icon={<Phone className="w-5 h-5" />} label={t("header.phone")} isRTL={isRTL} />
+      {/* <ContactRow icon={<Phone className="w-5 h-5" />} label={t("header.phone")} isRTL={isRTL} /> */}
       <ContactRow icon={<Mail className="w-5 h-5" />} label={t("header.email")} isRTL={isRTL} />
     </div>
   </div>

@@ -32,6 +32,6 @@ export const common = {
 
   // Stats
   'stats.companies': 'Company Formation',
-  'stats.residency': 'Premium Residency',
+  'stats.residency': 'Investment, Premium, and Golden Residency',
   'stats.incubation': 'Incubation',
 };

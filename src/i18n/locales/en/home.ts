@@ -55,10 +55,10 @@ export const home = {
 
   // FAQ
   'faq.title': 'Frequently Asked Questions',
-  'faq.q1': 'What makes Estithmarcom Business Incubator different from other companies?',
-  'faq.a1': 'Estithmarcom Business Incubator is distinguished by its speed in completing all government procedures, and at the lowest cost compared to other companies. We also have a highly competent and experienced team. Estithmarcom Business Incubator has outlets, representatives, and customer service to answer all your inquiries. Our goal is client comfort and saving their time and effort.',
-  'faq.q2': 'How long will it take Estithmarcom Business Incubator to complete the service?',
-  'faq.a2': 'Estithmarcom provides diverse services represented in several sectors: Passport Sector: (issuing investor visa - issuing investment residency within the country). Legal Affairs Sector: (registering trademarks - issuing investment licenses (commercial - service - industrial) - issuing commercial registrations - opening bank accounts). All mentioned procedures are followed up and completed until the client receives all their legal documents.',
-  'faq.q3': 'Is funding provided for government projects to complete the service?',
-  'faq.a3': 'In many cases, the client does not need to be present at government offices except when absolutely necessary, as Estithmarcom employees act on behalf of the client to manage affairs and complete all government services the client needs until receiving all official documents.',
+  'faq.q1': 'What distinguishes the International Business Incubator and Accelerator Investment.com from any other business incubator around the world?',
+  'faq.a1': 'We specialize in providing comprehensive solutions for entrepreneurs and investors, including company formation, issuing investment residency permits, providing offices and workspaces, factories and industrial land, as well as connecting incubated projects to foster international collaboration and knowledge sharing. All our services are delivered according to the highest legal and professional standards in various countries.',
+  'faq.q2': 'How long does it take for Investment.com to complete company formation services and legal procedures internationally?',
+  'faq.a2': "The timeframe depends on the country and the type of service required, but our experienced international team ensures swift processing, monitoring every step to minimize time and effort for our clients. Company formation typically takes anywhere from a few days to several weeks, depending on the country's requirements.",
+  'faq.q3': 'Does the customer have to be physically present at the official authorities in any country to complete the procedures, or are the services provided entirely remotely?',
+  'faq.a3': 'No, our services are designed to be fully remote in most cases, with all legal and administrative procedures completed on behalf of the client, saving time and effort and enabling a rapid launch into international markets.',
 };
