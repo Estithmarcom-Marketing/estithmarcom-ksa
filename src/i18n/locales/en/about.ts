@@ -10,29 +10,29 @@ export const about = {
 
   // About Us
   'aboutPage.aboutUs.title': 'About Us',
-  'aboutPage.aboutUs.description': 'IFmarcom Incubator is a Stirictx Incubator and innoversion startup acceleraie support launching outture. We supply business development services and business spaces for our customers.',
+  'aboutPage.aboutUs.description': "In a world where ideas move at the speed of light, Estithmarcom stands as an integrated international system for investment, company formation, and project incubation, combining local expertise with a global vision. We are a leading company in company formation and business environment management in Saudi Arabia, the UAE, Jordan, Oman, Egypt, the USA, and the UK. We provide integrated solutions that combine legal advice, offices and factories, government services, and administrative and legal support. At Estithmarcom, we don't just form companies, we build success systems, and we open doors for entrepreneurs and investors to enter global markets with confidence and sustainability.",
 
   // Vision
   'aboutPage.vision.title': 'Our Vision',
-  'aboutPage.vision.description': 'We strive to be the leading incubator in the Kingdom of Saudi Arabia to support entrepreneurs and startups',
+  'aboutPage.vision.description': 'To be the world’s premier destination for establishing companies and incubating entrepreneurial projects, by enabling a sophisticated and interconnected business environment linking the Middle East, Europe and America, we strive for Estithmarcom to be the smart bridge that connects the investor with his idea and his new market, within a framework of efficiency, transparency and innovation.',
 
   // Mission
   'aboutPage.mission.title': 'Our Mission',
-  'aboutPage.mission.description': 'Providing comprehensive and innovative services to support projects and startups through business development services and consulting support',
+  'aboutPage.mission.description': 'Providing a comprehensive system of professional services that bridges the gap between idea and reality, enabling entrepreneurs and investors to enter the business environment easily and safely, through speed of execution, quality of performance, and complete transparency.',
 
   // Why Choose Us
   'aboutPage.why.title': 'Why Choose Investment Incubator?',
-  'aboutPage.why.description': 'when we coritain the authentic to join us, you can browse, reselect the quality of our and lazunite services and continuous innovation, whether you are secure, choose the quality and expertess that has expert resprecters in the region and worldwise',
+  'aboutPage.why.description': "Choosing Estithmarcom means entering a comprehensive international business ecosystem that facilitates confident global expansion for investors and entrepreneurs. We don't just offer local services; we provide an international platform that adheres to the highest legal and professional standards in company formation, issuing investment residency permits, providing workspaces, factories, and industrial land, and creating an international network connecting incubated projects to foster growth and cross-border collaboration. Estithmarcom is not merely a business incubator; it's an international strategic partner that opens doors to markets worldwide, providing you with the resources, support, and expertise necessary to launch successfully and achieve global business sustainability.",
 
   // Features
   'aboutPage.feature1.title': 'Trademark Registration',
-  'aboutPage.feature1.description': 'Provides trademark registration services through specialized offices to protect intellectual property rights and ensure no conflicts of trademarks and reduce legal risks',
+  'aboutPage.feature1.description': 'At Estithmarcom, as an international business incubator, we provide trademark registration services according to global standards to ensure the protection of your brand identity in international markets. We handle all legal and administrative procedures on your behalf, from submitting the application to obtaining the registration certificate, to ensure the protection of your brand from imitation and enhance your presence in various countries. With Estithmarcom, your brand becomes an internationally protected asset that supports the global expansion of your project.',
 
   'aboutPage.feature2.title': 'Investor Services',
-  'aboutPage.feature2.description': 'We provide services to facilitate and ease the entry of foreign investors to encourage local investment. We also provide services for accessing government agencies as per required services',
+  'aboutPage.feature2.description': 'At Estithmarcom, as an international business incubator, we provide integrated services to support investors in entering various global markets easily and professionally. Our specialized team manages all the procedures required to obtain investment licenses in the targeted countries, starting from preparing documents and submitting applications, up to completing official approvals and granting the investor the authority to conduct his business legally.',
 
   'aboutPage.feature3.title': 'Electronic Services Management',
-  'aboutPage.feature3.description': 'Providing secretarial services through procedures for managing secretarial services to follow up all aspects of digital interaction in maintaining transaction procedures',
+  'aboutPage.feature3.description': 'At Estithmarcom, as an international platform to empower entrepreneurs and investors, we offer comprehensive management of electronic services in various countries, ensuring that transactions are completed quickly and professionally across governmental and private platforms. Our team includes experts with over two decades of international experience in implementing digital procedures, enabling our clients to complete their transactions easily, without complications or delays, and with the highest levels of accuracy and commitment.',
 
   'aboutPage.feature4.title': 'Company Establishment',
   'aboutPage.feature4.description': 'Provides company establishment services by helping investors register all types of companies in terms of opening an investment file and depositing capital in the commercial bank and issuing commercial registration',
