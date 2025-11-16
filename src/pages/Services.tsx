@@ -162,8 +162,8 @@ const Services = () => {
       
       {/* Hero Section */}
       <section
-        className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden pb-8 md:pb-12"
-        style={{ clipPath: dir === 'rtl' ?  'polygon(0 0, 100% 0, 100% 100%, 0% 60%)': 'polygon(0 0, 100% 0, 100% 60%, 0% 100%)' }}
+        className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden pb-8 md:pb-12 [clip-path:none] md:[clip-path:var(--clip-path)]"
+        style={{ '--clip-path': dir === 'rtl' ?  'polygon(0 0, 100% 0, 100% 100%, 0% 60%)' : 'polygon(0 0, 100% 0, 100% 60%, 0% 100%)' } as React.CSSProperties}
       >
         <div className="container mx-auto px-4 py-8 md:py-10 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
