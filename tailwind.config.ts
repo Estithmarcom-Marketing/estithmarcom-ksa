@@ -17,6 +17,7 @@ export default {
     },
     extend: {
       fontFamily: {
+          sans: ['Neo Sans Arabic', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif'],
         cairo: ['Cairo', 'sans-serif'],
       },
       textShadow: {
