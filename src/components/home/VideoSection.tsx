@@ -1,14 +1,14 @@
 import { Play, Pause, Maximize2, Volume2, VolumeX, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useRef, useEffect } from "react";
-import videoFile from "@/assets/estsmarkm56.mp4";
-import se2Video from "@/assets/se2.mp4";
-import sequence1 from "@/assets/sequence-1.mp4";
-import sequence2 from "@/assets/sequence-2.mp4";
-import sequence3 from "@/assets/sequence-3.mp4";
-import sequence4 from "@/assets/sequence-4.mp4";
-import sequence5 from "@/assets/sequence-5.mp4";
-import sequence6 from "@/assets/sequence-6.mp4";
+import sequence1 from "@/assets/estsmarkm56.mp4";
+import sequence2 from "@/assets/se2.mp4";
+import sequence3 from "@/assets/sequence-1.mp4";
+import sequence4 from "@/assets/sequence-2.mp4";
+import sequence5 from "@/assets/sequence-3.mp4";
+import sequence6 from "@/assets/sequence-4.mp4";
+import sequence7 from "@/assets/sequence-5.mp4";
+import sequence8 from "@/assets/sequence-6.mp4";
 import video1Thumbnail from "@/assets/video-thumbnails/video-1.png";
 import video2Thumbnail from "@/assets/video-thumbnails/video-2.png";
 import video3Thumbnail from "@/assets/video-thumbnails/video-3.png";
@@ -18,14 +18,14 @@ import video6Thumbnail from "@/assets/video-thumbnails/video-6.png";
 
 // Array of videos
 const videos = [
-  videoFile,
-  se2Video,
   sequence1,
   sequence2,
   sequence3,
   sequence4,
   sequence5,
   sequence6,
+  sequence7,
+  sequence8,
 ];
 
 // Array of thumbnails
@@ -94,7 +94,7 @@ const VideoSection = () => {
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-primary via-primary to-purple-light">
       {/* section for both right and left  */}
-      <div className="container flex md:flex-wrap px-4 justify-between">
+      <div className="container flex flex-col-reverse md:flex-row md:flex-wrap px-4 justify-between">
         {/* start of thumbnail section */}
         <div className="my-5">
           <div className="">
@@ -112,7 +112,14 @@ const VideoSection = () => {
           <div className="w-[350px] md:w-[592px] my-5 overflow-x-auto no-scrollbar">
             <div className="flex gap-2">
               {thumbnails.map((img, index) => (
-                <div key={index} className="w-48 h-48 flex-shrink-0 relative">
+                <div key={index} className={`w-48 h-48 flex-shrink-0 relative cursor-pointer my-1 rounded-xl ${index === currentVideoIndex ? "ring-2 ring-white/80" : ""
+                  }`} onClick={() => {
+                    setCurrentVideoIndex(index);
+                    setIsPlaying(true);
+                    if (videoRef.current) {
+                      videoRef.current.play();
+                    }
+                  }}>
                   <img src={img} className="w-full h-full object-cover rounded-xl" />
                   {/* Play Icon Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -142,17 +149,6 @@ const VideoSection = () => {
 
             {!isPlaying && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
-                {/* <div className="text-center px-4">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-accent/90 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
-                    <svg className="w-10 h-10 md:w-12 md:h-12 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2L8 8h3v6H9l4 6 4-6h-2V8h3l-4-6z"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-accent mb-2">{t('header.subtitle')}</h3>
-                  <p className="text-white text-lg md:text-xl mb-1">{t('header.title')}</p>
-                  <p className="text-accent/90 text-xs md:text-sm mb-1">{t('header.incubator')}</p>
-                  <p className="text-white/70 text-xs">{t('header.incubatorEn')}</p>
-                </div> */}
               </div>
             )}
 
