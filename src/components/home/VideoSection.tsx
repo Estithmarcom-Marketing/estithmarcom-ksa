@@ -112,8 +112,14 @@ const VideoSection = () => {
           <div className="w-[350px] md:w-[592px] my-5 overflow-x-auto no-scrollbar">
             <div className="flex gap-2">
               {thumbnails.map((img, index) => (
-                <div key={index} className="w-48 h-48 flex-shrink-0">
+                <div key={index} className="w-48 h-48 flex-shrink-0 relative">
                   <img src={img} className="w-full h-full object-cover rounded-xl" />
+                  {/* Play Icon Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                      <Play className="w-6 h-6 text-primary ml-0.5" fill="currentColor" />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
