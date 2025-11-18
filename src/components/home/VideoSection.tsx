@@ -9,6 +9,12 @@ import sequence3 from "@/assets/sequence-3.mp4";
 import sequence4 from "@/assets/sequence-4.mp4";
 import sequence5 from "@/assets/sequence-5.mp4";
 import sequence6 from "@/assets/sequence-6.mp4";
+import video1Thumbnail from "@/assets/video-thumbnails/video-1.png";
+import video2Thumbnail from "@/assets/video-thumbnails/video-2.png";
+import video3Thumbnail from "@/assets/video-thumbnails/video-3.png";
+import video4Thumbnail from "@/assets/video-thumbnails/video-4.png";
+import video5Thumbnail from "@/assets/video-thumbnails/video-5.png";
+import video6Thumbnail from "@/assets/video-thumbnails/video-6.png";
 
 // Array of videos
 const videos = [
@@ -20,6 +26,16 @@ const videos = [
   sequence4,
   sequence5,
   sequence6,
+];
+
+// Array of thumbnails
+const thumbnails = [
+  video1Thumbnail,
+  video2Thumbnail,
+  video3Thumbnail,
+  video4Thumbnail,
+  video5Thumbnail,
+  video6Thumbnail,
 ];
 
 const VideoSection = () => {
@@ -74,25 +90,39 @@ const VideoSection = () => {
       videoRef.current.play();
     }
   }, [currentVideoIndex]);
-  
+
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-primary via-primary to-purple-light">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-cairo font-bold text-white mb-4">
-            {t('video.title1')}
-            <br />
-            {t('video.title2')}
-          </h2>
-          <p className="text-white/90 font-cairo text-base md:text-lg">
-            {t('video.description1')}
-            <br />
-            {t('video.description2')}
-          </p>
+      {/* section for both right and left  */}
+      <div className="container flex md:flex-wrap px-4 justify-between">
+        {/* start of thumbnail section */}
+        <div className="my-5">
+          <div className="">
+            <h2 className="text-3xl md:text-3xl font-bold text-accent mb-4">
+              {t('video.title1')}
+              <br />
+              {t('video.title2')}
+            </h2>
+            <p className="text-white/90 text-base md:text-lg">
+              {t('video.description1')}
+              <br />
+              {t('video.description2')}
+            </p>
+          </div>
+          <div className="w-[350px] md:w-[592px] my-5 overflow-x-auto no-scrollbar">
+            <div className="flex gap-2">
+              {thumbnails.map((img, index) => (
+                <div key={index} className="w-48 h-48 flex-shrink-0">
+                  <img src={img} className="w-full h-full object-cover rounded-xl" />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-
-        <div className="max-w-2xl mx-auto">
-          <div className="relative aspect-[9/16] md:aspect-video bg-primary/50 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
+        {/* end of thumbnail section */}
+        {/* start of video player */}
+        <div className="max-w-xl mx-auto">
+          <div className="relative  aspect-square bg-primary/50 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
             <video
               ref={videoRef}
               key={currentVideoIndex}
@@ -112,10 +142,10 @@ const VideoSection = () => {
                       <path d="M12 2L8 8h3v6H9l4 6 4-6h-2V8h3l-4-6z"/>
                     </svg>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-cairo font-bold text-accent mb-2">{t('header.subtitle')}</h3>
-                  <p className="text-white font-cairo text-lg md:text-xl mb-1">{t('header.title')}</p>
-                  <p className="text-accent/90 font-cairo text-xs md:text-sm mb-1">{t('header.incubator')}</p>
-                  <p className="text-white/70 font-cairo text-xs">{t('header.incubatorEn')}</p>
+                  <h3 className="text-3xl md:text-4xl font-bold text-accent mb-2">{t('header.subtitle')}</h3>
+                  <p className="text-white text-lg md:text-xl mb-1">{t('header.title')}</p>
+                  <p className="text-accent/90 text-xs md:text-sm mb-1">{t('header.incubator')}</p>
+                  <p className="text-white/70 text-xs">{t('header.incubatorEn')}</p>
                 </div> */}
               </div>
             )}
@@ -175,11 +205,10 @@ const VideoSection = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentVideoIndex(index)}
-                    className={`h-1.5 rounded-full transition-all ${
-                      index === currentVideoIndex
-                        ? "w-8 bg-white"
-                        : "w-1.5 bg-white/50 hover:bg-white/70"
-                    }`}
+                    className={`h-1.5 rounded-full transition-all ${index === currentVideoIndex
+                      ? "w-8 bg-white"
+                      : "w-1.5 bg-white/50 hover:bg-white/70"
+                      }`}
                   />
                 ))}
               </div>
