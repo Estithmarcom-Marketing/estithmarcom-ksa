@@ -51,12 +51,12 @@ export default function ServicesShowcase({
         </div>
 
         {/* الشبكة */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5">
+        <div className="flex gap-3 overflow-x-auto md:overflow-hidden scrollbar-hide snap-x snap-mandatory md:snap-none">
           {items.map((it, idx) => (
             <a
               key={idx}
               href={it.href ?? "#"}
-              className="group relative block overflow-hidden rounded-2xl bg-muted/20 shadow-md hover:shadow-lg transition-all"
+              className="group relative block flex-shrink-0 overflow-hidden rounded-2xl bg-muted/20 shadow-md hover:shadow-lg transition-all w-[280px] lg:w-auto md:flex-1 snap-center h-80 duration-500"
             >
               {/* الصورة */}
               <img
