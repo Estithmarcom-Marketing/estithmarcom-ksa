@@ -78,20 +78,30 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="sticky top-0 z-30 bg-primary border-b border-primary-foreground/20 text-white">
+      <div className="sticky top-0 z-30 bg-primary/95 backdrop-blur-sm border-b border-primary-foreground/20 text-white">
         <div className="container mx-auto px-4 md:py-4">
         <div className="flex justify-between items-center">
+          {/* Mobile Language Selector (Left) */}
+          <select
+            className="lg:hidden bg-transparent border border-primary-foreground/30 rounded px-2 py-1 text-xs cursor-pointer"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value as 'ar' | 'en')}
+          >
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+          </select>
+
           {/* Logo and Navigation Group */}
           <div className="flex items-center gap-8">
             {/* Logo */}
             <img
               src="/logo-white.png"
               alt={t('header.title')}
-              className=" h-10 my-3 md:h-12  object-cover "
+              className="h-10 my-3 md:h-12 object-cover lg:mr-0"
             />
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6  font-semibold text-sm md:text-base ">
+            <nav className="hidden lg:flex items-center gap-6 font-semibold text-sm md:text-base">
               <a href="/" className="hover:text-accent transition-colors">{t('nav.home')}</a>
               <a href="/services" className="hover:text-accent transition-colors">{t('nav.services')}</a>
               <a href="/contact" className="hover:text-accent transition-colors">{t('nav.contact')}</a>
@@ -106,7 +116,7 @@ const Header = () => {
             {t('header.requestService')}
           </Button> */}
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button (Right) */}
           <button
             className="lg:hidden text-primary-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
