@@ -127,7 +127,7 @@ const HeroSlider = () => {
                 style={{ backgroundImage: `url(${s.img})` }}
               />
               {/* overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/70" />
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/70" /> */}
             </div>
           );
         })}

@@ -9,9 +9,9 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-primary text-primary-foreground">
+    <>
       {/* Top Bar */}
-      <div className="border-b border-primary-foreground/20">
+      <div className="hidden lg:block bg-primary text-primary-foreground border-b border-primary-foreground/20">
         <div className="container mx-auto px-4 py-2">
           <div className="flex justify-between items-center text-sm flex-wrap gap-2">
             <div className="flex items-center gap-4 md:gap-6">
@@ -78,7 +78,8 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="sticky top-0 z-30 bg-primary border-b border-primary-foreground/20 text-white">
+        <div className="container mx-auto px-4 md:py-4">
         <div className="flex justify-between items-center">
           {/* Logo and Navigation Group */}
           <div className="flex items-center gap-8">
@@ -86,11 +87,11 @@ const Header = () => {
             <img
               src="/logo-white.png"
               alt={t('header.title')}
-              className="w-24 h-24 md:w-18 md:h-18 object-contain flex-shrink-0"
+              className=" h-10 my-3 md:h-12  object-cover "
             />
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6  font-semibold text-sm md:text-base">
+            <nav className="hidden lg:flex items-center gap-6  font-semibold text-sm md:text-base ">
               <a href="/" className="hover:text-accent transition-colors">{t('nav.home')}</a>
               <a href="/services" className="hover:text-accent transition-colors">{t('nav.services')}</a>
               <a href="/contact" className="hover:text-accent transition-colors">{t('nav.contact')}</a>
@@ -183,12 +184,67 @@ const Header = () => {
                 {/* <Button className="mt-4 text-white hover:bg-accent/90 font-bold border w-full py-6">
                   {t('header.requestService')}
                 </Button> */}
+
+                {/* Email Section */}
+                <div className="px-6 py-4 border-t border-primary-foreground/20">
+                  <a
+                    href={`mailto:${t('header.email')}`}
+                    className="flex items-center justify-between px-6 py-4 rounded-2xl border border-primary-foreground/30 hover:bg-primary-foreground/10 transition-colors font-normal"
+                  >
+                    <span className="text-sm">{t('header.email')}</span>
+                    <Mail className="w-5 h-5 text-accent" />
+                  </a>
+                </div>
+
+                {/* Social Media Section */}
+                <div className="px-6 py-4">
+                  <p className="text-center mb-4 font-normal text-sm">{t('header.followUs')}</p>
+                  <div className="flex justify-center gap-3">
+                    <a
+                      href="https://www.facebook.com/aistithmarkom"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-12 h-12 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.tiktok.com/@aistithmarkom"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-12 h-12 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                      aria-label="TikTok"
+                    >
+                      <FaTiktok className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/aistithmarkom/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-12 h-12 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.snapchat.com/@shrkstthmrkwm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-12 h-12 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                      aria-label="Snapchat"
+                    >
+                      <FaSnapchatGhost className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
               </nav>
             </div>
           </>
         )}
+        </div>
       </div>
-    </header>
+    </>
   );
 };
 

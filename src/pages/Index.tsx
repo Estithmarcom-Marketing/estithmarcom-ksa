@@ -16,7 +16,7 @@ const Index = () => {
   const { dir } = useLanguage();
   
   return (
-    <div className="min-h-screen font-cairo" dir={dir}>
+    <div className="min-h-screen " dir={dir}>
       <Header />
       <Hero />
       <ServicesIntro />
