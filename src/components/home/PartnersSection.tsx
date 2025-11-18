@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import esharLogo from "@/assets/partners/eshar.png";
 import itfaqLogo from "@/assets/partners/itfaq.png";
 import lozoomCarLogo from "@/assets/partners/lozoom-car.png";
-import ramky1Logo from "@/assets/partners/ramky-1.png";
+import rayan2logo from "@/assets/partners/4.png";
 import ramkyLogo from "@/assets/partners/ramky.png";
 import rayanLogo from "@/assets/partners/rayan.png";
 import sparkleLogo from "@/assets/partners/sparkle.png";
@@ -23,7 +23,7 @@ const PartnersSection = () => {
     { name: "Itfaq", logo: itfaqLogo },
     { name: "Lozoom Car", logo: lozoomCarLogo },
     { name: "Ramky", logo: ramkyLogo },
-    { name: "Ramky 1", logo: ramky1Logo },
+    { name: "Ramky 1", logo: rayan2logo },
     { name: "Rayan", logo: rayanLogo },
     { name: "Sparkle", logo: sparkleLogo },
     { name: "Tamkeen", logo: tamkeenLogo },
@@ -54,7 +54,7 @@ const PartnersSection = () => {
           {t('partners.title')}
         </h2>
 
-        <div className="overflow-hidden" ref={emblaRef} dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="overflow-hidden mt-5" ref={emblaRef} dir={isRTL ? 'rtl' : 'ltr'}>
           <div className="flex ">
             {partners.map((partner, index) => (
               <div
@@ -65,7 +65,7 @@ const PartnersSection = () => {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="max-w-full max-h-full object-contain"
+                    className=" object-contain h-32 mx-auto p-4"
                   />
                 </div>
               </div>
