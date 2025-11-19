@@ -138,7 +138,7 @@ const Header = () => {
             {/* Side Menu */}
             <div className={`fixed top-0 ${language === 'ar' ? 'left-0' : 'right-0'} h-full w-80 max-w-[85vw] bg-primary text-primary-foreground z-50 shadow-xl lg:hidden transform transition-transform duration-300 ease-in-out`}>
               {/* Header with Close Button */}
-              <div className="flex justify-between items-center p-4 border-b border-primary-foreground/20">
+              <div className="bg-primary flex justify-between items-center p-4 border-b border-primary-foreground/20">
                 <img
                   src="/logo-white.png"
                   alt={t('header.title')}
@@ -154,7 +154,7 @@ const Header = () => {
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col p-6 gap-2  font-semibold text-base">
+              <nav className="flex flex-col p-6 gap-2  bg-primary font-semibold text-base">
                 <a
                   href="/"
                   className="hover:text-accent hover:bg-primary-foreground/10 transition-colors py-3 px-4 rounded-lg"

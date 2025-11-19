@@ -68,20 +68,20 @@ const FreeZonesSection = () => {
 
 
     return (
-        <section className="py-12 md:py-16 bg-gradient-to-b from-primary/5 via-white to-white">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-primary/5 via-white to-white text-black">
             <div className="container mx-auto px-4" dir="rtl">
                 {/* الهيدر */}
                 <div className="mb-8 md:mb-10 text-center md:text-right max-w-3xl mx-auto md:mx-0">
                     <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1 mb-3 border border-primary/10">
                         <span className="w-2 h-2 rounded-full bg-primary" />
-                        <span className="text-xs md:text-sm font-medium text-primary">
+                        <span className="text-xs md:text-sm font-medium ">
                             {t('freeZones.badge')}
                         </span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-2 leading-relaxed">
+                    <h3 className="text-xl md:text-2xl font-semibold  mb-2 leading-relaxed">
                         {t('freeZones.title')}
                     </h3>
-                    <p className="text-sm md:text-base text-slate-600">
+                    <p className="text-sm md:text-base ">
                         {t('freeZones.description')}
                     </p>
                 </div>
@@ -118,14 +118,14 @@ const FreeZonesSection = () => {
                                             </div>
                                         </div>
                                         <div className="p-3 flex flex-col gap-1 text-right">
-                                            <span className="text-[11px] text-primary/80 font-medium">
+                                            <span className="text-[11px] /80 font-medium">
                                                 {t(`freeZones.countries.${country.id}.label`)}
                                             </span>
-                                            <span className="text-sm font-semibold text-slate-900">
+                                            <span className="text-sm font-semibold ">
                                                 {t(`freeZones.countries.${country.id}.name`)}
                                             </span>
                                             {isActive && (
-                                                <span className="text-[11px] text-primary font-medium">
+                                                <span className="text-[11px]  font-medium">
                                                     {t('freeZones.viewDetails')}
                                                 </span>
                                             )}
@@ -164,14 +164,14 @@ const FreeZonesSection = () => {
                                         </div>
                                     </div>
                                     <div className="p-4 flex flex-col gap-1 text-right">
-                                        <span className="text-[11px] md:text-xs text-primary/80 font-medium">
+                                        <span className="text-[11px] md:text-xs /80 font-medium">
                                             {t(`freeZones.countries.${country.id}.label`)}
                                         </span>
-                                        <span className="text-sm md:text-base font-semibold text-slate-900">
+                                        <span className="text-sm md:text-base font-semibold ">
                                             {t(`freeZones.countries.${country.id}.name`)}
                                         </span>
                                         {isActive && (
-                                            <span className="text-[11px] text-primary font-medium">
+                                            <span className="text-[11px]  font-medium">
                                                 {t('freeZones.viewDetails')}
                                             </span>
                                         )}
@@ -195,22 +195,22 @@ const FreeZonesSection = () => {
                                 </div>
                             </div>
                             <div>
-                                <h4 className="text-lg md:text-xl font-bold text-primary mb-1">
+                                <h4 className="text-lg md:text-xl font-bold  mb-1">
                                     {t(`freeZones.countries.${activeCountry.id}.label`)}
                                 </h4>
-                                <p className="text-sm md:text-base text-slate-700">
+                                <p className="text-sm md:text-base ">
                                     {t(`freeZones.countries.${activeCountry.id}.intro`)}
                                 </p>
                             </div>
                         </header>
 
-                        <ul className="list-decimal pr-5 space-y-2.5 text-sm md:text-base text-slate-800 leading-relaxed">
+                        <ul className="list-decimal pr-5 space-y-2.5 text-sm md:text-base  leading-relaxed">
                             {getCountryPoints(activeCountry.id).map((point: string, index: number) => (
                                 <li key={index}>{point}</li>
                             ))}
                         </ul>
 
-                        <p className="mt-4 text-sm md:text-base text-slate-700">
+                        <p className="mt-4 text-sm md:text-base ">
                             {t(`freeZones.countries.${activeCountry.id}.outro`)}
                         </p>
                     </article>
