@@ -1,14 +1,15 @@
 import { Play, Pause, Maximize2, Volume2, VolumeX, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useRef, useEffect } from "react";
-import sequence1 from "@/assets/estsmarkm56.mp4";
-import sequence2 from "@/assets/se2.mp4";
-import sequence3 from "@/assets/sequence-1.mp4";
-import sequence4 from "@/assets/sequence-2.mp4";
-import sequence5 from "@/assets/sequence-3.mp4";
-import sequence6 from "@/assets/sequence-4.mp4";
-import sequence7 from "@/assets/sequence-5.mp4";
-import sequence8 from "@/assets/sequence-6.mp4";
+
+import sequence1 from "@/assets/sequence-1.mp4";
+import sequence2 from "@/assets/sequence-2.mp4";
+import sequence3 from "@/assets/sequence-3.mp4";
+import sequence4 from "@/assets/sequence-4.mp4";
+import sequence5 from "@/assets/sequence-5.mp4";
+import sequence6 from "@/assets/sequence-6.mp4";
+import sequence7 from "@/assets/estsmarkm56.mp4";
+import sequence8 from "@/assets/se2.mp4";
 import video1Thumbnail from "@/assets/video-thumbnails/video-1.png";
 import video2Thumbnail from "@/assets/video-thumbnails/video-2.png";
 import video3Thumbnail from "@/assets/video-thumbnails/video-3.png";
