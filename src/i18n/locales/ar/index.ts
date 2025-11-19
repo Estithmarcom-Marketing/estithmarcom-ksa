@@ -4,12 +4,14 @@ import { services } from './services';
 import { about } from './about';
 import { contact } from './contact';
 import { servicesOld } from './services-old';
+import { freeZones } from './free-zones';
 
 export const ar = {
   ...common,
   ...home,
   ...services,
   ...servicesOld,
+  ...freeZones,
   ...about,
   ...contact,
 };
