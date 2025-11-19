@@ -105,7 +105,7 @@ const VideoSection = () => {
     },
     [
       Autoplay({
-        delay: 2500, // مدة كل thumbnail قبل ما يتحرك للي بعدها
+        delay: 1000, // مدة كل thumbnail قبل ما يتحرك للي بعدها
         stopOnMouseEnter: true,
         stopOnInteraction: false,
       }),

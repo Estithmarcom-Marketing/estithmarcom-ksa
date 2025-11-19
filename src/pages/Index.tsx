@@ -8,6 +8,7 @@ import VideoSection from "@/components/home/VideoSection";
 import ProcessSteps from "@/components/home/ProcessSteps";
 import PartnersSection from "@/components/home/PartnersSection";
 import StatsSection from "@/components/home/StatsSection";
+import FreeZoneCountries from "@/components/home/FreeZonesSection";
 import FAQSection from "@/components/home/FAQSection";
 import Footer from "@/components/shared/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -23,6 +24,7 @@ const Index = () => {
       <ServicesGrid />
       <BannerSection />
       <ServicesShowcase />
+      <FreeZoneCountries />
       <VideoSection />
       <ProcessSteps />
       <PartnersSection />
