@@ -92,6 +92,29 @@ const VideoSection = () => {
     }
   }, [currentVideoIndex]);
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [pause, setPause] = useState(false);
+
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || pause) return;
+
+    let scrollAmount = 0;
+    const interval = setInterval(() => {
+      if (!el) return;
+      scrollAmount = el.scrollLeft + 1;
+      if (scrollAmount >= el.scrollWidth - el.clientWidth) {
+        scrollAmount = 0;
+      }
+      el.scrollTo({ left: scrollAmount, behavior: "smooth" });
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [pause]);
+
+
+
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-primary via-primary to-purple-light">
       {/* section for both right and left  */}
@@ -110,7 +133,7 @@ const VideoSection = () => {
               {t('video.description2')}
             </p>
           </div>
-          <div className="w-[350px] md:w-[592px] my-5 overflow-x-auto no-scrollbar">
+          <div ref={scrollRef} className="w-[350px] md:w-[592px] my-5 overflow-x-auto no-scrollbar">
             <div className="flex gap-2">
               {thumbnails.map((img, index) => (
                 <div key={index} className={`w-48 h-48 flex-shrink-0 relative cursor-pointer my-1 rounded-xl ${index === currentVideoIndex ? "ring-2 ring-white/80" : ""
