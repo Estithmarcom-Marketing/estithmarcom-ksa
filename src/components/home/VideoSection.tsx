@@ -1,6 +1,7 @@
 import { Play, Pause, Maximize2, Volume2, VolumeX, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useRef, useEffect } from "react";
+import VideoHeading from "./VideoHeading";
 
 import sequence1 from "@/assets/sequence-1.mp4";
 import sequence2 from "@/assets/sequence-2.mp4";
@@ -16,6 +17,9 @@ import video3Thumbnail from "@/assets/video-thumbnails/video-3.png";
 import video4Thumbnail from "@/assets/video-thumbnails/video-4.png";
 import video5Thumbnail from "@/assets/video-thumbnails/video-5.png";
 import video6Thumbnail from "@/assets/video-thumbnails/video-6.png";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+
 
 // Array of videos
 const videos = [
@@ -40,7 +44,8 @@ const thumbnails = [
 ];
 
 const VideoSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -92,27 +97,20 @@ const VideoSection = () => {
     }
   }, [currentVideoIndex]);
 
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [pause, setPause] = useState(false);
-
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el || pause) return;
-
-    let scrollAmount = 0;
-    const interval = setInterval(() => {
-      if (!el) return;
-      scrollAmount = el.scrollLeft + 1;
-      if (scrollAmount >= el.scrollWidth - el.clientWidth) {
-        scrollAmount = 0;
-      }
-      el.scrollTo({ left: scrollAmount, behavior: "smooth" });
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [pause]);
-
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      direction: isRTL ? "rtl" : "ltr", // عشان RTL ما يخربش السلوك
+    },
+    [
+      Autoplay({
+        delay: 2500, // مدة كل thumbnail قبل ما يتحرك للي بعدها
+        stopOnMouseEnter: true,
+        stopOnInteraction: false,
+      }),
+    ]
+  );
 
 
   return (
@@ -121,44 +119,49 @@ const VideoSection = () => {
       <div className="container flex flex-col-reverse md:flex-row md:flex-wrap px-4 justify-between">
         {/* start of thumbnail section */}
         <div className="my-5">
-          <div className="">
-            <h2 className="text-3xl md:text-3xl font-bold text-accent mb-4">
-              {t('video.title1')}
-              <br />
-              {t('video.title2')}
-            </h2>
-            <p className="text-white/90 text-base md:text-lg">
-              {t('video.description1')}
-              <br />
-              {t('video.description2')}
-            </p>
+          <div className=" hidden  md:block ">
+            <VideoHeading />
           </div>
-          <div ref={scrollRef} className="w-[350px] md:w-[592px] my-5 overflow-x-auto no-scrollbar">
+          <div
+            ref={emblaRef}
+            className="w-[350px] md:w-[592px] my-5 overflow-hidden"
+          >
             <div className="flex gap-2">
               {thumbnails.map((img, index) => (
-                <div key={index} className={`w-48 h-48 flex-shrink-0 relative cursor-pointer my-1 rounded-xl ${index === currentVideoIndex ? "ring-2 ring-white/80" : ""
-                  }`} onClick={() => {
+                <button
+                  key={index}
+                  type="button"
+                  className={`w-48 h-48 flex-shrink-0 relative cursor-pointer my-1 rounded-xl ${index === currentVideoIndex ? "ring-2 ring-white/80" : ""
+                    }`}
+                  onClick={() => {
                     setCurrentVideoIndex(index);
                     setIsPlaying(true);
-                    if (videoRef.current) {
-                      videoRef.current.play();
-                    }
-                  }}>
-                  <img src={img} className="w-full h-full object-cover rounded-xl" />
-                  {/* Play Icon Overlay */}
+                    videoRef.current?.play();
+                    emblaApi?.scrollTo(index); // خليه يسنّب على نفس الثمبنيل
+                  }}
+                >
+                  <img
+                    src={img}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
                       <Play className="w-6 h-6 text-primary ml-0.5" fill="currentColor" />
                     </div>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
+
+
         </div>
         {/* end of thumbnail section */}
         {/* start of video player */}
         <div className="max-w-xl mx-auto">
+          <div className="md:hidden  mb-6 text-center">
+            <VideoHeading />
+          </div>
           <div className="relative  aspect-square bg-primary/50 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
             <video
               ref={videoRef}
