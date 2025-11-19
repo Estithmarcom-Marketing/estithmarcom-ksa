@@ -3,7 +3,7 @@ import Footer from "@/components/shared/Footer";
 import ServiceDetailCard from "@/components/services/ServiceDetailCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import professionalPerson from "@/assets/professional-person.jpg";
+import professionalPerson from "@/assets/professional-person.png";
 import establishmentImg from "@/assets/services/establishment.jpg";
 import administrativeImg from "@/assets/services/administrative.jpg";
 import marketingImg from "@/assets/services/marketing.jpg";
@@ -169,9 +169,9 @@ const Services = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Professional Image */}
             <div className="lg:order-2">
-              <div className="relative max-w-md mx-auto lg:mx-0">
-                <div className="absolute inset-0 bg-accent/30 rounded-lg transform translate-x-4 translate-y-4"></div>
-                <div className="relative bg-accent/40 rounded-lg p-2 overflow-hidden" >
+              <div className="relative max-w-xl mx-auto lg:mx-0">
+                <div className="absolute inset-0  rounded-lg transform translate-x-4 translate-y-4"></div>
+                <div className="relative  rounded-lg p-2 overflow-hidden" >
                   <img
                     src={professionalPerson}
                     alt="Professional"
