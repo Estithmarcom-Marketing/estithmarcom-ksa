@@ -8,12 +8,12 @@ export const home = {
   // Services Showcase
   'showcase.heading': 'Services',
   'showcase.subheading': 'We provide supportive and consulting services to companies to deliver solutions, facilitate services, and complete them fully',
-  'showcase.service.legal': 'Legal Support',
-  'showcase.service.admin': 'Administrative Support',
-  'showcase.service.consult': 'Consulting and Training Support',
-  'showcase.service.tech': 'Technical Support',
-  'showcase.service.marketing': 'Marketing and Management Consulting',
-  'showcase.service.licenses': 'Government Licensing',
+  'showcase.service.legal': 'Legal Consultation',
+  'showcase.service.admin': 'Company Formation',
+  'showcase.service.consult': 'Investment Visas',
+  'showcase.service.tech': 'Workspaces',
+  'showcase.service.marketing': 'Support for Innovators',
+  'showcase.service.licenses': 'Government Services',
 
   // Services Intro
   'services.intro.title': 'Estithmarcom Business Incubator and Accelerator Services',

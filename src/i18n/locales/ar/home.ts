@@ -8,12 +8,12 @@ export const home = {
   // Services Showcase
   'showcase.heading': 'الخدمات',
   'showcase.subheading': 'نقدّم خدمات داعمة واستشارية للشركات لتقديم حلول وتسهيل الخدمات وإنجازها بشكل كامل',
-  'showcase.service.legal': 'الدعم القانوني',
-  'showcase.service.admin': 'الدعم الإداري',
-  'showcase.service.consult': 'الدعم الاستشاري والتأهيلي',
-  'showcase.service.tech': 'الدعم التقني',
-  'showcase.service.marketing': 'الاستشارات التسويقية والإدارية',
-  'showcase.service.licenses': 'إصدار التراخيص الحكومية',
+  'showcase.service.legal': 'استشارات قانونية',
+  'showcase.service.admin': 'بناء الشركات',
+  'showcase.service.consult': "تأشيرات استثمار",
+  'showcase.service.tech': 'مساحات عمل ',
+  'showcase.service.marketing': 'دعم المبتكرين',
+  'showcase.service.licenses': ' الخدمات الحكومية',
 
   // Services Intro
   'services.intro.title': 'خدمات حاضنة ومسرعة الأعمال استثماركوم',

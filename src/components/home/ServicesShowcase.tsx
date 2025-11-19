@@ -56,13 +56,13 @@ export default function ServicesShowcase({
             <a
               key={idx}
               href={it.href ?? "#"}
-              className="group relative block flex-shrink-0 overflow-hidden rounded-2xl bg-muted/20 shadow-md hover:shadow-lg transition-all w-[280px] lg:w-auto md:flex-1 snap-center h-80 duration-500"
+              className="group relative block flex-shrink-0 overflow-hidden rounded-2xl bg-muted/20 shadow-md hover:shadow-lg transition-all w-[180px] lg:w-auto md:flex-1 snap-center h-50 duration-500"
             >
               {/* الصورة */}
               <img
                 src={it.image}
                 alt={t(it.titleKey)}
-                className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
 
@@ -76,10 +76,10 @@ export default function ServicesShowcase({
                     <span className={` ${isRTL ? "" : "hidden"} inline-flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-white/80 bg-white/10 backdrop-blur-[1px]`}>
                       <ArrowLeft className="h-4 w-4" />
                     </span>
-                    <span className="font-semibold [text-shadow:0_2px_8px_rgba(0,0,0,.35)]">
+                    <span className="">
                       {t(it.titleKey)}
                     </span>
-                    <span className={` ${isRTL ? "hidden" : ""}  inline-flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-white/80 bg-white/10 backdrop-blur-[1px]`} >
+                    <span className={` ${isRTL ? "hidden" : ""}  inline-flex items-center justify-center rounded-full ring-2 ring-white/80 bg-white/10 backdrop-blur-[1px]`} >
                       <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
