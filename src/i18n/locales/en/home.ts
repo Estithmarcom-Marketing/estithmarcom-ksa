@@ -35,7 +35,7 @@ export const home = {
   'service.requestNow': 'Request Service Now',
 
   // Banner Section
-  'banner.title': 'Book your office, factory, or industrial space with Estithmarcom Business Incubator and Accelerator',
+  'banner.title': 'Book your office or industrial space with Estithmarcom Business Incubator and Accelerator',
   'banner.cta': 'Click Here',
 
   // Video Section

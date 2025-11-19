@@ -35,7 +35,7 @@ export const home = {
   'service.requestNow': 'اطلب الخدمة الآن',
 
   // Banner Section
-  'banner.title': 'احجز مكتبك، مصنعك، أو مساحتك الصناعية مع حاضنة ومسرّعة الأعمال استثمار كوم',
+  'banner.title': 'احجز مكتبك أو مساحتك الصناعية مع حاضنة ومسرّعة الأعمال استثمار كوم',
   'banner.cta': 'اضغط هنا',
 
   // Video Section
