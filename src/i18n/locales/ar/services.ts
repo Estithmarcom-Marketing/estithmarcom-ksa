@@ -35,7 +35,7 @@ export const services = {
   'servicesPage.incubation.description': "دعم وتطوير المشاريع الناشئة من البداية إلى النجاح",
 
   // Workspace & Factories Services
-  'servicesPage.workspace.title': "مساحات عمل مصانع جاهزة لتوسع أعمالك عالميًا",
+  'servicesPage.workspace.title': "مساحات عمل جاهزة لتوسيع أعمالك عالميًا",
   'servicesPage.workspace.description': "نوفر في استثمار كوم مكاتب مرنة، ومساحات عمل مجهزة بالكامل، إلى جانب مصانع جاهزة وأراضٍ صناعية في مواقع استراتيجية حول العالم، لتمكين المستثمرين ورواد الأعمال من الانطلاق بثقة وتحقيق نمو مستدام.",
   'servicesPage.workspace.bullet1': 'إصدار التراخيص التجارية',
   'servicesPage.workspace.bullet2': 'تسهيل الأنسحة التجارية وخدمات التوثيق',

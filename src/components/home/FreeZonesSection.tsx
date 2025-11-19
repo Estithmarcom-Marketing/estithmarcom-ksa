@@ -99,7 +99,7 @@ const FreeZonesSection = () => {
                                         key={country.id}
                                         type="button"
                                         onClick={() => setActiveId(country.id)}
-                                        className={`group relative overflow-hidden rounded-2xl border transition-all duration-200 flex-shrink-0 w-40 xs:w-44 bg-white/80 backdrop-blur-sm ${isActive
+                                        className={`group relative overflow-hidden mx-2 rounded-2xl border transition-all duration-200 flex-shrink-0 w-40 xs:w-44 bg-white/80 backdrop-blur-sm ${isActive
                                             ? "border-primary ring-2 ring-primary/70 shadow-lg shadow-primary/20"
                                             : "border-slate-200/70 hover:border-primary/50 hover:shadow-md hover:shadow-primary/10"
                                             }`}
@@ -121,14 +121,14 @@ const FreeZonesSection = () => {
                                             <span className="text-[11px] /80 font-medium">
                                                 {t(`freeZones.countries.${country.id}.label`)}
                                             </span>
-                                            <span className="text-sm font-semibold ">
+                                            {/* <span className="text-sm font-semibold ">
                                                 {t(`freeZones.countries.${country.id}.name`)}
-                                            </span>
-                                            {isActive && (
+                                            </span> */}
+                                            {/* {isActive && (
                                                 <span className="text-[11px]  font-medium">
                                                     {t('freeZones.viewDetails')}
                                                 </span>
-                                            )}
+                                            )} */}
                                         </div>
                                     </button>
                                 );
@@ -137,7 +137,7 @@ const FreeZonesSection = () => {
                     </div>
 
                     {/* كروت الدول - ديسكتوب: grid زي ما هي */}
-                    <div className="hidden md:grid grid-cols-3 gap-4">
+                    <div className="hidden md:grid grid-cols-3 gap-6">
                         {FREE_ZONES.map((country) => {
                             const isActive = activeId === country.id;
                             return (
@@ -145,7 +145,7 @@ const FreeZonesSection = () => {
                                     key={country.id}
                                     type="button"
                                     onClick={() => setActiveId(country.id)}
-                                    className={`group relative overflow-hidden rounded-2xl border transition-all duration-200 flex flex-col bg-white/80 backdrop-blur-sm ${isActive
+                                    className={`group relative overflow-hidden rounded-2xl  border transition-all duration-200 flex flex-col bg-white/80 backdrop-blur-sm ${isActive
                                         ? "border-primary ring-2 ring-primary/70 shadow-lg shadow-primary/20"
                                         : "border-slate-200/70 hover:border-primary/50 hover:shadow-md hover:shadow-primary/10"
                                         }`}
