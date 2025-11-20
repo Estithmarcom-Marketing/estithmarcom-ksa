@@ -105,30 +105,26 @@ const FreeZonesSection = () => {
                                             }`}
                                     >
                                         <div className="relative aspect-[4/3] w-full overflow-hidden">
-                                            <img
-                                                src={country.image}
-                                                alt={t(`freeZones.countries.${country.id}.name`)}
-                                                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
-                                            <div className="absolute bottom-2 right-2 left-2 flex justify-between items-end gap-2">
-                                                <span className="text-[11px] text-white/90 font-medium bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
+                                            {/* Primary background */}
+                                            <div className="bg-primary h-full w-full"></div>
+
+                                            {/* Centered white circle with flag */}
+                                            <div className="absolute inset-0 flex items-center justify-center z-10">
+                                                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                                                    <img
+                                                        src={country.image}
+                                                        alt={t(`freeZones.countries.${country.id}.name`)}
+                                                        className="w-9 h-9 object-contain rounded-full"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Country name at bottom */}
+                                            <div className="absolute bottom-2 right-2 left-2 flex justify-center gap-2 z-20 text-center">
+                                                <span className="text-[11px] text-white/90 font-medium px-2 py-1">
                                                     {t(`freeZones.countries.${country.id}.name`)}
                                                 </span>
                                             </div>
-                                        </div>
-                                        <div className="p-3 flex flex-col gap-1 text-right">
-                                            <span className="text-[11px] /80 font-medium">
-                                                {t(`freeZones.countries.${country.id}.label`)}
-                                            </span>
-                                            {/* <span className="text-sm font-semibold ">
-                                                {t(`freeZones.countries.${country.id}.name`)}
-                                            </span> */}
-                                            {/* {isActive && (
-                                                <span className="text-[11px]  font-medium">
-                                                    {t('freeZones.viewDetails')}
-                                                </span>
-                                            )} */}
                                         </div>
                                     </button>
                                 );
