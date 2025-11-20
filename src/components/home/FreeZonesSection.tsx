@@ -52,7 +52,7 @@ const FreeZonesSection = () => {
     const [emblaRef] = useEmblaCarousel(
         {
             loop: false,
-            direction:  isRTL ? "rtl" : "ltr",
+            direction: isRTL ? "rtl" : "ltr",
             align: "start",
             containScroll: "trimSnaps",
         },
@@ -151,19 +151,33 @@ const FreeZonesSection = () => {
                                         }`}
                                 >
                                     <div className="relative aspect-[4/3] w-full overflow-hidden">
-                                        <img
+                                        {/* Blurred background image */}
+                                        {/* <img
                                             src={country.image}
                                             alt={t(`freeZones.countries.${country.id}.name`)}
-                                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
-                                        <div className="absolute bottom-2 right-2 left-2 flex justify-between items-end gap-2">
-                                            <span className="text-[11px] md:text-xs text-white/90 font-medium bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
+                                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 blur-lg brightness-100"
+                                        /> */}
+                                        <div className="bg-primary h-full w-full"></div>
+
+                                        {/* Centered white circle with flag */}
+                                        <div className="absolute inset-0 flex items-center justify-center z-10">
+                                            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center">
+                                                <img
+                                                    src={country.image}
+                                                    className="w-10 h-10 object-contain rounded-full"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* Country name pill at bottom */}
+                                        <div className="absolute bottom-2 right-2 left-2 flex justify-center gap-2 z-20 text-center">
+                                            <span className="text-[11px] md:text-xs text-white/90 font-medium  px-2 py-1  ">
                                                 {t(`freeZones.countries.${country.id}.name`)}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="p-4 flex flex-col gap-1 text-right">
+
+                                    {/* <div className="p-4 flex flex-col gap-1 text-right">
                                         <span className="text-[11px] md:text-xs /80 font-medium">
                                             {t(`freeZones.countries.${country.id}.label`)}
                                         </span>
@@ -175,7 +189,7 @@ const FreeZonesSection = () => {
                                                 {t('freeZones.viewDetails')}
                                             </span>
                                         )}
-                                    </div>
+                                    </div> */}
                                 </button>
                             );
                         })}

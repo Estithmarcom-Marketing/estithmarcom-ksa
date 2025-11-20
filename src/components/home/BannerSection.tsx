@@ -1,5 +1,6 @@
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import backgroundImage from "@/assets/cta.png";
 
 type Props = {
   bgUrl?: string;          // رابط الخلفية
@@ -22,19 +23,19 @@ export default function HeroEstithmarSection({
   const displayCta = cta || t('banner.cta');
 
   return (
-    <section dir={dir} className="py-8">
-      <div className="container">
-        <div className="relative h-[200px] md:h-[200px] lg:h-[200px] overflow-hidden rounded-3xl shadow-xl">
+    <section dir={dir} className="py-8 w-full">
+      <div className="">
+        <div className="relative  h-[200px] md:h-[200px] lg:h-[200px] overflow-hidden shadow-xl">
           {/* الخلفية */}
           <img
-            src={bgUrl}
+            src={backgroundImage}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
             loading="eager"
           />
 
           {/* أوفرلاي بنفسجي مع شفافـية بسيطة + بلور خفيف */}
-          <div className="absolute inset-0 bg-primary/90 backdrop-blur-[1px]" />
+          {/* <div className="absolute inset-0 bg-primary/90 backdrop-blur-[1px]" /> */}
 
           {/* المحتوى */}
           <div className="relative z-10 flex h-full items-center justify-center text-shadow-3xl font-bold">
