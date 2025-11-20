@@ -51,7 +51,7 @@ const FreeZonesSection = () => {
 
     const [emblaRef] = useEmblaCarousel(
         {
-            loop: true,
+            loop: false,
             direction:  isRTL ? "rtl" : "ltr",
             align: "start",
             containScroll: "trimSnaps",
