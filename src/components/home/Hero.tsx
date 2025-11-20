@@ -137,7 +137,7 @@ const HeroSlider = () => {
               {/* <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/70" /> */}
 
               {/* Content (same text on all slides) */}
-              <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-start justify-start mt-5 md:mt-1 md:justify-center text-white text-start text-shadow-lg ">
+              <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center md:items-start justify-start mt-5 md:mt-1 md:justify-center  text-white text-start text-shadow-lg ">
                 <div>
                   <img src={s.flag} alt="Flag" className="h-8 md:h-12 rounded mb-2 " />
                 </div>
