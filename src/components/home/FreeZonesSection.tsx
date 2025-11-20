@@ -68,10 +68,10 @@ const FreeZonesSection = () => {
 
 
     return (
-        <section className="py-12 md:py-16 bg-gradient-to-b from-primary/5 via-white to-white text-black">
-            <div className="container mx-auto px-4" dir="rtl">
+        <section className={`py-12 md:py-16 bg-gradient-to-b from-primary/5 via-white to-white text-black  `}>
+            <div className="container mx-auto px-4" dir={`${isRTL ? "rtl" : "ltr"}`}>
                 {/* الهيدر */}
-                <div className="mb-8 md:mb-10 text-center md:text-right max-w-3xl mx-auto md:mx-0">
+                <div className={`mb-8 md:mb-10 text-center  ${isRTL ? "md:text-right" : "md:text-left"}    max-w-3xl mx-auto md:mx-0`}>
                     <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1 mb-3 border border-primary/10">
                         <span className="w-2 h-2 rounded-full bg-primary" />
                         <span className="text-xs md:text-sm font-medium ">
@@ -193,7 +193,7 @@ const FreeZonesSection = () => {
 
 
                     {/* تفاصيل الدولة المختارة */}
-                    <article className="bg-white/90 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 p-5 md:p-7 max-h-[520px] overflow-y-auto">
+                    <article className={`bg-white/90   rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 p-5 md:p-7 max-h-[520px] overflow-y-auto `}>
                         <header className="mb-4 flex items-start gap-3">
                             <div className="hidden md:block">
                                 <div className="w-12 h-12 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">

@@ -43,6 +43,8 @@ export const home = {
   'video.title2': 'في عالم الأعمال',
   'video.description1': 'تعرف على آراء ومقترحات عملاءنا',
   'video.description2': 'والمشاهير في حاضنة أعمال استثماركوم',
+  'video.latestVideos': 'أحدث الفيديوهات',
+  'video.thumbnailLabel': 'انضم إلى حاضنة الأعمال إستثماركوم',
 
   // Process Steps
   'process.title': 'دور حاضنة ومسرعة الأعمال استثمار كوم  بجميع فروعها الدولية ',

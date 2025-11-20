@@ -43,6 +43,8 @@ export const home = {
   'video.title2': 'In the Business World',
   'video.description1': 'Discover the opinions and suggestions of our clients',
   'video.description2': 'and celebrities at Estithmarcom Business Incubator',
+  'video.latestVideos': 'Latest Videos',
+  'video.thumbnailLabel': 'Join Estithmarcom Business Incubator',
 
   // Process Steps
   'process.title': 'The role of the business incubator and accelerator Estithmarcom with all its international branches',

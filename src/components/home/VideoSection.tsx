@@ -125,7 +125,7 @@ const VideoSection = () => {
           {/* label above thumbnails */}
           <div className="mt-3 text-center md:text-right">
             <span className="text-accent font-semibold">
-              أحدث الفيديوهات
+              {t('video.latestVideos')}
             </span>
           </div>
           <div
@@ -160,7 +160,7 @@ const VideoSection = () => {
 
                   {/* text under the thumbnail */}
                   <span className="text-white mt-2 text-sm font-bold text-center">
-                    انضم إلى حاضنة الأعمال إستثماركوم
+                    {t('video.thumbnailLabel')}
                   </span>
                 </div>
               ))}
