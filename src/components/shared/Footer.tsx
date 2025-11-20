@@ -34,23 +34,23 @@ const ContactRow: React.FC<{
   const LogoSection = () => (
     <div
       className={cn(
-        "flex flex-col items-center space-y-4",
-        isRTL ? "md:items-start" : "md:items-end"
+        "flex flex-col items-start",
+        
       )}
     >
-      <div className={cn("flex items-center gap-3", isRTL ? "flex-row" : "flex-row")}>
-        <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center flex-shrink-0">
+      <div className={cn("flex items-center gap-1", isRTL ? "flex-row" : "flex-row")}>
+        <div className="w-32 h-32 md:w-40 md:h-20 flex items-center justify-center flex-shrink-0 md:mb-3">
           <img
             src="/logo-white.png"
             alt={t("header.title")}
-            className="w-full h-full object-contain"
+            className=" object-contain"
           />
         </div>
       </div>
 
       <p
         className={cn(
-          "text-sm leading-relaxed text-center max-w-xs",
+          "text-sm   max-w-sm",
           isRTL ? "md:text-right" : "md:text-left"
         )}
       >
@@ -61,12 +61,12 @@ const ContactRow: React.FC<{
 
   // Contact Section
 const ContactSection = () => (
-  <div className={isRTL ? "space-y-4 text-right" : "space-y-4 text-left"}>
+  <div className={isRTL ? " text-right" : " text-left"}>
     <h3 className={["text-2xl md:text-3xl font-bold mb-6", isRTL ? "text-right" : "text-left"].join(" ")}>
       {t("footer.contactInfo")}
     </h3>
 
-    <div className="space-y-4">
+    <div className="">
       <ContactRow icon={<MapPin className="w-5 h-5" />} label={t("footer.location")} isRTL={isRTL} />
       {/* <ContactRow icon={<Phone className="w-5 h-5" />} label={t("header.phone")} isRTL={isRTL} /> */}
       <ContactRow icon={<Mail className="w-5 h-5" />} label={t("header.email")} isRTL={isRTL} />
@@ -77,11 +77,11 @@ const ContactSection = () => (
   const SubscribeSection = () => (
     <div
       className={cn(
-        "flex flex-col items-center space-y-4",
-        isRTL ? "md:items-start" : "md:items-end"
+        "flex flex-col ",
+       
       )}
     >
-      <div className={cn(isRTL ? "text-left" : "text-right", "space-y-3")}>
+      <div className={cn(isRTL ? "text-right" : "text-left", "space-y-3")}>
         <h4 className="text-xl md:text-2xl font-bold">{t("footer.subscribe")}</h4>
         <p className="text-sm opacity-90 max-w-xs">{t("footer.subscribeDesc")}</p>
       </div>
@@ -128,7 +128,7 @@ const ContactSection = () => (
 
   return (
     <footer className="bg-primary text-primary-foreground" dir={isRTL ? "rtl" : "ltr"}>
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-4 mb-5 md:py-12">
         {/* Grid naturally lays out from the inline-start side:
             - RTL (ar): first col appears on the right: Logo | Contact | Newsletter
             - LTR (en): first col appears on the left:  Logo | Contact | Newsletter */}

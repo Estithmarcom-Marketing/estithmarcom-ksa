@@ -58,7 +58,7 @@ const FreeZonesSection = () => {
         },
         [
             Autoplay({
-                delay: 1500,
+                delay: 2500,
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
             }),
@@ -99,7 +99,7 @@ const FreeZonesSection = () => {
                                         key={country.id}
                                         type="button"
                                         onClick={() => setActiveId(country.id)}
-                                        className={`group relative overflow-hidden mx-2 rounded-2xl border transition-all duration-200 flex-shrink-0 w-40 xs:w-44 bg-white/80 backdrop-blur-sm ${isActive
+                                        className={`group relative overflow-hidden mx-2 rounded-2xl border transition-all duration-200 flex-shrink-0 w-48 xs:w-44 bg-white/80 backdrop-blur-sm ${isActive
                                             ? "border-primary ring-2 ring-primary/70 shadow-lg shadow-primary/20"
                                             : "border-slate-200/70 hover:border-primary/50 hover:shadow-md hover:shadow-primary/10"
                                             }`}
@@ -110,18 +110,18 @@ const FreeZonesSection = () => {
 
                                             {/* Centered white circle with flag */}
                                             <div className="absolute inset-0 flex items-center justify-center z-10">
-                                                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                                                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
                                                     <img
                                                         src={country.image}
                                                         alt={t(`freeZones.countries.${country.id}.name`)}
-                                                        className="w-9 h-9 object-contain rounded-full"
+                                                        className="w-12 h-12 object-contain rounded-full"
                                                     />
                                                 </div>
                                             </div>
 
                                             {/* Country name at bottom */}
                                             <div className="absolute bottom-2 right-2 left-2 flex justify-center gap-2 z-20 text-center">
-                                                <span className="text-[11px] text-white/90 font-medium px-2 py-1">
+                                                <span className="text-[13px] text-white/90 font-medium px-2 py-1">
                                                     {t(`freeZones.countries.${country.id}.name`)}
                                                 </span>
                                             </div>
@@ -133,7 +133,7 @@ const FreeZonesSection = () => {
                     </div>
 
                     {/* كروت الدول - ديسكتوب: grid زي ما هي */}
-                    <div className="hidden md:grid grid-cols-3 gap-6">
+                    <div className="hidden md:grid grid-cols-2 gap-6">
                         {FREE_ZONES.map((country) => {
                             const isActive = activeId === country.id;
                             return (
@@ -141,7 +141,7 @@ const FreeZonesSection = () => {
                                     key={country.id}
                                     type="button"
                                     onClick={() => setActiveId(country.id)}
-                                    className={`group relative overflow-hidden rounded-2xl  border transition-all duration-200 flex flex-col bg-white/80 backdrop-blur-sm ${isActive
+                                    className={`group relative overflow-hidden rounded-2xl w-56 border transition-all duration-200 flex flex-col bg-white/80 backdrop-blur-sm ${isActive
                                         ? "border-primary ring-2 ring-primary/70 shadow-lg shadow-primary/20"
                                         : "border-slate-200/70 hover:border-primary/50 hover:shadow-md hover:shadow-primary/10"
                                         }`}
@@ -157,17 +157,17 @@ const FreeZonesSection = () => {
 
                                         {/* Centered white circle with flag */}
                                         <div className="absolute inset-0 flex items-center justify-center z-10">
-                                            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center">
+                                            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
                                                 <img
                                                     src={country.image}
-                                                    className="w-10 h-10 object-contain rounded-full"
+                                                    className="w-14 h-14 object-contain rounded-full"
                                                 />
                                             </div>
                                         </div>
 
                                         {/* Country name pill at bottom */}
                                         <div className="absolute bottom-2 right-2 left-2 flex justify-center gap-2 z-20 text-center">
-                                            <span className="text-[11px] md:text-xs text-white/90 font-medium  px-2 py-1  ">
+                                            <span className="text-[11px] md:text-sm text-white/90 font-medium  px-2 py-1  ">
                                                 {t(`freeZones.countries.${country.id}.name`)}
                                             </span>
                                         </div>

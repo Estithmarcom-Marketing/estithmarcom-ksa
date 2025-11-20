@@ -32,10 +32,10 @@ const StatsSection = () => {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="bg-white rounded-lg p-6 md:p-8 text-center shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg p-6 md:p-8 shadow-lg text-center hover:shadow-xl transition-shadow"
             >
               <stat.icon className={`w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 ${stat.color}`} />
-              <h3 className="text-base md:text-lg text-shadow-lg font-bold text-foreground mb-2">
+              <h3 className="text-base md:text-lg  font-bold  mb-2">
                 {t(stat.labelKey)}
               </h3>
               <p className={`text-3xl md:text-4xl  font-bold ${stat.color}`}>

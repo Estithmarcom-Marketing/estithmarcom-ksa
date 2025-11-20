@@ -59,13 +59,13 @@ const PartnersSection = () => {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="flex-[0_0_200px] md:flex-[0_0_280px] lg:flex-[0_0_220px]"
+                className="flex-[0_0_140px] md:flex-[0_0_280px] lg:flex-[0_0_160px]"
               >
                 <div className="bg-white  transition-transform  duration-300">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className=" object-contain h-32 mx-auto p-4"
+                    className=" object-contain h-24 md:h-28 mx-1"
                   />
                 </div>
               </div>

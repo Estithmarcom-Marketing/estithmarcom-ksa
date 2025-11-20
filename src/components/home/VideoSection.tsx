@@ -118,40 +118,54 @@ const VideoSection = () => {
       {/* section for both right and left  */}
       <div className="container flex flex-col-reverse md:flex-row md:flex-wrap px-4 justify-between">
         {/* start of thumbnail section */}
-        <div className="my-5">
+        <div className="">
           <div className=" hidden  md:block ">
             <VideoHeading />
           </div>
+          {/* label above thumbnails */}
+          <div className="mt-3 text-center md:text-right">
+            <span className="text-accent font-semibold">
+              أحدث الفيديوهات
+            </span>
+          </div>
           <div
             ref={emblaRef}
-            className="w-[350px] md:w-[592px] my-5 overflow-hidden"
+            className="w-[350px] md:w-[592px] my-5 overflow-hidden mx-auto"
           >
-            <div className="flex gap-2">
+            <div className="flex gap-1">
               {thumbnails.map((img, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  className={`w-48 h-48 flex-shrink-0 relative cursor-pointer my-1 rounded-xl ${index === currentVideoIndex ? "ring-2 ring-white/80" : ""
-                    }`}
-                  onClick={() => {
-                    setCurrentVideoIndex(index);
-                    setIsPlaying(true);
-                    videoRef.current?.play();
-                    emblaApi?.scrollTo(index); // خليه يسنّب على نفس الثمبنيل
-                  }}
-                >
-                  <img
-                    src={img}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                      <Play className="w-6 h-6   ml-0.5" fill="currentColor" />
+                <div key={index} className="flex flex-col items-start">
+                  <button
+                    type="button"
+                    className={`mx-2 w-32 h-32 flex-shrink-0 relative cursor-pointer rounded-xl my-1 ${index === currentVideoIndex ? "ring-2 ring-white/80" : ""
+                      }`}
+                    onClick={() => {
+                      setCurrentVideoIndex(index);
+                      setIsPlaying(true);
+                      videoRef.current?.play();
+                      emblaApi?.scrollTo(index);
+                    }}
+                  >
+                    <img
+                      src={img}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                        <Play className="w-6 h-6 ml-0.5" fill="currentColor" />
+                      </div>
                     </div>
-                  </div>
-                </button>
+                  </button>
+
+                  {/* text under the thumbnail */}
+                  <span className="text-white mt-2 text-sm font-bold text-center">
+                    انضم إلى حاضنة الأعمال إستثماركوم
+                  </span>
+                </div>
               ))}
             </div>
+
           </div>
 
 
@@ -162,7 +176,7 @@ const VideoSection = () => {
           <div className="md:hidden  mb-6 text-center">
             <VideoHeading />
           </div>
-          <div className="relative  aspect-square bg-primary/50 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
+          <div className="relative w-[330px] h-[360px]  md:w-[500px] md:h-[600px] bg-primary/50 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
             <video
               ref={videoRef}
               key={currentVideoIndex}
