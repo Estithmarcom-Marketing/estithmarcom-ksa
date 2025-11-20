@@ -29,16 +29,16 @@ const ServiceDetailCard = ({ image, titleKey, descriptionKey, bullets, serviceId
         className="relative bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-6 md:p-8 -mt-[10%] mx-4"
         style={{ clipPath: dir === 'rtl' ?  'polygon(0 0, 100% 0, 100% 100%, 0% 80%)': 'polygon(0 0, 100% 0, 100% 80%, 0% 100%)'}}
       >
-        <h3 className={`text-xl md:text-2xl font-cairo font-bold text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+        <h3 className={`text-xl md:text-2xl   font-bold text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
           {t(titleKey)}
         </h3>
         
-        <p className={`text-sm md:text-base font-cairo leading-relaxed text-white/90 ${isRTL ? 'text-right' : 'text-left'}`}>
+        <p className={`text-sm md:text-base   leading-relaxed text-white/90 ${isRTL ? 'text-right' : 'text-left'}`}>
            {t(descriptionKey)}
         </p>
 
         <Link to={`/services/${serviceId}`}>
-          <button className="mt-6 bg-transparent hover:bg-accent border-2 border-accent text-white px-8 py-3 rounded-full font-cairo font-bold transition-all hover:scale-105">
+          <button className="mt-6 bg-transparent hover:bg-accent border-2 border-accent text-white px-8 py-3 rounded-full   font-bold transition-all hover:scale-105">
             {isRTL ? 'المزيد' : 'More'}
           </button>
         </Link>

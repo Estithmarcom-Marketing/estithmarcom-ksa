@@ -76,7 +76,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen font-cairo" dir={dir}>
+    <div className="min-h-screen  " dir={dir}>
       <Header />
       
       {/* Hero Section */}
@@ -89,10 +89,10 @@ const Contact = () => {
         </div>
         
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-cairo font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl   font-bold mb-4">
             {t('contactPage.hero.title')}
           </h1>
-          <p className="text-lg md:text-xl font-cairo opacity-95">
+          <p className="text-lg md:text-xl   opacity-95">
             {t('contactPage.hero.subtitle')}
           </p>
         </div>
@@ -102,10 +102,10 @@ const Contact = () => {
       {/* <section className="py-12 md:py-16 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl   font-bold   mb-4">
               {t('contactPage.services.title')}
             </h2>
-            <p className="text-base md:text-lg font-cairo text-foreground/80 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg   text-foreground/80 max-w-3xl mx-auto">
               {t('contactPage.services.description')}
             </p>
           </div>
@@ -121,10 +121,10 @@ const Contact = () => {
       {/* CTA Section */}
       {/* <section className="py-12 md:py-16 bg-gradient-to-r from-primary to-purple-light">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-cairo font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-3xl   font-bold text-white mb-6">
             {t('contactPage.cta.title')}
           </h2>
-          <button className="bg-accent hover:bg-accent/90 text-primary font-cairo font-bold px-8 py-3 rounded-full text-lg transition-all hover:scale-105">
+          <button className="bg-accent hover:bg-accent/90     font-bold px-8 py-3 rounded-full text-lg transition-all hover:scale-105">
             {t('contactPage.cta.button')}
           </button>
         </div>
@@ -133,10 +133,10 @@ const Contact = () => {
       {/* Services Grid with Images */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary text-center mb-4">
+          <h2 className="text-3xl md:text-4xl   font-bold   text-center mb-4">
             {t('contactPage.servicesGrid.title')}
           </h2>
-          <p className="text-base md:text-lg font-cairo text-foreground/80 text-center max-w-3xl mx-auto mb-8 md:mb-12">
+          <p className="text-base md:text-lg   text-foreground/80 text-center max-w-3xl mx-auto mb-8 md:mb-12">
             {t('contactPage.servicesGrid.description')}
           </p>
 
@@ -149,7 +149,7 @@ const Contact = () => {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-primary/20 flex items-end p-4">
-                  <p className="font-cairo font-bold text-white text-sm">{item.label}</p>
+                  <p className="  font-bold text-white text-sm">{item.label}</p>
                 </div>
               </div>
             ))}
@@ -160,7 +160,7 @@ const Contact = () => {
       {/* Contact Form Section */}
       <section className="py-12 md:py-16 bg-gradient-to-br from-purple-900 to-primary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-cairo font-bold text-white text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl   font-bold text-white text-center mb-8 md:mb-12">
             {t('contactPage.contactForm.title')}
           </h2>
           
@@ -173,7 +173,7 @@ const Contact = () => {
       {/* Roles Section */}
       {/* <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl   font-bold   text-center mb-8 md:mb-12">
             {t('contactPage.roles.title')}
           </h2>
 
@@ -184,9 +184,9 @@ const Contact = () => {
                 className="flex gap-4 items-start bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex-shrink-0 w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-cairo font-bold text-primary">{role.number}</span>
+                  <span className="text-2xl   font-bold  ">{role.number}</span>
                 </div>
-                <p className={`text-foreground font-cairo leading-relaxed pt-2 text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
+                <p className={`text-foreground   leading-relaxed pt-2 text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
                   {t(role.key)}
                 </p>
               </div>

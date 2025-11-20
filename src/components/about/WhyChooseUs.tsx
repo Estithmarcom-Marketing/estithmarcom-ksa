@@ -68,7 +68,7 @@ const WhyChooseUs = () => {
     <section className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className={` mb-8 md:mb-12 ${isRTL ? 'text-right' : 'text-left'}  mx-auto`}>
-          <h2 className="text-3xl md:text-4xl  font-bold text-primary mb-4 text-center">
+          <h2 className="text-3xl md:text-4xl  font-bold   mb-4 text-center">
             {t('aboutPage.why.title')}
           </h2>
           <p className="text-base md:text-lg  text-foreground/80 leading-relaxed ">
@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
               <div className={`w-16 h-16 ${feature.bgColor} rounded-full flex items-center justify-center mb-4`}>
                 <feature.icon className={`w-8 h-8 ${feature.color}`} />
               </div>
-              <h3 className={`text-lg  font-bold text-primary mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <h3 className={`text-lg  font-bold   mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
                 {t(feature.titleKey)}
               </h3>
               <p className={`text-sm  text-foreground/70 leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>

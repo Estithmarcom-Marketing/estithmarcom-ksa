@@ -19,17 +19,17 @@ const FAQSection = () => {
   return (
     <section className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary text-center mb-8 md:mb-12">
+        <h2 className="text-3xl md:text-4xl   font-bold   text-center mb-8 md:mb-12">
           {t('faq.title')}
         </h2>
         
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border-b border-border">
-              <AccordionTrigger className={`${isRTL ? 'text-right' : 'text-left'} font-cairo font-semibold text-base md:text-lg hover:text-accent`}>
+              <AccordionTrigger className={`${isRTL ? 'text-right' : 'text-left'}   font-semibold text-base md:text-lg hover:text-accent`}>
                 {t(faq.questionKey)}
               </AccordionTrigger>
-              <AccordionContent className={`${isRTL ? 'text-right' : 'text-left'} font-cairo text-foreground/80 leading-relaxed text-sm md:text-base`}>
+              <AccordionContent className={`${isRTL ? 'text-right' : 'text-left'}   text-foreground/80 leading-relaxed text-sm md:text-base`}>
                 {t(faq.answerKey)}
               </AccordionContent>
             </AccordionItem>

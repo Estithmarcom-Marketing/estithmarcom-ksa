@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       {/* Top Bar */}
-      <div className="hidden lg:block bg-primary text-primary-foreground border-b border-primary-foreground/20">
+      <div className="hidden lg:block bg-primary  -foreground border-b border-primary-foreground/20">
         <div className="container mx-auto px-4 py-2">
           <div className="flex justify-between items-center text-sm flex-wrap gap-2">
             <div className="flex items-center gap-4 md:gap-6">
@@ -118,7 +118,7 @@ const Header = () => {
 
           {/* Mobile Menu Button (Right) */}
           <button
-            className="lg:hidden text-primary-foreground p-2"
+            className="lg:hidden  -foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -136,7 +136,7 @@ const Header = () => {
             />
 
             {/* Side Menu */}
-            <div className={`fixed top-0 ${language === 'ar' ? 'left-0' : 'right-0'} h-full w-80 max-w-[85vw] bg-primary text-primary-foreground z-50 shadow-xl lg:hidden transform transition-transform duration-300 ease-in-out`}>
+            <div className={`fixed top-0 ${language === 'ar' ? 'left-0' : 'right-0'} h-full w-80 max-w-[85vw] bg-primary  -foreground z-50 shadow-xl lg:hidden transform transition-transform duration-300 ease-in-out`}>
               {/* Header with Close Button */}
               <div className="bg-primary flex justify-between items-center p-4 border-b border-primary-foreground/20">
                 <img

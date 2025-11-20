@@ -97,17 +97,17 @@ ${t('contactPage.form.message')}: ${values.message}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className={`font-cairo ${isRTL ? 'text-right' : 'text-left'} block`}>
+                  <FormLabel className={`  ${isRTL ? 'text-right' : 'text-left'} block`}>
                     {t('contactPage.form.name')}
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder={t('contactPage.form.namePlaceholder')}
-                      className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`}
+                      className={`  ${isRTL ? 'text-right' : 'text-left'}`}
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`} />
+                  <FormMessage className={`  ${isRTL ? 'text-right' : 'text-left'}`} />
                 </FormItem>
               )}
             />
@@ -117,18 +117,18 @@ ${t('contactPage.form.message')}: ${values.message}
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className={`font-cairo ${isRTL ? 'text-right' : 'text-left'} block`}>
+                  <FormLabel className={`  ${isRTL ? 'text-right' : 'text-left'} block`}>
                     {t('contactPage.form.email')}
                   </FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder={t('contactPage.form.emailPlaceholder')}
-                      className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`}
+                      className={`  ${isRTL ? 'text-right' : 'text-left'}`}
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`} />
+                  <FormMessage className={`  ${isRTL ? 'text-right' : 'text-left'}`} />
                 </FormItem>
               )}
             />
@@ -140,18 +140,18 @@ ${t('contactPage.form.message')}: ${values.message}
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className={`font-cairo ${isRTL ? 'text-right' : 'text-left'} block`}>
+                  <FormLabel className={`  ${isRTL ? 'text-right' : 'text-left'} block`}>
                     {t('contactPage.form.phone')}
                   </FormLabel>
                   <FormControl>
                     <Input
                       type="tel"
                       placeholder={t('contactPage.form.phonePlaceholder')}
-                      className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`}
+                      className={`  ${isRTL ? 'text-right' : 'text-left'}`}
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`} />
+                  <FormMessage className={`  ${isRTL ? 'text-right' : 'text-left'}`} />
                 </FormItem>
               )}
             />
@@ -161,24 +161,24 @@ ${t('contactPage.form.message')}: ${values.message}
               name="service"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className={`font-cairo ${isRTL ? 'text-right' : 'text-left'} block`}>
+                  <FormLabel className={`  ${isRTL ? 'text-right' : 'text-left'} block`}>
                     {t('contactPage.form.service')}
                   </FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`}>
+                      <SelectTrigger className={`  ${isRTL ? 'text-right' : 'text-left'}`}>
                         <SelectValue placeholder={t('contactPage.form.selectService')} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       {services.map((service) => (
-                        <SelectItem key={service.value} value={service.value} className="font-cairo">
+                        <SelectItem key={service.value} value={service.value} className=" ">
                           {service.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
-                  <FormMessage className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`} />
+                  <FormMessage className={`  ${isRTL ? 'text-right' : 'text-left'}`} />
                 </FormItem>
               )}
             />
@@ -189,24 +189,24 @@ ${t('contactPage.form.message')}: ${values.message}
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className={`font-cairo ${isRTL ? 'text-right' : 'text-left'} block`}>
+                <FormLabel className={`  ${isRTL ? 'text-right' : 'text-left'} block`}>
                   {t('contactPage.form.message')}
                 </FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder={t('contactPage.form.messagePlaceholder')}
-                    className={`font-cairo ${isRTL ? 'text-right' : 'text-left'} min-h-[150px]`}
+                    className={`  ${isRTL ? 'text-right' : 'text-left'} min-h-[150px]`}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className={`font-cairo ${isRTL ? 'text-right' : 'text-left'}`} />
+                <FormMessage className={`  ${isRTL ? 'text-right' : 'text-left'}`} />
               </FormItem>
             )}
           />
 
           <Button
             type="submit"
-            className="w-full bg-accent hover:bg-accent/90 text-primary font-cairo font-bold text-lg py-6"
+            className="w-full bg-accent hover:bg-accent/90     font-bold text-lg py-6"
           >
             {t('contactPage.form.send')}
           </Button>

@@ -193,7 +193,7 @@ const ServiceDetail = () => {
             {/* Right Form */}
             <div className={`order-2 md:order-1 p-6 md:p-8 ${isRTL ? 'text-right' : 'text-left'}`}>
               <div className={`bg-accent   px-8 py-4 inline-block mb-8 ${isRTL ? "-mr-8 rounded-bl-3xl"  : "-ml-8 rounded-br-3xl" } `}>
-                <h3 className="text-primary  font-bold text-2xl md:text-3xl">
+                <h3 className="   font-bold text-2xl md:text-3xl">
                   {t('serviceDetail.requestService')}
                 </h3>
               </div>

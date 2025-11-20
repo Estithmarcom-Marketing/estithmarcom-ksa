@@ -17,13 +17,13 @@ const ContactServiceCard = ({ icon: Icon, titleKey, descriptionKey, color }: Con
       <div className={`w-16 h-16 ${color} rounded-full flex items-center justify-center mx-auto mb-4`}>
         <Icon className="w-8 h-8 text-white" />
       </div>
-      <h3 className={`text-lg font-cairo font-bold text-primary mb-3 text-center`}>
+      <h3 className={`text-lg   font-bold   mb-3 text-center`}>
         {t(titleKey)}
       </h3>
-      <p className={`text-sm font-cairo text-foreground/70 leading-relaxed text-center mb-4`}>
+      <p className={`text-sm   text-foreground/70 leading-relaxed text-center mb-4`}>
         {t(descriptionKey)}
       </p>
-      <button className="w-full text-accent hover:text-accent/80 font-cairo font-semibold text-sm underline">
+      <button className="w-full text-accent hover:text-accent/80   font-semibold text-sm underline">
         {language === 'ar' ? 'اطلب الخدمة الآن' : 'Request Service Now'}
       </button>
     </div>

@@ -41,10 +41,10 @@ const TestimonialsSection = () => {
     <section className="py-12 md:py-16 bg-secondary/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl   font-bold   mb-4">
             {t('aboutPage.testimonials.title')}
           </h2>
-          <p className="text-base md:text-lg font-cairo text-foreground/80 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg   text-foreground/80 max-w-2xl mx-auto">
             {t('aboutPage.testimonials.subtitle')}
           </p>
         </div>
@@ -64,16 +64,16 @@ const TestimonialsSection = () => {
                     <span key={i} className="text-accent text-xl">★</span>
                   ))}
                 </div>
-                <p className={`font-cairo text-foreground/80 mb-6 leading-relaxed text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
+                <p className={`  text-foreground/80 mb-6 leading-relaxed text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
                   {t(testimonial.textKey)}
                 </p>
                 <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-cairo font-bold">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white   font-bold">
                     {t(testimonial.nameKey).charAt(0)}
                   </div>
                   <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-                    <p className="font-cairo font-bold text-primary">{t(testimonial.nameKey)}</p>
-                    <p className="font-cairo text-sm text-foreground/60">{t(testimonial.roleKey)}</p>
+                    <p className="  font-bold  ">{t(testimonial.nameKey)}</p>
+                    <p className="  text-sm text-foreground/60">{t(testimonial.roleKey)}</p>
                   </div>
                 </div>
               </div>

@@ -51,9 +51,9 @@ const TabSection = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-cairo font-semibold transition-all text-sm md:text-base ${
+                  className={`px-4 md:px-6 py-2 md:py-3 rounded-lg   font-semibold transition-all text-sm md:text-base ${
                     activeTab === tab.id
-                      ? 'bg-accent text-primary'
+                      ? 'bg-accent  '
                       : 'bg-white text-foreground hover:bg-accent/10'
                   }`}
                 >
@@ -64,10 +64,10 @@ const TabSection = () => {
 
             {/* Tab Content */}
             <div className="bg-white rounded-lg p-6 md:p-8 shadow-lg">
-              <h3 className={`text-2xl md:text-3xl font-cairo font-bold text-primary mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <h3 className={`text-2xl md:text-3xl   font-bold   mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
                 {t(content[activeTab].titleKey)}
               </h3>
-              <p className={`text-base md:text-lg font-cairo text-foreground/80 leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className={`text-base md:text-lg   text-foreground/80 leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
                 {t(content[activeTab].descriptionKey)}
               </p>
             </div>

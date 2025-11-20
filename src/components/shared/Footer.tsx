@@ -95,7 +95,7 @@ const ContactSection = () => (
       >
         {isRTL ? (
           <>
-            <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold whitespace-nowrap px-6">
+            <Button className="bg-accent hover:bg-accent/90   font-semibold whitespace-nowrap px-6">
               {t("footer.subscribeBtn")}
             </Button>
             <Input
@@ -117,7 +117,7 @@ const ContactSection = () => (
                 "text-left"
               )}
             />
-            <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold whitespace-nowrap px-6">
+            <Button className="bg-accent hover:bg-accent/90   font-semibold whitespace-nowrap px-6">
               {t("footer.subscribeBtn")}
             </Button>
           </>
@@ -127,7 +127,7 @@ const ContactSection = () => (
   );
 
   return (
-    <footer className="bg-primary text-primary-foreground" dir={isRTL ? "rtl" : "ltr"}>
+    <footer className="bg-primary  -foreground" dir={isRTL ? "rtl" : "ltr"}>
       <div className="container mx-auto px-4 py-12 md:py-16">
         {/* Grid naturally lays out from the inline-start side:
             - RTL (ar): first col appears on the right: Logo | Contact | Newsletter
@@ -139,7 +139,7 @@ const ContactSection = () => (
         </div>
       </div>
 
-      <div className="bg-[#F5EFE7] text-primary py-4">
+      <div className="bg-[#F5EFE7]   py-4">
         <div className="container mx-auto px-4">
           <p className="text-center text-sm">{t("footer.rights")}</p>
         </div>

@@ -146,7 +146,7 @@ const VideoSection = () => {
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                      <Play className="w-6 h-6 text-primary ml-0.5" fill="currentColor" />
+                      <Play className="w-6 h-6   ml-0.5" fill="currentColor" />
                     </div>
                   </div>
                 </button>

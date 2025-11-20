@@ -11,7 +11,7 @@ const About = () => {
   const { t, dir } = useLanguage();
 
   return (
-    <div className="min-h-screen font-cairo" dir={dir}>
+    <div className="min-h-screen  " dir={dir}>
       <Header />
       
       {/* Hero Section */}
@@ -24,10 +24,10 @@ const About = () => {
         </div>
         
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-cairo font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl   font-bold mb-4">
             {t('aboutPage.hero.title')}
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl font-cairo opacity-95">
+          <p className="text-lg md:text-xl lg:text-2xl   opacity-95">
             {t('aboutPage.hero.subtitle')}
           </p>
         </div>

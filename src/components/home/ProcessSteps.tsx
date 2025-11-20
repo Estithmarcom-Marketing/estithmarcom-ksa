@@ -15,7 +15,7 @@ const ProcessSteps = () => {
   return (
     <section className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary text-center mb-8 md:mb-12">
+        <h2 className="text-3xl md:text-4xl   font-bold   text-center mb-8 md:mb-12">
           {t('process.title')}
         </h2>
         
@@ -26,9 +26,9 @@ const ProcessSteps = () => {
               className="flex gap-3 md:gap-4 items-start bg-secondary/30 p-4 md:p-6 rounded-lg hover:shadow-lg transition-shadow"
             >
               <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full flex items-center justify-center">
-                <span className="text-xl md:text-2xl font-cairo font-bold text-primary">{step.number}</span>
+                <span className="text-xl md:text-2xl   font-bold  ">{step.number}</span>
               </div>
-              <p className="text-foreground font-cairo leading-relaxed pt-1 md:pt-2 text-sm md:text-base">
+              <p className="text-foreground   leading-relaxed pt-1 md:pt-2 text-sm md:text-base">
                 {t(step.key)}
               </p>
             </div>
