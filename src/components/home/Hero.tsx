@@ -13,6 +13,13 @@ import imgUK from "@/assets/home slider/UK.jpeg";
 import imgUS from "@/assets/home slider/usa.jpeg";
 import imgSA1 from "@/assets/home slider/KSA1.jpg";
 import imgSA2 from "@/assets/home slider/KSA2.jpg";
+import flagSaudi from "@/assets/flags/saudi.png";
+import flagUAE from "@/assets/flags/uae.webp";
+import flagEgypt from "@/assets/flags/egypt.avif";
+import flagJordan from "@/assets/flags/jordan.webp";
+import flagOman from "@/assets/flags/oman.webp";
+import flagUK from "@/assets/flags/uk.png";
+import flagUSA from "@/assets/flags/USA.png";
 
 const AUTOPLAY_MS = 5000;
 
@@ -22,14 +29,14 @@ const HeroSlider = () => {
 
   const slides = useMemo(
     () => [
-      { id: "sa", img: imgSA },
-      { id: "ae", img: imgAE },
-      { id: "eg", img: imgEG },
-      { id: "jo", img: imgJO },
-      { id: "om1", img: imgOM1 },
-      { id: "om", img: imgOM },
-      { id: "uk", img: imgUK },
-      { id: "us", img: imgUS },
+      { id: "sa", img: imgSA , flag: flagSaudi },
+      { id: "ae", img: imgAE , flag: flagUAE },
+      { id: "eg", img: imgEG , flag: flagEgypt },
+      { id: "jo", img: imgJO , flag: flagJordan },
+      { id: "om1", img: imgOM1 , flag: flagOman },
+      { id: "om", img: imgOM , flag: flagOman },
+      { id: "uk", img: imgUK , flag: flagUK },
+      { id: "us", img: imgUS , flag: flagUSA },
       // { id: "sa1", img: imgSA1 },
       // { id: "sa2", img: imgSA2 },
     ],
@@ -95,7 +102,7 @@ const HeroSlider = () => {
 
   return (
     <section
-      className="relative h-[400px] md:h-[600px] overflow-hidden"
+      className="relative h-[600px]  overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -134,12 +141,14 @@ const HeroSlider = () => {
       </div>
 
       {/* Content (same text on all slides) */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-start justify-center text-white text-start text-shadow-lg ">
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-start justify-start mt-5 md:mt-1 md:justify-center text-white text-start text-shadow-lg ">
+        <div>
+          <img src="/logo-light.png" alt="Logo" className="h-12 md:h-16 mb-4 md:mb-6" />
+        </div>
         <h2 className=" md:text-5xl lg:text-6xl  font-bold mb-4 md:mb-6 leading-tight text-accent">
           <span className="text-3xl">
             {t("hero.title")}
           </span>
-          
           <br />
           <span className=" text-accent">{t("hero.subtitle")}</span>
         </h2>
