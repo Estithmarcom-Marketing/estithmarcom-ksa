@@ -29,14 +29,14 @@ const HeroSlider = () => {
 
   const slides = useMemo(
     () => [
-      { id: "sa", img: imgSA , flag: flagSaudi },
-      { id: "ae", img: imgAE , flag: flagUAE },
-      { id: "eg", img: imgEG , flag: flagEgypt },
-      { id: "jo", img: imgJO , flag: flagJordan },
-      { id: "om1", img: imgOM1 , flag: flagOman },
-      { id: "om", img: imgOM , flag: flagOman },
-      { id: "uk", img: imgUK , flag: flagUK },
-      { id: "us", img: imgUS , flag: flagUSA },
+      { id: "sa", img: imgSA, flag: flagSaudi },
+      { id: "ae", img: imgAE, flag: flagUAE },
+      { id: "eg", img: imgEG, flag: flagEgypt },
+      { id: "jo", img: imgJO, flag: flagJordan },
+      { id: "om1", img: imgOM1, flag: flagOman },
+      { id: "om", img: imgOM, flag: flagOman },
+      { id: "uk", img: imgUK, flag: flagUK },
+      { id: "us", img: imgUS, flag: flagUSA },
       // { id: "sa1", img: imgSA1 },
       // { id: "sa2", img: imgSA2 },
     ],
@@ -135,29 +135,29 @@ const HeroSlider = () => {
               />
               {/* overlay */}
               {/* <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/70" /> */}
+
+              {/* Content (same text on all slides) */}
+              <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-start justify-start mt-5 md:mt-1 md:justify-center text-white text-start text-shadow-lg ">
+                <div>
+                  <img src={s.flag} alt="Flag" className="h-8 md:h-12 rounded mb-2 " />
+                </div>
+                <h2 className=" md:text-5xl lg:text-6xl  font-bold mb-4 md:mb-6 leading-tight text-accent">
+                  <span className="text-3xl">
+                    {t("hero.title")}
+                  </span>
+                  <br />
+                  <span className=" text-accent">{t("hero.subtitle")}</span>
+                </h2>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold mb-2 md:mb-4 ">
+                  {t("hero.description1")}
+                </p>
+                <p className="text-base md:text-lg font-bold ">
+                  {t("hero.description2")}
+                </p>
+              </div>
             </div>
           );
         })}
-      </div>
-
-      {/* Content (same text on all slides) */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-start justify-start mt-5 md:mt-1 md:justify-center text-white text-start text-shadow-lg ">
-        <div>
-          <img src="/logo-light.png" alt="Logo" className="h-12 md:h-16 mb-4 md:mb-6" />
-        </div>
-        <h2 className=" md:text-5xl lg:text-6xl  font-bold mb-4 md:mb-6 leading-tight text-accent">
-          <span className="text-3xl">
-            {t("hero.title")}
-          </span>
-          <br />
-          <span className=" text-accent">{t("hero.subtitle")}</span>
-        </h2>
-        <p className="text-lg md:text-xl lg:text-2xl font-bold mb-2 md:mb-4 ">
-          {t("hero.description1")}
-        </p>
-        <p className="text-base md:text-lg font-bold ">
-          {t("hero.description2")}
-        </p>
       </div>
 
       {/* Controls */}
