@@ -17,6 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 281 39% 26%;
 
+    /* Primary color - ensure Chrome compatibility */
     --primary: 281 39% 26%;
     --primary-foreground: 0 0% 100%;
 
