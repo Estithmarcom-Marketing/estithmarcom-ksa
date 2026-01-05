@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
-// @ts-ignore: no type declarations for this module
-import textshadow from "tailwindcss-textshadow";
 import tailwindAnimate from "tailwindcss-animate";
+import plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: ["class"],
@@ -97,5 +96,17 @@ export default {
       },
     },
   },
-  plugins: [tailwindAnimate , textshadow],
+  plugins: [
+    tailwindAnimate,
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme("textShadow") }
+      );
+    }),
+  ],
 } satisfies Config;
