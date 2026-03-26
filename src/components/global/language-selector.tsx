@@ -24,7 +24,7 @@ export function LanguageSelector() {
   const nextPath = segments.join("/");
 
   const handleSwitch = () => {
-    document.cookie = `mithaq_lang=${nextLocale}; path=/; max-age=31536000`;
+    document.cookie = `estismarkom_lang=${nextLocale}; path=/; max-age=31536000`;
     setIsLoading(true);
   };
 

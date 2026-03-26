@@ -30,7 +30,7 @@ export async function fetcher<T>(
     headers: {
       "Content-Type": "application/json",
       "Accept-Language":
-        cookieStore.get("mithaq_lang")?.value === "en" ? "en" : "ar",
+        cookieStore.get("estismarkom_lang")?.value === "en" ? "en" : "ar",
       ...customHeaders,
     },
   });

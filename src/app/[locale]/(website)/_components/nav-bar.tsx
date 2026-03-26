@@ -10,8 +10,7 @@ import WebsiteSidebar from "./side-bar";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Mail } from "@hugeicons/core-free-icons";
+import { Mail } from "lucide-react";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -39,14 +38,17 @@ export default function NavBar() {
 
               <ul className="hidden lg:flex gap-16 text-white">
                 <li>
-                  <Link href="/" className={linkClass("/")}>الرئيسية</Link>
+                  <Link href="/" className={linkClass("/")}>{t("home")}</Link>
                 </li>
                 <li>
-                  <Link href="/about-us" className={linkClass("/about-us")}>عنا</Link>
+                  <Link href="/" className={linkClass("/")}>{t("services")}</Link>
+                </li>
+                <li>
+                  <Link href="/about-us" className={linkClass("/about-us")}>{t("aboutus")}</Link>
                 </li>
 
                 <li>
-                  <Link href="/blog" className={linkClass("/blog")}>المدونة</Link>
+                  <Link href="/blog" className={linkClass("/blog")}>{t("contactus")}</Link>
                 </li>
               </ul>
             </div>
@@ -76,10 +78,6 @@ export default function NavBar() {
               </button>
 
               <div className="hidden lg:flex items-center gap-10 text-white">
-                <Link href="/contact-us" className={`flex items-center gap-2 ${linkClass("/contact-us")}`}>
-                  <HugeiconsIcon icon={Mail} />
-                  <span>تواصل معنا</span>
-                </Link>
                 <LanguageSelector />
               </div>
             </div>

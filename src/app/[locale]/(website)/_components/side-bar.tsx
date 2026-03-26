@@ -8,8 +8,7 @@ import logo from "@/assets/logo2.png";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Mail } from "@hugeicons/core-free-icons";
+import { Mail } from "lucide-react";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -86,7 +85,7 @@ export default function WebsiteSidebar({
             onClick={onClose}
             className={`flex items-center gap-2.5 w-fit ${linkClass("/contact-us")}`}
           >
-            <HugeiconsIcon icon={Mail} />
+            <Mail />
             <span>تواصل معنا</span>
           </Link>
 
