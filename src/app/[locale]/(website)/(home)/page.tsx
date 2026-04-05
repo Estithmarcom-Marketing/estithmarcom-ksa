@@ -1,8 +1,12 @@
-export default async function HomePage() {
+import BannerSwiper from "./_components/banner-swiper";
+import banner_image from "@/assets/hero-banner.jpg";
 
+export default async function HomePage() {
   return (
     <div>
-      home page
+      <section>
+        <BannerSwiper />
+      </section>
     </div>
   );
 }

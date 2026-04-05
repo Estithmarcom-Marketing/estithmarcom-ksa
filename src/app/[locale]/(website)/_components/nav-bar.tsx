@@ -10,7 +10,6 @@ import WebsiteSidebar from "./side-bar";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
-import { Mail } from "lucide-react";
 
 export default function NavBar() {
   const pathname = usePathname();

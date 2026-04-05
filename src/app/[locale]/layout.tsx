@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 import React from "react";
-// import { bukra } from "@/fonts/bukra";
+import { bukra } from "@/fonts/bukra";
 import NextTopLoader from "nextjs-toploader";
 import ClientProviders from "@/components/providers/client-providers";
 
@@ -16,7 +16,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body 
-      // className={bukra.variable}
+      className={bukra.variable}
       suppressHydrationWarning>
         <NextTopLoader color="#c19a6b" showSpinner={false} />
         <ClientProviders>

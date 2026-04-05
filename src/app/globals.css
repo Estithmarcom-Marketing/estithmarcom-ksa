@@ -47,6 +47,10 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+body {
+  font-family: var(--font-bukra), sans-serif;
+}
+
 :root {
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
@@ -127,6 +131,21 @@
   html {
     @apply font-sans;
     }
+}
+
+.swiper-pagination-bullet{
+  background-color: white !important;
+  opacity: 1 !important;
+  width: 25px !important;
+  border-radius: 10px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--secondary) !important;
+}
+
+.swiper-pagination {
+  margin-bottom: 130px;
 }
 
 .container {

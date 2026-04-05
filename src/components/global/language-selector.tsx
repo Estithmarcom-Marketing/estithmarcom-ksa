@@ -1,41 +1,77 @@
-"use client";
+"use client"
 
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import Link from "next/link";
-import Flag_EN from "../flags/flag_en";
-import Flag_AR from "../flags/flag_ar";
+import { useRouter, usePathname } from "next/navigation"
+import { useState } from "react"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { useLocale } from "@/hooks/use-locale"
+import Flag_AR from "../flags/flag_ar"
+import Flag_EN from "../flags/flag_en"
 
 const LANGUAGES = [
-  { code: "en", flag: <Flag_EN size={30} />, text: "EN" },
-  { code: "ar", flag: <Flag_AR size={30} />, text: "AR" },
-];
+  {
+    code: "en",
+    label: "English",
+    title: "EN",
+  },
+  {
+    code: "ar",
+    label: "Arabic",
+    title: "AR",
+  },
+]
 
-export function LanguageSelector() {
-  const pathname = usePathname();
-  const [isLoading, setIsLoading] = useState(false);
+interface LanguageSelectorProbs {
+  width?: "full" | "fit"
+}
 
-  const currentLocale = pathname.split("/")[1] || "ar";
-  const nextLocale = currentLocale === "ar" ? "en" : "ar";
-  const currentLang = LANGUAGES.find((l) => l.code === currentLocale);
+export function LanguageSelector({width}: LanguageSelectorProbs) {
+  const router = useRouter()
+  const locale = useLocale()
+  const pathname = usePathname()
+  const [isLoading, setIsLoading] = useState(false)
 
-  const segments = pathname.split("/");
-  segments[1] = nextLocale;
-  const nextPath = segments.join("/");
+  const currentLocale = pathname.split("/")[1] || "ar"
 
-  const handleSwitch = () => {
-    document.cookie = `estismarkom_lang=${nextLocale}; path=/; max-age=31536000`;
-    setIsLoading(true);
-  };
+  const handleLanguageChange = (locale: string) => {
+    if (locale === currentLocale) return
+
+    setIsLoading(true)
+
+    document.cookie = `alkhimah_lang=${locale}; path=/; max-age=31536000`
+
+    const segments = pathname.split("/")
+    segments[1] = locale
+    const newPathname = segments.join("/")
+
+    router.push(newPathname)
+  }
 
   return (
-    <Link
-      href={nextPath}
-      onClick={handleSwitch}
-      className={`${isLoading ? "opacity-50 pointer-events-none" : ""} flex w-fit gap-2 items-center transition-opacity`}
-    >
-      {currentLang?.flag}
-      <span className="text-[12px]">{currentLang?.text}</span>
-    </Link>
-  );
+    <Select value={currentLocale} onValueChange={handleLanguageChange}>
+      <SelectTrigger
+        className={`focus-visible:ring-0 shadow-none ${width === "full" ? "w-full" : "w-fit border-none"}`}
+        aria-label={locale == "en" ? "Lang select" : "اختيار اللغة"}
+        disabled={isLoading}
+      >
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent position="popper" align="start">
+        {LANGUAGES.map((lang) => (
+          <SelectItem
+            className=""
+            key={lang.code}
+            value={lang.code}
+          >
+            {lang.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
 }
