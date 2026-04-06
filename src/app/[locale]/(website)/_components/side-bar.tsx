@@ -9,6 +9,7 @@ import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
 import { Mail } from "lucide-react";
+import WhatsappSVG from "@/components/flags/whats-app";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -71,24 +72,25 @@ export default function WebsiteSidebar({
               من نحن
             </Link>
           </li>
-
+          <li>
+            <Link onClick={onClose} className={linkClass("/service")} href="/service">
+              الخدمات
+            </Link>
+          </li>
           <li>
             <Link onClick={onClose} className={linkClass("/blog")} href="/blog">
               المدونة
             </Link>
           </li>
+          <li>
+            <Link onClick={onClose} className={linkClass("/contact-us")} href="/contact-us">
+              تواصل معنا
+            </Link>
+          </li>
         </ul>
 
         <div className="mt-auto p-8 border-t border-white/10 text-white flex flex-col gap-6">
-          <Link
-            href="/contact-us"
-            onClick={onClose}
-            className={`flex items-center gap-2.5 w-fit ${linkClass("/contact-us")}`}
-          >
-            <Mail />
-            <span>تواصل معنا</span>
-          </Link>
-
+          <WhatsappSVG />
           <LanguageSelector />
         </div>
       </div>

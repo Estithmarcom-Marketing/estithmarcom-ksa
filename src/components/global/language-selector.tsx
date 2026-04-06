@@ -10,8 +10,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useLocale } from "@/hooks/use-locale"
-import Flag_AR from "../flags/flag_ar"
-import Flag_EN from "../flags/flag_en"
 
 const LANGUAGES = [
   {
@@ -43,7 +41,7 @@ export function LanguageSelector({width}: LanguageSelectorProbs) {
 
     setIsLoading(true)
 
-    document.cookie = `alkhimah_lang=${locale}; path=/; max-age=31536000`
+    document.cookie = `estithmarcom_lang=${locale}; path=/; max-age=31536000`
 
     const segments = pathname.split("/")
     segments[1] = locale
@@ -61,7 +59,7 @@ export function LanguageSelector({width}: LanguageSelectorProbs) {
       >
         <SelectValue />
       </SelectTrigger>
-      <SelectContent position="popper" align={locale === "ar" ? "start" : "end"}>
+      <SelectContent className="z-[1000]" position="popper" align={locale === "ar" ? "start" : "end"}>
         {LANGUAGES.map((lang) => (
           <SelectItem
             className=""

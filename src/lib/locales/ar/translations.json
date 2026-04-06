@@ -4,7 +4,7 @@
   "noImage": "لا توجد صورة",
   "home": "الرئيسية",
   "aboutus": "من نحن",
-  "services": "خدماتنا",
+  "services": "الخدمات",
   "contactus": "تواصل معنا",
   "blog": "المدونة",
   "allServices": "جميع الخدمات",
@@ -19,6 +19,13 @@
   "footer.location": "المملكة العربية السعودية - الرياض",
   "footer.newsletter": "النشرة البريدية",
   "footer.newsletter.email.placeholder": "البريد الإلكتروني",
-  "footer.newsletter.subscribe": "اشترك",
-  "footer.copyright": "جميع الحقوق محفوظة بواسطة حاضنة ومسرعة الاعمال استثماركوم."
+  "footer.newsletter.subscribe": "اشتراك",
+  "footer.copyright": "جميع الحقوق محفوظة لشركة استثمارك للخدمات التجارية.",
+  "banner.slide1.title": "لماذا السعودية ؟",
+  "banner.slide1.body": "رؤية 2030 تفتح أبواباً غير مسبوقة للابتكار، انضم إلى أكبر منظومة اقتصادية في المنطقة",
+  "banner.slide2.title": "لماذا الأردن ؟",
+  "banner.slide2.body": "رؤية 2030 تفتح أبواباً غير مسبوقة للابتكار، انضم إلى أكبر منظومة اقتصادية في المنطقة",
+  "banner.slide3.title": "لماذا مصر ؟",
+  "banner.slide3.body": "رؤية 2030 تفتح أبواباً غير مسبوقة للابتكار، انضم إلى أكبر منظومة اقتصادية في المنطقة",
+  "banner.cta": "ابدأ رحلتك الآن"
 }

@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/hooks/use-locale";
 import { MoveLeft, MoveRight } from "lucide-react";
-// import "swiper/css/effect-fade";
+import { getTranslator } from "@/lib/i18n";
 
 interface BannerSlide {
   title: string;
@@ -18,26 +18,28 @@ interface BannerSlide {
   image: string;
 }
 
-const slides: BannerSlide[] = [
-  {
-    title: "لماذا السعودية ؟",
-    body: "رؤية 2030 تفتح أبواباً غير مسبوقة للابتكار انضم إلى أكبر منظومة اقتصادية في المنطقة",
-    image: banner_image.src,
-  },
-  {
-    title: "لماذا الاردن ؟",
-    body: "رؤية 2030 تفتح أبواباً غير مسبوقة للابتكار انضم إلى أكبر منظومة اقتصادية في المنطقة",
-    image: banner_image.src,
-  },
-  {
-    title: "لماذا مصر ؟",
-    body: "رؤية 2030 تفتح أبواباً غير مسبوقة للابتكار انضم إلى أكبر منظومة اقتصادية في المنطقة",
-    image: banner_image.src,
-  },
-];
-
 export default function BannerSwiper() {
   const locale = useLocale();
+  const { t } = getTranslator(locale);
+
+  const slides: BannerSlide[] = [
+    {
+      title: t("banner.slide1.title"),
+      body: t("banner.slide1.body"),
+      image: banner_image.src,
+    },
+    {
+      title: t("banner.slide2.title"),
+      body: t("banner.slide2.body"),
+      image: banner_image.src,
+    },
+    {
+      title: t("banner.slide3.title"),
+      body: t("banner.slide3.body"),
+      image: banner_image.src,
+    },
+  ];
+
   return (
     <div className="w-full">
       <Swiper
@@ -67,7 +69,7 @@ export default function BannerSwiper() {
                   {slide.body}
                 </p>
                 <Button className="w-fit px-5 gap-5">
-                  <span>ابدأ رحلتك الأن</span>
+                  <span>{t("banner.cta")}</span>
                   <span>{locale === "ar" ? <MoveLeft /> : <MoveRight />}</span>
                 </Button>
               </div>
