@@ -5,11 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import logo from "@/assets/logo2.png";
+import logo from "@/assets/logo.png";
 import WebsiteSidebar from "./side-bar";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
+import WhatsappSVG from "@/components/flags/whats-app";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -19,33 +20,32 @@ export default function NavBar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const strippedPath = "/" + pathname.split("/").slice(2).join("/");
-  const isHome = strippedPath === "/";
 
   const linkClass = (href: string) =>
-    `relative before:absolute before:start-0 before:-bottom-2 before:h-px before:bg-main before:transition-all before:duration-300 ${
-      strippedPath === href ? "before:w-full" : "before:w-0 hover:before:w-full"
-    }`;
+    `text-sm ${ strippedPath === href ? "font-bold" : "" }`;
 
   return (
     <>
       <WebsiteSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <header className="bg-primary">
+      <header className="absolute top-0 left-0 w-full z-30">
         <div className="container">
           <nav className="flex items-center justify-between py-6">
-            <div className="flex items-center gap-12">
+            <div className="flex items-center gap-16">
               <Image src={logo} alt="logo" priority className="w-24 md:w-32" />
 
-              <ul className="hidden lg:flex gap-16 text-white">
+              <ul className={`hidden lg:flex relative before:absolute before:-bottom-4 before:start-1/2 ${locale === "ar" ? "before:translate-x-1/2" : "before:-translate-x-1/2"} before:h-[1px] before:w-[calc(100%-50px)] before:bg-[#6b557f] gap-14 text-white bg-[#6b557f] px-10 py-4 rounded-xl`}>
                 <li>
                   <Link href="/" className={linkClass("/")}>{t("home")}</Link>
                 </li>
                 <li>
-                  <Link href="/" className={linkClass("/")}>{t("services")}</Link>
+                  <Link href="/" className={linkClass("/services")}>{t("services")}</Link>
                 </li>
                 <li>
                   <Link href="/about-us" className={linkClass("/about-us")}>{t("aboutus")}</Link>
                 </li>
-
+                <li>
+                  <Link href="/about-us" className={linkClass("/blog")}>{t("blog")}</Link>
+                </li>
                 <li>
                   <Link href="/blog" className={linkClass("/blog")}>{t("contactus")}</Link>
                 </li>
@@ -76,7 +76,10 @@ export default function NavBar() {
                 </svg>
               </button>
 
-              <div className="hidden lg:flex items-center gap-10 text-white">
+              <div className="hidden lg:flex items-center gap-5 text-white">
+                <a href="tel:+966920003991">
+                  <WhatsappSVG />
+                </a>
                 <LanguageSelector />
               </div>
             </div>

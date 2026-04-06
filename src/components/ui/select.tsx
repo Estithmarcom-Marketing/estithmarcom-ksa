@@ -58,7 +58,6 @@ function SelectContent({
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
-        dir="rtl"
         data-slot="select-content"
         sideOffset={4}
         className={cn(

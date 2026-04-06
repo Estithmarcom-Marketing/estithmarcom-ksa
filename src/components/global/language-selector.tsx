@@ -61,7 +61,7 @@ export function LanguageSelector({width}: LanguageSelectorProbs) {
       >
         <SelectValue />
       </SelectTrigger>
-      <SelectContent position="popper" align="start">
+      <SelectContent position="popper" align={locale === "ar" ? "start" : "end"}>
         {LANGUAGES.map((lang) => (
           <SelectItem
             className=""
