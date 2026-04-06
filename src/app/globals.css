@@ -133,6 +133,10 @@ body {
   }
 }
 
+.rounded-sm{
+  border-radius: 3px;
+}
+
 .swiper-pagination-bullet {
   background-color: white !important;
   opacity: 1 !important;
@@ -177,5 +181,5 @@ body {
 
 .container {
   margin: 0px auto;
-  padding: 0px 20px;
+  padding: 0px 15px;
 }

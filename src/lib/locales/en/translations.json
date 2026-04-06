@@ -8,6 +8,7 @@
   "contactus": "Contact Us",
   "blog": "Blog",
   "allServices": "All Services",
+  "requestService": "Request Services",
   "readmore": "Read More",
   "showmore": "Show More",
   "showless": "Show Less",
@@ -27,5 +28,9 @@
   "banner.slide2.body": "A thriving hub of talent and technology. Discover a land of opportunity at the heart of the Middle East.",
   "banner.slide3.title": "Why Egypt?",
   "banner.slide3.body": "A gateway to Africa and the Arab world. Tap into one of the region's most dynamic and growing markets.",
-  "banner.cta": "Start Your Journey Now"
+  "banner.cta": "Start Your Journey Now",
+  "services.title": "Business incubator and accelerator services - Estithmarcom",
+  "services.desc": "We offer a comprehensive suite of services to help startups grow and launch, and support existing companies with specialized services including: Law, legal affairs, and follow-up services of the highest quality.",
+  "book.title": "Reserve your workspace with Estithmarcom, a business incubator and accelerator.",
+  "book.desc": "Explore the available options and choose what best suits your business needs with ease and transparency, ensuring a reliable and seamless experience."
 }
