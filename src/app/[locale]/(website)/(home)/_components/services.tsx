@@ -2,12 +2,14 @@
 
 import ServiceItem from "@/components/service/service-item";
 import { useLocale } from "@/hooks/use-locale";
+import useIsMobile from "@/hooks/use-mobile";
 import { getTranslator } from "@/lib/i18n";
 import { ServiceType } from "@/lib/types/service";
 
 export default function ServicesSection() {
   const locale = useLocale()
   const { t } = getTranslator(locale)
+  const isMobile = useIsMobile();
   const services: ServiceType[] = [
     {
       id: 1,
@@ -61,6 +63,9 @@ export default function ServicesSection() {
         "نوفر إقامات استثمارية مميزة لدعم رجال الأعمال والمستثمرين.",
     },
   ];
+  const displayedServices = isMobile
+  ? services.slice(0, 4)
+  : services;
   return (
     <div className="container">
       <div className="text-center">
@@ -72,7 +77,7 @@ export default function ServicesSection() {
         </p>
       </div>
       <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {services.map((el) => (
+        {displayedServices.map((el) => (
           <ServiceItem key={el.id} service={el} />
         ))}
       </div>

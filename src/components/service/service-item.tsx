@@ -10,7 +10,7 @@ export default function ServiceItem({ service }: { service: ServiceType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
-    <div className="rounded-lg flex flex-col justify-between hover:shadow-lg duration-300 shadow-primary/10 border p-5">
+    <div className="rounded-lg flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-secondary duration-300 shadow-primary/10 border p-5">
       <div>
         <div className="p-2 bg-primary/10 w-fit rounded-lg">
           <Rocket />
