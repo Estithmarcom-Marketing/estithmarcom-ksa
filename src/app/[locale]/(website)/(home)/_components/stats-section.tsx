@@ -1,5 +1,6 @@
 "use client";
 
+import SpecialHeader from "@/components/global/special-header";
 import StateItem from "@/components/stats/state-item";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
@@ -37,13 +38,8 @@ export default function StatsSection() {
   ];
   return (
     <div className="container">
-      <div className="text-center">
-        <h1 className="font-bold text-2xl md:text-3xl mb-8">
-          {t("stats.title")}
-        </h1>
-        <p className="max-w-5xl m-auto">{t("stats.desc")}</p>
-      </div>
-      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <SpecialHeader header={t("stats.title")} desc={t("stats.desc")} />
+      <div className="mt-15 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {stats.map((el) => (
           <StateItem key={el.id} state={el} />
         ))}

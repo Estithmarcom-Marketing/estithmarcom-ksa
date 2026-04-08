@@ -56,15 +56,12 @@ export default function BannerSwiper() {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-[calc(100vh-140px)] overflow-hidden">
-              {/* 🔁 Flipped background only */}
               <div
                 className={`absolute inset-0 bg-cover bg-center ${locale === "en" ? "scale-x-[-1]" : ""}`}
                 style={{
                   backgroundImage: `url(${slide.image})`,
                 }}
               />
-
-              {/* ✅ Normal content (not flipped) */}
               <div className="relative z-10 flex flex-col container justify-center px-6 h-full">
                 <h1 className="text-white text-4xl sm:text-5xl font-bold mb-8">
                   {slide.title}

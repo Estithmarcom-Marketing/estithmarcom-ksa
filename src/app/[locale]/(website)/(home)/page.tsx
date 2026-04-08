@@ -3,12 +3,16 @@ import BannerSwiper from "./_components/banner-swiper";
 import BookSection from "./_components/book-section";
 import ServicesSection from "./_components/services";
 import StatsSection from "./_components/stats-section";
+import VideosSection from "./_components/videos-section";
 
 export default async function HomePage() {
   return (
     <div className="min-h-[8000px]">
       <section>
         <BannerSwiper />
+      </section>
+      <section className="-mt-20 relative z-20">
+        <BannerSection />
       </section>
       <section className="py-[100px]">
         <ServicesSection />
@@ -19,8 +23,8 @@ export default async function HomePage() {
       <section className="py-[100px]">
         <StatsSection />
       </section>
-      <section className="py-[100px]">
-        <BannerSection />
+      <section className="bg-[#f6f7f6]">
+        <VideosSection />
       </section>
     </div>
   );

@@ -1,5 +1,6 @@
 "use client"
 
+import SpecialHeader from "@/components/global/special-header";
 import ServiceItem from "@/components/service/service-item";
 import { useLocale } from "@/hooks/use-locale";
 import useIsMobile from "@/hooks/use-mobile";
@@ -68,15 +69,8 @@ export default function ServicesSection() {
   : services;
   return (
     <div className="container">
-      <div className="text-center">
-        <h1 className="font-bold text-2xl md:text-3xl mb-8">
-          {t("services.title")}
-        </h1>
-        <p className="max-w-5xl m-auto">
-          {t("services.desc")}
-        </p>
-      </div>
-      <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <SpecialHeader header={t("services.title")} desc={t("services.desc")} />
+      <div className="mt-15 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {displayedServices.map((el) => (
           <ServiceItem key={el.id} service={el} />
         ))}
