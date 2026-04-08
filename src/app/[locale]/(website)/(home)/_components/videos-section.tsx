@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import SpecialHeader from "@/components/global/special-header";
 import {
   Carousel,
@@ -9,8 +9,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Play, Share2, Clock, User } from "lucide-react";
-import Image from "next/image";
+import {
+  Play,
+  Share2,
+  Clock,
+  User,
+  Pause,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 
 const videos = [
   {
@@ -19,7 +26,8 @@ const videos = [
     duration: "2:15",
     speaker: "هاني القحطاني",
     role: "مؤسس حاضنة ومسرعة الأعمال استثماركوم",
-    thumbnail: "https://picsum.photos/seed/biz1/800/450",
+    src: "/videos/sequence-1.mp4",
+    frameTime: 3.2,
     description:
       "في هذا اللقاء يستعرض رائد الأعمال خارطة الطريق التي اتبعها لتوسيع أعماله مع التركيز على أهمية الابتكار المستمر والتكيف مع متغيرات السوق السعودي المتسارع.",
   },
@@ -29,7 +37,8 @@ const videos = [
     duration: "1:15",
     speaker: "فهد المطيري",
     role: "الرئيس التنفيذي لمجموعة رؤية",
-    thumbnail: "https://picsum.photos/seed/biz2/800/450",
+    src: "/videos/sequence-2.mp4",
+    frameTime: 5.7,
     description:
       "يشارك فهد المطيري تجربته في قيادة فرق العمل خلال فترات الضغط الشديد، وكيف تحولت التحديات إلى فرص نمو حقيقية لمؤسسته.",
   },
@@ -39,7 +48,8 @@ const videos = [
     duration: "2:15",
     speaker: "سارة العمري",
     role: "مديرة التسويق في منصة نون",
-    thumbnail: "https://picsum.photos/seed/biz3/800/450",
+    src: "/videos/sequence-3.mp4",
+    frameTime: 2.1,
     description:
       "تكشف سارة العمري عن الأسرار خلف أنجح حملات التسويق الرقمي في السوق الخليجي، وكيف يمكن لأي مشروع ناشئ مضاعفة مبيعاته خلال 90 يوماً.",
   },
@@ -49,7 +59,8 @@ const videos = [
     duration: "3:00",
     speaker: "خالد الزهراني",
     role: "شريك في صندوق STV للمشاريع",
-    thumbnail: "https://picsum.photos/seed/biz4/800/450",
+    src: "/videos/sequence-4.mp4",
+    frameTime: 8.4,
     description:
       "نظرة معمقة في معايير اختيار الفرص الاستثمارية من منظور صناديق رأس المال الجريء، مع نصائح عملية للمؤسسين الباحثين عن تمويل.",
   },
@@ -59,11 +70,356 @@ const videos = [
     duration: "1:45",
     speaker: "نورة السعد",
     role: "مؤسسة منصة رواق للتعلم",
-    thumbnail: "https://picsum.photos/seed/biz5/800/450",
+    src: "/videos/sequence-5.mp4",
+    frameTime: 4.9,
     description:
       "تستعرض نورة السعد كيف أسست ثقافة مؤسسية متينة جذبت أفضل المواهب وأسهمت في نمو منصتها لتصبح الأكبر في التعليم الإلكتروني بالعالم العربي.",
   },
 ];
+
+function formatTime(s: number) {
+  if (isNaN(s) || !isFinite(s)) return "0:00";
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return `${m}:${sec.toString().padStart(2, "0")}`;
+}
+
+function VideoFrame({
+  src,
+  frameTime,
+  className = "",
+}: {
+  src: string;
+  frameTime: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const seek = () => {
+      el.currentTime = frameTime;
+    };
+    el.addEventListener("loadedmetadata", seek);
+    if (el.readyState >= 1) seek();
+    return () => el.removeEventListener("loadedmetadata", seek);
+  }, [src, frameTime]);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      className={className}
+      muted
+      playsInline
+      preload="metadata"
+    />
+  );
+}
+
+function InlinePlayer({ video }: { video: (typeof videos)[0] }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLVideoElement>(null);
+  const isDragging = useRef(false);
+
+  const [playing, setPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
+  const [muted, setMuted] = useState(false);
+  const [showFrame, setShowFrame] = useState(true);
+  const [hoverState, setHoverState] = useState<{
+    ratio: number;
+    label: string;
+  } | null>(null);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    el.pause();
+    el.currentTime = 0;
+    setPlaying(false);
+    setProgress(0);
+    setCurrentTime(0);
+    setDuration(0);
+    setShowFrame(true);
+    setHoverState(null);
+  }, [video.src]);
+
+  const togglePlay = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (el.paused) {
+      setShowFrame(false);
+      el.play();
+      setPlaying(true);
+    } else {
+      el.pause();
+      setPlaying(false);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    setCurrentTime(el.currentTime);
+    setProgress(el.duration ? (el.currentTime / el.duration) * 100 : 0);
+  };
+
+  const handleLoadedMetadata = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    setDuration(el.duration);
+  };
+
+  const handleEnded = () => setPlaying(false);
+
+  // ── Scrubbing (click + drag) ───────────────────────────────────────────
+
+  const getRatioFromClientX = useCallback((clientX: number) => {
+    const bar = progressBarRef.current;
+    if (!bar) return null;
+    const rect = bar.getBoundingClientRect();
+    return Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
+  }, []);
+
+  const applyRatio = useCallback((ratio: number) => {
+    const el = videoRef.current;
+    if (!el || !el.duration) return;
+    el.currentTime = ratio * el.duration;
+  }, []);
+
+  const handleProgressMouseDown = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      isDragging.current = true;
+      const ratio = getRatioFromClientX(e.clientX);
+      if (ratio !== null) applyRatio(ratio);
+
+      const onMove = (ev: MouseEvent) => {
+        if (!isDragging.current) return;
+        const r = getRatioFromClientX(ev.clientX);
+        if (r !== null) applyRatio(r);
+      };
+
+      const onUp = () => {
+        isDragging.current = false;
+        document.removeEventListener("mousemove", onMove);
+        document.removeEventListener("mouseup", onUp);
+      };
+
+      document.addEventListener("mousemove", onMove);
+      document.addEventListener("mouseup", onUp);
+    },
+    [getRatioFromClientX, applyRatio],
+  );
+
+  // ── Hover preview ─────────────────────────────────────────────────────
+
+  const handleProgressMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const ratio = getRatioFromClientX(e.clientX);
+      if (ratio === null) return;
+      const el = videoRef.current;
+      const dur = el?.duration ?? 0;
+      const t = ratio * dur;
+      setHoverState({ ratio, label: formatTime(t) });
+      const pv = previewRef.current;
+      if (pv && dur) pv.currentTime = t;
+    },
+    [getRatioFromClientX],
+  );
+
+  const handleProgressMouseLeave = useCallback(() => {
+    setHoverState(null);
+  }, []);
+
+  // ── Volume ────────────────────────────────────────────────────────────
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const el = videoRef.current;
+    const v = parseFloat(e.target.value);
+    setVolume(v);
+    if (el) {
+      el.volume = v;
+      el.muted = v === 0;
+    }
+    setMuted(v === 0);
+  };
+
+  const toggleMute = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (muted || volume === 0) {
+      const restored = volume === 0 ? 0.7 : volume;
+      el.muted = false;
+      el.volume = restored;
+      setVolume(restored);
+      setMuted(false);
+    } else {
+      el.muted = true;
+      setMuted(true);
+    }
+  };
+
+  const displayVolume = muted ? 0 : volume;
+
+  return (
+    <div
+      dir="ltr"
+      className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-md group"
+    >
+      {/* Main video */}
+      <video
+        ref={videoRef}
+        src={video.src}
+        className="w-full h-full object-cover"
+        playsInline
+        preload="metadata"
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onEnded={handleEnded}
+        onClick={togglePlay}
+      />
+
+      {/* Hidden preview video for hover thumbnail */}
+      <video
+        ref={previewRef}
+        src={video.src}
+        className="hidden"
+        muted
+        playsInline
+        preload="metadata"
+      />
+
+      {/* Frozen frame shown before first play */}
+      {showFrame && (
+        <div className="absolute inset-0 pointer-events-none">
+          <VideoFrame
+            src={video.src}
+            frameTime={video.frameTime}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+
+      {/* Centre play button */}
+      {!playing && (
+        <div
+          className="absolute inset-0 flex items-center justify-center cursor-pointer"
+          onClick={togglePlay}
+        >
+          <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-200">
+            <Play size={26} className="fill-secondary text-secondary ms-1" />
+          </div>
+        </div>
+      )}
+
+      {/* Bottom controls */}
+      <div className="absolute bottom-0 left-0 right-0 px-4 pb-4 pt-8 flex flex-col gap-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        {/* Progress bar + hover preview */}
+        <div className="relative">
+          {/* Hover thumbnail */}
+          {hoverState && (
+            <div
+              className="absolute bottom-5 pointer-events-none flex flex-col items-center gap-1 -translate-x-1/2"
+              style={{ left: `${hoverState.ratio * 100}%` }}
+            >
+              <div className="w-[120px] h-[68px] rounded-lg overflow-hidden bg-black border border-white/30 shadow-lg">
+                <video
+                  ref={previewRef}
+                  src={video.src}
+                  className="w-full h-full object-cover"
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
+              <span className="text-white text-[11px] font-medium tabular-nums bg-black/60 px-1.5 py-0.5 rounded">
+                {hoverState.label}
+              </span>
+            </div>
+          )}
+
+          {/* Track */}
+          <div
+            ref={progressBarRef}
+            className="w-full h-1.5 bg-white/30 rounded-full cursor-pointer relative select-none"
+            onMouseDown={handleProgressMouseDown}
+            onMouseMove={handleProgressMouseMove}
+            onMouseLeave={handleProgressMouseLeave}
+          >
+            <div
+              className="h-full bg-secondary rounded-full relative"
+              style={{ width: `${progress}%` }}
+            >
+              {/* Scrubber handle */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full shadow-md border-2 border-white/80" />
+            </div>
+          </div>
+        </div>
+
+        {/* Controls row */}
+        <div className="flex items-center justify-between">
+          {/* Left: play/pause + timestamp */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={togglePlay}
+              className="w-8 h-8 cursor-pointer rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors"
+            >
+              {playing ? (
+                <Pause size={14} className="text-white fill-white" />
+              ) : (
+                <Play size={14} className="text-white fill-white ms-0.5" />
+              )}
+            </button>
+
+            <span className="text-white/90 text-xs font-medium tabular-nums select-none">
+              {formatTime(currentTime)} <span className="text-white/50">/</span>{" "}
+              {formatTime(duration)}
+            </span>
+          </div>
+
+          {/* Right: mute + volume slider */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleMute}
+              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors shrink-0"
+            >
+              {displayVolume === 0 ? (
+                <VolumeX size={14} className="text-white" />
+              ) : (
+                <Volume2 size={14} className="text-white" />
+              )}
+            </button>
+
+            <div className="relative w-20 h-5 flex items-center">
+              <div className="absolute w-full h-1.5 bg-white/30 rounded-full" />
+              <div
+                className="absolute left-0 h-1.5 bg-secondary rounded-full"
+                style={{ width: `${displayVolume * 100}%` }}
+              />
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.02}
+                value={displayVolume}
+                onChange={handleVolumeChange}
+                className="absolute w-full opacity-0 cursor-pointer h-5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function VideosSection() {
   const [activeVideo, setActiveVideo] = useState(videos[0]);
@@ -79,25 +435,10 @@ export default function VideosSection() {
         <div className="mt-15" />
 
         <div className="flex flex-col lg:flex-row gap-10 xl:gap-20">
-          {/* ── Main Player ── */}
+          {/* Main Player */}
           <div className="flex-1 flex flex-col gap-4">
-            {/* Video Thumbnail */}
-            <div className="relative w-full aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-              <Image
-                src={activeVideo.thumbnail}
-                alt={activeVideo.title}
-                fill
-                className="object-cover group transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-200">
-                  <Play size={26} className="fill-black group-hover:fill-secondary duration-300 group-hover:text-secondary text-black me-1" />
-                </div>
-              </div>
-            </div>
+            <InlinePlayer key={activeVideo.id} video={activeVideo} />
 
-            {/* Speaker & Meta */}
             <div className="bg-white rounded-2xl p-5 border border-gray-100">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
@@ -124,9 +465,8 @@ export default function VideosSection() {
             </div>
           </div>
 
-          {/* ── Playlist — shadcn vertical Carousel ── */}
-          <div className=" flex flex-col rounded-2xl overflow-hidden">
-            {/* Header */}
+          {/* Playlist */}
+          <div className="flex flex-col rounded-2xl overflow-hidden">
             <div className="flex items-center justify-between px-5 py-4">
               <span className="text-xs font-semibold text-gray-700">
                 قائمة التشغيل
@@ -136,13 +476,11 @@ export default function VideosSection() {
               </span>
             </div>
 
-            {/* Vertical Carousel */}
             <Carousel
               orientation="vertical"
               opts={{ align: "start", dragFree: true }}
               className="flex-1 px-0"
             >
-              {/* Up arrow controls */}
               <div className="flex items-center justify-center gap-3 pb-1">
                 <CarouselPrevious className="static translate-y-0 translate-x-0" />
               </div>
@@ -159,13 +497,11 @@ export default function VideosSection() {
                             : "hover:bg-gray-100 hover:border-gray-300! text-gray-800"
                         }`}
                       >
-                        {/* Thumbnail */}
-                        <div className="relative shrink-0 w-[156px] h-[74px] rounded-lg overflow-hidden">
-                          <Image
-                            src={video.thumbnail}
-                            alt={video.title}
-                            fill
-                            className="object-cover"
+                        <div className="relative shrink-0 w-[156px] h-[74px] rounded-lg overflow-hidden bg-gray-900">
+                          <VideoFrame
+                            src={video.src}
+                            frameTime={video.frameTime}
+                            className="absolute inset-0 w-full h-full object-cover"
                           />
                           <div
                             className={`absolute inset-0 flex items-center justify-center transition-colors ${
@@ -183,23 +519,17 @@ export default function VideosSection() {
                           </div>
                         </div>
 
-                        {/* Info */}
                         <div className="flex-1 min-w-0">
-                          <p
-                            className={`text-sm font-semibold text-start text-gray-800 leading-snug line-clamp-2`}
-                          >
+                          <p className="text-sm font-semibold text-start text-gray-800 leading-snug line-clamp-2">
                             {video.title}
                           </p>
                           <div className="flex items-center gap-2 mt-1">
-                            <Clock
-                              size={11}
-                              className={`text-xs text-[#8e8e90]`}
-                            />
-                            <span className={`text-xs text-[#8e8e90]`}>
+                            <Clock size={11} className="text-[#8e8e90]" />
+                            <span className="text-xs text-[#8e8e90]">
                               {video.duration}
                             </span>
-                            <span className={`text-xs text-[#8e8e90]`}>
-                              · {isActive ? " يتم التشغيل الآن" : video.speaker}
+                            <span className="text-xs text-[#8e8e90]">
+                              · {isActive ? "يتم التشغيل الآن" : video.speaker}
                             </span>
                           </div>
                         </div>
@@ -208,8 +538,6 @@ export default function VideosSection() {
                   );
                 })}
               </CarouselContent>
-
-              {/* Down arrow controls */}
               <div className="flex items-center justify-center gap-3 pt-1">
                 <CarouselNext className="static translate-y-0 translate-x-0" />
               </div>
