@@ -23,7 +23,7 @@ export default function BookSection() {
             {t("clickHere")}
           </Link>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <div className="bg-[#68557d] flex flex-col gap-2 items-center p-5 rounded-md">
             <Building2 />
             <p>مكتب</p>

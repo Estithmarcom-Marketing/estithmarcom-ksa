@@ -1,6 +1,7 @@
 import BannerSection from "./_components/banner-section";
 import BannerSwiper from "./_components/banner-swiper";
 import BookSection from "./_components/book-section";
+import PartnersSection from "./_components/partners-section";
 import ServicesSection from "./_components/services";
 import StatsSection from "./_components/stats-section";
 import VideosSection from "./_components/videos-section";
@@ -25,6 +26,9 @@ export default async function HomePage() {
       </section>
       <section className="bg-[#f6f7f6]">
         <VideosSection />
+      </section>
+      <section className="py-[100px]">
+        <PartnersSection />
       </section>
     </div>
   );

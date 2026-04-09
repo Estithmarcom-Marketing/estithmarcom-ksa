@@ -43,6 +43,8 @@
   "videos.latest": "Latest Videos",
   "videos.playing.now": "Now Playing",
   "videos.share": "Share",
+
+
   "videos.1.title": "The Success Journey: From a Simple Idea to a Global Company",
   "videos.1.speaker": "Hani Al-Qahtani",
   "videos.1.role": "Founder of Estithmarcom Business Incubator and Accelerator",
@@ -62,5 +64,8 @@
   "videos.5.title": "Building Company Culture: The Foundation That Cannot Be Seen",
   "videos.5.speaker": "Noura Al-Saad",
   "videos.5.role": "Founder of Rwaq Learning Platform",
-  "videos.5.description": "Noura Al-Saad explains how she built a solid organizational culture that attracted top talent and helped her platform grow to become the largest in e-learning in the Arab world."
+  "videos.5.description": "Noura Al-Saad explains how she built a solid organizational culture that attracted top talent and helped her platform grow to become the largest in e-learning in the Arab world.",
+
+  "partners.title": "Success partners",
+  "partners.desc": "We are proud to collaborate with a select group of companies and institutions that have contributed to our success."
 }

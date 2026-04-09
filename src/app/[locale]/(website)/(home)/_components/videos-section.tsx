@@ -92,9 +92,9 @@ export default function VideosSection() {
             <InlinePlayer key={activeVideo.id} video={activeVideo} />
 
             <div className="bg-white lg:mt-0 -mt-[17px] lg:rounded-2xl p-5 border border-gray-100">
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col lg:flex-row items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-full bg-gray-100 hidden lg:flex items-center justify-center shrink-0">
                     <User size={20} className="text-secondary" />
                   </div>
                   <div>
