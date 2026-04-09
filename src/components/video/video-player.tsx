@@ -8,6 +8,7 @@ export default function InlinePlayer({ video }: { video: any }) {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLVideoElement>(null);
   const isDragging = useRef(false);
+  const controlsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -20,6 +21,16 @@ export default function InlinePlayer({ video }: { video: any }) {
     ratio: number;
     label: string;
   } | null>(null);
+  const [controlsVisible, setControlsVisible] = useState(false);
+
+  // Show controls temporarily then hide (for mobile tap)
+  const showControlsTemporarily = useCallback(() => {
+    setControlsVisible(true);
+    if (controlsTimerRef.current) clearTimeout(controlsTimerRef.current);
+    controlsTimerRef.current = setTimeout(() => {
+      setControlsVisible(false);
+    }, 3000);
+  }, []);
 
   useEffect(() => {
     const el = videoRef.current;
@@ -32,7 +43,15 @@ export default function InlinePlayer({ video }: { video: any }) {
     setDuration(0);
     setShowFrame(true);
     setHoverState(null);
+    setControlsVisible(false);
   }, [video.src]);
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (controlsTimerRef.current) clearTimeout(controlsTimerRef.current);
+    };
+  }, []);
 
   const togglePlay = () => {
     const el = videoRef.current;
@@ -45,6 +64,7 @@ export default function InlinePlayer({ video }: { video: any }) {
       el.pause();
       setPlaying(false);
     }
+    showControlsTemporarily();
   };
 
   const handleTimeUpdate = () => {
@@ -60,7 +80,12 @@ export default function InlinePlayer({ video }: { video: any }) {
     setDuration(el.duration);
   };
 
-  const handleEnded = () => setPlaying(false);
+  const handleEnded = () => {
+    setPlaying(false);
+    setControlsVisible(true);
+  };
+
+  // ── Shared seek logic ──────────────────────────────────────────────────────
 
   const getRatioFromClientX = useCallback((clientX: number) => {
     const bar = progressBarRef.current;
@@ -74,6 +99,8 @@ export default function InlinePlayer({ video }: { video: any }) {
     if (!el || !el.duration) return;
     el.currentTime = ratio * el.duration;
   }, []);
+
+  // ── Mouse events (desktop) ─────────────────────────────────────────────────
 
   const handleProgressMouseDown = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -117,6 +144,37 @@ export default function InlinePlayer({ video }: { video: any }) {
     setHoverState(null);
   }, []);
 
+  // ── Touch events (mobile) ──────────────────────────────────────────────────
+
+  const handleProgressTouchStart = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      e.preventDefault(); // prevent scroll while scrubbing
+      isDragging.current = true;
+      const touch = e.touches[0];
+      const ratio = getRatioFromClientX(touch.clientX);
+      if (ratio !== null) applyRatio(ratio);
+      showControlsTemporarily();
+    },
+    [getRatioFromClientX, applyRatio, showControlsTemporarily],
+  );
+
+  const handleProgressTouchMove = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      if (!isDragging.current) return;
+      e.preventDefault();
+      const touch = e.touches[0];
+      const ratio = getRatioFromClientX(touch.clientX);
+      if (ratio !== null) applyRatio(ratio);
+    },
+    [getRatioFromClientX, applyRatio],
+  );
+
+  const handleProgressTouchEnd = useCallback(() => {
+    isDragging.current = false;
+  }, []);
+
+  // ── Volume ─────────────────────────────────────────────────────────────────
+
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const el = videoRef.current;
     const v = parseFloat(e.target.value);
@@ -145,10 +203,17 @@ export default function InlinePlayer({ video }: { video: any }) {
 
   const displayVolume = muted ? 0 : volume;
 
+  // Controls visible on desktop via CSS group-hover; on mobile via state
+  const controlsClass = `absolute bottom-0 left-0 right-0 px-4 pb-4 pt-0 flex flex-col gap-2.5 transition-opacity duration-200 ${
+    controlsVisible ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+  }`;
+
   return (
     <div
       dir="ltr"
-      className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-md group"
+      className="relative w-full aspect-video bg-black rounded-t-2xl lg:rounded-2xl overflow-hidden shadow-md group"
+      // Show controls on any tap on the container (mobile)
+      onTouchStart={showControlsTemporarily}
     >
       {/* Main video */}
       <video
@@ -163,6 +228,7 @@ export default function InlinePlayer({ video }: { video: any }) {
         onClick={togglePlay}
       />
 
+      {/* Hidden preview video for scrub thumbnail (desktop only) */}
       <video
         ref={previewRef}
         src={video.src}
@@ -198,22 +264,27 @@ export default function InlinePlayer({ video }: { video: any }) {
       )}
 
       {/* Bottom controls */}
-      <div className="absolute bottom-0 left-0 right-0 px-4 pb-4 pt-8 flex flex-col gap-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      <div className={controlsClass}>
         <div className="relative">
-          {/* Hover thumbnail */}
+          {/* Hover thumbnail — desktop only */}
           {hoverState && (
             <div
-              className="absolute bottom-5 pointer-events-none flex flex-col items-center gap-1 -translate-x-1/2"
+              className="absolute bottom-5 pointer-events-none flex-col items-center gap-1 -translate-x-1/2 hidden md:flex"
               style={{ left: `${hoverState.ratio * 100}%` }}
             >
               <div className="w-[120px] h-[68px] rounded-lg overflow-hidden bg-black border border-white/30 shadow-lg">
                 <video
-                  ref={previewRef}
                   src={video.src}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   muted
                   playsInline
                   preload="metadata"
+                  ref={(el) => {
+                    if (el && hoverState) {
+                      el.currentTime =
+                        hoverState.ratio * (videoRef.current?.duration ?? 0);
+                    }
+                  }}
                 />
               </div>
               <span className="text-white text-[11px] font-medium tabular-nums bg-black/60 px-1.5 py-0.5 rounded">
@@ -222,21 +293,29 @@ export default function InlinePlayer({ video }: { video: any }) {
             </div>
           )}
 
-          {/* Track */}
+          {/* Progress track */}
           <div
             ref={progressBarRef}
-            className="w-full h-1.5 bg-white/30 rounded-full cursor-pointer relative select-none"
+            className="w-full h-3 flex items-center cursor-pointer relative select-none touch-none"
             onMouseDown={handleProgressMouseDown}
             onMouseMove={handleProgressMouseMove}
             onMouseLeave={handleProgressMouseLeave}
+            onTouchStart={handleProgressTouchStart}
+            onTouchMove={handleProgressTouchMove}
+            onTouchEnd={handleProgressTouchEnd}
           >
+            {/* Track bg */}
+            <div className="absolute w-full h-1.5 bg-white/30 rounded-full" />
+            {/* Filled */}
             <div
-              className="h-full bg-secondary rounded-full relative"
+              className="absolute left-0 h-1.5 bg-secondary rounded-full"
               style={{ width: `${progress}%` }}
-            >
-              {/* Scrubber handle */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full shadow-md border-2 border-white/80" />
-            </div>
+            />
+            {/* Scrubber handle */}
+            <div
+              className="absolute w-4 h-4 bg-white rounded-full shadow-md border-2 border-white/80 -translate-x-1/2"
+              style={{ left: `${progress}%` }}
+            />
           </div>
         </div>
 
@@ -261,7 +340,7 @@ export default function InlinePlayer({ video }: { video: any }) {
             </span>
           </div>
 
-          {/* Right: mute + volume slider */}
+          {/* Right: mute + volume slider (hide slider on mobile) */}
           <div className="flex items-center gap-2">
             <button
               onClick={toggleMute}
@@ -274,7 +353,7 @@ export default function InlinePlayer({ video }: { video: any }) {
               )}
             </button>
 
-            <div className="relative w-20 h-5 flex items-center">
+            <div className="relative w-20 h-5 items-center hidden md:flex">
               <div className="absolute w-full h-1.5 bg-white/30 rounded-full" />
               <div
                 className="absolute left-0 h-1.5 bg-secondary rounded-full"

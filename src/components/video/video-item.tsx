@@ -1,23 +1,33 @@
 import { Clock, Play } from "lucide-react";
 import VideoFrame from "./video-frame";
+import { getTranslator } from "@/lib/i18n";
+import { useLocale } from "@/hooks/use-locale";
+import { VideoType } from "@/lib/types/video";
 
-interface VideoItemProps{
-  video: any
-  isActive: boolean
-  setActiveVideo: any
+interface VideoItemProps {
+  video: VideoType;
+  isActive: boolean;
+  setActiveVideo: any;
 }
 
-export default function VideoItem({video, isActive, setActiveVideo}: VideoItemProps) {
+export default function VideoItem({
+  video,
+  isActive,
+  setActiveVideo,
+}: VideoItemProps) {
+  const locale = useLocale();
+  const { t } = getTranslator(locale);
+
   return (
     <button
       onClick={() => setActiveVideo(video)}
-      className={`w-full cursor-pointer flex items-center gap-4 px-5 py-4 rounded-2xl border-white bg-white transition-all border-2 group ${
+      className={`lg:w-full flex flex-col h-full cursor-pointer lg:flex-row lg:gap-4 items-center px-3 lg:px-5 py-4 rounded-2xl lg:border-white lg:bg-white transition-all lg:border-2 group ${
         isActive
           ? "bg-[#efecf2]! border-gray-300! text-gray-800"
           : "hover:bg-gray-100 hover:border-gray-300! text-gray-800"
       }`}
     >
-      <div className="relative shrink-0 w-[156px] h-[74px] rounded-lg overflow-hidden bg-gray-900">
+      <div className="relative shrink-0 w-full h-[82px] lg:w-[156px] lg:h-[74px] rounded-lg overflow-hidden bg-gray-900">
         <VideoFrame
           src={video.src}
           frameTime={video.frameTime}
@@ -37,15 +47,15 @@ export default function VideoItem({video, isActive, setActiveVideo}: VideoItemPr
         </div>
       </div>
 
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-start text-gray-800 leading-snug line-clamp-2">
+      <div className="flex-1 mt-4 lg:mt-0 min-w-0">
+        <p className="text-xs lg:text-sm lg:text-start lg:font-semibold text-gray-800 leading-snug lg:line-clamp-2">
           {video.title}
         </p>
-        <div className="flex items-center gap-2 mt-1">
+        <div className="hidden lg:flex items-center gap-2 mt-1">
           <Clock size={11} className="text-[#8e8e90]" />
           <span className="text-xs text-[#8e8e90]">{video.duration}</span>
           <span className="text-xs text-[#8e8e90]">
-            · {isActive ? "يتم التشغيل الآن" : video.speaker}
+            · {isActive ? t("videos.playing.now") : video.speaker}
           </span>
         </div>
       </div>

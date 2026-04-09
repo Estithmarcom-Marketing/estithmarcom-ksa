@@ -11,75 +11,77 @@ import {
 } from "@/components/ui/carousel";
 import { Share2, User } from "lucide-react";
 import InlinePlayer from "@/components/video/video-player";
+import Autoplay from "embla-carousel-autoplay";
 import VideoItem from "@/components/video/video-item";
-
-const videos = [
-  {
-    id: 1,
-    title: "رحلة النجاح: من فكرة بسيطة لشركة عالمية",
-    duration: "2:15",
-    speaker: "هاني القحطاني",
-    role: "مؤسس حاضنة ومسرعة الأعمال استثماركوم",
-    src: "/videos/sequence-1.mp4",
-    frameTime: 3.2,
-    description:
-      "في هذا اللقاء يستعرض رائد الأعمال خارطة الطريق التي اتبعها لتوسيع أعماله مع التركيز على أهمية الابتكار المستمر والتكيف مع متغيرات السوق السعودي المتسارع.",
-  },
-  {
-    id: 2,
-    title: "القيادة في زمن الأزمات: دروس من الميدان",
-    duration: "1:15",
-    speaker: "فهد المطيري",
-    role: "الرئيس التنفيذي لمجموعة رؤية",
-    src: "/videos/sequence-2.mp4",
-    frameTime: 5.7,
-    description:
-      "يشارك فهد المطيري تجربته في قيادة فرق العمل خلال فترات الضغط الشديد، وكيف تحولت التحديات إلى فرص نمو حقيقية لمؤسسته.",
-  },
-  {
-    id: 3,
-    title: "التسويق الرقمي: استراتيجيات تضاعف مبيعاتك",
-    duration: "2:15",
-    speaker: "سارة العمري",
-    role: "مديرة التسويق في منصة نون",
-    src: "/videos/sequence-3.mp4",
-    frameTime: 2.1,
-    description:
-      "تكشف سارة العمري عن الأسرار خلف أنجح حملات التسويق الرقمي في السوق الخليجي، وكيف يمكن لأي مشروع ناشئ مضاعفة مبيعاته خلال 90 يوماً.",
-  },
-  {
-    id: 4,
-    title: "الاستثمار الذكي: كيف تختار فرصتك الذهبية",
-    duration: "3:00",
-    speaker: "خالد الزهراني",
-    role: "شريك في صندوق STV للمشاريع",
-    src: "/videos/sequence-4.mp4",
-    frameTime: 8.4,
-    description:
-      "نظرة معمقة في معايير اختيار الفرص الاستثمارية من منظور صناديق رأس المال الجريء، مع نصائح عملية للمؤسسين الباحثين عن تمويل.",
-  },
-  {
-    id: 5,
-    title: "بناء ثقافة الشركة: الأساس الذي لا يُرى",
-    duration: "1:45",
-    speaker: "نورة السعد",
-    role: "مؤسسة منصة رواق للتعلم",
-    src: "/videos/sequence-5.mp4",
-    frameTime: 4.9,
-    description:
-      "تستعرض نورة السعد كيف أسست ثقافة مؤسسية متينة جذبت أفضل المواهب وأسهمت في نمو منصتها لتصبح الأكبر في التعليم الإلكتروني بالعالم العربي.",
-  },
-];
+import { useLocale } from "@/hooks/use-locale";
+import { getTranslator } from "@/lib/i18n";
+import { VideoType } from "@/lib/types/video";
 
 export default function VideosSection() {
+  const locale = useLocale();
+  const { t } = getTranslator(locale);
+
+  const videos: VideoType[] = [
+    {
+      id: 1,
+      title: t("videos.1.title"),
+      duration: "2:15",
+      speaker: t("videos.1.speaker"),
+      role: t("videos.1.role"),
+      src: "/videos/sequence-1.mp4",
+      frameTime: 3.2,
+      description: t("videos.1.description"),
+    },
+    {
+      id: 2,
+      title: t("videos.2.title"),
+      duration: "1:15",
+      speaker: t("videos.2.speaker"),
+      role: t("videos.2.role"),
+      src: "/videos/sequence-2.mp4",
+      frameTime: 5.7,
+      description: t("videos.2.description"),
+    },
+    {
+      id: 3,
+      title: t("videos.3.title"),
+      duration: "2:15",
+      speaker: t("videos.3.speaker"),
+      role: t("videos.3.role"),
+      src: "/videos/sequence-3.mp4",
+      frameTime: 2.1,
+      description: t("videos.3.description"),
+    },
+    {
+      id: 4,
+      title: t("videos.4.title"),
+      duration: "3:00",
+      speaker: t("videos.4.speaker"),
+      role: t("videos.4.role"),
+      src: "/videos/sequence-4.mp4",
+      frameTime: 8.4,
+      description: t("videos.4.description"),
+    },
+    {
+      id: 5,
+      title: t("videos.5.title"),
+      duration: "1:45",
+      speaker: t("videos.5.speaker"),
+      role: t("videos.5.role"),
+      src: "/videos/sequence-5.mp4",
+      frameTime: 4.9,
+      description: t("videos.5.description"),
+    },
+  ];
+
   const [activeVideo, setActiveVideo] = useState(videos[0]);
 
   return (
     <div className="py-[60px]">
       <div className="container mx-auto px-4">
         <SpecialHeader
-          header="كل ما يحتاجه الناجحون في عالم الأعمال"
-          desc="استكشف مكتبة حصرية من اللقاءات والأراء التي يقدمها نخبة من رواد الأعمال"
+          header={t("videos.section.header")}
+          desc={t("videos.section.desc")}
         />
 
         <div className="mt-15" />
@@ -89,13 +91,13 @@ export default function VideosSection() {
           <div className="flex-1 flex flex-col gap-4">
             <InlinePlayer key={activeVideo.id} video={activeVideo} />
 
-            <div className="bg-white rounded-2xl p-5 border border-gray-100">
+            <div className="bg-white lg:mt-0 -mt-[17px] lg:rounded-2xl p-5 border border-gray-100">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
                     <User size={20} className="text-secondary" />
                   </div>
-                  <div className="text-right">
+                  <div>
                     <p className="font-bold text-gray-900 text-sm">
                       {activeVideo.speaker}
                     </p>
@@ -106,30 +108,33 @@ export default function VideosSection() {
                 </div>
                 <button className="flex items-center gap-1.5 text-xs text-blue-500 hover:underline cursor-pointer mt-1">
                   <Share2 size={14} />
-                  <span>مشاركة</span>
+                  <span>{t("videos.share")}</span>
                 </button>
               </div>
-              <p className="mt-4 text-sm text-gray-600 leading-relaxed text-right">
+              <p className="mt-4 hidden lg:block text-sm text-gray-600 leading-relaxed">
                 {activeVideo.description}
               </p>
             </div>
           </div>
 
           {/* Playlist */}
-          <div className="flex flex-col rounded-2xl overflow-hidden">
-            <div className="flex items-center justify-between px-5 py-4">
+          <div className="flex flex-col overflow-hidden">
+            <div className="hidden lg:flex items-center justify-between">
               <span className="text-xs font-semibold text-gray-700">
-                قائمة التشغيل
+                {t("videos.playlist.label")}
               </span>
               <span className="text-xs text-gray-400 font-medium">
-                {videos.length} فيديوهات
+                {t("videos.playlist.count")}
               </span>
             </div>
+            <p className="lg:hidden text-center mb-4">{t("videos.latest")}</p>
 
+            {/* Desktop: vertical carousel */}
             <Carousel
               orientation="vertical"
+              plugins={[Autoplay({ delay: 3000 })]}
               opts={{ align: "start", dragFree: true }}
-              className="flex-1 px-0"
+              className="flex-1 px-0 hidden lg:block"
             >
               <div className="flex items-center justify-center gap-3 pb-1">
                 <CarouselPrevious className="static translate-y-0 translate-x-0" />
@@ -139,7 +144,11 @@ export default function VideosSection() {
                   const isActive = video.id === activeVideo.id;
                   return (
                     <CarouselItem key={video.id}>
-                      <VideoItem video={video} isActive={isActive} setActiveVideo={setActiveVideo} />
+                      <VideoItem
+                        video={video}
+                        isActive={isActive}
+                        setActiveVideo={setActiveVideo}
+                      />
                     </CarouselItem>
                   );
                 })}
@@ -147,6 +156,29 @@ export default function VideosSection() {
               <div className="flex items-center justify-center gap-3 pt-1">
                 <CarouselNext className="static translate-y-0 translate-x-0" />
               </div>
+            </Carousel>
+
+            {/* Mobile: horizontal carousel */}
+            <Carousel
+              orientation="horizontal"
+              plugins={[Autoplay({ delay: 3000 })]}
+              opts={{ align: "start", dragFree: true }}
+              className="flex-1 px-0 block lg:hidden"
+            >
+              <CarouselContent>
+                {videos.map((video) => {
+                  const isActive = video.id === activeVideo.id;
+                  return (
+                    <CarouselItem className="basis-1/3 pl-2" key={video.id}>
+                      <VideoItem
+                        video={video}
+                        isActive={isActive}
+                        setActiveVideo={setActiveVideo}
+                      />
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
             </Carousel>
           </div>
         </div>

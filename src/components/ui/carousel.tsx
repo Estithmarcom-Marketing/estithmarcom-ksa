@@ -28,6 +28,7 @@ type CarouselContextProps = {
   scrollNext: () => void
   canScrollPrev: boolean
   canScrollNext: boolean
+  isRtl: boolean
 } & CarouselProps
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
@@ -51,10 +52,15 @@ function Carousel({
   children,
   ...props
 }: React.ComponentProps<"div"> & CarouselProps) {
+  const isRtl =
+    typeof document !== "undefined" &&
+    document.documentElement.dir === "rtl"
+
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
       axis: orientation === "horizontal" ? "x" : "y",
+      direction: orientation === "horizontal" ? (isRtl ? "rtl" : "ltr") : undefined,
     },
     plugins
   )
@@ -77,15 +83,18 @@ function Carousel({
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === "ArrowLeft") {
+      const prevKey = isRtl ? "ArrowRight" : "ArrowLeft"
+      const nextKey = isRtl ? "ArrowLeft" : "ArrowRight"
+
+      if (event.key === prevKey) {
         event.preventDefault()
         scrollPrev()
-      } else if (event.key === "ArrowRight") {
+      } else if (event.key === nextKey) {
         event.preventDefault()
         scrollNext()
       }
     },
-    [scrollPrev, scrollNext]
+    [scrollPrev, scrollNext, isRtl]
   )
 
   React.useEffect(() => {
@@ -108,7 +117,7 @@ function Carousel({
     <CarouselContext.Provider
       value={{
         carouselRef,
-        api: api,
+        api,
         opts,
         orientation:
           orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
@@ -116,6 +125,7 @@ function Carousel({
         scrollNext,
         canScrollPrev,
         canScrollNext,
+        isRtl,
       }}
     >
       <div
@@ -124,6 +134,7 @@ function Carousel({
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
+        dir={isRtl ? "rtl" : "ltr"}
         {...props}
       >
         {children}
@@ -177,7 +188,7 @@ function CarouselPrevious({
   size = "icon-sm",
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel()
+  const { orientation, scrollPrev, canScrollPrev, isRtl } = useCarousel()
 
   return (
     <Button
@@ -187,7 +198,9 @@ function CarouselPrevious({
       className={cn(
         "absolute touch-manipulation bg-transparent cursor-pointer border-0",
         orientation === "horizontal"
-          ? "top-1/2 -left-12 -translate-y-1/2"
+          ? isRtl
+            ? "top-1/2 -right-12 -translate-y-1/2"
+            : "top-1/2 -left-12 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -195,7 +208,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon />
+      {isRtl ? <ChevronRightIcon /> : <ChevronLeftIcon />}
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -207,7 +220,7 @@ function CarouselNext({
   size = "icon-sm",
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollNext, canScrollNext } = useCarousel()
+  const { orientation, scrollNext, canScrollNext, isRtl } = useCarousel()
 
   return (
     <Button
@@ -217,7 +230,9 @@ function CarouselNext({
       className={cn(
         "absolute touch-manipulation bg-transparent cursor-pointer border-0",
         orientation === "horizontal"
-          ? "top-1/2 -right-12 -translate-y-1/2"
+          ? isRtl
+            ? "top-1/2 -left-12 -translate-y-1/2"
+            : "top-1/2 -right-12 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -225,7 +240,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon />
+      {isRtl ? <ChevronLeftIcon /> : <ChevronRightIcon />}
       <span className="sr-only">Next slide</span>
     </Button>
   )
