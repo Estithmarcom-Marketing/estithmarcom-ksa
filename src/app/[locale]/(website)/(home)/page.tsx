@@ -6,6 +6,7 @@ import PartnersSection from "./_components/partners-section";
 import ServicesSection from "./_components/services";
 import StatsSection from "./_components/stats-section";
 import VideosSection from "./_components/videos-section";
+import ZonesSection from "./_components/zones-section";
 
 export default async function HomePage() {
   return (
@@ -33,6 +34,9 @@ export default async function HomePage() {
       </section>
       <section className="bg-[#f6f7f6]">
         <BlogSection />
+      </section>
+      <section className="py-[100px]">
+        <ZonesSection />
       </section>
     </div>
   );

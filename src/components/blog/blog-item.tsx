@@ -1,9 +1,15 @@
+"use client"
+
+import { useLocale } from "@/hooks/use-locale";
+import { getTranslator } from "@/lib/i18n";
 import { BlogType } from "@/lib/types/blog";
 import { Eye, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function BlogItem({ blog }: { blog: BlogType }) {
+  const locale = useLocale()
+  const { t } = getTranslator(locale)
   return (
     <div className="grid md:grid-cols-2 gap-0 md:gap-10">
       <Link href={`/blogs/${blog.slug}`} className="relative aspect-square shrink-0">
@@ -21,7 +27,7 @@ export default function BlogItem({ blog }: { blog: BlogType }) {
           href={`/blogs/${blog.slug}`}
           className="text-xs mt-4 font-bold hover:underline text-secondary"
         >
-          شاهد المزيد
+          {t("watchmore")}
         </Link>
         <div className="mt-8 flex gap-5">
           <div className="flex gap-1 items-center">
