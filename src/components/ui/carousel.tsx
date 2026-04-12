@@ -198,7 +198,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute touch-manipulation bg-transparent cursor-pointer border-0",
+        "absolute touch-manipulation bg-transparent hover:bg-transparent cursor-pointer border-0",
         orientation === "horizontal"
           ? isRtl
             ? "top-1/2 -right-12 -translate-y-1/2"
@@ -230,7 +230,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute touch-manipulation bg-transparent cursor-pointer border-0",
+        "absolute touch-manipulation bg-transparent hover:bg-transparent cursor-pointer border-0",
         orientation === "horizontal"
           ? isRtl
             ? "top-1/2 -left-12 -translate-y-1/2"
