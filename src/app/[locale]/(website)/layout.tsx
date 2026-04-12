@@ -12,7 +12,7 @@ export default async function LocaleLayout({
     <div className="min-h-screen flex flex-col">
       <NavBar />
       <main className="flex-1">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

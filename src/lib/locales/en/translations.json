@@ -16,7 +16,7 @@
   "clickHere": "Click Here",
   "footer.contact": "Contact us",
   "footer.links": "Links",
-  "footer.whoarewe": "Who are we",
+  "footer.story": "Our Company Story",
   "footer.ourservices": "Our Services",
   "footer.blog": "Blog",
   "footer.location": "Saudi Arabia - Riyadh",
@@ -71,5 +71,7 @@
   "partners.desc": "We are proud to collaborate with a select group of companies and institutions that have contributed to our success.",
   "blogs.title": "Blog",
   "blogs.desc": "A knowledge platform offering the latest strategies and practical solutions for achieving excellence in the business world.",
-  "faq.title": "FAQ"
+  "faq.title": "FAQ",
+  "footer.desc": "Investcorp is an international strategic partner that opens doors to markets around the world and provides you with resources.",
+  "footer.rights": "All rights reserved to Estithmarcom Business Incubator"
 }

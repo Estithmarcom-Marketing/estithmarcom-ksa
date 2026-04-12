@@ -11,7 +11,7 @@ import ZonesSection from "./_components/zones-section";
 
 export default async function HomePage() {
   return (
-    <div className="min-h-[8000px]">
+    <div>
       <section>
         <BannerSwiper />
       </section>

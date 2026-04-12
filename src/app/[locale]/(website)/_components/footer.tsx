@@ -36,7 +36,7 @@ export default function Footer() {
       <div className="relative container text-white">
         <div className="py-8 border-b border-white/20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div className="flex flex-col justify-between gap-4 pb-10">
+            <div className="flex flex-col justify-between max-w-[300px] lg:items-center gap-4">
               <div>
                 <Image
                   src={logo}
@@ -45,6 +45,7 @@ export default function Footer() {
                   className="w-30 md:w-34"
                 />
               </div>
+              <p className="text-sm lg:text-center">{t("footer.desc")}</p>
               <ul className="flex flex-wrap gap-3 items-center">
                 {info.facebook && (
                   <li>
@@ -53,7 +54,7 @@ export default function Footer() {
                       href={info.facebook}
                       aria-label={locale === "ar" ? "فيسبوك" : "Facebook"}
                     >
-                      <FaFacebook size={14} />
+                      <FaFacebook size={10} />
                     </Link>
                   </li>
                 )}
@@ -64,7 +65,7 @@ export default function Footer() {
                       href={info.x}
                       aria-label={locale === "ar" ? "تويتر" : "Twitter"}
                     >
-                      <FaXTwitter size={14} />
+                      <FaXTwitter size={10} />
                     </Link>
                   </li>
                 )}
@@ -75,7 +76,7 @@ export default function Footer() {
                       href={info.tiktok}
                       aria-label={locale === "ar" ? "تيك توك" : "TikTok"}
                     >
-                      <FaTiktok size={14} />
+                      <FaTiktok size={10} />
                     </Link>
                   </li>
                 )}
@@ -86,7 +87,7 @@ export default function Footer() {
                       href={info.instagram}
                       aria-label={locale === "ar" ? "انستغرام" : "Instagram"}
                     >
-                      <FaInstagram size={14} />
+                      <FaInstagram size={10} />
                     </Link>
                   </li>
                 )}
@@ -97,7 +98,7 @@ export default function Footer() {
                       href={info.snapchat}
                       aria-label={locale === "ar" ? "سناب شات" : "Snapchat"}
                     >
-                      <FaSnapchatGhost size={14} />
+                      <FaSnapchatGhost size={10} />
                     </Link>
                   </li>
                 )}
@@ -108,16 +109,16 @@ export default function Footer() {
                 {t("footer.links")}
               </p>
               <Link
-                href={"/"}
-                className="mt-4 w-fit block text-sm text-[#b4b4bb] hover:underline"
-              >
-                {t("footer.whoarewe")}
-              </Link>
-              <Link
                 href={"/services"}
                 className="mt-4 w-fit block text-sm text-[#b4b4bb] hover:underline"
               >
                 {t("footer.ourservices")}
+              </Link>
+              <Link
+                href={"/"}
+                className="mt-4 w-fit block text-sm text-[#b4b4bb] hover:underline"
+              >
+                {t("footer.story")}
               </Link>
               <Link
                 href={"/blog"}
@@ -146,7 +147,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center text-[12px] text-[#b4b4bb] py-5">
-          &copy; {new Date().getFullYear()} {t("footer.copyright")}
+          &copy; {new Date().getFullYear()} {t("footer.rights")}
         </p>
       </div>
     </div>
