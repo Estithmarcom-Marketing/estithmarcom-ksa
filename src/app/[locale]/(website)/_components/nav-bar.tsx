@@ -11,6 +11,7 @@ import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
 import WhatsappSVG from "@/components/flags/whats-app";
+import StickyCompactNavbar from "@/components/global/sticky-compact-navbar";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -27,6 +28,7 @@ export default function NavBar() {
   return (
     <>
       <WebsiteSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <StickyCompactNavbar />
       <header className="absolute top-0 left-0 w-full z-30">
         <div className="container">
           <nav className="flex items-center justify-between py-6">
