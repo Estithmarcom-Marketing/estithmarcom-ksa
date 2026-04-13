@@ -40,7 +40,7 @@ export default function NavBar() {
                   <Link href="/" className={linkClass("/")}>{t("home")}</Link>
                 </li>
                 <li>
-                  <Link href="/" className={linkClass("/services")}>{t("services")}</Link>
+                  <Link href="/services" className={linkClass("/services")}>{t("services")}</Link>
                 </li>
                 <li>
                   <Link href="/about-us" className={linkClass("/about-us")}>{t("aboutus")}</Link>

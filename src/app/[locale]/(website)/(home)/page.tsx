@@ -4,7 +4,7 @@ import BlogSection from "./_components/blog-section";
 import BookSection from "./_components/book-section";
 import FAQ from "./_components/faq";
 import PartnersSection from "./_components/partners-section";
-import ServicesSection from "./_components/services";
+import ServicesSection from "./_components/services-section";
 import StatsSection from "./_components/stats-section";
 import VideosSection from "./_components/videos-section";
 import ZonesSection from "./_components/zones-section";
