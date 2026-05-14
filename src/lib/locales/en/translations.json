@@ -75,5 +75,16 @@
   "footer.desc": "Investcorp is an international strategic partner that opens doors to markets around the world and provides you with resources.",
   "footer.rights": "All rights reserved to Estithmarcom Business Incubator",
 
-  "servicesPage.desc": "We offer integrated service solutions to ensure the success, sustainability, and simplification of your business."
+  "servicesPage.desc": "We offer integrated service solutions to ensure the success, sustainability, and simplification of your business.",
+
+  "ourNumbers.excellence": "Excellence in Numbers",
+  "ourNumbers.why": "Why Estithmarcom",
+  "ourNumbers.desc": "We don't just offer services, we build lasting success partnerships, combining local expertise with international standards",
+  "ourNumbers.cta.title": "Ready to Start Your Investment Journey",
+  "ourNumbers.cta.desc": "Connect with our experts today and get a free initial consultation for your project",
+  "ourNumbers.cta.button": "Join Us",
+  "ourNumbers.projects": "Projects",
+  "ourNumbers.experience": "Years of Experience",
+  "ourNumbers.happyClients": "Happy Clients",
+  "ourNumbers.service": "Services"
 }

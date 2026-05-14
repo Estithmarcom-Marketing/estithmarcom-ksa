@@ -1,6 +1,7 @@
 "use client";
 
 import PagesHero from "@/components/global/pages-hero";
+import OurNumbersSection from "@/components/service/our-numbers-section";
 import ServiceItem from "@/components/service/service-item";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
@@ -97,14 +98,16 @@ export default function ServicesClient() {
           "نوفر إقامات استثمارية مميزة لدعم رجال الأعمال والمستثمرين.",
       },
     ];
+
   return (
     <>
       <PagesHero title={t("services")} desc={t("servicesPage.desc")} />
       <section className="py-[100px]! container grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {services.map((el) => (
-        <ServiceItem key={el.id} service={el} />
-      ))}
+        {services.map((el) => (
+          <ServiceItem key={el.id} service={el} />
+        ))}
       </section>
+      <OurNumbersSection />
     </>
   );
 }
