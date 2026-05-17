@@ -86,5 +86,9 @@
   "ourNumbers.projects": "مشروع",
   "ourNumbers.experience": "خبرة",
   "ourNumbers.happyClients": "عميل راضي",
-  "ourNumbers.service": "خدمة"
+  "ourNumbers.service": "خدمة",
+
+  "blogpage.title": "تعرف على أخر الأخبار",
+  "blogpage.description": "كن على معرفة بكل ما هو جديد",
+  "blogpage.newsletter": "ابق على اطلاع دائم وتصفح أحدث الأخبار والنصائح في عالم الأعمال عبر مدونة استثماركوم"
 }

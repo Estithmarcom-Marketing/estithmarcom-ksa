@@ -6,4 +6,5 @@ export interface BlogType{
   views: number
   author: string
   slug?: string
+  created_at?: string
 }
