@@ -90,5 +90,14 @@
 
   "blogpage.title": "تعرف على أخر الأخبار",
   "blogpage.description": "كن على معرفة بكل ما هو جديد",
-  "blogpage.newsletter": "ابق على اطلاع دائم وتصفح أحدث الأخبار والنصائح في عالم الأعمال عبر مدونة استثماركوم"
+  "blogpage.newsletter": "ابق على اطلاع دائم وتصفح أحدث الأخبار والنصائح في عالم الأعمال عبر مدونة استثماركوم",
+  "blogpage.search.placeholder": "ابحث باسم المقال...",
+  "blogpage.categories.title": "التصنيفات",
+  "blogpage.sidebar.newsletter.title": "النشرة الإخبارية",
+  "blogpage.sidebar.newsletter.desc": "اكتشف كل ما يهمك ويساعدك في تطوير مشاريعك وتحقيق نجاحاتك",
+  "blogpage.sidebar.newsletter.email": "البريد الإلكتروني",
+
+  "blog.item.by": "بواسطة",
+  "blog.item.views": "مشاهدة",
+  "blog.item.readArticle": "تصفح المقال"
 }
