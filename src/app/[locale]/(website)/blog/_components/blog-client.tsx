@@ -7,16 +7,17 @@ import { getTranslator } from "@/lib/i18n";
 import { BlogType } from "@/lib/types/blog";
 import { useState } from "react";
 import BlogNewsletterBanner from "./blog-newsletter-banner";
-import BlogSidebar from "./blog-sidebar";
+import BlogSidebar from "../../../../../components/blog/blog-sidebar";
+import blog_img from "@/assets/blog_img.jpg";
 
 export default function ServicesClient() {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const activeCategory = 1;
   const blogs: BlogType[] = [
     {
       id: 1,
-      image: "/blog-post.png",
+      image: blog_img,
       author: "حمد عبد العزيز",
       views: 1200,
       created_at: "2023-01-01",
@@ -26,8 +27,8 @@ export default function ServicesClient() {
         "في هذا المقال، سنشرح الخطوات اللازمة لتحويل شركة ذات مسئولية محدودة إلى مساهمة مغلقة في المملكة العربية السعودية. سنتناول المتطلبات القانونية والإجرائية لهذا التحويل، بالإضافة إلى الفوائد والتحديات التي قد تواجهها الشركات خلال هذه العملية.",
     },
     {
-      id: 1,
-      image: "/blog-post.png",
+      id: 2,
+      image: blog_img,
       author: "حمد عبد العزيز",
       views: 1200,
       created_at: "2023-01-01",
@@ -37,8 +38,8 @@ export default function ServicesClient() {
         "في هذا المقال، سنشرح الخطوات اللازمة لتحويل شركة ذات مسئولية محدودة إلى مساهمة مغلقة في المملكة العربية السعودية. سنتناول المتطلبات القانونية والإجرائية لهذا التحويل، بالإضافة إلى الفوائد والتحديات التي قد تواجهها الشركات خلال هذه العملية.",
     },
     {
-      id: 1,
-      image: "/blog-post.png",
+      id: 3,
+      image: blog_img,
       author: "حمد عبد العزيز",
       views: 1200,
       created_at: "2023-01-01",
@@ -52,14 +53,14 @@ export default function ServicesClient() {
   return (
     <>
       <PagesHero title={t("blogpage.title")} desc={t("blogpage.description")} />
-      <BlogNewsletterBanner />
-      <section className="container lg:flex">
-        <div className="my-20 gap-10 flex flex-col ">
+      {/* <BlogNewsletterBanner /> */}
+      <section className="container lg:flex gap-15 justify-between py-20!">
+        <div className="gap-10 flex flex-col ">
           {blogs.map((el) => (
             <BlogItem key={el.id} blog={el} />
           ))}
         </div>
-        <BlogSidebar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+        <BlogSidebar activeCategory={activeCategory} />
       </section>
     </>
   );

@@ -46,10 +46,10 @@ export default function NavBar() {
                   <Link href="/about-us" className={linkClass("/about-us")}>{t("aboutus")}</Link>
                 </li>
                 <li>
-                  <Link href="/about-us" className={linkClass("/blog")}>{t("blog")}</Link>
+                  <Link href="/blog" className={linkClass("/blog")}>{t("blog")}</Link>
                 </li>
                 <li>
-                  <Link href="/blog" className={linkClass("/blog")}>{t("contactus")}</Link>
+                  <Link href="/contact-us" className={linkClass("/contact-us")}>{t("contactus")}</Link>
                 </li>
               </ul>
             </div>

@@ -92,7 +92,7 @@
   "blogpage.title": "Stay Updated with the Latest News",
   "blogpage.description": "Be informed about everything new",
   "blogpage.newsletter": "Stay informed about the latest news and tips in the world of business through the Estithmarcom blog",
-  "blogpage.search.placeholder": "Search by article name...",
+  "blogpage.search.placeholder": "Search by",
   "blogpage.categories.title": "Categories",
   "blogpage.sidebar.newsletter.title": "Newsletter",
   "blogpage.sidebar.newsletter.desc": "Discover everything that helps you develop your projects and achieve your successes",
@@ -100,5 +100,7 @@
 
   "blog.item.by": "By",
   "blog.item.views": "Views",
-  "blog.item.readArticle": "Read Article"
+  "blog.item.readArticle": "Read Article",
+  "blog.entity": "Blog",
+  "service.entity": "Service"
 }

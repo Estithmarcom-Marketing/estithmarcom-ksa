@@ -12,7 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { BlogType } from "@/lib/types/blog";
-import BlogItem from "@/components/blog/blog-item";
+import BlogItem2 from "@/components/blog/blog-item2";
 
 export default function BlogSection() {
   const locale = useLocale();
@@ -63,7 +63,7 @@ export default function BlogSection() {
                     className="basis-full sm:basis-1/2 md:basis-full xl:basis-1/2"
                     key={el.id}
                   >
-                    <BlogItem blog={el} />
+                    <BlogItem2 blog={el} />
                   </CarouselItem>
                 ))}
               </CarouselContent>

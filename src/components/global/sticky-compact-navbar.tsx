@@ -11,6 +11,7 @@ import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import WebsiteSidebar from "@/app/[locale]/(website)/_components/side-bar";
 import { LanguageSelector } from "./language-selector";
+import WhatsappSVG from "../flags/whats-app";
 
 export default function StickyCompactNavbar() {
   const pathname = usePathname();
@@ -114,7 +115,7 @@ export default function StickyCompactNavbar() {
   const strippedPath = "/" + pathname.split("/").slice(2).join("/");
 
   const linkClass = (href: string) =>
-    `text-xs ${ strippedPath === href ? "font-bold" : "" }`;
+    `text-xs ${strippedPath === href ? "font-bold" : ""}`;
 
   return (
     <>
@@ -150,12 +151,12 @@ export default function StickyCompactNavbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about-us" className={linkClass("/blog")}>
+                  <Link href="/blog" className={linkClass("/blog")}>
                     {t("blog")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className={linkClass("/blog")}>
+                  <Link href="/contact-us" className={linkClass("/contact-us")}>
                     {t("contactus")}
                   </Link>
                 </li>
@@ -187,10 +188,9 @@ export default function StickyCompactNavbar() {
               </button>
 
               <div className="hidden lg:flex items-center gap-7 text-white text-xs">
-                <Link href="/contact-us" className={`flex items-center gap-2`}>
-                  <Mail size={15} />
-                  {t("contactus")}
-                </Link>
+                <a href="tel:+966920003991">
+                  <WhatsappSVG />
+                </a>
                 <LanguageSelector />
               </div>
             </div>
