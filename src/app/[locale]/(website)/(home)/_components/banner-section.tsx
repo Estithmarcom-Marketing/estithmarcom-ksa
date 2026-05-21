@@ -18,7 +18,8 @@ export default function BannerSection() {
         </div>
         <div>
           <Link
-            href={`/`}
+            href={`https://jordan-booking.estithmarcom.com/`}
+            target="_blank"
             className="bg-secondary w-fit hover:border-primary block rounded-sm px-14 duration-300 text-lg text-center border border-secondary hover:text-white hover:bg-primary text-white py-1"
           >
             احجز الأن
