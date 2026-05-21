@@ -20,13 +20,13 @@ export default function ServiceItem({ service }: { service: ServiceType }) {
       </div>
       <div className="grid grid-cols-2 gap-2 mt-4">
         <Link
-          href={`/`}
+          href={`/services/${service.slug}`}
           className="bg-secondary hover:border-primary block rounded-sm duration-300 text-sm text-center border border-secondary hover:text-white hover:bg-primary text-white py-1"
         >
           {t("showmore")}
         </Link>
         <Link
-          href={`/`}
+          href={`/services/${service.slug}`}
           className="text-secondary duration-300 hover:bg-muted block rounded-sm text-sm text-center border py-1"
         >
           {t("requestService")}
