@@ -5,8 +5,6 @@ import PagesHero from "@/components/global/pages-hero";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { BlogType } from "@/lib/types/blog";
-import { useState } from "react";
-import BlogNewsletterBanner from "./blog-newsletter-banner";
 import BlogSidebar from "../../../../../components/blog/blog-sidebar";
 import blog_img from "@/assets/blog_img.jpg";
 import LoadMoreButton from "@/components/global/load-more-button";

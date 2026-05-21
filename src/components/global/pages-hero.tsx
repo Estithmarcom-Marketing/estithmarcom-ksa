@@ -22,7 +22,7 @@ export default function PagesHero({
         }}
       />
       <div className="relative z-10 mt-15! flex flex-col container justify-center px-6 h-full">
-        <h1 className="text-white text-4xl sm:text-5xl font-bold mb-8">
+        <h1 className="text-white leading-[60px] text-4xl sm:text-5xl font-bold mb-8">
           {title}
         </h1>
         <p className="text-white leading-10 mb-10">

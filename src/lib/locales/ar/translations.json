@@ -101,5 +101,8 @@
   "blog.item.views": "مشاهدة",
   "blog.item.readArticle": "تصفح المقال",
   "blog.entity": "المقاله",
-  "service.entity": "الخدمه"
+  "service.entity": "الخدمه",
+
+  "blogDetails.title": "تفاصيل المقال",
+  "blogDetails.description": "اكتشف أحدث رؤى واتجاهات في عالم الأعمال من خلال مدونتنا"
 }

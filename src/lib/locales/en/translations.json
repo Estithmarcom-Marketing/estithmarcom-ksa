@@ -102,5 +102,9 @@
   "blog.item.views": "Views",
   "blog.item.readArticle": "Read Article",
   "blog.entity": "Blog",
-  "service.entity": "Service"
+  "service.entity": "Service",
+
+  "blogDetails.title": "Blog Details",
+  "blogDetails.description": "Discover the latest insights and trends in the business world through our blog"
+
 }
