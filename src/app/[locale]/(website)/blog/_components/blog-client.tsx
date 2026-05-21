@@ -9,6 +9,7 @@ import { useState } from "react";
 import BlogNewsletterBanner from "./blog-newsletter-banner";
 import BlogSidebar from "../../../../../components/blog/blog-sidebar";
 import blog_img from "@/assets/blog_img.jpg";
+import LoadMoreButton from "@/components/global/load-more-button";
 
 export default function ServicesClient() {
   const locale = useLocale();
@@ -54,11 +55,16 @@ export default function ServicesClient() {
     <>
       <PagesHero title={t("blogpage.title")} desc={t("blogpage.description")} />
       {/* <BlogNewsletterBanner /> */}
-      <section className="container lg:flex gap-15 justify-between py-20!">
-        <div className="gap-10 flex flex-col ">
-          {blogs.map((el) => (
-            <BlogItem key={el.id} blog={el} />
-          ))}
+      <section className="container lg:flex gap-15 justify-between pb-10! pt-20!">
+        <div>
+          <div className="gap-10 pb-10 flex flex-col ">
+            {blogs.map((el) => (
+              <BlogItem key={el.id} blog={el} />
+            ))}
+          </div>
+          <div className="mb-10! flex justify-center">
+            <LoadMoreButton />
+          </div>
         </div>
         <BlogSidebar activeCategory={activeCategory} />
       </section>
