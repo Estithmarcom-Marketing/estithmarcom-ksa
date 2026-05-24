@@ -85,9 +85,10 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
       <p className="text-sm text-[#666] mt-5">{service.short_description}</p>
 
       <form
+        id="serviceForm"
         onSubmit={formik.handleSubmit}
         noValidate
-        className="mt-10 flex flex-col lg:flex-row justify-between gap-10"
+        className="pt-10 scroll-mt-20 flex flex-col lg:flex-row justify-between gap-10"
       >
         {/* ── Service selector panel ─────────────────────────────────────── */}
         <div className="flex-1/2 w-full bg-[#f8f8fc] rounded-lg overflow-hidden">

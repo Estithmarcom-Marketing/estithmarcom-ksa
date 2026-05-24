@@ -26,7 +26,7 @@ export default function ServiceItem({ service }: { service: ServiceType }) {
           {t("showmore")}
         </Link>
         <Link
-          href={`/services/${service.slug}`}
+          href={`/services/${service.slug}#serviceForm`}
           className="text-secondary duration-300 hover:bg-muted block rounded-sm text-sm text-center border py-1"
         >
           {t("requestService")}

@@ -133,6 +133,10 @@ body {
   }
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 .rounded-sm {
   border-radius: 3px;
 }
