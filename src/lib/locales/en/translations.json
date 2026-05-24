@@ -161,5 +161,10 @@
   "form.validation2.phone": "Invalid phone number",
   "country.saudi": "Saudi Arabia",
   "country.jordan": "Jordan",
-  "country.egypt": "Egypt"
+  "country.egypt": "Egypt",
+  "freezoneDetails.hero.title": "Leading Free Zones in the Middle East",
+  "freezoneDetails.hero.desc": "We provide a comprehensive guide to the most important economic free zones",
+  "freezoneDetails.cta.title": "Are you ready to expand your investment horizons?",
+  "freezoneDetails.cta.desc": "Our team of legal and financial experts is ready to help you choose the ideal free zone for your project",
+  "freezoneDetails.cta.button": "Free Consultation"
 }

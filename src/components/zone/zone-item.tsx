@@ -15,7 +15,7 @@ export default function ZoneItem({zone}: {zone: ZoneType}){
         <Image src={zone.image} alt={zone.title} fill className="object-cover" />
       </div>
       <h4 className="text-sm text-center">{zone.title}</h4>
-      <Link className="px-4 py-1 rounded-sm text-xs font-bold text-secondary bg-muted hover:bg-primary hover:text-white duration-300" href={`/${zone.slug}`}>
+      <Link className="px-4 py-1 rounded-sm text-xs font-bold text-secondary bg-muted hover:bg-primary hover:text-white duration-300" href={`/free-zones/${zone.slug}`}>
         {t("watchmore")}
       </Link>
     </div>

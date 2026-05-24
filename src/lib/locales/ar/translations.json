@@ -160,5 +160,10 @@
   "form.validation2.phone": "رقم الهاتف غير صحيح",
   "country.saudi": "المملكة العربية السعودية",
   "country.jordan": "الأردن",
-  "country.egypt": "مصر"
+  "country.egypt": "مصر",
+  "freezoneDetails.hero.title": "المناطــق الحرة الرائـــدة فـــي الشــرق الأوســــط",
+  "freezoneDetails.hero.desc": "نقدم دليل شامل لأهم المناطق الاقتصادية الحرة",
+  "freezoneDetails.cta.title": "هل انت جاهز لتوسيع أفاق استثمارك؟",
+  "freezoneDetails.cta.desc": "فريقنا من الخبراء القانونيين والماليين جاهز لمساعدتك في اختيار المنطقة الحرة الأمثل لمشروعك",
+  "freezoneDetails.cta.button": "استشارة مجانية"
 }
