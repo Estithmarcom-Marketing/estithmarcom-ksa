@@ -111,6 +111,8 @@
   "blogDetails.description": "Discover the latest insights and trends in the business world through our blog",
   "serviceDetails.title": "Service Details",
   "serviceDetails.description": "Explore our comprehensive range of services designed to support your business growth and success",
+  "serviceDetails.exclusiveBenefits": "Exclusive Benefits",
+  "serviceDetails.whatWeOffer": "What we offer you?",
   "serviceSelector.title": "Select the required service",
   "services.categories.commerce": "Ministry of Commerce",
   "services.categories.hr": "Ministry of Human Resources",

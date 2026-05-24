@@ -5,7 +5,7 @@ import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { ZoneType } from "@/lib/types/zones";
 import Link from "next/link";
-import FAQ from "../../../(home)/_components/faq";
+import FAQ from "../../../../../../components/global/faq";
 
 export default function FreeZoneDetails({ zone }: { zone: ZoneType }) {
   const locale = useLocale();

@@ -101,7 +101,7 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
         </div>
 
         {/* ── Fields panel ───────────────────────────────────────────────── */}
-        <div className="bg-white flex-1/2 shadow-primary/10 rounded-xl px-6 py-10 shadow-md">
+        <div className="bg-white flex-1/2 special-shadow rounded-xl px-6 py-10">
           {/* Row 1 — name + email */}
           <div className="grid mb-5 xl:grid-cols-2 gap-5">
             <div className="space-y-1">
