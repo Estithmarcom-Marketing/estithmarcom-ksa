@@ -11,6 +11,7 @@
   "requestService": "Request Services",
   "readmore": "Read More",
   "showmore": "Show More",
+  "details": "Details",
   "showless": "Show Less",
   "watchmore": "Watch More",
   "clickHere": "Click Here",
@@ -168,5 +169,9 @@
   "freezoneDetails.hero.desc": "We provide a comprehensive guide to the most important economic free zones",
   "freezoneDetails.cta.title": "Are you ready to expand your investment horizons?",
   "freezoneDetails.cta.desc": "Our team of legal and financial experts is ready to help you choose the ideal free zone for your project",
-  "freezoneDetails.cta.button": "Free Consultation"
+  "freezoneDetails.cta.button": "Free Consultation",
+
+  "residencies.title": "Residencies",
+  "residencies.desc": "Explore the most important residency programs in the Middle East and",
+  "residency.order": "Order Now"
 }

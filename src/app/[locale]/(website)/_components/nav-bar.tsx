@@ -32,8 +32,8 @@ export default function NavBar() {
       <header className="absolute top-0 left-0 w-full z-30">
         <div className="container">
           <nav className="flex items-center justify-between py-6">
-            <div className="flex items-center gap-16">
-              <Image src={logo} alt="logo" priority className="w-24 md:w-32" />
+            <div className="flex items-center gap-10 xl:gap-16">
+              <Image src={logo} alt="logo" priority className="w-24 xl:w-32" />
 
               <ul className={`hidden lg:flex relative before:absolute before:-bottom-4 before:start-1/2 ${locale === "ar" ? "before:translate-x-1/2" : "before:-translate-x-1/2"} before:h-[1px] before:w-[calc(100%-50px)] before:bg-[#6b557f] gap-14 text-white bg-[#6b557f] px-10 py-4 rounded-xl`}>
                 <li>
@@ -41,6 +41,9 @@ export default function NavBar() {
                 </li>
                 <li>
                   <Link href="/services" className={linkClass("/services")}>{t("services")}</Link>
+                </li>
+                <li>
+                  <Link href="/residencies" className={linkClass("/residencies")}>{t("residencies.title")}</Link>
                 </li>
                 <li>
                   <Link href="/about-us" className={linkClass("/about-us")}>{t("aboutus")}</Link>

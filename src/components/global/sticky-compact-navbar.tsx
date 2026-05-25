@@ -146,6 +146,14 @@ export default function StickyCompactNavbar() {
                   </Link>
                 </li>
                 <li>
+                  <Link
+                    href="/residencies"
+                    className={linkClass("/residencies")}
+                  >
+                    {t("residencies.title")}
+                  </Link>
+                </li>
+                <li>
                   <Link href="/about-us" className={linkClass("/about-us")}>
                     {t("aboutus")}
                   </Link>

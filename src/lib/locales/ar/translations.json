@@ -11,6 +11,7 @@
   "requestService": "طلب خدمة",
   "readmore": "اقرأ المزيد",
   "showmore": "عرض المزيد",
+  "details": "التفاصيل",
   "showless": "عرض أقل",
   "watchmore": "شاهد المزيد",
   "clickHere": "أضغط هنا",
@@ -167,5 +168,9 @@
   "freezoneDetails.hero.desc": "نقدم دليل شامل لأهم المناطق الاقتصادية الحرة",
   "freezoneDetails.cta.title": "هل انت جاهز لتوسيع أفاق استثمارك؟",
   "freezoneDetails.cta.desc": "فريقنا من الخبراء القانونيين والماليين جاهز لمساعدتك في اختيار المنطقة الحرة الأمثل لمشروعك",
-  "freezoneDetails.cta.button": "استشارة مجانية"
+  "freezoneDetails.cta.button": "استشارة مجانية",
+
+  "residencies.title": "الإقامة",
+  "residencies.desc": "اكتشف أحدث برامج الإقامة المهمة في الشرق الأوسط",
+  "residency.order": "تقدم بطلبك الآن"
 }
