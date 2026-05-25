@@ -17,18 +17,16 @@ export default function OurNumbersSection() {
   ];
 
   return (
-    <section className="py-[50px]! lg:py-[100px]! container w-full lg:flex gap-5">
+    <section className="py-[50px]! lg:py-[100px]! container w-full flex flex-col lg:flex-row gap-5">
       <div className="bg-gray-50 p-10 lg:w-4/6 h-full">
         <p className="text-secondary font-bold">{t("ourNumbers.excellence")}</p>
         <p className="text-[24px] lg:text-[40px] font-bold">{t("ourNumbers.why")}</p>
         <p className="text-[15px] lg:text-[17px]">{t("ourNumbers.desc")}</p>
-        <div className="flex flex-wrap justify-around items-center  lg:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 mt-10 justify-center">
           {ourNumbers.map((el, index) => (
             <>
               <OurNumbersItem key={el.id} ourNumber={el} />
-              {index < ourNumbers.length - 1 && (
-                <div key={`divider-${el.id}`} className="hidden lg:block h-16 w-px bg-gray-300" />
-              )}
+              
             </>
           ))}
         </div>

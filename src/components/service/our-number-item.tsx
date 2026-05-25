@@ -8,7 +8,7 @@ export default function OurNumbersItem({ ourNumber }: { ourNumber: OurNumbersTyp
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
-    <div className="flex flex-col items-center justify-center w-1/2 lg:w-auto">
+    <div className="flex flex-col items-center justify-center lg:w-auto">
         <p className="text-secondary text-[45px] lg:text-[60px] font-bold"> {ourNumber.number} +</p>
         <p className="text-[18px] lg:text-[24px] ">{ourNumber.title}</p>
     </div>
