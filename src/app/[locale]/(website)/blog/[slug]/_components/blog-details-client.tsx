@@ -18,8 +18,8 @@ export default function BlogDetailsClient({ blog }: { blog: BlogType }) {
         title={t("blogDetails.title")}
         desc={t("blogDetails.description")}
       />
-      <section className="container py-20! gap-15 grid grid-cols-3">
-        <div className="col-span-2">
+      <section className="container py-20! gap-15 grid grid-cols-1 lg:grid-cols-3">
+        <div className="lg:col-span-2">
           <div className="relative aspect-video">
             <Image
               src={blog.image}
