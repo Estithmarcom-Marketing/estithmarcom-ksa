@@ -99,7 +99,7 @@ export default function ResidenciesClient({
                   <ExternalLink size={15} />
                 </Link>
                 <Link
-                  href={`/residencies/${residency.slug}`}
+                  href={`/residencies/${residency.slug}#residencyForm`}
                   className="flex hover:underline items-center gap-2"
                 >
                   {t("residency.order")}
