@@ -15,10 +15,7 @@ interface SidebarProps {
   onClose: () => void;
 }
 
-export default function WebsiteSidebar({
-  isOpen,
-  onClose,
-}: SidebarProps) {
+export default function WebsiteSidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
   const sidebarRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
@@ -27,7 +24,29 @@ export default function WebsiteSidebar({
   const strippedPath = "/" + (pathname.split("/").slice(2).join("/") || "");
 
   const linkClass = (href: string) =>
-    `text-black text-sm py-5 px-8 block border-b border-[#eae8ed]/50 ${strippedPath === href ? "font-bold" : "" }`;
+    `text-black text-sm py-5 px-8 block border-b border-[#eae8ed]/50 ${strippedPath === href ? "font-bold" : ""}`;
+
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+    }
+
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.paddingInlineEnd = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY) * -1);
+      }
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -89,17 +108,34 @@ export default function WebsiteSidebar({
               </Link>
             </li>
             <li>
-              <Link onClick={onClose} className={linkClass("/services")} href="/services">
+              <Link
+                onClick={onClose}
+                className={linkClass("/services")}
+                href="/services"
+              >
                 {t("services")}
               </Link>
             </li>
             <li>
-              <Link onClick={onClose} className={linkClass("/blog")} href="/blog">
+              <Link href="/residencies" className={linkClass("/residencies")}>
+                {t("residencies.title")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={onClose}
+                className={linkClass("/blog")}
+                href="/blog"
+              >
                 {t("blog")}
               </Link>
             </li>
             <li>
-              <Link onClick={onClose} className={linkClass("/contact-us")} href="/contact-us">
+              <Link
+                onClick={onClose}
+                className={linkClass("/contact-us")}
+                href="/contact-us"
+              >
                 {t("contactus")}
               </Link>
             </li>
