@@ -70,7 +70,7 @@ export default function ServicesSection() {
   return (
     <div className="container">
       <SpecialHeader header={t("services.title")} desc={t("services.desc")} />
-      <div className="mt-15 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-15 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {displayedServices.map((el) => (
           <ServiceItem key={el.id} service={el} />
         ))}

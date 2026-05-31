@@ -82,7 +82,7 @@ export default function PartnersSection() {
         <Carousel
           orientation="horizontal"
           plugins={[Autoplay({ delay: 2000 })]}
-          opts={{ align: "start", dragFree: true, loop: true }}
+          opts={{ align: "start", loop: true, skipSnaps: true }}
           className="flex-1 px-0"
         >
           <CarouselContent>

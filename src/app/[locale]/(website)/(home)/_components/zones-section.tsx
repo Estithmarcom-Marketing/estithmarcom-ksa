@@ -50,7 +50,7 @@ export default function ZonesSection() {
       <div className="mt-15">
         <Carousel
           orientation="horizontal"
-          opts={{ align: "start", loop: true }}
+          opts={{ align: "start", loop: true, skipSnaps: true }}
           className="flex-1 px-0"
         >
           <div className="relative">
