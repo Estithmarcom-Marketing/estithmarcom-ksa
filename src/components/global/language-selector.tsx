@@ -42,7 +42,7 @@ export function LanguageSelector({width, color = "white"}: LanguageSelectorProbs
 
     setIsLoading(true)
 
-    document.cookie = `estithmarcom_lang=${locale}; path=/; max-age=31536000`
+    document.cookie = `estithmarcom_ksa=${locale}; path=/; max-age=31536000`
 
     const segments = pathname.split("/")
     segments[1] = locale

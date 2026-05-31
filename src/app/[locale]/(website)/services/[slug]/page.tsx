@@ -3,7 +3,7 @@ import ServiceDetailsClient from "./_components/service-details-client";
 
 export default function ServicePage() {
   const service: ServiceType = {
-    id: 6,
+    id: 5,
     icon: "📄",
     title: "الإجراءات الحكومية",
     short_description: "استشارات وخدمات قانونية متكاملة للأفراد والشركات.",

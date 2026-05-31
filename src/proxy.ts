@@ -35,7 +35,7 @@ export async function proxy(request: NextRequest) {
 
   const locale =
     SUPPORTED_LOCALES.find(
-      (l) => l === request.cookies.get("mithaq_lang")?.value,
+      (l) => l === request.cookies.get("estithmarcom_ksa")?.value,
     ) ?? DEFAULT_LOCALE;
 
   const url = request.nextUrl.clone();
