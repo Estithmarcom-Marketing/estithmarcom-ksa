@@ -36,7 +36,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="container">
+    <div>
       <SpecialHeader header={t("faq.title")} />
       <div className="mt-15">
         <Accordion type="single" collapsible className="space-y-3">

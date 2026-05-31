@@ -18,28 +18,28 @@ export default async function HomePage() {
       <section className="-mt-20 relative z-20">
         <BannerSection />
       </section>
-      <section className="py-[100px]">
+      <section className="py-[70px]! sm:py-[100px]">
         <ServicesSection />
       </section>
       <section>
         <BookSection />
       </section>
-      <section className="py-[100px]">
+      <section className="py-[70px]! sm:py-[100px]">
         <StatsSection />
       </section>
       <section className="bg-[#f6f7f6]">
         <VideosSection />
       </section>
-      <section className="py-[100px]">
+      <section className="py-[70px]! sm:py-[100px]">
         <PartnersSection />
       </section>
       <section className="bg-[#f6f7f6]">
         <BlogSection />
       </section>
-      <section className="pt-[100px]">
+      <section className="pt-[70px]! sm:pt-[100px]">
         <ZonesSection />
       </section>
-      <section className="py-[100px]">
+      <section className="py-[70px]! sm:py-[100px]! container">
         <FAQ />
       </section>
     </div>

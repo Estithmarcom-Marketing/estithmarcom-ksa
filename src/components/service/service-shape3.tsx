@@ -7,16 +7,9 @@ import { useLocale } from "@/hooks/use-locale";
 import { getTranslator, TranslationKey } from "@/lib/i18n";
 import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
-import { ServiceSelector } from "./service-selector";
 import { Button } from "../ui/button";
-import {
-  createServiceShape1Schema,
-  ServiceShape1Values,
-} from "@/lib/schemas/service-shape1.schema";
 import { useFormik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import { ServiceTypeItem } from "@/data/services_type";
-// import useAxios from "@/hooks/use-axios";
 import {
   Select,
   SelectContent,
@@ -24,11 +17,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import {
+  createServiceShape3Schema,
+  ServiceShape3Values,
+} from "@/lib/schemas/service-shape3.schema";
+import { OFFICE_SIZES } from "@/data/service-form-data";
 
-export default function ServiceShape1({ service }: { service: ServiceType }) {
+export default function ServiceShape3({ service }: { service: ServiceType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-  // const Axios = useAxios();
 
   const countries = [
     { id: 1, name: t("country.saudi" as TranslationKey) },
@@ -36,18 +33,22 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
     { id: 3, name: t("country.egypt" as TranslationKey) },
   ];
 
-  const formik = useFormik<ServiceShape1Values>({
+  const sizes = OFFICE_SIZES.map((s) => ({
+    id: s.id,
+    name: t(s.nameKey),
+  }));
+
+  const formik = useFormik<ServiceShape3Values>({
     initialValues: {
       name: "",
       email: "",
       phone: "",
       country_id: 0,
-      company: "",
+      size: "",
       notes: "",
-      service_type: "",
       service_id: service.id,
     },
-    validationSchema: toFormikValidationSchema(createServiceShape1Schema()),
+    validationSchema: toFormikValidationSchema(createServiceShape3Schema()),
     onSubmit: (values) => {
       const payload = {
         name: values.name,
@@ -57,12 +58,8 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
         country_id: values.country_id,
         additional_info: [
           {
-            key: "company",
-            value: values.company,
-          },
-          {
-            key: "service_type",
-            value: t(values.service_type as TranslationKey),
+            key: "size",
+            value: values.size,
           },
           {
             key: "notes",
@@ -75,34 +72,20 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
     },
   });
 
-  const handleServiceSelect = (item: ServiceTypeItem | null) => {
-    formik.setFieldValue("service_type", item?.title ?? "", true);
-  };
-
   return (
-    <div className="py-10">
-      <h1 className="text-2xl font-bold">{service.title}</h1>
-      <p className="text-sm text-[#666] mt-5">{service.short_description}</p>
+    <div className="py-10 grid grid-cols-1 gap-y-10 gap-x-20 lg:grid-cols-2">
+      <div>
+        <h1 className="text-4xl font-bold">{service.title}</h1>
+        <p className="text-sm text-[#666] mt-5">{service.short_description}</p>
+      </div>
 
       <form
         id="serviceForm"
         onSubmit={formik.handleSubmit}
         noValidate
-        className="pt-10 scroll-mt-20 flex flex-col lg:flex-row justify-between gap-10"
+        className="scroll-mt-20 flex flex-col lg:flex-row justify-between gap-10"
       >
-        {/* ── Service selector panel ─────────────────────────────────────── */}
-        <div className="flex-1/2 w-full bg-[#f8f8fc] rounded-lg overflow-hidden">
-          <ServiceSelector onSelect={handleServiceSelect} />
-          {formik.submitCount > 0 && formik.errors.service_type && (
-            <p className="text-red-400 text-xs px-5 pb-4">
-              {t(formik.errors.service_type as any)}
-            </p>
-          )}
-        </div>
-
-        {/* ── Fields panel ───────────────────────────────────────────────── */}
         <div className="bg-white flex-1/2 special-shadow rounded-xl px-6 py-10">
-          {/* Row 1 — name + email */}
           <div className="grid mb-5 xl:grid-cols-2 gap-5">
             <div className="space-y-1">
               <Label htmlFor="name">
@@ -138,7 +121,6 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
             </div>
           </div>
 
-          {/* Row 2 — country + phone */}
           <div className="grid mb-5 xl:grid-cols-2 gap-5">
             <div className="space-y-1">
               <Label htmlFor="country">
@@ -195,10 +177,6 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
                 onChange={(e164) => {
                   formik.setFieldValue("phone", e164);
                 }}
-                onInputChange={() => {
-                  // This can stay to clear other local states if needed, 
-                  // but for validation, formik.setFieldValue handles it.
-                }}
                 onBlur={() => {
                   formik.setFieldTouched("phone", true);
                 }}
@@ -211,25 +189,43 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
             </div>
           </div>
 
-          {/* Row 3 — company */}
           <div className="mb-5 space-y-1">
-            <Label htmlFor="company">
-              {t("form.companyName" as TranslationKey)}
+            <Label htmlFor="size">
+              {t("service.shape3.size" as TranslationKey)}
             </Label>
-            <Input
-              id="company"
-              placeholder={t("form.companyName.placeholder" as TranslationKey)}
-              {...formik.getFieldProps("company")}
-              aria-invalid={!!(formik.touched.company && formik.errors.company)}
-            />
-            {formik.touched.company && formik.errors.company && (
+            <Select
+              dir={locale === "ar" ? "rtl" : "ltr"}
+              onValueChange={(val) => {
+                formik.setFieldValue("size", val, true);
+              }}
+              value={formik.values.size}
+            >
+              <SelectTrigger
+                id="size"
+                className="w-full"
+                aria-invalid={!!(formik.submitCount > 0 && formik.errors.size)}
+              >
+                <SelectValue
+                  placeholder={t(
+                    "service.shape3.size.placeholder" as TranslationKey,
+                  )}
+                />
+              </SelectTrigger>
+              <SelectContent>
+                {sizes.map((s) => (
+                  <SelectItem key={s.id} value={s.id}>
+                    {s.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {formik.submitCount > 0 && formik.errors.size && (
               <p className="text-red-400 text-xs px-1">
-                {t(formik.errors.company as any)}
+                {t(formik.errors.size as any)}
               </p>
             )}
           </div>
 
-          {/* Row 4 — notes */}
           <div className="space-y-1">
             <Label htmlFor="notes">{t("form.notes" as TranslationKey)}</Label>
             <Textarea

@@ -7,12 +7,7 @@ import { useLocale } from "@/hooks/use-locale";
 import { getTranslator, TranslationKey } from "@/lib/i18n";
 import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
-import { ServiceSelector } from "./service-selector";
 import { Button } from "../ui/button";
-import {
-  createServiceShape1Schema,
-  ServiceShape1Values,
-} from "@/lib/schemas/service-shape1.schema";
 import { useFormik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { ServiceTypeItem } from "@/data/services_type";
@@ -24,8 +19,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import {
+  createServiceShape2Schema,
+  ServiceShape2Values,
+} from "@/lib/schemas/service-shape-2.schema";
 
-export default function ServiceShape1({ service }: { service: ServiceType }) {
+export default function ServiceShape2({ service }: { service: ServiceType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   // const Axios = useAxios();
@@ -36,7 +35,7 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
     { id: 3, name: t("country.egypt" as TranslationKey) },
   ];
 
-  const formik = useFormik<ServiceShape1Values>({
+  const formik = useFormik<ServiceShape2Values>({
     initialValues: {
       name: "",
       email: "",
@@ -44,10 +43,9 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
       country_id: 0,
       company: "",
       notes: "",
-      service_type: "",
       service_id: service.id,
     },
-    validationSchema: toFormikValidationSchema(createServiceShape1Schema()),
+    validationSchema: toFormikValidationSchema(createServiceShape2Schema()),
     onSubmit: (values) => {
       const payload = {
         name: values.name,
@@ -61,10 +59,6 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
             value: values.company,
           },
           {
-            key: "service_type",
-            value: t(values.service_type as TranslationKey),
-          },
-          {
             key: "notes",
             value: values.notes,
           },
@@ -75,31 +69,19 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
     },
   });
 
-  const handleServiceSelect = (item: ServiceTypeItem | null) => {
-    formik.setFieldValue("service_type", item?.title ?? "", true);
-  };
-
   return (
-    <div className="py-10">
-      <h1 className="text-2xl font-bold">{service.title}</h1>
-      <p className="text-sm text-[#666] mt-5">{service.short_description}</p>
+    <div className="py-10 grid grid-cols-1 gap-y-10 gap-x-20 lg:grid-cols-2">
+      <div>
+        <h1 className="text-4xl font-bold">{service.title}</h1>
+        <p className="text-sm text-[#666] mt-5">{service.short_description}</p>
+      </div>
 
       <form
         id="serviceForm"
         onSubmit={formik.handleSubmit}
         noValidate
-        className="pt-10 scroll-mt-20 flex flex-col lg:flex-row justify-between gap-10"
+        className="scroll-mt-20 flex flex-col lg:flex-row justify-between gap-10"
       >
-        {/* ── Service selector panel ─────────────────────────────────────── */}
-        <div className="flex-1/2 w-full bg-[#f8f8fc] rounded-lg overflow-hidden">
-          <ServiceSelector onSelect={handleServiceSelect} />
-          {formik.submitCount > 0 && formik.errors.service_type && (
-            <p className="text-red-400 text-xs px-5 pb-4">
-              {t(formik.errors.service_type as any)}
-            </p>
-          )}
-        </div>
-
         {/* ── Fields panel ───────────────────────────────────────────────── */}
         <div className="bg-white flex-1/2 special-shadow rounded-xl px-6 py-10">
           {/* Row 1 — name + email */}
@@ -196,7 +178,7 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
                   formik.setFieldValue("phone", e164);
                 }}
                 onInputChange={() => {
-                  // This can stay to clear other local states if needed, 
+                  // This can stay to clear other local states if needed,
                   // but for validation, formik.setFieldValue handles it.
                 }}
                 onBlur={() => {
