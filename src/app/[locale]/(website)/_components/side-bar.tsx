@@ -8,8 +8,7 @@ import logo from "@/assets/logo2.png";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
-import { Mail } from "lucide-react";
-import WhatsappSVG from "@/components/flags/whats-app";
+import Newsletter from "@/components/global/newslettter";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -28,11 +27,7 @@ export default function WebsiteSidebar({
   const strippedPath = "/" + (pathname.split("/").slice(2).join("/") || "");
 
   const linkClass = (href: string) =>
-    `before:duration-300 relative before:absolute before:h-px before:bg-secondary before:-bottom-2 before:start-0 text-lg ${
-      strippedPath === href || (href === "/" && strippedPath === "/")
-        ? "before:w-full"
-        : "before:w-0 hover:before:w-full"
-    }`;
+    `text-black text-sm py-5 px-8 block border-b border-[#eae8ed]/50 ${strippedPath === href ? "font-bold" : "" }`;
 
   return (
     <>
@@ -45,7 +40,7 @@ export default function WebsiteSidebar({
 
       <div
         ref={sidebarRef}
-        className={`fixed top-0 start-0 h-full w-72 z-999 bg-primary flex flex-col transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed top-0 start-0 h-full w-full sm:w-100 z-999 bg-white flex flex-col transition-transform duration-300 ease-in-out overflow-hidden ${
           isOpen
             ? "translate-x-0"
             : locale === "ar"
@@ -53,45 +48,69 @@ export default function WebsiteSidebar({
               : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-center p-6 border-b border-white/10">
-          <Image src={logo} alt="Logo" width={120} priority />
+        <div className="flex-none flex items-center justify-between p-6 border-b border-[#eae8ed]/50">
+          <Image src={logo} alt="Logo" width={100} priority />
+          <button
+            onClick={onClose}
+            className="p-2 text-gray-600 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors"
+            aria-label="Close menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
 
-        <ul className="flex flex-col gap-7 p-8 text-white max-h-[calc(100vh-220px)] overflow-y-auto">
-          <li>
-            <Link onClick={onClose} className={linkClass("/")} href="/">
-              الرئيسية
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={onClose}
-              className={linkClass("/about-us")}
-              href="/about-us"
-            >
-              من نحن
-            </Link>
-          </li>
-          <li>
-            <Link onClick={onClose} className={linkClass("/service")} href="/service">
-              الخدمات
-            </Link>
-          </li>
-          <li>
-            <Link onClick={onClose} className={linkClass("/blog")} href="/blog">
-              المدونة
-            </Link>
-          </li>
-          <li>
-            <Link onClick={onClose} className={linkClass("/contact-us")} href="/contact-us">
-              تواصل معنا
-            </Link>
-          </li>
-        </ul>
+        <div className="flex-1 overflow-y-auto">
+          <ul className="flex flex-col">
+            <li>
+              <Link onClick={onClose} className={linkClass("/")} href="/">
+                {t("home")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={onClose}
+                className={linkClass("/about-us")}
+                href="/about-us"
+              >
+                {t("aboutus")}
+              </Link>
+            </li>
+            <li>
+              <Link onClick={onClose} className={linkClass("/services")} href="/services">
+                {t("services")}
+              </Link>
+            </li>
+            <li>
+              <Link onClick={onClose} className={linkClass("/blog")} href="/blog">
+                {t("blog")}
+              </Link>
+            </li>
+            <li>
+              <Link onClick={onClose} className={linkClass("/contact-us")} href="/contact-us">
+                {t("contactus")}
+              </Link>
+            </li>
+          </ul>
+          <div className="p-6">
+            <Newsletter />
+          </div>
+        </div>
 
-        <div className="mt-auto p-8 border-t border-white/10 text-white flex flex-col gap-6">
-          <WhatsappSVG />
-          <LanguageSelector />
+        <div className="flex-none p-2 border-t border-[#eae8ed]/50 items-center flex flex-col justify-center">
+          <LanguageSelector color="black" />
         </div>
       </div>
     </>

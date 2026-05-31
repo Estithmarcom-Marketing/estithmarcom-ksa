@@ -23,11 +23,14 @@ export default function NavBar() {
   const strippedPath = "/" + pathname.split("/").slice(2).join("/");
 
   const linkClass = (href: string) =>
-    `text-sm ${ strippedPath === href ? "font-bold" : "" }`;
+    `text-sm ${strippedPath === href ? "font-bold" : ""}`;
 
   return (
     <>
-      <WebsiteSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <WebsiteSidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
       <StickyCompactNavbar />
       <header className="absolute top-0 left-0 w-full z-30">
         <div className="container">
@@ -35,24 +38,41 @@ export default function NavBar() {
             <div className="flex items-center gap-10 xl:gap-16">
               <Image src={logo} alt="logo" priority className="w-24 xl:w-32" />
 
-              <ul className={`hidden lg:flex relative before:absolute before:-bottom-4 before:start-1/2 ${locale === "ar" ? "before:translate-x-1/2" : "before:-translate-x-1/2"} before:h-[1px] before:w-[calc(100%-50px)] before:bg-[#6b557f] gap-10 text-white bg-[#6b557f] px-10 py-4 rounded-xl`}>
+              <ul
+                className={`hidden lg:flex relative before:absolute before:-bottom-4 before:start-1/2 ${locale === "ar" ? "before:translate-x-1/2" : "before:-translate-x-1/2"} before:h-[1px] before:w-[calc(100%-50px)] before:bg-[#6b557f] gap-10 text-white bg-[#6b557f] px-10 py-4 rounded-xl`}
+              >
                 <li>
-                  <Link href="/" className={linkClass("/")}>{t("home")}</Link>
+                  <Link href="/" className={linkClass("/")}>
+                    {t("home")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/services" className={linkClass("/services")}>{t("services")}</Link>
+                  <Link href="/services" className={linkClass("/services")}>
+                    {t("services")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/residencies" className={linkClass("/residencies")}>{t("residencies.title")}</Link>
+                  <Link
+                    href="/residencies"
+                    className={linkClass("/residencies")}
+                  >
+                    {t("residencies.title")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about-us" className={linkClass("/about-us")}>{t("aboutus")}</Link>
+                  <Link href="/blog" className={linkClass("/blog")}>
+                    {t("blog")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className={linkClass("/blog")}>{t("blog")}</Link>
+                  <Link href="/about-us" className={linkClass("/about-us")}>
+                    {t("aboutus")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/contact-us" className={linkClass("/contact-us")}>{t("contactus")}</Link>
+                  <Link href="/contact-us" className={linkClass("/contact-us")}>
+                    {t("contactus")}
+                  </Link>
                 </li>
               </ul>
             </div>

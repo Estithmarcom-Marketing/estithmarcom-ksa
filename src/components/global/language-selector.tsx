@@ -26,9 +26,10 @@ const LANGUAGES = [
 
 interface LanguageSelectorProbs {
   width?: "full" | "fit"
+  color?: "black" | "white"
 }
 
-export function LanguageSelector({width}: LanguageSelectorProbs) {
+export function LanguageSelector({width, color = "white"}: LanguageSelectorProbs) {
   const router = useRouter()
   const locale = useLocale()
   const pathname = usePathname()
@@ -53,7 +54,7 @@ export function LanguageSelector({width}: LanguageSelectorProbs) {
   return (
     <Select value={currentLocale} onValueChange={handleLanguageChange}>
       <SelectTrigger
-        className={`focus-visible:ring-0 shadow-none ${width === "full" ? "w-full" : "w-fit border-none"}`}
+        className={`focus-visible:ring-0 text-${color} shadow-none ${width === "full" ? "w-full" : "w-fit border-none"}`}
         aria-label={locale == "en" ? "Lang select" : "اختيار اللغة"}
         disabled={isLoading}
       >
@@ -62,7 +63,7 @@ export function LanguageSelector({width}: LanguageSelectorProbs) {
       <SelectContent className="z-[1000]" position="popper" align={locale === "ar" ? "start" : "end"}>
         {LANGUAGES.map((lang) => (
           <SelectItem
-            className=""
+            className={`text-black`}
             key={lang.code}
             value={lang.code}
           >

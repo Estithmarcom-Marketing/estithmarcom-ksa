@@ -8,7 +8,7 @@ export default function Newsletter() {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
-      <div className="bg-primary rounded-lg p-5 text-white mt-3">
+      <div className="bg-primary rounded-lg p-5 text-white">
         <p className="text-xl font-bold my-2">{t("blogpage.sidebar.newsletter.title")}</p>
         <p className="my-5 text-sm text-white/50">{t("blogpage.sidebar.newsletter.desc")}</p>
         <input
