@@ -102,7 +102,7 @@ export default function ServicesClient() {
   return (
     <>
       <PagesHero title={t("services")} desc={t("servicesPage.desc")} />
-      <section className="py-[100px]! container grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <section className="py-[70px]! sm:py-[100px]! container grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {services.map((el) => (
           <ServiceItem key={el.id} service={el} />
         ))}
