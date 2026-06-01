@@ -25,9 +25,7 @@ export default function OurNumbersSection() {
         <p className="text-[15px] lg:text-[17px]">{t("ourNumbers.desc")}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 mt-10 justify-center">
           {ourNumbers.map((el) => (
-            <>
-              <OurNumbersItem key={el.id} ourNumber={el} />
-            </>
+            <OurNumbersItem key={el.id} ourNumber={el} />
           ))}
         </div>
       </div>

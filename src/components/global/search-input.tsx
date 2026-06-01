@@ -3,21 +3,61 @@
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { Search } from "lucide-react";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 
-export default function SearchInput({ entityName }: { entityName: string }) {
+interface SearchInputProps {
+  entityName?: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: () => void;
+}
+
+export default function SearchInput({
+  entityName,
+  value,
+  onChange,
+  onSubmit,
+}: SearchInputProps) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      onSubmit();
+    }
+  };
+
+  const getHref = () => {
+    const params = new URLSearchParams(searchParams.toString());
+    const val = value.trim();
+    if (val) {
+      params.set("search", val);
+    } else {
+      params.delete("search");
+    }
+    params.delete("page");
+    return `${pathname}?${params.toString()}`;
+  };
 
   return (
     <div className="flex items-center rounded-full overflow-hidden border border-gray-200 shadow-sm w-full">
       <input
         type="text"
-        placeholder={`${t("blogpage.search.placeholder")} ${entityName}...`}
+        value={value}
+        onChange={onChange}
+        onKeyDown={handleKeyDown}
+        placeholder={`${t("blogpage.search.placeholder")}${entityName ? ` ${entityName}` : ""}...`}
         className="flex-1 bg-secondary text-white placeholder:text-white/80 px-4 py-3 outline-none text-sm"
       />
-      <button className="bg-white flex items-center justify-center px-4 py-3 shrink-0">
+      <Link
+        href={getHref()}
+        className="bg-white flex items-center justify-center px-4 py-3 shrink-0"
+      >
         <Search size={20} className="text-gray-500" />
-      </button>
+      </Link>
     </div>
   );
 }

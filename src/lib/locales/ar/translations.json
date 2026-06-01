@@ -115,6 +115,7 @@
   "serviceDetails.whatWeOffer": "ماذا نقدم لك؟",
   "serviceSelector.title": "اختر الخدمة المطلوبة",
   "services.categories.commerce": "وزارة التجارة",
+  "services.noFound": "لم يتم العثور على خدمات",
   "services.categories.hr": "وزارة الموارد البشرية",
   "services.categories.municipal": "الخدمات البلدية",
   "services.commerce.renew_cr.title": "تجديد السجل التجاري",

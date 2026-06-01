@@ -1,3 +1,5 @@
+import { PaginationType } from "./pagination"
+
 export interface ServiceFeatureType {
   id: number
   title: string
@@ -12,4 +14,9 @@ export interface ServiceType{
   slug?: string
   features_description?: string
   features?: ServiceFeatureType[]
+}
+
+export interface ServiceResType {
+  services: ServiceType[];
+  meta?: PaginationType;
 }
