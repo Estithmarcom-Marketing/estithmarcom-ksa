@@ -80,7 +80,7 @@ export default function ServiceShape2({ service }: { service: ServiceType }) {
         id="serviceForm"
         onSubmit={formik.handleSubmit}
         noValidate
-        className="scroll-mt-20 flex flex-col lg:flex-row justify-between gap-10"
+        className="scroll-mt-30 flex flex-col lg:flex-row justify-between gap-10"
       >
         {/* ── Fields panel ───────────────────────────────────────────────── */}
         <div className="bg-white flex-1/2 special-shadow rounded-xl px-6 py-10">
