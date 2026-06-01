@@ -23,6 +23,8 @@ export default function InlinePlayer({ video }: { video: any }) {
   } | null>(null);
   const [controlsVisible, setControlsVisible] = useState(false);
 
+  const wasPlayingBeforeDrag = useRef(false);
+
   // Show controls temporarily then hide (for mobile tap)
   const showControlsTemporarily = useCallback(() => {
     setControlsVisible(true);
@@ -68,6 +70,7 @@ export default function InlinePlayer({ video }: { video: any }) {
   };
 
   const handleTimeUpdate = () => {
+    if (isDragging.current) return;
     const el = videoRef.current;
     if (!el) return;
     setCurrentTime(el.currentTime);
@@ -97,14 +100,27 @@ export default function InlinePlayer({ video }: { video: any }) {
   const applyRatio = useCallback((ratio: number) => {
     const el = videoRef.current;
     if (!el || !el.duration) return;
-    el.currentTime = ratio * el.duration;
+    const newTime = ratio * el.duration;
+
+    // Update local state immediately for visual smoothness
+    setProgress(ratio * 100);
+    setCurrentTime(newTime);
+
+    // Attempt to seek the video
+    el.currentTime = newTime;
   }, []);
 
   // ── Mouse events (desktop) ─────────────────────────────────────────────────
 
   const handleProgressMouseDown = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
+      const el = videoRef.current;
+      if (!el) return;
+
       isDragging.current = true;
+      wasPlayingBeforeDrag.current = !el.paused;
+      el.pause();
+
       const ratio = getRatioFromClientX(e.clientX);
       if (ratio !== null) applyRatio(ratio);
 
@@ -116,6 +132,10 @@ export default function InlinePlayer({ video }: { video: any }) {
 
       const onUp = () => {
         isDragging.current = false;
+        if (wasPlayingBeforeDrag.current) {
+          videoRef.current?.play().catch(() => {});
+          setPlaying(true);
+        }
         document.removeEventListener("mousemove", onMove);
         document.removeEventListener("mouseup", onUp);
       };
@@ -134,8 +154,6 @@ export default function InlinePlayer({ video }: { video: any }) {
       const dur = el?.duration ?? 0;
       const t = ratio * dur;
       setHoverState({ ratio, label: formatTime(t) });
-      const pv = previewRef.current;
-      if (pv && dur) pv.currentTime = t;
     },
     [getRatioFromClientX],
   );
@@ -148,8 +166,14 @@ export default function InlinePlayer({ video }: { video: any }) {
 
   const handleProgressTouchStart = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
+      const el = videoRef.current;
+      if (!el) return;
+
       e.preventDefault(); // prevent scroll while scrubbing
       isDragging.current = true;
+      wasPlayingBeforeDrag.current = !el.paused;
+      el.pause();
+
       const touch = e.touches[0];
       const ratio = getRatioFromClientX(touch.clientX);
       if (ratio !== null) applyRatio(ratio);
@@ -171,6 +195,10 @@ export default function InlinePlayer({ video }: { video: any }) {
 
   const handleProgressTouchEnd = useCallback(() => {
     isDragging.current = false;
+    if (wasPlayingBeforeDrag.current) {
+      videoRef.current?.play().catch(() => {});
+      setPlaying(true);
+    }
   }, []);
 
   // ── Volume ─────────────────────────────────────────────────────────────────

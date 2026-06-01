@@ -86,7 +86,7 @@ export default function VideosSection() {
 
         <div className="mt-15" />
 
-        <div className="flex flex-col lg:flex-row gap-10 xl:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-20">
           {/* Main Player */}
           <div className="flex-1 flex flex-col gap-4">
             <InlinePlayer key={activeVideo.id} video={activeVideo} />
