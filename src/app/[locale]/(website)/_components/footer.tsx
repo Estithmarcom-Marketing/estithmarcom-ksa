@@ -2,31 +2,17 @@
 
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
-import { FaFacebook, FaInstagram, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { FaSnapchatGhost } from "react-icons/fa";
-import useAxios from "@/hooks/use-axios";
-import { InfoType } from "@/lib/types/info";
 import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
+import { SettingsType } from "@/lib/types/settings";
 
-export default function Footer() {
-  let info: InfoType = {
-    address: "السعوديه",
-    email: "info@astthmarkem.com",
-    facebook: "z",
-    instagram: "z",
-    name: "z",
-    phone: "920003661",
-    snapchat: "z",
-    tiktok: "z",
-    x: "",
-  };
+export default function Footer({ settings }: { settings: SettingsType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-  const Axios = useAxios();
-
   return (
     <div className={`relative pt-10 bg-primary`}>
       <div
@@ -47,58 +33,69 @@ export default function Footer() {
               </div>
               <p className="text-sm lg:text-center">{t("footer.desc")}</p>
               <ul className="flex flex-wrap gap-3 items-center">
-                {info.facebook && (
+                {settings.facebook && (
                   <li>
                     <Link
                       className="block border duration-300 hover:bg-white hover:text-black border-white rounded-full p-2"
-                      href={info.facebook}
+                      href={settings.facebook}
                       aria-label={locale === "ar" ? "فيسبوك" : "Facebook"}
                     >
                       <FaFacebook size={10} />
                     </Link>
                   </li>
                 )}
-                {info.x && (
+                {settings.x && (
                   <li>
                     <Link
                       className="block border duration-300 hover:bg-white hover:text-black border-white rounded-full p-2"
-                      href={info.x}
+                      href={settings.x}
                       aria-label={locale === "ar" ? "تويتر" : "Twitter"}
                     >
                       <FaXTwitter size={10} />
                     </Link>
                   </li>
                 )}
-                {info.tiktok && (
+                {settings.tiktok && (
                   <li>
                     <Link
                       className="block border duration-300 hover:bg-white hover:text-black border-white rounded-full p-2"
-                      href={info.tiktok}
+                      href={settings.tiktok}
                       aria-label={locale === "ar" ? "تيك توك" : "TikTok"}
                     >
                       <FaTiktok size={10} />
                     </Link>
                   </li>
                 )}
-                {info.instagram && (
+                {settings.instagram && (
                   <li>
                     <Link
                       className="block border duration-300 hover:bg-white hover:text-black border-white rounded-full p-2"
-                      href={info.instagram}
+                      href={settings.instagram}
                       aria-label={locale === "ar" ? "انستغرام" : "Instagram"}
                     >
                       <FaInstagram size={10} />
                     </Link>
                   </li>
                 )}
-                {info.snapchat && (
+                {settings.snapchat && (
                   <li>
                     <Link
                       className="block border duration-300 hover:bg-white hover:text-black border-white rounded-full p-2"
-                      href={info.snapchat}
+                      href={settings.snapchat}
                       aria-label={locale === "ar" ? "سناب شات" : "Snapchat"}
                     >
                       <FaSnapchatGhost size={10} />
+                    </Link>
+                  </li>
+                )}
+                {settings.linkedin && (
+                  <li>
+                    <Link
+                      className="block border duration-300 hover:bg-white hover:text-black border-white rounded-full p-2"
+                      href={settings.linkedin}
+                      aria-label={locale === "ar" ? "لينكدإن" : "LinkedIn"}
+                    >
+                      <FaLinkedin size={10} />
                     </Link>
                   </li>
                 )}
@@ -132,15 +129,15 @@ export default function Footer() {
                 {t("footer.contact")}
               </p>
               <Link
-                href={`mailto:${info.email}`}
+                href={`mailto:${settings}`}
                 className="mt-4 w-fit text-[#b4b4bb] flex items-center gap-2"
               >
                 <Mail />
-                <span className="text-sm">{info.email}</span>
+                <span className="text-sm">{settings.email}</span>
               </Link>
               <p className="mt-4 text-[#b4b4bb] flex items-center gap-2">
                 <MapPin />
-                <span className="text-sm">{info.address}</span>
+                <span className="text-sm">{settings.address}</span>
               </p>
             </div>
           </div>

@@ -182,6 +182,7 @@ export function PhoneInput({
         <PopoverTrigger asChild>
           <button
             type="button"
+            dir="ltr"
             className="flex items-center gap-1 px-3 py-2 rounded-l-md shadow-sm font-bold border-gray-100 hover:border-gray-200 bg-gray-100 hover:bg-gray-200 text-primary! transition h-12 border-r shrink-0 text-sm"
           >
             <span className="text-lg leading-none">
@@ -216,7 +217,7 @@ export function PhoneInput({
                   <span className="flex-1 text-sm">
                     {country.label}
                   </span>
-                  <span className="text-muted-foreground text-xs">
+                  <span dir="ltr" className="text-muted-foreground text-xs">
                     {country.dialCode}
                   </span>
                 </CommandItem>

@@ -21,8 +21,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SettingsType } from "@/lib/types/settings";
 
-export default function ContactUsClient() {
+export default function ContactUsClient({ settings }: { settings: SettingsType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
 
@@ -223,7 +224,7 @@ export default function ContactUsClient() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-600">+966 920003991</p>
+                  <p dir="ltr" className="text-gray-600">+{settings.phone}</p>
                 </div>
               </div>
 
@@ -245,7 +246,7 @@ export default function ContactUsClient() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-600">info@estithmarcom.com</p>
+                  <p className="text-gray-600">{settings.email}</p>
                 </div>
               </div>
 
@@ -267,7 +268,7 @@ export default function ContactUsClient() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-600">{t("footer.location")}</p>
+                  <p className="text-gray-600">{settings.address}</p>
                 </div>
               </div>
             </div>

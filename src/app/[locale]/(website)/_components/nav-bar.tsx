@@ -12,8 +12,9 @@ import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
 import WhatsappSVG from "@/components/flags/whats-app";
 import StickyCompactNavbar from "@/components/global/sticky-compact-navbar";
+import { SettingsType } from "@/lib/types/settings";
 
-export default function NavBar() {
+export default function NavBar({ settings }: { settings: SettingsType }) {
   const pathname = usePathname();
   const locale = useLocale();
   const { t } = getTranslator(locale);
@@ -102,9 +103,15 @@ export default function NavBar() {
               </button>
 
               <div className="hidden lg:flex items-center gap-5 text-white">
-                <a href="tel:+966920003991">
-                  <WhatsappSVG />
-                </a>
+                {settings.whatsapp && (
+                  <a
+                    href={`${settings.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <WhatsappSVG />
+                  </a>
+                )}
                 <LanguageSelector />
               </div>
             </div>
