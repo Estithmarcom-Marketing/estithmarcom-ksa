@@ -200,5 +200,7 @@
   "service.shape4.connectionWay.phoneCall": "اتصال هاتفي",
   "form.validation.investorType": "نوع المستثمر مطلوب",
   "form.validation.investmentField": "مجال الاستثمار مطلوب",
-  "form.validation.connectionWay": "طريقة التواصل مطلوبة"
+  "form.validation.connectionWay": "طريقة التواصل مطلوبة",
+  "newsletter.success": "تم الاشتراك في النشرة البريدية بنجاح",
+  "newsletter.error": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقاً"
 }

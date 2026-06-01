@@ -201,5 +201,7 @@
   "service.shape4.connectionWay.phoneCall": "Phone Call",
   "form.validation.investorType": "Investor type is required",
   "form.validation.investmentField": "Investment field is required",
-  "form.validation.connectionWay": "Contact method is required"
+  "form.validation.connectionWay": "Contact method is required",
+  "newsletter.success": "Successfully subscribed to the newsletter",
+  "newsletter.error": "An error occurred, please try again later"
 }
