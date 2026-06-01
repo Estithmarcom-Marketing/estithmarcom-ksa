@@ -3,7 +3,6 @@
 import SpecialHeader from "@/components/global/special-header";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
-import zone_image from "@/assets/zone_image.png";
 import {
   Carousel,
   CarouselContent,
@@ -14,36 +13,9 @@ import {
 import { ZoneType } from "@/lib/types/zones";
 import ZoneItem from "@/components/zone/zone-item";
 
-export default function ZonesSection() {
+export default function ZonesSection({ zones }: { zones: ZoneType[] }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-  const zones: ZoneType[] = [
-    {
-      id: 1,
-      image: zone_image,
-      title: "المناطق الحرة المملكة الاردنية الهاشمية",
-    },
-    {
-      id: 2,
-      image: zone_image,
-      title: "المناطق الحرة المملكة الاردنية الهاشمية",
-    },
-    {
-      id: 3,
-      image: zone_image,
-      title: "المناطق الحرة المملكة الاردنية الهاشمية",
-    },
-    {
-      id: 4,
-      image: zone_image,
-      title: "المناطق الحرة المملكة الاردنية الهاشمية",
-    },
-    {
-      id: 5,
-      image: zone_image,
-      title: "المناطق الحرة المملكة الاردنية الهاشمية",
-    },
-  ];
   return (
     <div className="container px-13!">
       <SpecialHeader header={t("blogs.title")} desc={t("blogs.desc")} />

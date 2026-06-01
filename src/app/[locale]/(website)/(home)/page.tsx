@@ -10,12 +10,14 @@ import VideosSection from "./_components/videos-section";
 import ZonesSection from "./_components/zones-section";
 import { getPartners } from "@/lib/apis/partner";
 import { getFAQS } from "@/lib/apis/faq";
+import { getZones } from "@/lib/apis/zones";
 
 export default async function HomePage() {
 
-  const [partners, faq] = await Promise.all([
+  const [partners, faq, zones] = await Promise.all([
     getPartners(),
-    getFAQS()
+    getFAQS(),
+    getZones()
   ]);
 
   return (
@@ -45,7 +47,7 @@ export default async function HomePage() {
         <BlogSection />
       </section>
       <section className="pt-[70px]! sm:pt-[100px]">
-        <ZonesSection />
+        <ZonesSection zones={zones} />
       </section>
       <section className="py-[70px]! sm:py-[100px]! container">
         <FAQ faqs={faq} />
