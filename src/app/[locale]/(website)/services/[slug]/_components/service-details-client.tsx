@@ -54,7 +54,7 @@ export default function ServiceDetailsClient({
         </div>
       </section>
       <section className="py-[70px]! sm:py-[100px]! container">
-        <FAQ />
+        <FAQ faqs={[]} />
       </section>
     </div>
   );

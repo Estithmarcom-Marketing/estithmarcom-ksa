@@ -9,11 +9,13 @@ import StatsSection from "./_components/stats-section";
 import VideosSection from "./_components/videos-section";
 import ZonesSection from "./_components/zones-section";
 import { getPartners } from "@/lib/apis/partner";
+import { getFAQS } from "@/lib/apis/faq";
 
 export default async function HomePage() {
 
-  const [partners] = await Promise.all([
-    getPartners()
+  const [partners, faq] = await Promise.all([
+    getPartners(),
+    getFAQS()
   ]);
 
   return (
@@ -46,7 +48,7 @@ export default async function HomePage() {
         <ZonesSection />
       </section>
       <section className="py-[70px]! sm:py-[100px]! container">
-        <FAQ />
+        <FAQ faqs={faq} />
       </section>
     </div>
   );

@@ -11,36 +11,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export default function FAQ() {
+export default function FAQ({ faqs }: { faqs: FAQType[] }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-  const faq: FAQType[] = [
-    {
-      id: 1,
-      question: "ما الذي يميز حاضنة وأعمال استثماركوم عن غيرها من الشركات؟",
-      answer:
-        "تتميز حاضنة وأعمال استثماركوم بتقديم دعم متكامل للشركات الناشئة يشمل الإرشاد، والتمويل، وبناء الشبكات، بالإضافة إلى بيئة عمل محفزة تساعد على الابتكار والنمو. كما تعتمد على خبرات متنوعة وشراكات استراتيجية تساهم في تسريع نجاح المشاريع وتحقيق الاستدامة.",
-    },
-    {
-      id: 2,
-      question: "ما الذي يميز حاضنة وأعمال استثماركوم عن غيرها من الشركات؟",
-      answer:
-        "تتميز حاضنة وأعمال استثماركوم بتقديم دعم متكامل للشركات الناشئة يشمل الإرشاد، والتمويل، وبناء الشبكات، بالإضافة إلى بيئة عمل محفزة تساعد على الابتكار والنمو. كما تعتمد على خبرات متنوعة وشراكات استراتيجية تساهم في تسريع نجاح المشاريع وتحقيق الاستدامة.",
-    },
-    {
-      id: 3,
-      question: "ما الذي يميز حاضنة وأعمال استثماركوم عن غيرها من الشركات؟",
-      answer:
-        "تتميز حاضنة وأعمال استثماركوم بتقديم دعم متكامل للشركات الناشئة يشمل الإرشاد، والتمويل، وبناء الشبكات، بالإضافة إلى بيئة عمل محفزة تساعد على الابتكار والنمو. كما تعتمد على خبرات متنوعة وشراكات استراتيجية تساهم في تسريع نجاح المشاريع وتحقيق الاستدامة.",
-    },
-  ];
 
   return (
     <div>
       <SpecialHeader header={t("faq.title")} />
       <div className="mt-15">
         <Accordion type="single" collapsible className="space-y-3">
-          {faq.map((item) => (
+          {faqs.map((item) => (
             <AccordionItem key={item.id} value={`item-${item.id}`}>
               <AccordionTrigger>{item.question}</AccordionTrigger>
               <AccordionContent>{item.answer}</AccordionContent>
