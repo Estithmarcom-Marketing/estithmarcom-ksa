@@ -10,6 +10,10 @@ import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { useFormik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
+import useAxios from "@/hooks/use-axios";
+import { useMutation } from "@tanstack/react-query";
+import { sendServiceRequest } from "@/lib/apis/serivceClient";
+import { toast } from "sonner";
 import {
   Select,
   SelectContent,
@@ -30,12 +34,18 @@ import {
 export default function ServiceShape4({ service }: { service: ServiceType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
+  const axiosInstance = useAxios();
 
-  const countries = [
-    { id: 1, name: t("country.saudi" as TranslationKey) },
-    { id: 2, name: t("country.jordan" as TranslationKey) },
-    { id: 3, name: t("country.egypt" as TranslationKey) },
-  ];
+  const { mutate, isPending } = useMutation({
+    mutationFn: (values: any) => sendServiceRequest(axiosInstance, values),
+    onSuccess: () => {
+      toast.success(t("service.request.success" as TranslationKey));
+      formik.resetForm();
+    },
+    onError: () => {
+      toast.error(t("service.request.error" as TranslationKey));
+    },
+  });
 
   const investorTypes = INVESTOR_TYPES.map((s) => ({
     id: s.id,
@@ -69,30 +79,17 @@ export default function ServiceShape4({ service }: { service: ServiceType }) {
       const payload = {
         name: values.name,
         email: values.email,
-        phone: values.phone.replace("+", ""),
+        phone: values.phone,
         service_id: values.service_id,
         country_id: values.country_id,
-        additional_info: [
-          {
-            key: "investor_type",
-            value: values.investor_type,
-          },
-          {
-            key: "investment_field",
-            value: values.investment_field,
-          },
-          {
-            key: "connection_way",
-            value: values.connection_way,
-          },
-          {
-            key: "notes",
-            value: values.notes,
-          },
-        ],
+        additional_info: {
+          investor_type: values.investor_type,
+          investment_field: values.investment_field,
+          connection_way: values.connection_way,
+          notes: values.notes,
+        },
       };
-      console.log("Payload:", payload);
-      // mutate(payload);
+      mutate(payload);
     },
   });
 
@@ -175,7 +172,7 @@ export default function ServiceShape4({ service }: { service: ServiceType }) {
                   />
                 </SelectTrigger>
                 <SelectContent>
-                  {countries.map((c) => (
+                  {service.countries.map((c) => (
                     <SelectItem key={c.id} value={c.id.toString()}>
                       {c.name}
                     </SelectItem>
@@ -339,9 +336,10 @@ export default function ServiceShape4({ service }: { service: ServiceType }) {
           <div className="mt-8 flex justify-center">
             <Button
               type="submit"
+              disabled={isPending}
               className="bg-primary hover:bg-primary/90 text-white text-sm px-10 font-medium disabled:opacity-60"
             >
-              {t("form.submit2")}
+              {isPending ? t("loading") : t("form.submit2")}
             </Button>
           </div>
         </div>

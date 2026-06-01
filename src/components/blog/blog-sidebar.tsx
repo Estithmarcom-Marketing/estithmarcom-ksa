@@ -15,7 +15,7 @@ export default function BlogSidebar({
   const { t } = getTranslator(locale);
   return (
     <div className="space-y-15">
-      <SearchInput entityName={t("blog.entity")} />
+      {/* <SearchInput entityName={t("blog.entity")} /> */}
       <CategoriesList activeCategory={activeCategory} />
       <Newsletter />
     </div>

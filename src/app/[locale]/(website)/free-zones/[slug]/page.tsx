@@ -7,6 +7,8 @@ export default function FreeZoneDetailsPage() {
     id: 1,
     image: zone_image,
     title: "المناطق الحرة المملكة الاردنية الهاشمية",
+    content: "",
+    faqs: [],
   };
   return (
     <div>

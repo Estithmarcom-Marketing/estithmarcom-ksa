@@ -7,63 +7,10 @@ import useIsMobile from "@/hooks/use-mobile";
 import { getTranslator } from "@/lib/i18n";
 import { ServiceType } from "@/lib/types/service";
 
-export default function ServicesSection() {
+export default function ServicesSection({ services }: { services: ServiceType[] }) {
   const locale = useLocale()
   const { t } = getTranslator(locale)
   const isMobile = useIsMobile();
-  const services: ServiceType[] = [
-    {
-      id: 1,
-      icon: "📄",
-      title: "الإجراءات الحكومية",
-      short_description: "استشارات وخدمات قانونية متكاملة للأفراد والشركات.",
-    },
-    {
-      id: 2,
-      icon: "⚖️",
-      title: "الشؤون القانونية",
-      short_description: "استشارات وخدمات قانونية متكاملة للأفراد والشركات.",
-    },
-    {
-      id: 3,
-      icon: "🏢",
-      title: "تأسيس الشركات",
-      short_description:
-        "نقدم حلول مبتكرة لتأسيس الشركات وفق المعايير القانونية.",
-    },
-    {
-      id: 4,
-      icon: "🚀",
-      title: "احتضان المشاريع",
-      short_description: "دعم وتطوير المشاريع الناشئة من الفكرة إلى التنفيذ.",
-    },
-    {
-      id: 5,
-      icon: "📊",
-      title: "الاستشارات التسويقية",
-      short_description: "نوفر استشارات في الإدارة والتسويق لدعم نمو الأعمال.",
-    },
-    {
-      id: 6,
-      icon: "⚙️",
-      title: "الخدمات الإدارية",
-      short_description:
-        "نركز على رعاية وتنمية الأفكار الإبداعية والمشاريع الناشئة.",
-    },
-    {
-      id: 7,
-      icon: "🏭",
-      title: "مساحات عمل جاهزة",
-      short_description: "نقدم مساحات عمل ومصانع ومخازن مجهزة لدعم الاستثمار.",
-    },
-    {
-      id: 8,
-      icon: "⭐",
-      title: "الإقامة المميزة والذهبية",
-      short_description:
-        "نوفر إقامات استثمارية مميزة لدعم رجال الأعمال والمستثمرين.",
-    },
-  ];
   const displayedServices = isMobile
   ? services.slice(0, 4)
   : services;

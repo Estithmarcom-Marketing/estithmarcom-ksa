@@ -11,10 +11,12 @@ import ZonesSection from "./_components/zones-section";
 import { getPartners } from "@/lib/apis/partner";
 import { getFAQS } from "@/lib/apis/faq";
 import { getZones } from "@/lib/apis/zones";
+import { getServicesHome } from "@/lib/apis/service";
 
 export default async function HomePage() {
 
-  const [partners, faq, zones] = await Promise.all([
+  const [services, partners, faq, zones] = await Promise.all([
+    getServicesHome(),
     getPartners(),
     getFAQS(),
     getZones()
@@ -29,7 +31,7 @@ export default async function HomePage() {
         <BannerSection />
       </section>
       <section className="py-[70px]! sm:py-[100px]">
-        <ServicesSection />
+        <ServicesSection services={services} />
       </section>
       <section>
         <BookSection />

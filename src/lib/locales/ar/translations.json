@@ -203,5 +203,7 @@
   "form.validation.investmentField": "مجال الاستثمار مطلوب",
   "form.validation.connectionWay": "طريقة التواصل مطلوبة",
   "newsletter.success": "تم الاشتراك في النشرة البريدية بنجاح",
-  "newsletter.error": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقاً"
+  "newsletter.error": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقاً",
+  "service.request.success": "تم إرسال طلبك بنجاح. سيتواصل معك فريقنا في أقرب وقت ممكن.",
+  "service.request.error": "فشل إرسال طلبك. يرجى المحاولة مرة أخرى لاحقاً."
 }

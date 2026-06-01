@@ -204,5 +204,7 @@
   "form.validation.investmentField": "Investment field is required",
   "form.validation.connectionWay": "Contact method is required",
   "newsletter.success": "Successfully subscribed to the newsletter",
-  "newsletter.error": "An error occurred, please try again later"
+  "newsletter.error": "An error occurred, please try again later",
+  "service.request.success": "Your request has been sent successfully. Our team will contact you shortly.",
+  "service.request.error": "Failed to send your request. Please try again later."
 }

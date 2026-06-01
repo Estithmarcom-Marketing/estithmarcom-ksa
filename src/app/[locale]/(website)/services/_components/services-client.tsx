@@ -80,15 +80,17 @@ export default function ServicesClient() {
       <PagesHero title={t("services")} desc={t("servicesPage.desc")} />
 
       <div className="container">
-        <section className="pt-[70px] sm:pt-[100px] grid grid-cols-1 sm:grid-cols-3 gap-10">
-          <SearchInput
-            value={localSearchInput}
-            onChange={(e) => setLocalSearchInput(e.target.value)}
-            onSubmit={handleSearchSubmit}
-          />
+        <section className="pt-[70px] sm:pt-[100px] flex justify-end gap-10">
+          <div className="w-full lg:w-1/3">
+            <SearchInput
+              value={localSearchInput}
+              onChange={(e) => setLocalSearchInput(e.target.value)}
+              onSubmit={handleSearchSubmit}
+            />
+          </div>
         </section>
 
-        <section className="py-[70px] sm:py-[100px] grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+        <section className="pb-[70px] mt-10 sm:pb-[100px] grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {services.length > 0 ? (
             services.map((service) => (
               <ServiceItem key={service.id} service={service} />

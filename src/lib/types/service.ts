@@ -1,3 +1,5 @@
+import { CountryType } from "./country"
+import { FAQType } from "./faq"
 import { PaginationType } from "./pagination"
 
 export interface ServiceFeatureType {
@@ -14,6 +16,8 @@ export interface ServiceType{
   slug?: string
   features_description?: string
   features?: ServiceFeatureType[]
+  countries: CountryType[]
+  faqs?: FAQType[]
 }
 
 export interface ServiceResType {

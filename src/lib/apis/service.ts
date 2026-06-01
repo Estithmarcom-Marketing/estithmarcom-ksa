@@ -1,3 +1,4 @@
+import { AxiosInstance } from "axios";
 import { fetcher } from "../fetch-server";
 import { ServiceResType, ServiceType } from "../types/service";
 

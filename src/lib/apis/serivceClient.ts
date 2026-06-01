@@ -12,3 +12,10 @@ export async function getServicesClient(
   const response = await axiosInstance.get("/services", { params });
   return response.data.data;
 }
+
+export async function sendServiceRequest(
+  axiosInstance: AxiosInstance,
+  values?: any,
+) {
+  return await axiosInstance.post("/request-service", values);
+}
