@@ -1,5 +1,6 @@
 export interface PartnerType{
   id: number
-  name: string
-  image: any
+  alt: string
+  image: string
+  link: string
 }

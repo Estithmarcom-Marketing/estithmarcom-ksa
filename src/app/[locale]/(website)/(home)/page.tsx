@@ -8,8 +8,14 @@ import ServicesSection from "./_components/services-section";
 import StatsSection from "./_components/stats-section";
 import VideosSection from "./_components/videos-section";
 import ZonesSection from "./_components/zones-section";
+import { getPartners } from "@/lib/apis/partner";
 
 export default async function HomePage() {
+
+  const [partners] = await Promise.all([
+    getPartners()
+  ]);
+
   return (
     <div>
       <section>
@@ -31,7 +37,7 @@ export default async function HomePage() {
         <VideosSection />
       </section>
       <section className="py-[70px]! sm:py-[100px]">
-        <PartnersSection />
+        <PartnersSection partners={partners} />
       </section>
       <section className="bg-[#f6f7f6]">
         <BlogSection />

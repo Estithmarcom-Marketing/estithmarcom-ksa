@@ -1,17 +1,18 @@
 import { PartnerType } from "@/lib/types/partner";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PartnerItem({ partner }: { partner: PartnerType }) {
   return (
     <div className="border rounded-md p-4">
-      <div className="aspect-square select-none relative">
+      <Link href={partner.link} className="aspect-square block select-none relative">
         <Image
           src={partner.image}
           fill
           className="shrink-0"
-          alt={partner.name}
+          alt={partner.alt}
         ></Image>
-      </div>
+      </Link>
     </div>
   );
 }

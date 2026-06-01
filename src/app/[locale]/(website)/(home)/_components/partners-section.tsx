@@ -3,78 +3,14 @@
 import SpecialHeader from "@/components/global/special-header";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
-import partner_img from "@/assets/partners-1.png";
-import partner_img2 from "@/assets/partners-2.png";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import PartnerItem from "@/components/partners/partner-item";
 import { PartnerType } from "@/lib/types/partner";
 
-export default function PartnersSection() {
+export default function PartnersSection({partners}: {partners: PartnerType[]}) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-  const partners: PartnerType[] = [
-    {
-      id: 1,
-      name: "mithaq",
-      image: partner_img,
-    },
-    {
-      id: 2,
-      name: "mithaq",
-      image: partner_img2,
-    },
-    {
-      id: 3,
-      name: "mithaq",
-      image: partner_img,
-    },
-    {
-      id: 4,
-      name: "mithaq",
-      image: partner_img2,
-    },
-    {
-      id: 5,
-      name: "mithaq",
-      image: partner_img,
-    },
-    {
-      id: 6,
-      name: "mithaq",
-      image: partner_img2,
-    },
-    {
-      id: 7,
-      name: "mithaq",
-      image: partner_img,
-    },
-    {
-      id: 8,
-      name: "mithaq",
-      image: partner_img2,
-    },
-    {
-      id: 9,
-      name: "mithaq",
-      image: partner_img,
-    },
-    {
-      id: 10,
-      name: "mithaq",
-      image: partner_img2,
-    },
-    {
-      id: 11,
-      name: "mithaq",
-      image: partner_img,
-    },
-    {
-      id: 12,
-      name: "mithaq",
-      image: partner_img2,
-    },
-  ];
   return (
     <div className="container">
       <SpecialHeader header={t("partners.title")} desc={t("partners.desc")} />
