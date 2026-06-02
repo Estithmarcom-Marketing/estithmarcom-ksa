@@ -14,8 +14,20 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import useAxios from "@/hooks/use-axios";
 import { useQuery } from "@tanstack/react-query";
 import { getServicesClient } from "@/lib/apis/serivceClient";
+import { CountryType } from "@/lib/types/country";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-export default function ServicesClient() {
+export default function ServicesClient({
+  countries,
+}: {
+  countries: CountryType[];
+}) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   const router = useRouter();
@@ -24,6 +36,7 @@ export default function ServicesClient() {
   const axiosInstance = useAxios();
 
   const searchQuery = searchParams.get("search") ?? "";
+  const countryId = searchParams.get("country_id") ?? "";
   const pageParam = searchParams.get("page");
   const [localSearchInput, setLocalSearchInput] = useState(searchQuery);
   const [page, setPage] = useState(pageParam ? parseInt(pageParam) : 1);
@@ -35,11 +48,12 @@ export default function ServicesClient() {
   }, [searchQuery, searchParams]);
 
   const baseFilterParams = useMemo(() => {
-    if (!searchQuery) return null;
+    if (!searchQuery && !countryId) return null;
     const params = new URLSearchParams();
-    params.append("search", searchQuery);
+    if (searchQuery) params.append("search", searchQuery);
+    if (countryId) params.append("country_id", countryId);
     return `?${params.toString()}`;
-  }, [searchQuery]);
+  }, [searchQuery, countryId]);
 
   const { data, isFetching } = useQuery<ServiceResType>({
     queryKey: ["services", baseFilterParams, page],
@@ -47,9 +61,10 @@ export default function ServicesClient() {
       getServicesClient(axiosInstance, {
         page,
         search: searchQuery || undefined,
+        country_id: countryId || undefined,
       }),
     placeholderData: (prev) => prev,
-    staleTime: 1000 * 60 * 5, // Keep data fresh for 5 mins
+    staleTime: 1000 * 60 * 5,
   });
 
   const [mergedServices, setMergedServices] = useState<ServiceType[]>([]);
@@ -88,6 +103,10 @@ export default function ServicesClient() {
     pushParams({ search: localSearchInput.trim() || undefined, page: "1" });
   };
 
+  const handleCountryChange = (value: string) => {
+    pushParams({ country_id: value === "all" ? undefined : value, page: "1" });
+  };
+
   const hasNextPage =
     data?.meta && data.meta.current_page < data.meta.last_page;
 
@@ -99,7 +118,31 @@ export default function ServicesClient() {
       <PagesHero title={t("services")} desc={t("servicesPage.desc")} />
 
       <div className="container">
-        <section className="pt-[70px] sm:pt-[100px] flex justify-end gap-10">
+        <section className="pt-[70px] sm:pt-[100px] flex flex-col md:flex-row justify-between gap-5">
+          <div className="w-full md:w-[200px]">
+            <Select onValueChange={handleCountryChange} value={countryId || "all"}>
+              <SelectTrigger
+                dir={locale === "ar" ? "rtl" : "ltr"}
+                className="w-full bg-secondary text-white! h-10! rounded-sm border-none shadow-none md:w-[200px]"
+              >
+                <SelectValue
+                  placeholder={
+                    locale === "ar" ? "اختر الدولة" : "Select country"
+                  }
+                />
+              </SelectTrigger>
+              <SelectContent dir={locale === "ar" ? "rtl" : "ltr"}>
+                <SelectItem value="all">
+                  {locale === "ar" ? "جميع الدول" : "All Countries"}
+                </SelectItem>
+                {countries.map((country) => (
+                  <SelectItem key={country.id} value={String(country.id)}>
+                    {country.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
           <div className="w-full lg:w-1/3">
             <SearchInput
               value={localSearchInput}

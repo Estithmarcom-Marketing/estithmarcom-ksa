@@ -7,6 +7,7 @@ export async function getServicesClient(
     page?: number;
     search?: string;
     per_page?: number;
+    country_id?: string;
   },
 ): Promise<ServiceResType> {
   const response = await axiosInstance.get("/services", { params });

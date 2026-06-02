@@ -28,23 +28,13 @@ export default function WebsiteSidebar({ isOpen, onClose }: SidebarProps) {
 
   useEffect(() => {
     if (isOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
 
     return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.paddingInlineEnd = "";
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY) * -1);
-      }
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 

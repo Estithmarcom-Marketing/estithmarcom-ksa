@@ -16,12 +16,15 @@ export async function getServices(params?: {
   page?: number;
   search?: string;
   per_page?: number;
+  country_id?: string;
 }): Promise<ServiceResType> {
   const queryString = new URLSearchParams();
   if (params?.page) queryString.append("page", params.page.toString());
   if (params?.search) queryString.append("search", params.search);
   if (params?.per_page)
     queryString.append("per_page", params.per_page.toString());
+  if (params?.country_id)
+    queryString.append("country_id", params.country_id);
 
   const res = await fetcher<any>(`/services?${queryString.toString()}`, {
     next: {

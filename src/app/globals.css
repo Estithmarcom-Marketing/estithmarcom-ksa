@@ -134,10 +134,6 @@ body {
   }
 }
 
-* {
-  scroll-behavior: smooth;
-}
-
 .special-shadow{
   box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 8px;
 }
