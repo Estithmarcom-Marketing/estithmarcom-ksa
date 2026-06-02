@@ -28,7 +28,10 @@ export const createContactUsSchema = () =>
       (val) => val ?? 0,
       z.number().min(1, "form.validation.country"),
     ),
-    notes: z.preprocess((val) => val ?? "", z.string()),
+    message: z.preprocess(
+      (val) => val ?? "",
+      z.string().min(1, "form.validation.message"),
+    ),
   });
 
 export type ContactUsValues = z.infer<

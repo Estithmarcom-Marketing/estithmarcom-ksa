@@ -22,16 +22,35 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SettingsType } from "@/lib/types/settings";
+import { CountryType } from "@/lib/types/country";
+import { useMutation } from "@tanstack/react-query";
+import useAxios from "@/hooks/use-axios";
+import { sendServiceRequest } from "@/lib/apis/contact";
+import { toast } from "sonner";
+import { AxiosError } from "axios";
 
-export default function ContactUsClient({ settings }: { settings: SettingsType }) {
+export default function ContactUsClient({
+  settings,
+  countries,
+}: {
+  settings: SettingsType;
+  countries: CountryType[];
+}) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
+  const axiosInstance = useAxios();
 
-  const countries = [
-    { id: 1, name: t("country.saudi" as TranslationKey) },
-    { id: 2, name: t("country.jordan" as TranslationKey) },
-    { id: 3, name: t("country.egypt" as TranslationKey) },
-  ];
+  const { mutate, isPending } = useMutation({
+    mutationFn: (values: ContactUsValues) =>
+      sendServiceRequest(axiosInstance, values),
+    onSuccess: () => {
+      toast.success(t("contactus.success" as TranslationKey));
+      formik.resetForm();
+    },
+    onError: (error: AxiosError<{ message: string }>) => {
+      toast.error(error?.response?.data?.message);
+    },
+  });
 
   const formik = useFormik<ContactUsValues>({
     initialValues: {
@@ -39,7 +58,7 @@ export default function ContactUsClient({ settings }: { settings: SettingsType }
       email: "",
       phone: "",
       country_id: 0,
-      notes: "",
+      message: "",
     },
     validationSchema: toFormikValidationSchema(createContactUsSchema()),
     onSubmit: (values) => {
@@ -47,11 +66,10 @@ export default function ContactUsClient({ settings }: { settings: SettingsType }
         name: values.name,
         email: values.email,
         country_id: values.country_id,
-        notes: values.notes,
-        phone: values.phone.replace("+", ""),
+        message: values.message,
+        phone: values.phone,
       };
-      console.log("Contact Us Payload:", payload);
-      // mutate(payload);
+      mutate(payload);
     },
   });
 
@@ -59,9 +77,7 @@ export default function ContactUsClient({ settings }: { settings: SettingsType }
     <>
       <PagesHero title={t("contactus")} desc={t("contactUsPage.desc")} />
       <section className="py-[70px]! sm:py-[100px]! container">
-        <p className="mb-8 leading-relaxed">
-          {t("contactUsPage.desc")}
-        </p>
+        <p className="mb-8 leading-relaxed">{t("contactUsPage.desc")}</p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div className="bg-white rounded-2xl col-span-1 lg:col-span-2 p-8 border border-gray-100">
             <form
@@ -180,23 +196,34 @@ export default function ContactUsClient({ settings }: { settings: SettingsType }
               </div>
 
               <div className="space-y-1">
-                <Label htmlFor="notes">
-                  {t("form.notes" as TranslationKey)}
+                <Label htmlFor="message">
+                  {t("form.message" as TranslationKey)}
                 </Label>
                 <Textarea
-                  id="notes"
+                  id="message"
                   className="resize-none h-32"
-                  placeholder={t("form.notes.placeholder" as TranslationKey)}
-                  {...formik.getFieldProps("notes")}
+                  placeholder={t("form.message.placeholder" as TranslationKey)}
+                  {...formik.getFieldProps("message")}
+                  aria-invalid={
+                    !!(formik.touched.message && formik.errors.message)
+                  }
                 />
+                {formik.touched.message && formik.errors.message && (
+                  <p className="text-red-400 text-xs">
+                    {t(formik.errors.message as any)}
+                  </p>
+                )}
               </div>
 
               <div className="pt-4">
                 <Button
                   type="submit"
+                  disabled={isPending}
                   className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-6 rounded-sm transition-all"
                 >
-                  {t("form.submit2")}
+                  {isPending
+                    ? t("loading" as TranslationKey)
+                    : t("form.submit2" as TranslationKey)}
                 </Button>
               </div>
             </form>
@@ -224,7 +251,9 @@ export default function ContactUsClient({ settings }: { settings: SettingsType }
                   </svg>
                 </div>
                 <div>
-                  <p dir="ltr" className="text-gray-600">+{settings.phone}</p>
+                  <p dir="ltr" className="text-gray-600">
+                    +{settings.phone}
+                  </p>
                 </div>
               </div>
 

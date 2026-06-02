@@ -160,6 +160,8 @@
   "form.city.placeholder": "أدخل مدينة الإقامة",
   "form.notes": "ملاحظات (اختياري)",
   "form.notes.placeholder": "ملاحظاتك",
+  "form.message": "الرسالة*",
+  "form.message.placeholder": "رسالتك",
   "form.submit2": "إرسال الطلب",
   "form.validation.name": "الاسم الكامل مطلوب",
   "form.validation.email": "البريد الإلكتروني مطلوب",
@@ -169,6 +171,7 @@
   "form.validation.company": "اسم الشركة مطلوب",
   "form.validation.city": "مدينة الإقامة مطلوبة",
   "form.validation.service": "يرجى اختيار خدمة",
+  "form.validation.message": "الرسالة مطلوبة",
   "form.validation2.phone": "رقم الهاتف غير صحيح",
   "country.saudi": "المملكة العربية السعودية",
   "country.jordan": "الأردن",
@@ -213,5 +216,7 @@
   "newsletter.success": "تم الاشتراك في النشرة البريدية بنجاح",
   "newsletter.error": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقاً",
   "service.request.success": "تم إرسال طلبك بنجاح. سيتواصل معك فريقنا في أقرب وقت ممكن.",
-  "service.request.error": "فشل إرسال طلبك. يرجى المحاولة مرة أخرى لاحقاً."
+  "service.request.error": "فشل إرسال طلبك. يرجى المحاولة مرة أخرى لاحقاً.",
+  "contactus.success": "تم إرسال رسالتك بنجاح. سنقوم بالرد عليك في أقرب وقت ممكن.",
+  "contactus.error": "فشل إرسال رسالتك. يرجى المحاولة مرة أخرى لاحقاً."
 }

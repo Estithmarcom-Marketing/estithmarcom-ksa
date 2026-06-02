@@ -27,6 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { AxiosError } from "axios";
 
 export default function ServiceShape1({ service }: { service: ServiceType }) {
   const locale = useLocale();
@@ -39,8 +40,8 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
       toast.success(t("service.request.success" as TranslationKey));
       formik.resetForm();
     },
-    onError: () => {
-      toast.error(t("service.request.error" as TranslationKey));
+    onError: (error: AxiosError<{ message: string }>) => {
+      toast.error(error?.response?.data?.message);
     },
   });
 
@@ -194,7 +195,7 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
                   formik.setFieldValue("phone", e164);
                 }}
                 onInputChange={() => {
-                  // This can stay to clear other local states if needed, 
+                  // This can stay to clear other local states if needed,
                   // but for validation, formik.setFieldValue handles it.
                 }}
                 onBlur={() => {

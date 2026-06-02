@@ -161,6 +161,8 @@
   "form.city.placeholder": "Enter your city of residency",
   "form.notes": "Notes (optional)",
   "form.notes.placeholder": "Your notes",
+  "form.message": "Message*",
+  "form.message.placeholder": "Your message",
   "form.submit2": "Submit Request",
   "form.validation.name": "Full name is required",
   "form.validation.email": "Email address is required",
@@ -170,6 +172,7 @@
   "form.validation.company": "Company name is required",
   "form.validation.city": "City of residency is required",
   "form.validation.service": "Please select a service",
+  "form.validation.message": "Message is required",
   "form.validation2.phone": "Invalid phone number",
   "country.saudi": "Saudi Arabia",
   "country.jordan": "Jordan",
@@ -214,5 +217,7 @@
   "newsletter.success": "Successfully subscribed to the newsletter",
   "newsletter.error": "An error occurred, please try again later",
   "service.request.success": "Your request has been sent successfully. Our team will contact you shortly.",
-  "service.request.error": "Failed to send your request. Please try again later."
+  "service.request.error": "Failed to send your request. Please try again later.",
+  "contactus.success": "Your message has been sent successfully. We will get back to you soon.",
+  "contactus.error": "Failed to send your message. Please try again later."
 }

@@ -26,6 +26,7 @@ import {
   ServiceShape3Values,
 } from "@/lib/schemas/service-shape3.schema";
 import { OFFICE_SIZES } from "@/data/service-form-data";
+import { AxiosError } from "axios";
 
 export default function ServiceShape3({ service }: { service: ServiceType }) {
   const locale = useLocale();
@@ -38,8 +39,8 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
       toast.success(t("service.request.success" as TranslationKey));
       formik.resetForm();
     },
-    onError: () => {
-      toast.error(t("service.request.error" as TranslationKey));
+    onError: (error: AxiosError<{ message: string }>) => {
+      toast.error(error?.response?.data?.message);
     },
   });
 
