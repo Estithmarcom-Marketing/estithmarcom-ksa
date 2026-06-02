@@ -12,10 +12,12 @@ import { getPartners } from "@/lib/apis/partner";
 import { getFAQS } from "@/lib/apis/faq";
 import { getZones } from "@/lib/apis/zones";
 import { getServicesHome } from "@/lib/apis/service";
+import { getCountries } from "@/lib/apis/country";
 
 export default async function HomePage() {
 
-  const [services, partners, faq, zones] = await Promise.all([
+  const [countries, services, partners, faq, zones] = await Promise.all([
+    getCountries(),
     getServicesHome(),
     getPartners(),
     getFAQS(),
@@ -25,7 +27,7 @@ export default async function HomePage() {
   return (
     <div>
       <section>
-        <BannerSwiper />
+        <BannerSwiper countries={countries} />
       </section>
       <section className="-mt-20 relative z-20">
         <BannerSection />

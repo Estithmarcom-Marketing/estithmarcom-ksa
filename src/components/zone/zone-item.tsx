@@ -12,7 +12,7 @@ export default function ZoneItem({ zone }: { zone: ZoneType }) {
   const { t } = getTranslator(locale);
   return (
     <div className="rounded-2xl h-full flex justify-between p-4 flex-col gap-4 items-center border">
-      <div className="relative w-[110px] h-[110px] rounded-full overflow-hidden">
+      <div className="relative w-[110px] h-[110px] shadow-lg rounded-full overflow-hidden">
         {zone.image ? (
           <Image
             src={zone.image}

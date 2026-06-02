@@ -2,7 +2,6 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import banner_image from "@/assets/hero-banner.jpg";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,34 +10,12 @@ import { Button } from "@/components/ui/button";
 import { useLocale } from "@/hooks/use-locale";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { getTranslator } from "@/lib/i18n";
+import { CountryType } from "@/lib/types/country";
 
-interface BannerSlide {
-  title: string;
-  body: string;
-  image: string;
-}
-
-export default function BannerSwiper() {
+export default function BannerSwiper({countries}: {countries: CountryType[]}) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-
-  const slides: BannerSlide[] = [
-    {
-      title: t("banner.slide1.title"),
-      body: t("banner.slide1.body"),
-      image: banner_image.src,
-    },
-    {
-      title: t("banner.slide2.title"),
-      body: t("banner.slide2.body"),
-      image: banner_image.src,
-    },
-    {
-      title: t("banner.slide3.title"),
-      body: t("banner.slide3.body"),
-      image: banner_image.src,
-    },
-  ];
+  const slides = countries.filter((c) => (c.image))
 
   return (
     <div className="w-full">
@@ -67,7 +44,7 @@ export default function BannerSwiper() {
                   {slide.title}
                 </h1>
                 <p className="text-white sm:text-2xl max-w-lg leading-10 mb-10">
-                  {slide.body}
+                  {slide.description}
                 </p>
                 <Button className="w-fit px-5 gap-5">
                   <span>{t("banner.cta")}</span>
