@@ -11,6 +11,7 @@ import { useLocale } from "@/hooks/use-locale";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { getTranslator } from "@/lib/i18n";
 import { CountryType } from "@/lib/types/country";
+import Link from "next/link";
 
 export default function BannerSwiper({countries}: {countries: CountryType[]}) {
   const locale = useLocale();
@@ -46,10 +47,10 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
                 <p className="text-white sm:text-2xl max-w-lg leading-10 mb-10">
                   {slide.description}
                 </p>
-                <Button className="w-fit px-5 gap-5">
+                <Link href={`/services?country_id=${slide.id}`} className="w-fit bg-secondary text-white hover:bg-primary duration-300 h-[43px] items-center flex rounded-sm px-5 gap-5">
                   <span>{t("banner.cta")}</span>
                   <span>{locale === "ar" ? <MoveLeft /> : <MoveRight />}</span>
-                </Button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
