@@ -7,8 +7,8 @@ export default function StateItem({state}: {state: StatsType}){
       <div className="flex items-center gap-8">
         <Rocket size={40} />
         <div className="flex flex-col items-center">
-          <h6 className="font-bold">{state.title}</h6>
-          <p className="font-bold text-secondary text-2xl">+{state.count}</p>
+          <h6 className="font-bold">{state.label}</h6>
+          <p className="font-bold text-secondary text-2xl">+{state.value}</p>
         </div>
       </div>
     </div>

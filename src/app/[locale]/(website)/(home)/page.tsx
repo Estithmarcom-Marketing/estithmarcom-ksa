@@ -13,14 +13,16 @@ import { getFAQS } from "@/lib/apis/faq";
 import { getZones } from "@/lib/apis/zones";
 import { getServicesHome } from "@/lib/apis/service";
 import { getCountries } from "@/lib/apis/country";
+import { getHighlights } from "@/lib/apis/stats";
 
 export default async function HomePage() {
 
-  const [countries, services, partners, faq, zones] = await Promise.all([
+  const [countries, services, partners, faq, highlights, zones] = await Promise.all([
     getCountries(),
     getServicesHome(),
     getPartners(),
     getFAQS(),
+    getHighlights(),
     getZones()
   ]);
 
@@ -39,7 +41,7 @@ export default async function HomePage() {
         <BookSection />
       </section>
       <section className="py-[70px]! sm:py-[100px]">
-        <StatsSection />
+        <StatsSection highlights={highlights}/>
       </section>
       <section className="bg-[#f6f7f6]">
         <VideosSection />
