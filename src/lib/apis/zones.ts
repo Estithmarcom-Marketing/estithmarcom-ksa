@@ -10,3 +10,17 @@ export async function getZones(): Promise<ZoneType[]> {
   });
   return res.data.zones;
 }
+
+export async function getZoneDetails(slug: string): Promise<ZoneType | null> {
+  try {
+    const res = await fetcher<any>(`/free-zones/${slug}`, {
+      next: {
+        tags: [`free-zone-${slug}`],
+        revalidate: 60,
+      },
+    });
+    return res.data.zone;
+  } catch (error) {
+    return null;
+  }
+}

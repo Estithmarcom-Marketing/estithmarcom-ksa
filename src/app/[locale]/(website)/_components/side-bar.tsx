@@ -117,7 +117,11 @@ export default function WebsiteSidebar({ isOpen, onClose }: SidebarProps) {
               </Link>
             </li>
             <li>
-              <Link href="/residencies" className={linkClass("/residencies")}>
+              <Link
+                onClick={onClose}
+                href="/residencies"
+                className={linkClass("/residencies")}
+              >
                 {t("residencies.title")}
               </Link>
             </li>

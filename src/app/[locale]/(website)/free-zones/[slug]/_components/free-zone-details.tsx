@@ -6,6 +6,7 @@ import { getTranslator } from "@/lib/i18n";
 import { ZoneType } from "@/lib/types/zones";
 import Link from "next/link";
 import FAQ from "../../../../../../components/global/faq";
+import RichTextViewer from "@/components/global/rich-text-viewer";
 
 export default function FreeZoneDetails({ zone }: { zone: ZoneType }) {
   const locale = useLocale();
@@ -19,26 +20,8 @@ export default function FreeZoneDetails({ zone }: { zone: ZoneType }) {
         />
         <section className="py-[100px]! container">
           <h1 className="font-bold text-2xl">{zone.title}</h1>
-          <div className="space-y-4 text-gray-700 mt-4 leading-8">
-            <p>
-              تعتبر <strong>المناطق الحرة</strong> من أهم المحركات الاقتصادية
-              التي تساهم في جذب <em>الاستثمارات الأجنبية</em> وتعزيز حركة
-              التجارة والصناعة داخل المنطقة.
-            </p>
-
-            <h2 className="text-xl font-semibold">أهم المميزات</h2>
-
-            <ul className="list-disc pr-6 space-y-2">
-              <li>إعفاءات جمركية وضريبية مميزة.</li>
-              <li>سهولة تأسيس الشركات والإجراءات القانونية.</li>
-              <li>بنية تحتية متطورة وخدمات لوجستية متكاملة.</li>
-            </ul>
-
-            <p>
-              توفر هذه المناطق بيئة استثمارية مرنة تساعد الشركات على
-              <strong> التوسع والنمو </strong>
-              بشكل أسرع داخل الأسواق الإقليمية والعالمية.
-            </p>
+          <div className="mt-4">
+            <RichTextViewer content={zone.content} />
           </div>
         </section>
         <section className="pb-[100px]! container">
