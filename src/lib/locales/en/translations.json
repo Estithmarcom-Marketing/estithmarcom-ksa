@@ -182,6 +182,9 @@
 
   "residencies.title": "Residencies",
   "residencies.desc": "Explore the most important residency programs in the Middle East and",
+  "residencies.selectCountry": "Select country...",
+  "residencies.noFound": "No residency programs found",
+  "residencies.filterTitle": "You can choose the premium residency product that best suits you and learn about the appropriate options",
   "residency.order": "Order Now",
   "contactUsPage.desc": "We are here to help you. Contact us for any inquiries or to start your investment journey.",
   "service.shape3.size": "Office Size",

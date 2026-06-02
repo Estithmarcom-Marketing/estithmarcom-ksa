@@ -1,52 +1,34 @@
-import { ResidencyType } from "@/lib/types/residency";
+import { getResidencies } from "@/lib/apis/residency";
+import { getCountries } from "@/lib/apis/country";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
 import ResidenciesClient from "./_components/residencies-client";
-import blog_img from "@/assets/blog_img.jpg";
 
-export default function ResidenciesPage() {
-  const residencies: ResidencyType[] = [
-    {
-      id: 1,
-      title: "الإقامة المميزة",
-      description:
-        "تقدم الإقامة المميزة في السعودية مزايا استثنائية للمستثمرين ورجال الأعمال، بما في ذلك تسهيلات في الإجراءات الحكومية، وإمكانية الحصول على تأشيرات متعددة الدخول، وخدمات دعم متكاملة لتعزيز نجاح المشاريع الاستثمارية.",
-      image: blog_img,
-    },
-    {
-      id: 2,
-      title: "الإقامة المميزة",
-      description:
-        "تقدم الإقامة المميزة في السعودية مزايا استثنائية للمستثمرين ورجال الأعمال، بما في ذلك تسهيلات في الإجراءات الحكومية، وإمكانية الحصول على تأشيرات متعددة الدخول، وخدمات دعم متكاملة لتعزيز نجاح المشاريع الاستثمارية.",
-      image: blog_img,
-    },
-    {
-      id: 3,
-      title: "الإقامة المميزة",
-      description:
-        "تقدم الإقامة المميزة في السعودية مزايا استثنائية للمستثمرين ورجال الأعمال، بما في ذلك تسهيلات في الإجراءات الحكومية، وإمكانية الحصول على تأشيرات متعددة الدخول، وخدمات دعم متكاملة لتعزيز نجاح المشاريع الاستثمارية.",
-      image: blog_img,
-    },
-    {
-      id: 4,
-      title: "الإقامة المميزة",
-      description:
-        "تقدم الإقامة المميزة في السعودية مزايا استثنائية للمستثمرين ورجال الأعمال، بما في ذلك تسهيلات في الإجراءات الحكومية، وإمكانية الحصول على تأشيرات متعددة الدخول، وخدمات دعم متكاملة لتعزيز نجاح المشاريع الاستثمارية.",
-      image: blog_img,
-    },
-    {
-      id: 5,
-      title: "الإقامة المميزة",
-      description:
-        "تقدم الإقامة المميزة في السعودية مزايا استثنائية للمستثمرين ورجال الأعمال، بما في ذلك تسهيلات في الإجراءات الحكومية، وإمكانية الحصول على تأشيرات متعددة الدخول، وخدمات دعم متكاملة لتعزيز نجاح المشاريع الاستثمارية.",
-      image: blog_img,
-    },
-    {
-      id: 6,
-      title: "الإقامة المميزة",
-      description:
-        "تقدم الإقامة المميزة في السعودية مزايا استثنائية للمستثمرين ورجال الأعمال، بما في ذلك تسهيلات في الإجراءات الحكومية، وإمكانية الحصول على تأشيرات متعددة الدخول، وخدمات دعم متكاملة لتعزيز نجاح المشاريع الاستثمارية.",
-      image: blog_img,
-    },
-  ];
+export default async function ResidenciesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ country_id?: string; page?: string }>;
+}) {
+  const queryClient = new QueryClient();
+  const { country_id, page: pageParam } = await searchParams;
 
-  return <ResidenciesClient residencies={residencies} />;
+  const countryId = country_id ?? "";
+  const page = pageParam ? parseInt(pageParam) : 1;
+
+  const [countries] = await Promise.all([
+    getCountries(),
+    queryClient.prefetchQuery({
+      queryKey: ["residencies", countryId, page],
+      queryFn: () => getResidencies({ page, country_id: countryId || undefined }),
+    }),
+  ]);
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <ResidenciesClient countries={countries} />
+    </HydrationBoundary>
+  );
 }

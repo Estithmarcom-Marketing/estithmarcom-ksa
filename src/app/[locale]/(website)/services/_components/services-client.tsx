@@ -52,6 +52,23 @@ export default function ServicesClient() {
     staleTime: 1000 * 60 * 5, // Keep data fresh for 5 mins
   });
 
+  const [mergedServices, setMergedServices] = useState<ServiceType[]>([]);
+
+  useEffect(() => {
+    if (data?.services) {
+      if (page === 1) {
+        setMergedServices(data.services);
+      } else {
+        setMergedServices((prev) => {
+          const newItems = data.services.filter(
+            (item) => !prev.some((p) => p.id === item.id),
+          );
+          return [...prev, ...newItems];
+        });
+      }
+    }
+  }, [data, page]);
+
   const pushParams = useCallback(
     (updates: Record<string, string | undefined>) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -68,12 +85,14 @@ export default function ServicesClient() {
   );
 
   const handleSearchSubmit = () => {
-    pushParams({ search: localSearchInput.trim() || undefined });
+    pushParams({ search: localSearchInput.trim() || undefined, page: "1" });
   };
 
-  const services = data?.services ?? [];
   const hasNextPage =
     data?.meta && data.meta.current_page < data.meta.last_page;
+
+  const servicesToDisplay =
+    page === 1 && data?.services ? data.services : mergedServices;
 
   return (
     <>
@@ -91,8 +110,8 @@ export default function ServicesClient() {
         </section>
 
         <section className="pb-[70px] mt-10 sm:pb-[100px] grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          {services.length > 0 ? (
-            services.map((service) => (
+          {servicesToDisplay.length > 0 ? (
+            servicesToDisplay.map((service) => (
               <ServiceItem key={service.id} service={service} />
             ))
           ) : (
