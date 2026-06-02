@@ -152,7 +152,7 @@ export default function ServicesClient({
           </div>
         </section>
 
-        <section className="pb-[70px] mt-10 sm:pb-[100px] grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+        <section className="pb-[30px]! mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {servicesToDisplay.length > 0 ? (
             servicesToDisplay.map((service) => (
               <ServiceItem key={service.id} service={service} />
@@ -165,7 +165,7 @@ export default function ServicesClient({
         </section>
 
         {hasNextPage && (
-          <div className="pb-[70px] sm:pb-[100px] flex justify-center">
+          <div className="pb-[30px] flex justify-center">
             <LoadMoreButton
               loading={isFetching}
               onClick={() => setPage((prev) => prev + 1)}
