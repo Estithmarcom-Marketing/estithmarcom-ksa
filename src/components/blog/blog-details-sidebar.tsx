@@ -16,7 +16,7 @@ export default function BlogDetailsSidebar({
   return (
     <div className="space-y-15">
       {/* <SearchInput entityName={t("blog.entity")} /> */}
-      <CategoriesList activeCategory={activeCategory} />
+      {/* <CategoriesList activeCategory={activeCategory} /> */}
       <Newsletter />
     </div>
   );

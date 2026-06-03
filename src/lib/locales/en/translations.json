@@ -100,6 +100,7 @@
 
   "blogpage.title": "Stay Updated with the Latest News",
   "blogpage.description": "Be informed about everything new",
+  "blogpage.desc": "Discover the latest insights and trends in the business world through our blog",
   "blogpage.newsletter": "Stay informed about the latest news and tips in the world of business through the Estithmarcom blog",
   "blogpage.search.placeholder": "Search by",
   "blogpage.categories.title": "Categories",
@@ -111,6 +112,7 @@
   "blog.item.views": "Views",
   "blog.item.readArticle": "Read Article",
   "blog.entity": "Blog",
+  "blog.noFound": "No blogs found",
   "service.entity": "Service",
 
   "blogDetails.title": "Blog Details",

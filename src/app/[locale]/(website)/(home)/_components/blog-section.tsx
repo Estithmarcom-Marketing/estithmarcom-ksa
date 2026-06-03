@@ -3,7 +3,6 @@
 import SpecialHeader from "@/components/global/special-header";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
-import blog_img from "@/assets/blog_img.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -14,38 +13,9 @@ import {
 import { BlogType } from "@/lib/types/blog";
 import BlogItem2 from "@/components/blog/blog-item2";
 
-export default function BlogSection() {
+export default function BlogSection({ blogs }: { blogs: BlogType[] }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-  const blogs: BlogType[] = [
-    {
-      id: 1,
-      image: blog_img,
-      title: "كيفية تحويل شركة ذات مسئولية محدودة إلى مساهمة مغلقة",
-      description:
-        "تحويل الشركة ذات المسؤولية المحدودة إلى شركة مساهمة مغلقة يتطلب موافقة الشركاء (غالباً بأغلبية موصوفة)، تعديل عقد التأسيس ليصبح نظاماً أساسياً، استيفاء الحد الأدنى لرأس المال....",
-      views: 330,
-      author: "محمد عبد العزيز",
-    },
-    {
-      id: 2,
-      image: blog_img,
-      title: "كيفية تحويل شركة ذات مسئولية محدودة إلى مساهمة مغلقة",
-      description:
-        "تحويل الشركة ذات المسؤولية المحدودة إلى شركة مساهمة مغلقة يتطلب موافقة الشركاء (غالباً بأغلبية موصوفة)، تعديل عقد التأسيس ليصبح نظاماً أساسياً، استيفاء الحد الأدنى لرأس المال....",
-      views: 330,
-      author: "محمد عبد العزيز",
-    },
-    {
-      id: 3,
-      image: blog_img,
-      title: "كيفية تحويل شركة ذات مسئولية محدودة إلى مساهمة مغلقة",
-      description:
-        "تحويل الشركة ذات المسؤولية المحدودة إلى شركة مساهمة مغلقة يتطلب موافقة الشركاء (غالباً بأغلبية موصوفة)، تعديل عقد التأسيس ليصبح نظاماً أساسياً، استيفاء الحد الأدنى لرأس المال....",
-      views: 330,
-      author: "محمد عبد العزيز",
-    },
-  ];
   return (
     <div className="py-[60px]">
       <div className="container px-13!">

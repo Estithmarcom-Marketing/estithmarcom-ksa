@@ -14,16 +14,18 @@ import { getZones } from "@/lib/apis/zones";
 import { getServicesHome } from "@/lib/apis/service";
 import { getCountries } from "@/lib/apis/country";
 import { getHighlights } from "@/lib/apis/stats";
+import { getBlogsHome } from "@/lib/apis/blog";
 
 export default async function HomePage() {
 
-  const [countries, services, partners, faq, highlights, zones] = await Promise.all([
+  const [countries, services, partners, faq, highlights, zones, blogs] = await Promise.all([
     getCountries(),
     getServicesHome(),
     getPartners(),
     getFAQS(),
     getHighlights(),
-    getZones()
+    getZones(),
+    getBlogsHome()
   ]);
 
   return (
@@ -50,7 +52,7 @@ export default async function HomePage() {
         <PartnersSection partners={partners} />
       </section>
       <section className="bg-[#f6f7f6]">
-        <BlogSection />
+        <BlogSection blogs={blogs} />
       </section>
       <section className="pt-[70px]! sm:pt-[100px]">
         <ZonesSection zones={zones} />

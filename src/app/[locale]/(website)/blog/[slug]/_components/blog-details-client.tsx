@@ -30,21 +30,9 @@ export default function BlogDetailsClient({ blog }: { blog: BlogType }) {
           </div>
           <ul className="flex items-center gap-10 mt-2">
             <li className="text-xs text-gray-500 flex gap-1 items-center">
-              <User className="text-secondary" size={15} />{" "}
-              <span>
-                {blog.author}
-              </span>
-            </li>
-            <li className="text-xs text-gray-500 flex gap-1 items-center">
               <Calendar className="text-secondary" size={15} />{" "}
               <span>
                 {blog.created_at}
-              </span>
-            </li>
-            <li className="text-xs text-gray-500 flex gap-1 items-center">
-              <Eye className="text-secondary" size={15} />{" "}
-              <span>
-                {blog.views} {t("blog.item.views")}
               </span>
             </li>
           </ul>
