@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import logo from "@/assets/logo2.png";
+import logo from "@/assets/logo3.png";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/global/language-selector";
@@ -49,7 +49,7 @@ export default function WebsiteSidebar({ isOpen, onClose }: SidebarProps) {
 
       <div
         ref={sidebarRef}
-        className={`fixed top-0 start-0 h-full w-full sm:w-100 z-999 bg-white flex flex-col transition-transform duration-300 ease-in-out overflow-hidden ${
+        className={`fixed top-0 start-0 h-full w-full sm:w-100 z-999 bg-[#f4f2f6] flex flex-col transition-transform duration-300 ease-in-out overflow-hidden ${
           isOpen
             ? "translate-x-0"
             : locale === "ar"
@@ -61,7 +61,7 @@ export default function WebsiteSidebar({ isOpen, onClose }: SidebarProps) {
           <Image src={logo} alt="Logo" width={100} priority />
           <button
             onClick={onClose}
-            className="p-2 text-gray-600 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-2 text-gray-600 bg-[#eeedf0] hover:bg-gray-200 cursor-pointer rounded-full transition-colors"
             aria-label="Close menu"
           >
             <svg
