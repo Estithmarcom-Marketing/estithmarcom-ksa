@@ -6,7 +6,6 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Button } from "@/components/ui/button";
 import { useLocale } from "@/hooks/use-locale";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { getTranslator } from "@/lib/i18n";
@@ -17,7 +16,6 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   const slides = countries.filter((c) => (c.image))
-  console.log(slides)
   return (
     <div className="w-full">
       <Swiper

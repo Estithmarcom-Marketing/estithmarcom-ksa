@@ -6,11 +6,12 @@ export interface ServiceFeatureType {
   id: number
   title: string
   description: string
+  image: string
 }
 
 export interface ServiceType{
   id: number
-  icon: any
+  image: any
   title: string
   short_description: string
   slug?: string
