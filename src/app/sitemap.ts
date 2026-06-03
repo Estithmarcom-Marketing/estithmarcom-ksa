@@ -5,7 +5,7 @@ import { getResidencies } from "@/lib/apis/residency";
 import { getZones } from "@/lib/apis/zones";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "test.marketing.estithmarcom.com";
+  const baseUrl = "test.estithmarcom.com";
   const locales = ["ar", "en"];
 
   const staticPages = ["", "/blog", "/services", "/residencies", "/contact-us"];
