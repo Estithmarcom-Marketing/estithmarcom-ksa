@@ -4,6 +4,8 @@ import { getServicesUnpaginated } from "@/lib/apis/service";
 import { getResidencies } from "@/lib/apis/residency";
 import { getZones } from "@/lib/apis/zones";
 
+export const revalidate = 86400;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://test.estithmarcom.com";
   const locales = ["ar", "en"];
