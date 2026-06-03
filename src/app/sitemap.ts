@@ -16,14 +16,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: page === "" ? 1 : 0.8,
-    }))
+    })),
   );
 
   const [blogsRes, services, residenciesRes, zones] = await Promise.all([
-    getBlogs({ per_page: 100 }),
-    getServicesUnpaginated(),
-    getResidencies({ per_page: 100 }),
-    getZones(),
+    getBlogs({ per_page: 50 }).catch(() => ({ blogs: [] })),
+    getServicesUnpaginated().catch(() => []),
+    getResidencies({ per_page: 50 }).catch(() => ({ residencies: [] })),
+    getZones().catch(() => []),
   ]);
 
   const blogEntries = blogsRes.blogs.flatMap((blog) =>
@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
-    }))
+    })),
   );
 
   const serviceEntries = services.flatMap((service) =>
@@ -41,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
-    }))
+    })),
   );
 
   const residencyEntries = residenciesRes.residencies.flatMap((residency) =>
@@ -50,7 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
-    }))
+    })),
   );
 
   const zoneEntries = zones.flatMap((zone) =>
@@ -59,7 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
-    }))
+    })),
   );
 
   return [
