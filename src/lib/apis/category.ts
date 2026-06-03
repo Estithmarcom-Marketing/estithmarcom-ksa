@@ -8,6 +8,5 @@ export async function getCategories(): Promise<CategoryType[]> {
       tags: ["categories"]
     }
   });
-  console.log(res)
   return res.data.categories;
 }

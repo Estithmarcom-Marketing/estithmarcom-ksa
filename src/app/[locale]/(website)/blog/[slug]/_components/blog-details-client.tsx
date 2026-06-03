@@ -1,14 +1,17 @@
 "use client";
 
 import BlogDetailsSidebar from "@/components/blog/blog-details-sidebar";
+import NoImageHolder from "@/components/global/no-image-holder";
 import PagesHero from "@/components/global/pages-hero";
+import { formatDate } from "@/helper/formatDate";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import { BlogType } from "@/lib/types/blog";
+import { CategoryType } from "@/lib/types/category";
 import { Calendar, Eye, User } from "lucide-react";
 import Image from "next/image";
 
-export default function BlogDetailsClient({ blog }: { blog: BlogType }) {
+export default function BlogDetailsClient({ blog, categories }: { blog: BlogType; categories: CategoryType[] }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
 
@@ -20,19 +23,19 @@ export default function BlogDetailsClient({ blog }: { blog: BlogType }) {
       />
       <section className="container py-20! gap-15 grid grid-cols-1 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <div className="relative aspect-video">
-            <Image
+          <div className="relative aspect-video rounded-2xl overflow-hidden">
+            {blog.image ? <Image
               src={blog.image}
               alt={blog.title}
               fill
               className="object-cover rounded-2xl"
-            />
+            /> : <NoImageHolder />}
           </div>
           <ul className="flex items-center gap-10 mt-2">
             <li className="text-xs text-gray-500 flex gap-1 items-center">
               <Calendar className="text-secondary" size={15} />{" "}
               <span>
-                {blog.created_at}
+                {formatDate(blog.created_at, locale)}
               </span>
             </li>
           </ul>
@@ -41,7 +44,7 @@ export default function BlogDetailsClient({ blog }: { blog: BlogType }) {
             <p className="mt-5 text-[#666]">{blog.description}</p>
           </div>
         </div>
-        <BlogDetailsSidebar activeCategory={1} />
+        <BlogDetailsSidebar activeCategory={blog.category.id} categories={categories} />
       </section>
     </div>
   );

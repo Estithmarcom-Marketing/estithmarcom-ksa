@@ -1,22 +1,26 @@
-import { BlogType } from "@/lib/types/blog";
+import { getBlogDetails } from "@/lib/apis/blog";
 import BlogDetailsClient from "./_components/blog-details-client";
-import blog_img from "@/assets/blog_img.jpg";
+import { getCategories } from "@/lib/apis/category";
+import notFound from "@/app/[locale]/not-found";
 
-export default function BlogPage() {
-  const blog: BlogType = {
-    id: 1,
-    image: blog_img,
-    created_at: "2023-01-01",
-    slug: "government-procedures",
-    title: "كيفية تحويل شركة ذات مسئولية محدودة إلى مساهمة مغلقة",
-    description:
-      "في هذا المقال، سنشرح الخطوات اللازمة لتحويل شركة ذات مسئولية محدودة إلى مساهمة مغلقة في المملكة العربية السعودية. سنتناول المتطلبات القانونية والإجرائية لهذا التحويل، بالإضافة إلى الفوائد والتحديات التي قد تواجهها الشركات خلال هذه العملية.",
-    category: { id: 1, name: "تأسيس الشركات" },
-  };
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const [blog, categories] = await Promise.all([
+    getBlogDetails(slug),
+    getCategories(),
+  ]);
+
+  if (!blog) {
+    return notFound();
+  }
 
   return (
     <div>
-      <BlogDetailsClient blog={blog} />
+      <BlogDetailsClient blog={blog} categories={categories} />
     </div>
   );
 }

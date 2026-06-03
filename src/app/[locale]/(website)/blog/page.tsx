@@ -28,8 +28,8 @@ export default async function BlogPage({
         }).toString()}`
       : null;
 
-  const [] = await Promise.all([
-    // getCategories(),
+  const [categories] = await Promise.all([
+    getCategories(),
     queryClient.prefetchQuery({
       queryKey: ["blogs", baseFilterParams, page],
       queryFn: () =>
@@ -41,7 +41,6 @@ export default async function BlogPage({
     }),
   ]);
 
-  const categories: CategoryType[] = []
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
