@@ -8,6 +8,7 @@ import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import NoImageHolder from "../global/no-image-holder";
+import { formatDate } from "@/helper/formatDate";
 
 export default function BlogItem({ blog }: { blog: BlogType }) {
   const locale = useLocale();
@@ -26,14 +27,18 @@ export default function BlogItem({ blog }: { blog: BlogType }) {
           <NoImageHolder />
         )}
       </div>
-      <div>
+      <div className="flex-1 w-full">
+        <div className="flex items-center md:hidden gap-1 mb-2">
+          <Calendar size={13} color="#b99745" />
+          <p className="text-[11px]">{formatDate(blog.created_at)}</p>
+        </div>
         <h3 className="text-[20px] font-bold">{blog.title}</h3>
         <p className="text-[13px] mt-5 max-w-lg">
           {truncateText(blog.description, 130)}
         </p>
         <div className="flex flex-col justify-between mt-5 gap-y-5 lg:flex-col xl:flex-row xl:items-center">
-          <div className="flex gap-5">
-            <div className="flex items-center gap-1">
+          <div className="hidden md:flex gap-5">
+            <div className="items-center gap-1 flex">
               <Calendar size={13} color="#b99745" />
               <p className="text-[11px]">{blog.created_at}</p>
             </div>
