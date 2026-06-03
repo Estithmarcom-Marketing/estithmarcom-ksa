@@ -19,6 +19,8 @@ export interface ServiceType{
   features?: ServiceFeatureType[]
   countries: CountryType[]
   faqs?: FAQType[]
+  meta_title?: string
+  meta_description?: string
 }
 
 export interface ServiceResType {

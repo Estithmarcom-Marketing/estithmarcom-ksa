@@ -222,5 +222,20 @@
   "service.request.success": "Your request has been sent successfully. Our team will contact you shortly.",
   "service.request.error": "Failed to send your request. Please try again later.",
   "contactus.success": "Your message has been sent successfully. We will get back to you soon.",
-  "contactus.error": "Failed to send your message. Please try again later."
+  "contactus.error": "Failed to send your message. Please try again later.",
+  "home.meta.title": "Business Incubator and Accelerator in Saudi Arabia",
+  "home.meta.description": "Estithmarcom provides comprehensive business solutions, including incubator services, accelerator programs, legal affairs, and commercial services in Saudi Arabia, Jordan, and Egypt.",
+  "home.meta.keywords": "Business Incubator, Business Accelerator, Saudi Arabia Vision 2030, Legal Services, Commercial Registration, Investment Saudi Arabia, Startup Support, Estithmarcom",
+  "blogs.meta.title": "Insights and Trends in Business",
+  "blogs.meta.description": "Stay updated with the latest news, insights, and expert advice on entrepreneurship, investment, and business growth in the Middle East.",
+  "blogs.meta.keywords": "Business Blog, Entrepreneurship Tips, Investment News, Saudi Market Trends, Estithmarcom Blog",
+  "services.meta.title": "Integrated Business Solutions",
+  "services.meta.description": "Explore our wide range of services including business incubation, legal consulting, and commercial support designed for your success.",
+  "services.meta.keywords": "Business Services, Legal Consulting, Company Formation, Saudi Arabia Services, Estithmarcom Services",
+  "residencies.meta.title": "Premium Residency Programs",
+  "residencies.meta.description": "Learn about premium residency options in Saudi Arabia and the region. We help you choose the best residency program for your needs.",
+  "residencies.meta.keywords": "Premium Residency, Saudi Residency, Investment Residency, Residency Programs, Estithmarcom Residency",
+  "contactus.meta.title": "Get in Touch with Our Experts",
+  "contactus.meta.description": "Have questions? Contact Estithmarcom today for a free consultation and let us help you start your investment journey.",
+  "contactus.meta.keywords": "Contact Estithmarcom, Business Support, Free Consultation, Investment Inquiry"
 }

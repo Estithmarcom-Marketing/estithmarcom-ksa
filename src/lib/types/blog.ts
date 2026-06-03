@@ -9,6 +9,8 @@ export interface BlogType{
   slug?: string
   created_at?: string
   category: CategoryType
+  meta_title?: string
+  meta_description?: string
 }
 
 export interface BlogResType {

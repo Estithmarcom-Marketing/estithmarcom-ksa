@@ -6,6 +6,8 @@ export interface ResidencyType {
   description: string;
   image: any;
   slug?: string;
+  meta_title?: string;
+  meta_description?: string;
 }
 
 export interface ResidencyResType {

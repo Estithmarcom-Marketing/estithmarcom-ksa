@@ -15,6 +15,43 @@ import { getServicesHome } from "@/lib/apis/service";
 import { getCountriesSlide } from "@/lib/apis/country";
 import { getHighlights } from "@/lib/apis/stats";
 import { getBlogsHome } from "@/lib/apis/blog";
+import { getTranslator, Locale, TranslationKey } from "@/lib/i18n";
+import { Metadata } from "next";
+import { siteTitle } from "@/helper/site-title";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const { t } = getTranslator(locale);
+  const title = siteTitle(t("home.meta.title" as TranslationKey), locale);
+
+  return {
+    title,
+    description: t("home.meta.description" as TranslationKey),
+    keywords: t("home.meta.keywords" as TranslationKey),
+    openGraph: {
+      title,
+      description: t("home.meta.description" as TranslationKey),
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: t("home.meta.description" as TranslationKey),
+      images: ["/og-image.png"],
+    },
+  };
+}
 
 export default async function HomePage() {
 

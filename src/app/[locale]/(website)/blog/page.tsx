@@ -7,6 +7,36 @@ import {
 } from "@tanstack/react-query";
 import BlogClient from "./_components/blog-client";
 import { CategoryType } from "@/lib/types/category";
+import { getTranslator, Locale, TranslationKey } from "@/lib/i18n";
+import { Metadata } from "next";
+import { siteTitle } from "@/helper/site-title";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const { t } = getTranslator(locale);
+  const title = siteTitle(t("blogs.meta.title" as TranslationKey), locale);
+
+  return {
+    title,
+    description: t("blogs.meta.description" as TranslationKey),
+    keywords: t("blogs.meta.keywords" as TranslationKey),
+    openGraph: {
+      title,
+      description: t("blogs.meta.description" as TranslationKey),
+      images: ["/og-image.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: t("blogs.meta.description" as TranslationKey),
+      images: ["/og-image.png"],
+    },
+  };
+}
 
 export default async function BlogPage({
   searchParams,
