@@ -20,7 +20,7 @@ export const createResidencyFormSchema = () =>
         .string()
         .min(1, "form.validation.phone")
         .refine((val) => {
-          if (!val || val.length <= 4) return true; // Don't validate just the dial code
+          if (!val || val.length <= 4) return true;
           return isValidPhoneNumber(val);
         }, "form.validation2.phone"),
     ),
@@ -33,7 +33,10 @@ export const createResidencyFormSchema = () =>
       z.string().min(1, "form.validation.city"),
     ),
     notes: z.preprocess((val) => val ?? "", z.string()),
-    residency_id: z.preprocess((val) => val ?? 0, z.number().min(1)),
+    residency_id: z.preprocess(
+      (val) => val ?? 0,
+      z.number().min(1, "form.validation.required"),
+    ),
   });
 
 export type ResidencyFormValues = z.infer<

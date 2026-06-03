@@ -28,6 +28,7 @@ import useAxios from "@/hooks/use-axios";
 import { sendServiceRequest } from "@/lib/apis/contact";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
+import CustomLoader from "@/components/global/custom-loader";
 
 export default function ContactUsClient({
   settings,
@@ -221,9 +222,7 @@ export default function ContactUsClient({
                   disabled={isPending}
                   className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-6 rounded-sm transition-all"
                 >
-                  {isPending
-                    ? t("loading" as TranslationKey)
-                    : t("form.submit2" as TranslationKey)}
+                  {isPending ? <CustomLoader w={24} color="white" /> : t("form.submit2")}
                 </Button>
               </div>
             </form>

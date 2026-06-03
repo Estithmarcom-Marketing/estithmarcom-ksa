@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "@/hooks/use-locale";
-import { getTranslator } from "@/lib/i18n";
+import { getTranslator, TranslationKey } from "@/lib/i18n";
 import { Input } from "@/components/ui/input"
 import { PhoneInput } from "@/components/global/phone-input"
 import { Textarea } from "@/components/ui/textarea"
@@ -18,10 +18,32 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { ResidencyType } from "@/lib/types/residency";
+import { useMutation } from "@tanstack/react-query";
+import useAxios from "@/hooks/use-axios";
+import { sendResidencyRequest } from "@/lib/apis/residencyClient";
+import { toast } from "sonner";
+import { AxiosError } from "axios";
+import CustomLoader from "@/components/global/custom-loader";
 
 export default function ResidencyForm({ countries, residency }: { countries: any[]; residency: ResidencyType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
+  const axiosInstance = useAxios();
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: (values: ResidencyFormValues) =>
+      sendResidencyRequest(axiosInstance, values),
+    onSuccess: () => {
+      toast.success(t("service.request.success" as TranslationKey));
+      formik.resetForm();
+    },
+    onError: (error: AxiosError<{ message: string }>) => {
+      toast.error(
+        error?.response?.data?.message || t("service.request.error" as TranslationKey)
+      );
+    },
+  });
+
   const formik = useFormik<ResidencyFormValues>({
     initialValues: {
       name: "",
@@ -34,25 +56,7 @@ export default function ResidencyForm({ countries, residency }: { countries: any
     },
     validationSchema: toFormikValidationSchema(createResidencyFormSchema()),
     onSubmit: (values) => {
-      const payload = {
-        name: values.name,
-        email: values.email,
-        phone: values.phone.replace("+", ""),
-        residency_id: values.residency_id,
-        country_id: values.country_id,
-        additional_info: [
-          {
-            key: "city",
-            value: values.city,
-          },
-          {
-            key: "notes",
-            value: values.notes,
-          },
-        ],
-      };
-      console.log("Payload:", payload);
-      // mutate(payload);
+      mutate(values);
     },
   });
   return (
@@ -188,9 +192,10 @@ export default function ResidencyForm({ countries, residency }: { countries: any
         <div className="pt-4">
           <Button
             type="submit"
+            disabled={isPending}
             className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-medium"
           >
-            {t("form.submit2")}
+            {isPending ? <CustomLoader w={24} color="white" /> : t("form.submit2")}
           </Button>
         </div>
       </div>

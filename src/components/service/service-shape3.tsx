@@ -27,6 +27,7 @@ import {
 } from "@/lib/schemas/service-shape3.schema";
 import { OFFICE_SIZES } from "@/data/service-form-data";
 import { AxiosError } from "axios";
+import CustomLoader from "../global/custom-loader";
 
 export default function ServiceShape3({ service }: { service: ServiceType }) {
   const locale = useLocale();
@@ -246,7 +247,7 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
               disabled={isPending}
               className="bg-primary hover:bg-primary/90 text-white text-sm px-10 font-medium disabled:opacity-60"
             >
-              {isPending ? t("loading") : t("form.submit2")}
+              {isPending ? <CustomLoader w={24} color="white" /> : t("form.submit2")}
             </Button>
           </div>
         </div>

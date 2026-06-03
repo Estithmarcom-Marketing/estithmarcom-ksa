@@ -175,6 +175,7 @@
   "form.validation.city": "City of residency is required",
   "form.validation.service": "Please select a service",
   "form.validation.message": "Message is required",
+  "form.validation.required": "This field is required",
   "form.validation2.phone": "Invalid phone number",
   "country.saudi": "Saudi Arabia",
   "country.jordan": "Jordan",

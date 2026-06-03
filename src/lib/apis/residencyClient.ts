@@ -1,5 +1,6 @@
 import { ResidencyResType } from "@/lib/types/residency";
 import { AxiosInstance } from "axios";
+import { ResidencyFormValues } from "../schemas/residency-form.schema";
 
 export async function getResidenciesClient(
   axiosInstance: AxiosInstance,
@@ -12,4 +13,11 @@ export async function getResidenciesClient(
 ): Promise<ResidencyResType> {
   const response = await axiosInstance.get("/residencies", { params });
   return response.data.data;
+}
+
+export async function sendResidencyRequest(
+  axiosInstance: AxiosInstance,
+  values?: ResidencyFormValues,
+) {
+  return await axiosInstance.post("/residencies", values);
 }

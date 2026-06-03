@@ -28,6 +28,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import { AxiosError } from "axios";
+import CustomLoader from "../global/custom-loader";
 
 export default function ServiceShape1({ service }: { service: ServiceType }) {
   const locale = useLocale();
@@ -245,7 +246,7 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
               disabled={isPending}
               className="bg-primary hover:bg-primary/90 text-white text-sm px-10 font-medium disabled:opacity-60"
             >
-              {isPending ? t("loading") : t("form.submit2")}
+              {isPending ? <CustomLoader w={24} color="white" /> : t("form.submit2")}
             </Button>
           </div>
         </div>
