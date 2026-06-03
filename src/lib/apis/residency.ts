@@ -1,5 +1,5 @@
 import { fetcher } from "../fetch-server";
-import { ResidencyResType } from "../types/residency";
+import { ResidencyResType, ResidencyType } from "../types/residency";
 
 export async function getResidencies(params?: {
   page?: number;
@@ -22,4 +22,18 @@ export async function getResidencies(params?: {
     },
   });
   return res.data;
+}
+
+export async function getResidencyDetails(slug: string): Promise<ResidencyType | null> {
+  try {
+    const res = await fetcher<any>(`/residencies/${slug}`, {
+      next: {
+        tags: [`residency-${slug}`],
+        revalidate: 60,
+      },
+    });
+    return res.data.residency;
+  } catch (error) {
+    return null;
+  }
 }

@@ -1,12 +1,22 @@
-import ResidencyDetailsClient from "./_components/residency-details-client"
+import { getResidencyDetails } from "@/lib/apis/residency";
+import ResidencyDetailsClient from "./_components/residency-details-client";
+import { notFound } from "next/navigation";
+import { getCountries } from "@/lib/apis/country";
 
-export default function residencyPage(){
-  const residency = {
-    id: 1,
-    title: "الإقامة المميزة",
-    description:
-      "تقدم الإقامة المميزة في السعودية مزايا استثنائية للمستثمرين ورجال الأعمال، بما في ذلك تسهيلات في الإجراءات الحكومية، وإمكانية الحصول على تأشيرات متعددة الدخول، وخدمات دعم متكاملة لتعزيز نجاح المشاريع الاستثمارية.",
-    image: "/assets/blog_img.jpg",
+export default async function residencyPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const [residency, countries] = await Promise.all([
+    getResidencyDetails(slug),
+    getCountries(),
+  ]);
+
+  if(!residency) {
+    notFound()
   }
-  return <ResidencyDetailsClient residency={residency} />
+
+  return <ResidencyDetailsClient residency={residency} countries={countries} />;
 }
