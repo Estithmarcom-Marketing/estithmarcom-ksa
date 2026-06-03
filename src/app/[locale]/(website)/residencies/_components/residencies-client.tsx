@@ -94,8 +94,6 @@ export default function ResidenciesClient({
   const hasNextPage =
     data?.meta && data.meta.current_page < data.meta.last_page;
 
-  // Use data.residencies directly for initial load to avoid flicker, 
-  // but use mergedResidencies for pagination.
   const residenciesToDisplay = page === 1 && data?.residencies ? data.residencies : mergedResidencies;
 
   return (
@@ -138,7 +136,7 @@ export default function ResidenciesClient({
             residenciesToDisplay.map((residency) => (
               <div
                 key={residency.id}
-                className="relative rounded-xl aspect-square overflow-hidden"
+                className="relative rounded-xl aspect-[366/308] overflow-hidden"
               >
                 {residency.image ? (
                   <Image
