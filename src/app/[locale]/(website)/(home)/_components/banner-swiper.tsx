@@ -17,7 +17,7 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   const slides = countries.filter((c) => (c.image))
-
+  console.log(slides)
   return (
     <div className="w-full">
       <Swiper
@@ -41,10 +41,10 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
                 }}
               />
               <div className="relative z-10 flex flex-col container justify-center px-6 h-full">
-                <h1 className="text-white text-4xl sm:text-5xl font-bold mb-8">
+                <h1 className="text-white text-4xl sm:text-5xl font-bold mb-4 sm:mb-8">
                   {slide.title}
                 </h1>
-                <p className="text-white sm:text-2xl max-w-lg leading-10 mb-10">
+                <p className="text-white sm:text-2xl max-w-lg leading-8 sm:leading-10 mb-4 sm:mb-10">
                   {slide.description}
                 </p>
                 <Link href={`/services?country_id=${slide.id}`} className="w-fit bg-secondary text-white hover:bg-primary duration-300 h-[43px] items-center flex rounded-sm px-5 gap-5">

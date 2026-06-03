@@ -10,3 +10,13 @@ export async function getCountries(): Promise<CountryType[]> {
   });
   return res.data.countries;
 }
+
+export async function getCountriesSlide(): Promise<CountryType[]> {
+  const res = await fetcher<any>(`/countries`, {
+    next: {
+      revalidate: 60,
+      tags: ["countries-slide"]
+    }
+  });
+  return res.data.countries;
+}

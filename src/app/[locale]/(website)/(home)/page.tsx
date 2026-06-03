@@ -12,14 +12,14 @@ import { getPartners } from "@/lib/apis/partner";
 import { getFAQS } from "@/lib/apis/faq";
 import { getZones } from "@/lib/apis/zones";
 import { getServicesHome } from "@/lib/apis/service";
-import { getCountries } from "@/lib/apis/country";
+import { getCountriesSlide } from "@/lib/apis/country";
 import { getHighlights } from "@/lib/apis/stats";
 import { getBlogsHome } from "@/lib/apis/blog";
 
 export default async function HomePage() {
 
   const [countries, services, partners, faq, highlights, zones, blogs] = await Promise.all([
-    getCountries(),
+    getCountriesSlide(),
     getServicesHome(),
     getPartners(),
     getFAQS(),
