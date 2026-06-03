@@ -30,7 +30,7 @@ export default function BlogItem({ blog }: { blog: BlogType }) {
       <div className="flex-1 w-full">
         <div className="flex items-center md:hidden gap-1 mb-2">
           <Calendar size={13} color="#b99745" />
-          <p className="text-[11px]">{formatDate(blog.created_at)}</p>
+          <p className="text-[11px]">{formatDate(blog.created_at, locale)}</p>
         </div>
         <h3 className="text-[20px] font-bold">{blog.title}</h3>
         <p className="text-[13px] mt-5 max-w-lg">
@@ -40,7 +40,7 @@ export default function BlogItem({ blog }: { blog: BlogType }) {
           <div className="hidden md:flex gap-5">
             <div className="items-center gap-1 flex">
               <Calendar size={13} color="#b99745" />
-              <p className="text-[11px]">{blog.created_at}</p>
+              <p className="text-[11px]">{formatDate(blog.created_at, locale)}</p>
             </div>
           </div>
           <Link
