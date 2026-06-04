@@ -11,7 +11,7 @@ export interface ServiceFeatureType {
 
 export interface ServiceType{
   id: number
-  image: any
+  image: string
   title: string
   short_description: string
   slug?: string

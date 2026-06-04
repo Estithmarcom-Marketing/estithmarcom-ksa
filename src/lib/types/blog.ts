@@ -5,7 +5,7 @@ export interface BlogType{
   id: number
   title: string
   description: string
-  image: any
+  image: string
   slug?: string
   created_at?: string
   category: CategoryType

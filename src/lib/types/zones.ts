@@ -3,7 +3,7 @@ import { FAQType } from "./faq"
 export interface ZoneType{
   id: number
   title: string
-  image: any
+  image: string
   slug?: string
   faqs: FAQType[]
   content: string

@@ -3,20 +3,12 @@
 import OurNumbersItem from "@/components/service/our-number-item";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
-import { OurNumbersType } from "@/lib/types/our-numbers";
+import { StatsType } from "@/lib/types/stats";
 import Link from "next/link";
 
-export default function OurNumbersSection() {
+export default function OurNumbersSection({ stats }: { stats: StatsType[] }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
-
-  const ourNumbers: OurNumbersType[] = [
-    { id: 2, number: 20,  title: t("ourNumbers.projects") },
-    { id: 3, number: 12,  title: t("ourNumbers.experience") },
-    { id: 1, number: 500, title: t("ourNumbers.happyClients") },
-    { id: 4, number: 30,  title: t("ourNumbers.service") },
-  ];
-
   return (
     <section className="py-[50px]! lg:py-[100px]! container w-full flex flex-col lg:flex-row gap-5">
       <div className="bg-gray-50 p-10 lg:w-4/6 h-full">
@@ -24,8 +16,8 @@ export default function OurNumbersSection() {
         <p className="text-[24px] lg:text-[40px] font-bold">{t("ourNumbers.why")}</p>
         <p className="text-[15px] lg:text-[17px]">{t("ourNumbers.desc")}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 mt-10 justify-center">
-          {ourNumbers.map((el) => (
-            <OurNumbersItem key={el.id} ourNumber={el} />
+          {stats.map((el) => (
+            <OurNumbersItem key={el.id} state={el} />
           ))}
         </div>
       </div>

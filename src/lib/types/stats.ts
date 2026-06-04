@@ -3,4 +3,5 @@ export interface StatsType{
   icon: any
   label: string
   value: number
+  image: string
 }

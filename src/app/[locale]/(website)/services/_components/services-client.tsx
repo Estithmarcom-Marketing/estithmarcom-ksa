@@ -22,10 +22,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { StatsType } from "@/lib/types/stats";
 
 export default function ServicesClient({
+  stats,
   countries,
 }: {
+  stats: StatsType[]
   countries: CountryType[];
 }) {
   const locale = useLocale();
@@ -174,7 +177,7 @@ export default function ServicesClient({
         )}
       </div>
 
-      <OurNumbersSection />
+      <OurNumbersSection stats={stats} />
     </>
   );
 }

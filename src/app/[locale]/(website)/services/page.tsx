@@ -9,6 +9,7 @@ import ServicesClient from "./_components/services-client";
 import { getTranslator, Locale, TranslationKey } from "@/lib/i18n";
 import { Metadata } from "next";
 import { siteTitle } from "@/helper/site-title";
+import { getHighlights } from "@/lib/apis/stats";
 
 export async function generateMetadata({
   params,
@@ -57,7 +58,8 @@ export default async function ServicesPage({
         }).toString()}`
       : null;
 
-  const [countries] = await Promise.all([
+  const [stats, countries] = await Promise.all([
+    getHighlights(),
     getCountries(),
     queryClient.prefetchQuery({
       queryKey: ["services", baseFilterParams, page],
@@ -72,7 +74,7 @@ export default async function ServicesPage({
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ServicesClient countries={countries} />
+      <ServicesClient stats={stats} countries={countries} />
     </HydrationBoundary>
   );
 }
