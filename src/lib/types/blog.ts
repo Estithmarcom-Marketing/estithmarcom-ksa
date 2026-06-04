@@ -17,3 +17,14 @@ export interface BlogResType {
   blogs: BlogType[];
   meta?: PaginationType;
 }
+
+export interface BlogSiteMapType {
+  id: number;
+  meta_title_ar: string;
+  meta_title_en: string;
+  description: string;
+  slug_ar: string;
+  slug_en: string;
+  meta_description_ar: string;
+  meta_description_en: string;
+}

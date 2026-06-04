@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
-import { getBlogs } from "@/lib/apis/blog";
-import { getServicesUnpaginated } from "@/lib/apis/service";
-import { getResidencies } from "@/lib/apis/residency";
+import { getBlogsSiteMap } from "@/lib/apis/blog";
+import { getServicesSiteMap } from "@/lib/apis/service";
+import { getResidenciesSiteMap } from "@/lib/apis/residency";
 import { getZones } from "@/lib/apis/zones";
 
 export const revalidate = 86400;
@@ -21,39 +21,57 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   );
 
-  const [blogsRes, services, residenciesRes, zones] = await Promise.all([
-    getBlogs({ per_page: 50 }).catch(() => ({ blogs: [] })),
-    getServicesUnpaginated().catch(() => []),
-    getResidencies({ per_page: 50 }).catch(() => ({ residencies: [] })),
+  const [blogs, services, residencies, zones] = await Promise.all([
+    getBlogsSiteMap().catch(() => []),
+    getServicesSiteMap().catch(() => []),
+    getResidenciesSiteMap().catch(() => []),
     getZones().catch(() => []),
   ]);
 
-  const blogEntries = blogsRes.blogs.flatMap((blog) =>
-    locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/blog/${blog.slug}`,
+  const blogEntries = blogs.flatMap((blog) => [
+    {
+      url: `${baseUrl}/ar/blog/${blog.slug_ar}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
-    })),
-  );
+    },
+    {
+      url: `${baseUrl}/en/blog/${blog.slug_en}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+  ]);
 
-  const serviceEntries = services.flatMap((service) =>
-    locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/services/${service.slug}`,
+  const serviceEntries = services.flatMap((service) => [
+    {
+      url: `${baseUrl}/ar/services/${service.slug_ar}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
-    })),
-  );
-
-  const residencyEntries = residenciesRes.residencies.flatMap((residency) =>
-    locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/residencies/${residency.slug}`,
+    },
+    {
+      url: `${baseUrl}/en/services/${service.slug_en}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
-    })),
-  );
+    },
+  ]);
+
+  const residencyEntries = residencies.flatMap((residency) => [
+    {
+      url: `${baseUrl}/ar/residencies/${residency.slug_ar}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/en/residencies/${residency.slug_en}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+  ]);
 
   const zoneEntries = zones.flatMap((zone) =>
     locales.map((locale) => ({

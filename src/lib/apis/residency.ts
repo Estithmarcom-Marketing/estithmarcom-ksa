@@ -1,5 +1,5 @@
 import { fetcher } from "../fetch-server";
-import { ResidencyResType, ResidencyType } from "../types/residency";
+import { ResidencyResType, ResidencySiteMapType, ResidencyType } from "../types/residency";
 
 export async function getResidencies(params?: {
   page?: number;
@@ -36,4 +36,14 @@ export async function getResidencyDetails(slug: string): Promise<ResidencyType |
   } catch (error) {
     return null;
   }
+}
+
+export async function getResidenciesSiteMap(): Promise<ResidencySiteMapType[]> {
+  const res = await fetcher<any>(`/residencies/site-map`, {
+    next: {
+      revalidate: 60,
+      tags: ["residencies-site-map"]
+    }
+  });
+  return res.data.residencies;
 }

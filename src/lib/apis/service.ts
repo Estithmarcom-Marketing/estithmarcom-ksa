@@ -1,5 +1,5 @@
 import { fetcher } from "../fetch-server";
-import { ServiceResType, ServiceType } from "../types/service";
+import { ServiceResType, ServiceSiteMapType, ServiceType } from "../types/service";
 
 export async function getServicesHome(): Promise<ServiceType[]> {
   const res = await fetcher<any>(`/services?per_page=6`, {
@@ -56,4 +56,14 @@ export async function getServiceDetails(slug: string): Promise<ServiceType | nul
   } catch (error) {
     return null;
   }
+}
+
+export async function getServicesSiteMap(): Promise<ServiceSiteMapType[]> {
+  const res = await fetcher<any>(`/services/site-map`, {
+    next: {
+      revalidate: 60,
+      tags: ["services-site-map"],
+    },
+  });
+  return res.data.services;
 }

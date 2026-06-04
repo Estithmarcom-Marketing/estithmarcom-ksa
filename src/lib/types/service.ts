@@ -27,3 +27,14 @@ export interface ServiceResType {
   services: ServiceType[];
   meta?: PaginationType;
 }
+
+export interface ServiceSiteMapType {
+  id: number;
+  meta_title_ar: string;
+  meta_title_en: string;
+  description: string;
+  slug_ar: string;
+  slug_en: string;
+  meta_description_ar: string;
+  meta_description_en: string;
+}

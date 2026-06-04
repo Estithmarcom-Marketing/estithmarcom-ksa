@@ -1,5 +1,5 @@
 import { fetcher } from "../fetch-server";
-import { BlogResType, BlogType } from "../types/blog";
+import { BlogResType, BlogSiteMapType, BlogType } from "../types/blog";
 
 export async function getBlogsHome(): Promise<BlogType[]> {
   const res = await fetcher<any>(`/blogs`, {
@@ -46,4 +46,14 @@ export async function getBlogDetails(slug: string): Promise<BlogType | null> {
   } catch (error) {
     return null;
   }
+}
+
+export async function getBlogsSiteMap(): Promise<BlogSiteMapType[]> {
+  const res = await fetcher<any>(`/blogs/site-map`, {
+    next: {
+      revalidate: 60,
+      tags: ["blogs-site-map"],
+    },
+  });
+  return res.data.blogs;
 }
