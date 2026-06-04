@@ -250,11 +250,22 @@ export default function InlinePlayer({ video }: { video: any }) {
         className="w-full h-full object-contain"
         playsInline
         preload="metadata"
+        aria-label={video.title ?? "Video player"}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={handleEnded}
         onClick={togglePlay}
-      />
+      >
+        {video.captionsSrc && (
+          <track
+            kind="captions"
+            src={video.captionsSrc}
+            srcLang={video.captionsLang ?? "en"}
+            label={video.captionsLabel ?? "Captions"}
+            default
+          />
+        )}
+      </video>
 
       {/* Hidden preview video for scrub thumbnail (desktop only) */}
       <video
@@ -285,7 +296,11 @@ export default function InlinePlayer({ video }: { video: any }) {
           className="absolute inset-0 flex items-center justify-center cursor-pointer"
           onClick={togglePlay}
         >
-          <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-200">
+          <div
+            role="button"
+            aria-label="Play"
+            className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-200"
+          >
             <Play size={26} className="fill-secondary text-secondary ms-1" />
           </div>
         </div>
@@ -353,6 +368,7 @@ export default function InlinePlayer({ video }: { video: any }) {
           <div className="flex items-center gap-3">
             <button
               onClick={togglePlay}
+              aria-label={playing ? "Pause" : "Play"}
               className="w-8 h-8 cursor-pointer rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors"
             >
               {playing ? (
@@ -372,6 +388,7 @@ export default function InlinePlayer({ video }: { video: any }) {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleMute}
+              aria-label={displayVolume === 0 ? "Unmute" : "Mute"}
               className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors shrink-0"
             >
               {displayVolume === 0 ? (
@@ -394,6 +411,8 @@ export default function InlinePlayer({ video }: { video: any }) {
                 step={0.02}
                 value={displayVolume}
                 onChange={handleVolumeChange}
+                aria-label="Volume"
+                aria-valuetext={`${Math.round(displayVolume * 100)}%`}
                 className="absolute w-full opacity-0 cursor-pointer h-5"
               />
             </div>

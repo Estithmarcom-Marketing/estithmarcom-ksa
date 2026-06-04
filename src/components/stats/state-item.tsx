@@ -15,7 +15,7 @@ export default function StateItem({ state }: { state: StatsType }) {
               className="object-cover"
             />
           ) : (
-            <NoImageHolder noText noBg />
+            <NoImageHolder noText />
           )}
         </div>
         <div className="flex flex-col items-center">

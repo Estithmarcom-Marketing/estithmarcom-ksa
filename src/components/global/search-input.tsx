@@ -54,6 +54,7 @@ export default function SearchInput({
       />
       <Link
         href={getHref()}
+        aria-label={locale === "ar" ? `ابحث عن${entityName ? ` ${entityName}` : ""}` : `Search for${entityName ? ` ${entityName}` : ""}`}
         className="bg-white flex items-center justify-center min-w-[52px]! px-4 py-3 shrink-0"
       >
         <Search size={20} className="text-gray-500" />

@@ -125,6 +125,7 @@ export default function ServicesClient({
           <div className="w-full md:w-[200px]">
             <Select onValueChange={handleCountryChange} value={countryId || "all"}>
               <SelectTrigger
+                aria-label={locale === "ar" ? "اختر الدولة" : "Select country"}
                 dir={locale === "ar" ? "rtl" : "ltr"}
                 className="w-full bg-secondary text-white! h-10! rounded-sm border-none shadow-none md:w-[200px]"
               >
@@ -148,6 +149,7 @@ export default function ServicesClient({
           </div>
           <div className="w-full lg:w-1/3">
             <SearchInput
+              entityName={t("service.entity")}
               value={localSearchInput}
               onChange={(e) => setLocalSearchInput(e.target.value)}
               onSubmit={handleSearchSubmit}

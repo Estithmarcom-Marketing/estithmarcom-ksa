@@ -112,6 +112,7 @@ export default function ResidenciesClient({
           <div>
             <Select onValueChange={handleCountryChange} value={countryId}>
               <SelectTrigger
+                aria-label={locale === "ar" ? "اختر الدولة" : "Select country"}
                 dir={locale === "ar" ? "rtl" : "ltr"}
                 className="w-full bg-secondary text-white! h-10! rounded-sm border-none shadow-none md:w-[200px]"
               >

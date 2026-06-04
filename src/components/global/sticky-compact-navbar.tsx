@@ -196,9 +196,14 @@ export default function StickyCompactNavbar() {
               </button>
 
               <div className="hidden lg:flex items-center gap-7 text-white text-xs">
-                <a href="tel:+966920003991">
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Whatsapp"
+                  href="tel:+966920003991"
+                >
                   <WhatsappSVG />
-                </a>
+                </Link>
                 <LanguageSelector />
               </div>
             </div>

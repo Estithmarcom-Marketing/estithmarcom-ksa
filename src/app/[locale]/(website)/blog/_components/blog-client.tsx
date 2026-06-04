@@ -132,6 +132,7 @@ export default function BlogClient({
           <div className="w-full lg:w-1/3">
             <div className="mb-8">
               <SearchInput
+                entityName={t("blog.entity")}
                 value={localSearchInput}
                 onChange={(e) => setLocalSearchInput(e.target.value)}
                 onSubmit={handleSearchSubmit}

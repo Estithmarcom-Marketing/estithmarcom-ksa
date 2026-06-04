@@ -104,13 +104,14 @@ export default function NavBar({ settings }: { settings: SettingsType }) {
 
               <div className="hidden lg:flex items-center gap-5 text-white">
                 {settings.whatsapp && (
-                  <a
+                  <Link
                     href={`${settings.whatsapp}`}
+                    aria-label="Whatsapp"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <WhatsappSVG />
-                  </a>
+                  </Link>
                 )}
                 <LanguageSelector />
               </div>
