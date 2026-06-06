@@ -13,7 +13,7 @@ export default function BlogItem2({ blog }: { blog: BlogType }) {
   return (
     <div className="grid md:grid-cols-2 gap-0 md:gap-10">
       <Link
-        href={`/blogs/${blog.slug}`}
+        href={`/blog/${blog.slug}`}
         className="relative aspect-square shrink-0 rounded-t-3xl md:rounded-t-none md:rounded-s-3xl! overflow-hidden"
       >
         {blog.image ? (
@@ -31,7 +31,7 @@ export default function BlogItem2({ blog }: { blog: BlogType }) {
         <h4 className="md:text-lg font-bold">{blog.title}</h4>
         <p className="text-sm mt-4 md:mt-8">{blog.description}</p>
         <Link
-          href={`/blogs/${blog.slug}`}
+          href={`/blog/${blog.slug}`}
           className="text-xs mt-4 font-bold hover:underline text-secondary"
         >
           {t("watchmore")}
