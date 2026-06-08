@@ -11,7 +11,7 @@ export default function BlogItem2({ blog }: { blog: BlogType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
-    <div className="grid md:grid-cols-2 gap-0 md:gap-10">
+    <div className="grid md:grid-cols-2 gap-0 md:gap-10 h-full">
       <Link
         href={`/blog/${blog.slug}`}
         className="relative aspect-square shrink-0 rounded-t-3xl md:rounded-t-none md:rounded-s-3xl! overflow-hidden"
