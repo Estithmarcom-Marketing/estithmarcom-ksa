@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Mail } from "lucide-react";
 import gsap from "gsap";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo4.png";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
 import WebsiteSidebar from "@/app/[locale]/(website)/_components/side-bar";

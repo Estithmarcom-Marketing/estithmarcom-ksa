@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo4.png";
 import WebsiteSidebar from "./side-bar";
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
