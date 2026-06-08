@@ -99,7 +99,6 @@ export default function BlogClient({
     data?.meta && data.meta.current_page < data.meta.last_page;
 
   const blogsToDisplay = page === 1 && data?.blogs ? data.blogs : mergedBlogs;
-  console.log(blogsToDisplay);
   return (
     <>
       <PagesHero title={t("blog")} desc={t("blogpage.desc")} />
