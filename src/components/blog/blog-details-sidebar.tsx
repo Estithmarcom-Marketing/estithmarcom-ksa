@@ -30,6 +30,7 @@ export default function BlogDetailsSidebar({
   return (
     <div className="space-y-15">
       <SearchInput
+        detailed
         entityName={t("blog.entity")}
         value={search}
         onChange={(e) => setSearch(e.target.value)}

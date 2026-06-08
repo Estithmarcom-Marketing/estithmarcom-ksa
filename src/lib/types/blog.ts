@@ -4,7 +4,8 @@ import { PaginationType } from "./pagination"
 export interface BlogType{
   id: number
   title: string
-  description: string
+  short_content: string
+  content: string
   image: string
   slug?: string
   created_at?: string

@@ -2,11 +2,13 @@
 
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
+import { de } from "date-fns/locale";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
 interface SearchInputProps {
+  detailed?: boolean;
   entityName?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -14,6 +16,7 @@ interface SearchInputProps {
 }
 
 export default function SearchInput({
+  detailed = false,
   entityName,
   value,
   onChange,
@@ -39,7 +42,11 @@ export default function SearchInput({
       params.delete("search");
     }
     params.delete("page");
-    return `${pathname}?${params.toString()}`;
+    if(!detailed){
+      return `${pathname}?${params.toString()}`;
+    }else{
+      return `/blog?${params.toString()}`;
+    }
   };
 
   return (

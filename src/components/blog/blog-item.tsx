@@ -34,7 +34,7 @@ export default function BlogItem({ blog }: { blog: BlogType }) {
         </div>
         <h3 className="text-[20px] font-bold">{blog.title}</h3>
         <p className="text-[13px] mt-5 max-w-lg">
-          {truncateText(blog.description, 130)}
+          {truncateText(blog.short_content, 130)}
         </p>
         <div className="flex flex-col justify-between mt-5 gap-y-5 lg:flex-col xl:flex-row xl:items-center">
           <div className="hidden md:flex gap-5">

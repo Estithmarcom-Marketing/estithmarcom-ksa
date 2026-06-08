@@ -29,7 +29,7 @@ export default function BlogItem2({ blog }: { blog: BlogType }) {
       </Link>
       <div className="bg-white md:bg-transparent p-5 md:p-0">
         <h4 className="md:text-lg font-bold">{blog.title}</h4>
-        <p className="text-sm mt-4 md:mt-8">{blog.description}</p>
+        <p className="text-sm mt-4 md:mt-8">{blog.short_content}</p>
         <Link
           href={`/blog/${blog.slug}`}
           className="text-xs mt-4 font-bold hover:underline text-secondary"
