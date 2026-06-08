@@ -14,6 +14,7 @@ export interface ServiceType{
   image: string
   title: string
   short_description: string
+  long_description: string
   slug?: string
   features_description?: string
   features?: ServiceFeatureType[]

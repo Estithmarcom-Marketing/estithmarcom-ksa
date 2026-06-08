@@ -27,6 +27,7 @@ import {
 } from "@/lib/schemas/service-shape-2.schema";
 import { AxiosError } from "axios";
 import CustomLoader from "../global/custom-loader";
+import RichTextViewer from "../global/rich-text-viewer";
 
 export default function ServiceShape2({ service }: { service: ServiceType }) {
   const locale = useLocale();
@@ -72,17 +73,19 @@ export default function ServiceShape2({ service }: { service: ServiceType }) {
   });
 
   return (
-    <div className="py-10 grid grid-cols-1 gap-y-10 gap-x-20 lg:grid-cols-2">
+    <div className="py-10 grid grid-cols-1 gap-y-10 gap-x-20 items-start lg:grid-cols-2">
       <div>
         <h1 className="text-4xl font-bold">{service.title}</h1>
-        <p className="text-sm text-[#666] mt-5">{service.short_description}</p>
+        <div className="mt-5">
+          <RichTextViewer content={service.long_description} />
+        </div>
       </div>
 
       <form
         id="serviceForm"
         onSubmit={formik.handleSubmit}
         noValidate
-        className="scroll-mt-30 flex flex-col lg:flex-row justify-between gap-10"
+        className="scroll-mt-30 lg:sticky lg:top-30 flex flex-col lg:flex-row justify-between gap-10"
       >
         {/* ── Fields panel ───────────────────────────────────────────────── */}
         <div className="bg-white flex-1/2 special-shadow rounded-xl px-6 py-10">
@@ -230,7 +233,11 @@ export default function ServiceShape2({ service }: { service: ServiceType }) {
               disabled={isPending}
               className="bg-primary hover:bg-primary/90 text-white text-sm px-10 font-medium disabled:opacity-60"
             >
-              {isPending ? <CustomLoader w={24} color="white" /> : t("form.submit2")}
+              {isPending ? (
+                <CustomLoader w={24} color="white" />
+              ) : (
+                t("form.submit2")
+              )}
             </Button>
           </div>
         </div>

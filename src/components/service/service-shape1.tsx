@@ -29,6 +29,7 @@ import {
 } from "../ui/select";
 import { AxiosError } from "axios";
 import CustomLoader from "../global/custom-loader";
+import RichTextViewer from "../global/rich-text-viewer";
 
 export default function ServiceShape1({ service }: { service: ServiceType }) {
   const locale = useLocale();
@@ -82,7 +83,9 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
   return (
     <div className="py-10">
       <h1 className="text-2xl font-bold">{service.title}</h1>
-      <p className="text-sm text-[#666] mt-5">{service.short_description}</p>
+      <div className="mt-5">
+        <RichTextViewer content={service.long_description} />
+      </div>
 
       <form
         id="serviceForm"
