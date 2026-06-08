@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!blog) return {};
 
   const title = siteTitle(blog.meta_title || blog.title, locale);
-  const description = blog.meta_description || blog.description;
+  const description = blog.meta_description || blog.short_content;
 
   return {
     title,
