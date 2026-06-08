@@ -21,7 +21,7 @@ export default function ServiceItem({ service }: { service: ServiceType }) {
                 src={service.image}
                 alt={service.title}
                 fill
-                className="object-cover"
+                className="object-cover brightness-0 invert"
               />
             ) : (
               <NoImageHolder noText noBg/>
