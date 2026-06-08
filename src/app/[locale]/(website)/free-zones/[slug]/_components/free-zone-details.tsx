@@ -41,7 +41,7 @@ export default function FreeZoneDetails({ zone }: { zone: ZoneType }) {
           </div>
         </section>
         <section className="pb-[100px]! container">
-          <FAQ faqs={[]} />
+          <FAQ faqs={zone.faqs} />
         </section>
       </div>
     </div>
