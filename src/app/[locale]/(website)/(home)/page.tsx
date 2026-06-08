@@ -70,10 +70,10 @@ export default async function HomePage() {
       <section>
         <BannerSwiper countries={countries} />
       </section>
-      <section className="-mt-20 relative z-20">
+      <section className="-mt-90 md:-mt-40 relative z-20">
         <BannerSection />
       </section>
-      <section className="py-[70px]! sm:py-[100px]">
+      <section className="py-[140px]! md:py-[100px]! sm:py-[100px]">
         <ServicesSection services={services} />
       </section>
       <section>

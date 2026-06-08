@@ -11,6 +11,7 @@ import { MoveLeft, MoveRight } from "lucide-react";
 import { getTranslator } from "@/lib/i18n";
 import { CountryType } from "@/lib/types/country";
 import Link from "next/link";
+import BannerSection from "./banner-section";
 
 export default function BannerSwiper({countries}: {countries: CountryType[]}) {
   const locale = useLocale();
@@ -31,14 +32,14 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[calc(100vh-140px)] overflow-hidden">
+            <div className="relative w-full h-[calc(100vh)] overflow-hidden">
               <div
                 className={`absolute inset-0 bg-cover bg-center ${locale === "en" ? "scale-x-[-1]" : ""}`}
                 style={{
                   backgroundImage: `url(${slide.image})`,
                 }}
               />
-              <div className="relative z-10 flex flex-col container justify-center px-6 h-full">
+              <div className="relative z-10 container mt-60! md:mt-90! px-6 h-full">
                 <h1 className="text-white text-4xl sm:text-5xl font-bold mb-4 sm:mb-8">
                   {slide.title}
                 </h1>

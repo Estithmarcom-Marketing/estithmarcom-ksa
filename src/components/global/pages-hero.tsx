@@ -14,7 +14,7 @@ export default function PagesHero({
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
-    <div className="relative w-full h-[calc(100vh-250px)] overflow-hidden">
+    <div className="relative w-full h-[calc(100vh)] overflow-hidden">
       <div
         className={`absolute inset-0 bg-cover bg-center ${locale === "en" ? "scale-x-[-1]" : ""}`}
         style={{

@@ -211,7 +211,13 @@ body {
 }
 
 .swiper-pagination {
-  margin-bottom: 130px;
+  margin-bottom: 180px;
+}
+
+@media (max-width: 767px) {
+  .swiper-pagination {
+    margin-bottom: 400px;
+  }
 }
 
 .container {
