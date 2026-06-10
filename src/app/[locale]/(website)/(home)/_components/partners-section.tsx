@@ -23,7 +23,7 @@ export default function PartnersSection({partners}: {partners: PartnerType[]}) {
         >
           <CarouselContent>
             {partners.map((el) => (
-              <CarouselItem className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-1/8" key={el.id}>
+              <CarouselItem className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-1/7" key={el.id}>
                 <PartnerItem partner={el} />
               </CarouselItem>
             ))}

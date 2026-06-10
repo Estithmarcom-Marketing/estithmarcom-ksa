@@ -11,7 +11,6 @@ import { MoveLeft, MoveRight } from "lucide-react";
 import { getTranslator } from "@/lib/i18n";
 import { CountryType } from "@/lib/types/country";
 import Link from "next/link";
-import BannerSection from "./banner-section";
 
 export default function BannerSwiper({countries}: {countries: CountryType[]}) {
   const locale = useLocale();
