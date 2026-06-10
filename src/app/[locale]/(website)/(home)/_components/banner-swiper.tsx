@@ -32,14 +32,14 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[calc(100vh)] overflow-hidden">
+            <div className="relative w-full h-[calc(100vh-100px)] overflow-hidden">
               <div
                 className={`absolute inset-0 bg-cover bg-center ${locale === "en" ? "scale-x-[-1]" : ""}`}
                 style={{
                   backgroundImage: `url(${slide.image})`,
                 }}
               />
-              <div className="relative z-10 container mt-60! md:mt-90! px-6 h-full">
+              <div className="relative z-10 container mt-30! md:mt-90! px-6 h-full">
                 <h1 className="text-white text-4xl sm:text-5xl font-bold mb-4 sm:mb-8">
                   {slide.title}
                 </h1>
