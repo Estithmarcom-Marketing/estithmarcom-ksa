@@ -37,7 +37,14 @@ export default function NavBar({ settings }: { settings: SettingsType }) {
         <div className="container">
           <nav className="flex items-center justify-between py-6">
             <div className="flex items-center gap-10 xl:gap-16">
-              <Image src={logo} alt="logo" priority className="w-24 xl:w-32" />
+              <Link href={`/`}>
+                <Image
+                  src={logo}
+                  alt="logo"
+                  priority
+                  className="w-24 xl:w-32"
+                />
+              </Link>
 
               <ul
                 className={`hidden lg:flex relative before:absolute before:-bottom-4 before:start-1/2 ${locale === "ar" ? "before:translate-x-1/2" : "before:-translate-x-1/2"} before:h-[1px] before:w-[calc(100%-50px)] before:bg-[#6b557f] gap-10 text-white bg-[#6b557f] px-10 py-4 rounded-xl`}

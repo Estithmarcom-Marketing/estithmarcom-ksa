@@ -130,7 +130,14 @@ export default function StickyCompactNavbar() {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between">
             <div className="flex items-center gap-10 xl:gap-16">
-              <Image src={logo} alt="logo" priority className="w-12 md:w-16" />
+              <Link href={`/`}>
+                <Image
+                  src={logo}
+                  alt="logo"
+                  priority
+                  className="w-12 md:w-16"
+                />
+              </Link>
 
               <ul
                 className={`hidden lg:flex relative gap-10 text-white bg-[#6b557f] px-10 py-4 rounded-xl`}
