@@ -9,7 +9,6 @@ jobs:
 build-and-deploy-prod:
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Checkout code
     uses: actions/checkout@v4
@@ -41,4 +40,3 @@ steps:
         cd ~/projects/estithmarcom-ksa/web
         docker compose pull
         docker compose up -d --force-recreate
-```
