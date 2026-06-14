@@ -31,7 +31,7 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[calc(100vh-100px)] overflow-hidden">
+            <div className="relative w-full h-[calc(100vh)] sm:h-[calc(100vh-50px)] overflow-hidden">
               <div
                 className={`absolute inset-0 bg-cover bg-center ${locale === "en" ? "scale-x-[-1]" : ""}`}
                 style={{

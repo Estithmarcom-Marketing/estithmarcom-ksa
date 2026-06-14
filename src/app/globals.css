@@ -211,12 +211,12 @@ body {
 }
 
 .swiper-pagination {
-  margin-bottom: 90px;
+  margin-bottom: 150px;
 }
 
 @media (max-width: 767px) {
   .swiper-pagination {
-    margin-bottom: 180px;
+    margin-bottom: 250px;
   }
 }
 
