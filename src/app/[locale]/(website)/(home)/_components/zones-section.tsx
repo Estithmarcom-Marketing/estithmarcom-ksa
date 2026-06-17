@@ -18,7 +18,7 @@ export default function ZonesSection({ zones }: { zones: ZoneType[] }) {
   const { t } = getTranslator(locale);
   return (
     <div className="container px-13!">
-      <SpecialHeader header={t("blogs.title")} desc={t("blogs.desc")} />
+      <SpecialHeader header={t("freezone.title")} desc={t("freezone.desc")} />
       <div className="mt-15">
         <Carousel
           orientation="horizontal"
