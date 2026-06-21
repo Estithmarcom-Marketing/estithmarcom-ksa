@@ -9,8 +9,9 @@ import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { SettingsType } from "@/lib/types/settings";
+import { StaticPageType } from "@/lib/types/static-page";
 
-export default function Footer({ settings }: { settings: SettingsType }) {
+export default function Footer({ settings, pages }: { settings: SettingsType; pages: StaticPageType[] }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
@@ -21,7 +22,7 @@ export default function Footer({ settings }: { settings: SettingsType }) {
       />
       <div className="relative container text-white">
         <div className="py-8 border-b border-white/20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="flex flex-col justify-between max-w-[300px] lg:items-center gap-4">
               <div>
                 <Image
@@ -124,6 +125,22 @@ export default function Footer({ settings }: { settings: SettingsType }) {
                 {t("footer.blog")}
               </Link>
             </div>
+            {pages.length > 0 && (
+              <div>
+                <p className="font-bold text-main text-[24px]">
+                  {t("footer.importantLinks")}
+                </p>
+                {pages.map((page) => (
+                  <Link
+                    key={page.id}
+                    href={`/pages/${page.slug}`}
+                    className="mt-4 w-fit block text-sm text-[#b4b4bb] hover:underline"
+                  >
+                    {page.title}
+                  </Link>
+                ))}
+              </div>
+            )}
             <div>
               <p className="font-bold text-main text-[24px]">
                 {t("footer.contact")}

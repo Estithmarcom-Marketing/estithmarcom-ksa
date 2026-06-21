@@ -3,6 +3,7 @@ import React from "react";
 import NavBar from "./_components/nav-bar";
 import Footer from "./_components/footer";
 import { getSettings } from "@/lib/apis/settings";
+import { getStaticPages } from "@/lib/apis/static-page";
 import Chatbot from "@/components/global/chatbot";
 
 export default async function LocaleLayout({
@@ -11,11 +12,12 @@ export default async function LocaleLayout({
   children: React.ReactNode;
 }) {
   const settings = await getSettings()
+  const pages = await getStaticPages()
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar settings={settings} />
       <main className="flex-1">{children}</main>
-      <Footer settings={settings} />
+      <Footer settings={settings} pages={pages} />
       <Chatbot />
     </div>
   );

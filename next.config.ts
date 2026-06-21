@@ -21,6 +21,20 @@ const nextConfig: NextConfig = {
   logging: {
     browserToTerminal: false,
   },
+  async redirects() {
+    return [
+      {
+        source: "/pages",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/:locale/pages",
+        destination: "/:locale",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
