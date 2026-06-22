@@ -10,6 +10,12 @@ import { isValidPhoneNumber } from "libphonenumber-js"
 import Image from "next/image"
 import chatbotImg from "@/assets/chatbot.svg"
 import logo from "@/assets/logo4.png"
+import { useMutation } from "@tanstack/react-query"
+import useAxios from "@/hooks/use-axios"
+import { toast } from "sonner"
+import { AxiosError } from "axios"
+import CustomLoader from "@/components/global/custom-loader"
+import { sendChatbotRequest } from "@/lib/apis/chatbot"
 
 interface ChatMessage {
   id: string
@@ -42,7 +48,22 @@ export default function Chatbot() {
   const [phoneValue, setPhoneValue] = useState("")
   const [detailsValue, setDetailsValue] = useState("")
   const [services, setServices] = useState<string[]>([])
-  const [submitting, setSubmitting] = useState(false)
+  const axiosInstance = useAxios()
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: (values: {
+      name: string
+      phone: string
+      details: string | null
+      service: string[]
+    }) => sendChatbotRequest(axiosInstance, values),
+    onSuccess: () => {
+      setInputMode("success")
+    },
+    onError: (error: AxiosError<{ message: string }>) => {
+      toast.error(error?.response?.data?.message)
+    },
+  })
 
   const chatEndRef = useRef<HTMLDivElement>(null)
   const initialized = useRef(false)
@@ -167,15 +188,13 @@ export default function Chatbot() {
   }
 
   function handleSubmit() {
-    setSubmitting(true)
     const payload = {
       name: nameValue,
       phone: phoneValue,
-      services: services.filter(Boolean),
+      service: services.filter(Boolean),
       details: detailsValue,
     }
-    console.log("Chatbot Payload:", payload)
-    setInputMode("success")
+    mutate(payload)
   }
 
   function renderBotBubble(msg: ChatMessage) {
@@ -359,10 +378,14 @@ export default function Chatbot() {
               <div className="shrink-0 border-t border-gray-100 px-4 py-3">
                 <button
                   onClick={handleSubmit}
-                  disabled={false}
+                  disabled={isPending}
                   className="w-full py-2.5 bg-[#b99745] hover:bg-[#a6863a] disabled:bg-gray-300 text-white rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
                 >
-                  <Check className="w-4 h-4" />
+                  {isPending ? (
+                    <CustomLoader w={20} color="white" />
+                  ) : (
+                    <Check className="w-4 h-4" />
+                  )}
                   {t("chatbot.submit" as any)}
                 </button>
               </div>
