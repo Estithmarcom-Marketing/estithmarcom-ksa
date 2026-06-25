@@ -200,11 +200,11 @@ export default function Chatbot() {
   function renderBotBubble(msg: ChatMessage) {
     return (
       <div key={msg.id} className="flex items-start mb-3">
-        <div className="w-7 h-7 rounded-full bg-[#44295a] text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+        <div className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
           <Image src={logo} alt="logo" width={25} height={25} />
         </div>
         <div
-          className={`mx-2 px-3.5 py-2.5 rounded-2xl bg-[#44295a] text-white text-sm leading-relaxed max-w-[80%] ${
+          className={`mx-2 px-3.5 py-2.5 rounded-2xl bg-primary text-white text-sm leading-relaxed max-w-[80%] ${
             locale === "ar" ? "rounded-br-sm" : "rounded-bl-sm"
           }`}
         >
@@ -218,7 +218,7 @@ export default function Chatbot() {
     return (
       <div key={msg.id} className="flex justify-end mb-3">
         <div
-          className={`px-3.5 py-2.5 rounded-2xl bg-[#b99745] text-white text-sm leading-relaxed max-w-[80%] ${
+          className={`px-3.5 py-2.5 rounded-2xl bg-secondary text-white text-sm leading-relaxed max-w-[80%] ${
             locale === "ar" ? "rounded-bl-sm" : "rounded-br-sm"
           }`}
           dir={msg.text.startsWith("+") ? "ltr" : undefined}
@@ -233,7 +233,7 @@ export default function Chatbot() {
     <>
       {isOpen && <div className="fixed inset-0 bg-black/20 z-40" onClick={() => setIsOpen(false)} />}
 
-      <div className="fixed bottom-4 end-4 z-50 flex flex-col items-end gap-3">
+      <div className="fixed bottom-6 end-6 z-50 flex flex-col items-end gap-3">
         {showPanel && (
           <div
             className={`w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 ease-out flex flex-col ${
@@ -395,16 +395,16 @@ export default function Chatbot() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
+          className={`w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
             isOpen
               ? "bg-gray-700 rotate-90 scale-110"
               : "bg-secondary hover:bg-secondary/80 cursor-pointer"
           }`}
         >
           {isOpen ? (
-            <X className="w-6 h-6 text-white" />
+            <X className="w-5 h-5 text-white" />
           ) : (
-            <Image src={chatbotImg} alt="chatbot" width={50} height={50} />
+            <Image src={chatbotImg} alt="chatbot" width={40} height={40} />
           )}
         </button>
       </div>

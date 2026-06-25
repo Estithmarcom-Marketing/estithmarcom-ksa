@@ -19,6 +19,7 @@ export default function ServiceDetailsClient({
 }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
+  console.log(service)
   const serviceShape = EnumShape1.has(service.id) ? (
     <ServiceShape1 service={service} />
   ) : EnumShape3.has(service.id) ? (
