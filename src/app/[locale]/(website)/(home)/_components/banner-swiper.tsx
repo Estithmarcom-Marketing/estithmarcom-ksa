@@ -39,7 +39,7 @@ export default function BannerSwiper({countries}: {countries: CountryType[]}) {
                 }}
               />
               <div className="absolute top-0 left-0 w-full h-full bg-primary/70"></div>
-              <div className="relative z-10 container mt-50! md:mt-90! px-6 h-full">
+              <div className="relative z-10 container flex flex-col justify-center px-6 h-full">
                 <h1 className="text-white text-4xl sm:text-5xl font-bold mb-4 sm:mb-8">
                   {slide.title}
                 </h1>

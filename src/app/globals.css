@@ -216,7 +216,7 @@ body {
 
 @media (max-width: 767px) {
   .swiper-pagination {
-    margin-bottom: 250px;
+    /* margin-bottom: 250px; */
   }
 }
 
