@@ -34,7 +34,7 @@ export default function PartnersSection({
           <CarouselContent>
             {partners.map((el) => (
               <CarouselItem
-                className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6"
+                className="basis-1/2 sm:basis-1/4 md:basis-1/5"
                 key={el.id}
               >
                 <PartnerItem partner={el} />

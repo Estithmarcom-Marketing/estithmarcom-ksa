@@ -25,7 +25,7 @@ import {
   createServiceShape3Schema,
   ServiceShape3Values,
 } from "@/lib/schemas/service-shape3.schema";
-import { OFFICE_SIZES } from "@/data/service-form-data";
+import { OFFICE_SIZES, CITIES_BY_COUNTRY } from "@/data/service-form-data";
 import { AxiosError } from "axios";
 import CustomLoader from "../global/custom-loader";
 import RichTextViewer from "../global/rich-text-viewer";
@@ -58,6 +58,7 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
       phone: "",
       country_id: 0,
       size: "",
+      city: "",
       notes: "",
       service_id: service.id,
     },
@@ -71,12 +72,20 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
         country_id: values.country_id,
         additional_info: {
           office_size: values.size,
+          city: values.city,
           notes: values.notes,
         },
       };
       mutate(payload);
     },
   });
+
+  const cities = (CITIES_BY_COUNTRY[formik.values.country_id] ?? []).map(
+    (c) => ({
+      id: c.id,
+      name: t(c.nameKey),
+    }),
+  );
 
   return (
     <div className="py-10 grid grid-cols-1 gap-y-10 gap-x-20 lg:grid-cols-2">
@@ -138,6 +147,7 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
                 dir={locale === "ar" ? "rtl" : "ltr"}
                 onValueChange={(val) => {
                   formik.setFieldValue("country_id", parseInt(val), true);
+                  formik.setFieldValue("city", "", true);
                 }}
                 value={
                   formik.values.country_id > 0
@@ -197,41 +207,87 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
             </div>
           </div>
 
-          <div className="mb-5 space-y-1">
-            <Label htmlFor="size">
-              {t("service.shape3.size" as TranslationKey)}
-            </Label>
-            <Select
-              dir={locale === "ar" ? "rtl" : "ltr"}
-              onValueChange={(val) => {
-                formik.setFieldValue("size", val, true);
-              }}
-              value={formik.values.size}
-            >
-              <SelectTrigger
-                id="size"
-                className="w-full"
-                aria-invalid={!!(formik.submitCount > 0 && formik.errors.size)}
+          <div className="grid mb-5 xl:grid-cols-2 gap-5">
+            <div className="space-y-1">
+              <Label htmlFor="city">
+                {t("service.shape3.city" as TranslationKey)}
+              </Label>
+              <Select
+                dir={locale === "ar" ? "rtl" : "ltr"}
+                disabled={!formik.values.country_id}
+                onValueChange={(val) => {
+                  formik.setFieldValue("city", val, true);
+                }}
+                value={formik.values.city}
               >
-                <SelectValue
-                  placeholder={t(
-                    "service.shape3.size.placeholder" as TranslationKey,
+                <SelectTrigger
+                  id="city"
+                  className="w-full"
+                  aria-invalid={!!(formik.submitCount > 0 && formik.errors.city)}
+                >
+                  <SelectValue
+                    placeholder={t(
+                      (formik.values.country_id
+                        ? "service.shape3.city.placeholder"
+                        : "service.shape3.city.selectCountryFirst") as TranslationKey,
+                    )}
+                  />
+                </SelectTrigger>
+                <SelectContent>
+                  {cities.map((c) => (
+                    <SelectItem key={c.id} value={c.id}>
+                      {c.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {formik.submitCount > 0 && formik.errors.city && (
+                <p className="text-red-400 text-xs px-1">
+                  {t(
+                    (formik.values.country_id
+                      ? formik.errors.city
+                      : "service.shape3.city.selectCountryFirst") as TranslationKey,
                   )}
-                />
-              </SelectTrigger>
-              <SelectContent>
-                {sizes.map((s) => (
-                  <SelectItem key={s.id} value={s.id}>
-                    {s.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            {formik.submitCount > 0 && formik.errors.size && (
-              <p className="text-red-400 text-xs px-1">
-                {t(formik.errors.size as any)}
-              </p>
-            )}
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="size">
+                {t("service.shape3.size" as TranslationKey)}
+              </Label>
+              <Select
+                dir={locale === "ar" ? "rtl" : "ltr"}
+                onValueChange={(val) => {
+                  formik.setFieldValue("size", val, true);
+                }}
+                value={formik.values.size}
+              >
+                <SelectTrigger
+                  id="size"
+                  className="w-full"
+                  aria-invalid={!!(formik.submitCount > 0 && formik.errors.size)}
+                >
+                  <SelectValue
+                    placeholder={t(
+                      "service.shape3.size.placeholder" as TranslationKey,
+                    )}
+                  />
+                </SelectTrigger>
+                <SelectContent>
+                  {sizes.map((s) => (
+                    <SelectItem key={s.id} value={s.id}>
+                      {s.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {formik.submitCount > 0 && formik.errors.size && (
+                <p className="text-red-400 text-xs px-1">
+                  {t(formik.errors.size as any)}
+                </p>
+              )}
+            </div>
           </div>
 
           <div className="space-y-1">

@@ -209,7 +209,6 @@ export default function StickyCompactNavbar() {
                   aria-label="Whatsapp"
                   href="tel:+966920003991"
                 >
-                  <WhatsappSVG />
                 </Link>
                 <LanguageSelector />
               </div>

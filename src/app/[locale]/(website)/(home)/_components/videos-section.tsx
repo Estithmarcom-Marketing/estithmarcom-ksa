@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Share2, User } from "lucide-react";
+import { Share2, Star, User } from "lucide-react";
 import InlinePlayer from "@/components/video/video-player";
 import Autoplay from "embla-carousel-autoplay";
 import VideoItem from "@/components/video/video-item";
@@ -93,7 +93,7 @@ export default function VideosSection() {
 
             <div className="bg-white lg:mt-0 -mt-[17px] lg:rounded-2xl p-5 border border-gray-100">
               <div className="flex flex-col lg:flex-row items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
+                <div className="flex items-start gap-3">
                   <div className="w-11 h-11 rounded-full bg-gray-100 hidden lg:flex items-center justify-center shrink-0">
                     <User size={20} className="text-secondary" />
                   </div>
@@ -101,8 +101,18 @@ export default function VideosSection() {
                     <p className="font-bold text-gray-900 text-sm">
                       {activeVideo.speaker}
                     </p>
+                    <ul className="flex gap-1 py-px items-center">
+                      <Star className="fill-yellow-500 text-yellow-500" size={12} />
+                      <Star className="fill-yellow-500 text-yellow-500" size={12} />
+                      <Star className="fill-yellow-500 text-yellow-500" size={12} />
+                      <Star className="fill-yellow-500 text-yellow-500" size={12} />
+                      <Star className="fill-yellow-500 text-yellow-500" size={12} />
+                    </ul>
                     <p className="text-xs text-gray-400 mt-0.5">
                       {activeVideo.role}
+                    </p>
+                    <p className="mt-4 hidden lg:block text-sm text-gray-600 leading-relaxed">
+                      {activeVideo.description}
                     </p>
                   </div>
                 </div>
@@ -111,9 +121,6 @@ export default function VideosSection() {
                   <span>{t("videos.share")}</span>
                 </button>
               </div>
-              <p className="mt-4 hidden lg:block text-sm text-gray-600 leading-relaxed">
-                {activeVideo.description}
-              </p>
             </div>
           </div>
 

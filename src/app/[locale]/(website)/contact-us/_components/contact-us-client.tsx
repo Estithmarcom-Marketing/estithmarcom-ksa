@@ -29,6 +29,7 @@ import { sendServiceRequest } from "@/lib/apis/contact";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
 import CustomLoader from "@/components/global/custom-loader";
+import banner from "@/assets/contact-banner.webp"
 
 export default function ContactUsClient({
   settings,
@@ -76,7 +77,7 @@ export default function ContactUsClient({
 
   return (
     <>
-      <PagesHero title={t("contactus")} desc={t("contactUsPage.desc")} />
+      <PagesHero title={t("contactus")} desc={t("contactUsPage.desc")} banner={banner} />
       <section className="py-[70px]! sm:py-[100px]! container">
         <p className="mb-8 leading-relaxed">{t("contactUsPage.desc")}</p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">

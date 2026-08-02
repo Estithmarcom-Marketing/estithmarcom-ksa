@@ -1,4 +1,4 @@
-import { Clock, Play } from "lucide-react";
+import { Clock, Play, Star } from "lucide-react";
 import VideoFrame from "./video-frame";
 import { getTranslator } from "@/lib/i18n";
 import { useLocale } from "@/hooks/use-locale";
@@ -51,6 +51,13 @@ export default function VideoItem({
         <p className="text-xs lg:text-sm lg:text-start lg:font-semibold text-gray-800 leading-snug lg:line-clamp-2">
           {video.title}
         </p>
+        <ul className="flex gap-1 py-px items-center">
+          <Star className="fill-yellow-500 text-yellow-500" size={12} />
+          <Star className="fill-yellow-500 text-yellow-500" size={12} />
+          <Star className="fill-yellow-500 text-yellow-500" size={12} />
+          <Star className="fill-yellow-500 text-yellow-500" size={12} />
+          <Star className="fill-yellow-500 text-yellow-500" size={12} />
+        </ul>
         <div className="hidden lg:flex items-center gap-2 mt-1">
           <Clock size={11} className="text-[#8e8e90]" />
           <span className="text-xs text-[#8e8e90]">{video.duration}</span>

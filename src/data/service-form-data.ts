@@ -5,6 +5,17 @@ export const OFFICE_SIZES = [
   { id: "مكتب مشترك", nameKey: "service.shape3.size.shared" as TranslationKey },
 ];
 
+export const CITIES_BY_COUNTRY: Record<
+  number,
+  { id: string; nameKey: TranslationKey }[]
+> = {
+  1: [
+    { id: "الرياض", nameKey: "service.shape3.city.riyadh" as TranslationKey },
+    { id: "جدة", nameKey: "service.shape3.city.jeddah" as TranslationKey },
+  ],
+  2: [{ id: "عمان", nameKey: "service.shape3.city.amman" as TranslationKey }],
+};
+
 export const INVESTOR_TYPES = [
   { id: "فرد", nameKey: "service.shape4.investorType.individual" as TranslationKey },
   { id: "شركة", nameKey: "service.shape4.investorType.company" as TranslationKey },

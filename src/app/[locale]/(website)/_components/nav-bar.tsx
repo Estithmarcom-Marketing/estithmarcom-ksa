@@ -117,7 +117,6 @@ export default function NavBar({ settings }: { settings: SettingsType }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <WhatsappSVG />
                   </Link>
                 )}
                 <LanguageSelector />

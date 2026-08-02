@@ -22,6 +22,7 @@ import { useCallback, useEffect, useState } from "react";
 import useAxios from "@/hooks/use-axios";
 import { useQuery } from "@tanstack/react-query";
 import { getResidenciesClient } from "@/lib/apis/residencyClient";
+import banner from "@/assets/residencies-banner.webp"
 
 export default function ResidenciesClient({
   countries,
@@ -95,10 +96,9 @@ export default function ResidenciesClient({
     data?.meta && data.meta.current_page < data.meta.last_page;
 
   const residenciesToDisplay = page === 1 && data?.residencies ? data.residencies : mergedResidencies;
-
   return (
     <div>
-      <PagesHero title={t("residencies.title")} desc={t("residencies.desc")} />
+      <PagesHero title={t("residencies.title")} desc={t("residencies.desc")} banner={banner} />
       <div className="container -mt-18! relative z-10">
         <div className="bg-white flex flex-col md:flex-row gap-3 md:justify-between py-10 px-5 sm:px-10 shadow-2xl shadow-primary/10 rounded-lg md:items-center">
           <div className="flex flex-col md:flex-row md:items-center gap-3">
@@ -122,8 +122,13 @@ export default function ResidenciesClient({
               </SelectTrigger>
               <SelectContent dir={locale === "ar" ? "rtl" : "ltr"}>
                 {countries.map((country) => (
-                  <SelectItem key={country.id} value={String(country.id)}>
-                    {country.name}
+                  <SelectItem disabled={country.residencies_count === 0} key={country.id} value={String(country.id)} className="pe-2!">
+                    <span className="flex w-full items-center justify-between gap-2">
+                      <span>{country.name}</span>
+                      {country.residencies_count === 0 && (
+                        <span className="text-[#666] text-xs">{t("residencies.comingSoon")}</span>
+                      )}
+                    </span>
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -137,7 +142,7 @@ export default function ResidenciesClient({
             residenciesToDisplay.map((residency) => (
               <div
                 key={residency.id}
-                className="relative rounded-xl aspect-[366/308] overflow-hidden"
+                className="relative shadow-2xl rounded-xl aspect-[366/308] overflow-hidden"
               >
                 {residency.image ? (
                   <Image
@@ -150,7 +155,7 @@ export default function ResidenciesClient({
                   <NoImageHolder />
                 )}
                 <h1
-                  className={`absolute text-center top-1/2 z-1 -translate-y-1/2 text-lg font-bold start-1/2 bg-opacity-75 text-white p-4 ${locale === "ar" ? "translate-x-1/2" : "-translate-x-1/2"}`}
+                  className={`absolute text-center top-1/2 z-1 -translate-y-1/2 text-[20px] font-bold start-1/2 bg-opacity-75 text-white p-4 ${locale === "ar" ? "translate-x-1/2" : "-translate-x-1/2"}`}
                 >
                   {residency.title}
                 </h1>
