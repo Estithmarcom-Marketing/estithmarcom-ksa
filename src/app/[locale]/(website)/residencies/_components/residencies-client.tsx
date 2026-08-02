@@ -22,6 +22,7 @@ import { useCallback, useEffect, useState } from "react";
 import useAxios from "@/hooks/use-axios";
 import { useQuery } from "@tanstack/react-query";
 import { getResidenciesClient } from "@/lib/apis/residencyClient";
+import banner from "@/assets/residencies-banner.webp"
 
 export default function ResidenciesClient({
   countries,
@@ -97,7 +98,7 @@ export default function ResidenciesClient({
   const residenciesToDisplay = page === 1 && data?.residencies ? data.residencies : mergedResidencies;
   return (
     <div>
-      <PagesHero title={t("residencies.title")} desc={t("residencies.desc")} />
+      <PagesHero title={t("residencies.title")} desc={t("residencies.desc")} banner={banner} />
       <div className="container -mt-18! relative z-10">
         <div className="bg-white flex flex-col md:flex-row gap-3 md:justify-between py-10 px-5 sm:px-10 shadow-2xl shadow-primary/10 rounded-lg md:items-center">
           <div className="flex flex-col md:flex-row md:items-center gap-3">

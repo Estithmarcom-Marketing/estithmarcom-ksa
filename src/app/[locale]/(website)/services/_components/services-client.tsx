@@ -15,6 +15,7 @@ import useAxios from "@/hooks/use-axios";
 import { useQuery } from "@tanstack/react-query";
 import { getServicesClient } from "@/lib/apis/serivceClient";
 import { CountryType } from "@/lib/types/country";
+import banner from "@/assets/services-banner.webp"
 import {
   Select,
   SelectContent,
@@ -118,7 +119,7 @@ export default function ServicesClient({
 
   return (
     <>
-      <PagesHero title={t("services")} desc={t("servicesPage.desc")} />
+      <PagesHero title={t("services")} desc={t("servicesPage.desc")} banner={banner} />
 
       <div className="container">
         <section className="pt-[70px] sm:pt-[100px] flex flex-col md:flex-row justify-between gap-5">

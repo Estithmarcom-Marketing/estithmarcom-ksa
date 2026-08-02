@@ -8,6 +8,7 @@ import AboutUsServices from "./abous-us-services";
 import OurNumbersItem from "@/components/service/our-number-item";
 import { StatsType } from "@/lib/types/stats";
 import Link from "next/link";
+import banner from "@/assets/about-banner.webp"
 
 export default function AboutUsClient({ stats }: { stats: StatsType[] }) {
   const locale = useLocale();
@@ -17,6 +18,7 @@ export default function AboutUsClient({ stats }: { stats: StatsType[] }) {
       <PagesHero
         title={t("aboutUs.hero.title")}
         desc={t("aboutUs.hero.desc")}
+        banner={banner}
       />
       <div className="container">
         <section className=" pt-[70px]! sm:pt-[100px]!">
