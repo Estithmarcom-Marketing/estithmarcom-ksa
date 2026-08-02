@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function PartnerItem({ partner }: { partner: PartnerType }) {
   return (
     <div className="rounded-md px-4">
-      <Link href={partner.link} className="aspect-square block select-none relative">
+      <Link href={partner.link} className="aspect-square lg:aspect-[190/100] block select-none relative">
         <Image
           src={partner.image}
           fill
