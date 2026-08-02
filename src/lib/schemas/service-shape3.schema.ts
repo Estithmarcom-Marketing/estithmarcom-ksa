@@ -32,6 +32,10 @@ export const createServiceShape3Schema = () =>
       (val) => val ?? "",
       z.string().min(1, "form.validation.size"),
     ),
+    city: z.preprocess(
+      (val) => val ?? "",
+      z.string().min(1, "service.shape3.city.required"),
+    ),
     notes: z.preprocess((val) => val ?? "", z.string()),
     service_id: z.preprocess((val) => val ?? 0, z.number().min(1)),
   });
