@@ -19,7 +19,7 @@ export default function BannerSection() {
             <h2 className="text-xl sm:text-2xl font-bold mb-2">
               {t("bannerSection.title")}
             </h2>
-            <p className="text-secondary text-xs sm:text-sm font-bold">
+            <p className="text-red-600 text-sm sm:text-md font-bold">
               {t("bannerSection.desc")}
             </p>
           </div>
