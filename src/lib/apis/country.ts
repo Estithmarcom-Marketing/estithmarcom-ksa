@@ -8,6 +8,7 @@ export async function getCountries(): Promise<CountryType[]> {
       tags: ["countries"]
     }
   });
+  console.log(res);
   return res.data.countries;
 }
 

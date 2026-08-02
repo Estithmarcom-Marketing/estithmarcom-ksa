@@ -95,7 +95,6 @@ export default function ResidenciesClient({
     data?.meta && data.meta.current_page < data.meta.last_page;
 
   const residenciesToDisplay = page === 1 && data?.residencies ? data.residencies : mergedResidencies;
-
   return (
     <div>
       <PagesHero title={t("residencies.title")} desc={t("residencies.desc")} />
@@ -122,8 +121,13 @@ export default function ResidenciesClient({
               </SelectTrigger>
               <SelectContent dir={locale === "ar" ? "rtl" : "ltr"}>
                 {countries.map((country) => (
-                  <SelectItem key={country.id} value={String(country.id)}>
-                    {country.name}
+                  <SelectItem disabled={country.residencies_count === 0} key={country.id} value={String(country.id)} className="pe-2!">
+                    <span className="flex w-full items-center justify-between gap-2">
+                      <span>{country.name}</span>
+                      {country.residencies_count === 0 && (
+                        <span className="text-[#666] text-xs">{t("residencies.comingSoon")}</span>
+                      )}
+                    </span>
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -150,7 +154,7 @@ export default function ResidenciesClient({
                   <NoImageHolder />
                 )}
                 <h1
-                  className={`absolute text-center top-1/2 z-1 -translate-y-1/2 text-lg font-bold start-1/2 bg-opacity-75 text-white p-4 ${locale === "ar" ? "translate-x-1/2" : "-translate-x-1/2"}`}
+                  className={`absolute text-center top-1/2 z-1 -translate-y-1/2 text-[20px] font-bold start-1/2 bg-opacity-75 text-white p-4 ${locale === "ar" ? "translate-x-1/2" : "-translate-x-1/2"}`}
                 >
                   {residency.title}
                 </h1>
