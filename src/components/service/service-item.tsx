@@ -11,7 +11,7 @@ export default function ServiceItem({ service }: { service: ServiceType }) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
-    <div className="rounded-2xl bg-[#f2f3f2] relative overflow-hidden">
+    <div className="rounded-2xl shadow-2xl bg-[#f2f3f2] relative overflow-hidden">
       <div className="w-[99px] h-[99px] m-auto mt-10 relative">
         {service.image ? (
           <Image

@@ -142,7 +142,7 @@ export default function ResidenciesClient({
             residenciesToDisplay.map((residency) => (
               <div
                 key={residency.id}
-                className="relative rounded-xl aspect-[366/308] overflow-hidden"
+                className="relative shadow-2xl rounded-xl aspect-[366/308] overflow-hidden"
               >
                 {residency.image ? (
                   <Image

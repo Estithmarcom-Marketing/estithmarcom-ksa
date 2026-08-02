@@ -4,7 +4,7 @@ import NoImageHolder from "../global/no-image-holder";
 
 export default function StateItem({ state }: { state: StatsType }) {
   return (
-    <div className="border flex justify-center bg-[#fafafa] rounded-md py-8">
+    <div className="border flex justify-center shadow-2xl bg-[#fafafa] rounded-md py-8">
       <div className="flex items-center gap-8">
         <div className="relative overflow-hidden w-[40px] h-[40px]">
           {state.image ? (
