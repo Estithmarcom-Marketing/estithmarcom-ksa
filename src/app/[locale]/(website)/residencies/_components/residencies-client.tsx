@@ -160,7 +160,7 @@ export default function ResidenciesClient({
                   {residency.title}
                 </h1>
                 <div className="absolute start-0 top-0 w-full h-full bg-primary/85"></div>
-                <div className="bg-secondary z-1 text-white w-full flex items-center justify-between absolute bottom-0 p-4 text-xs">
+                <div className="bg-secondary z-1 text-white w-full flex items-center justify-between absolute bottom-0 p-4 text-sm">
                   <Link
                     href={`/residencies/${residency.slug}`}
                     className="flex hover:underline items-center gap-2"
