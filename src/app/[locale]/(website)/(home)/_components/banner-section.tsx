@@ -19,15 +19,17 @@ export default function BannerSection() {
             <h2 className="text-xl sm:text-2xl font-bold mb-2">
               {t("bannerSection.title")}
             </h2>
-            <p className="text-red-600 text-sm sm:text-md font-bold">
-              {t("bannerSection.desc")}
+            <p className="text-xl sm:text-2xl font-bold mb-2">
+              {t("bannerSection.title2")}
             </p>
+            {/* <p className="text-red-600 text-sm sm:text-md font-bold">
+              {t("bannerSection.desc")}
+            </p> */}
           </div>
         </div>
         <div>
           <Link
-            href={`https://jordan-booking.estithmarcom.com/`}
-            target="_blank"
+            href={`/services/مساحات-عمل-جاهزة-ومكاتب-مشتركة`}
             className="bg-secondary w-fit hover:border-primary block rounded-sm px-14 duration-300 text-lg text-center border border-secondary hover:text-white hover:bg-primary text-white py-1"
           >
             {t("bannerSection.button")}

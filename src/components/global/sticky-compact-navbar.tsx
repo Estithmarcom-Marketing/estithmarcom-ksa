@@ -135,7 +135,7 @@ export default function StickyCompactNavbar() {
                   src={logo}
                   alt="logo"
                   priority
-                  className="w-12 md:w-16"
+                  className="w-20 md:w-26!"
                 />
               </Link>
 
