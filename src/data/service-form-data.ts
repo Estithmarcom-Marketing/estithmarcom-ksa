@@ -1,9 +1,21 @@
 import { TranslationKey } from "@/lib/i18n";
 
-export const OFFICE_SIZES = [
-  { id: "مكتب مغلق", nameKey: "service.shape3.size.closed" as TranslationKey },
-  { id: "مكتب مشترك", nameKey: "service.shape3.size.shared" as TranslationKey },
-];
+export const DESK_TYPES_BY_COUNTRY: Record<
+  number,
+  { id: string; nameKey: TranslationKey }[]
+> = {
+  1: [
+    { id: "مكتب مغلق خاص", nameKey: "service.shape3.deskType.privateClosed" as TranslationKey },
+    { id: "مكتب مشترك", nameKey: "service.shape3.deskType.shared" as TranslationKey },
+    { id: "عنوان وطني فقط", nameKey: "service.shape3.deskType.nationalAddress" as TranslationKey },
+    { id: "عنوان وطني ورخصة بلدية (فقط)", nameKey: "service.shape3.deskType.nationalAddressLicense" as TranslationKey },
+  ],
+  2: [
+    { id: "مكتب مغلق خاص", nameKey: "service.shape3.deskType.privateClosed" as TranslationKey },
+    { id: "مكتب مشترك", nameKey: "service.shape3.deskType.shared" as TranslationKey },
+    { id: "عنوان ورخصة مهن (فقط)", nameKey: "service.shape3.deskType.tradeLicense" as TranslationKey },
+  ],
+};
 
 export const CITIES_BY_COUNTRY: Record<
   number,

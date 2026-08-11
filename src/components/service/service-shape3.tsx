@@ -25,7 +25,10 @@ import {
   createServiceShape3Schema,
   ServiceShape3Values,
 } from "@/lib/schemas/service-shape3.schema";
-import { OFFICE_SIZES, CITIES_BY_COUNTRY } from "@/data/service-form-data";
+import {
+  DESK_TYPES_BY_COUNTRY,
+  CITIES_BY_COUNTRY,
+} from "@/data/service-form-data";
 import { AxiosError } from "axios";
 import CustomLoader from "../global/custom-loader";
 import RichTextViewer from "../global/rich-text-viewer";
@@ -45,11 +48,6 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
       toast.error(error?.response?.data?.message);
     },
   });
-
-  const sizes = OFFICE_SIZES.map((s) => ({
-    id: s.id,
-    name: t(s.nameKey),
-  }));
 
   const formik = useFormik<ServiceShape3Values>({
     initialValues: {
@@ -80,7 +78,14 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
     },
   });
 
-  const cities = (CITIES_BY_COUNTRY[formik.values.country_id] ?? []).map(
+    const deskTypes = (DESK_TYPES_BY_COUNTRY[formik.values.country_id] ?? []).map(
+    (d) => ({
+      id: d.id,
+      name: t(d.nameKey),
+    }),
+  );
+
+const cities = (CITIES_BY_COUNTRY[formik.values.country_id] ?? []).map(
     (c) => ({
       id: c.id,
       name: t(c.nameKey),
@@ -148,6 +153,7 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
                 onValueChange={(val) => {
                   formik.setFieldValue("country_id", parseInt(val), true);
                   formik.setFieldValue("city", "", true);
+                  formik.setFieldValue("size", "", true);
                 }}
                 value={
                   formik.values.country_id > 0
@@ -223,7 +229,9 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
                 <SelectTrigger
                   id="city"
                   className="w-full"
-                  aria-invalid={!!(formik.submitCount > 0 && formik.errors.city)}
+                  aria-invalid={
+                    !!(formik.submitCount > 0 && formik.errors.city)
+                  }
                 >
                   <SelectValue
                     placeholder={t(
@@ -254,10 +262,11 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
 
             <div className="space-y-1">
               <Label htmlFor="size">
-                {t("service.shape3.size" as TranslationKey)}
+                {t("service.shape3.deskType" as TranslationKey)}
               </Label>
               <Select
                 dir={locale === "ar" ? "rtl" : "ltr"}
+                disabled={!formik.values.country_id}
                 onValueChange={(val) => {
                   formik.setFieldValue("size", val, true);
                 }}
@@ -266,25 +275,33 @@ export default function ServiceShape3({ service }: { service: ServiceType }) {
                 <SelectTrigger
                   id="size"
                   className="w-full"
-                  aria-invalid={!!(formik.submitCount > 0 && formik.errors.size)}
+                  aria-invalid={
+                    !!(formik.submitCount > 0 && formik.errors.size)
+                  }
                 >
                   <SelectValue
                     placeholder={t(
-                      "service.shape3.size.placeholder" as TranslationKey,
+                      (formik.values.country_id
+                        ? "service.shape3.deskType.placeholder"
+                        : "service.shape3.city.selectCountryFirst") as TranslationKey,
                     )}
                   />
                 </SelectTrigger>
                 <SelectContent>
-                  {sizes.map((s) => (
-                    <SelectItem key={s.id} value={s.id}>
-                      {s.name}
+                  {deskTypes.map((d) => (
+                    <SelectItem key={d.id} value={d.id}>
+                      {d.name}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
               {formik.submitCount > 0 && formik.errors.size && (
                 <p className="text-red-400 text-xs px-1">
-                  {t(formik.errors.size as any)}
+                  {t(
+                    (formik.values.country_id
+                      ? formik.errors.size
+                      : "service.shape3.city.selectCountryFirst") as TranslationKey,
+                  )}
                 </p>
               )}
             </div>
