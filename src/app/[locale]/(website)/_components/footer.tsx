@@ -2,7 +2,13 @@
 
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+  FaXTwitter,
+} from "react-icons/fa6";
 import Link from "next/link";
 import { FaSnapchatGhost } from "react-icons/fa";
 import { Mail, MapPin } from "lucide-react";
@@ -11,7 +17,13 @@ import logo from "@/assets/logo.png";
 import { SettingsType } from "@/lib/types/settings";
 import { StaticPageType } from "@/lib/types/static-page";
 
-export default function Footer({ settings, pages }: { settings: SettingsType; pages: StaticPageType[] }) {
+export default function Footer({
+  settings,
+  pages,
+}: {
+  settings: SettingsType;
+  pages: StaticPageType[];
+}) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
   return (
@@ -152,10 +164,12 @@ export default function Footer({ settings, pages }: { settings: SettingsType; pa
                 <Mail />
                 <span className="text-sm">{settings.email}</span>
               </Link>
-              <p className="mt-4 text-[#b4b4bb] flex items-center gap-2">
-                <MapPin />
-                <span className="text-sm">{settings.address}</span>
-              </p>
+              {settings.addresses.map((address) => (
+                <p key={address.id} className="mt-4 text-[#b4b4bb] flex items-center gap-2">
+                  <MapPin />
+                  <span className="text-sm">{address.address}</span>
+                </p>
+              ))}
             </div>
           </div>
         </div>

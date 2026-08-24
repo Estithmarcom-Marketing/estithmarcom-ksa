@@ -3,7 +3,10 @@ export interface SettingsType {
   name_en: string;
   phone: string;
   email: string;
-  address: string;
+  addresses: {
+    id: number
+    address: string
+  }[]
   facebook: string;
   x: string;
   instagram: string;
