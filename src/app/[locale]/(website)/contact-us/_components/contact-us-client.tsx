@@ -297,7 +297,9 @@ export default function ContactUsClient({
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-600">{settings.address}</p>
+                  {settings.addresses.map((address) => (
+                    <p key={address.id} className="text-gray-600">{address.address}</p>
+                  ))}
                 </div>
               </div>
             </div>
