@@ -12,6 +12,9 @@ COPY . .
 ARG NEXT_PUBLIC_BASE_URL
 ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
 
+ARG CHAT_WIDGET_ORIGIN
+ENV CHAT_WIDGET_ORIGIN=$CHAT_WIDGET_ORIGIN
+
 RUN npm run build
 
 # ── Final Stage ───────────────────────────────────────────────────────────────
