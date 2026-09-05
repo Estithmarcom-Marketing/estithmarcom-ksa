@@ -106,7 +106,7 @@ function EnabledEmbeddedChat() {
     >
       <iframe
         ref={iframeRef}
-        src="/chat-widget/"
+        src="/chat-widget/index.html"
         title="محادثة استثماركوم"
         className="h-full w-full border-0 bg-transparent"
         loading="eager"
