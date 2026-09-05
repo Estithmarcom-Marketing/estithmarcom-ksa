@@ -23,6 +23,7 @@ jobs:
           tags: ghcr.io/estithmarcomegypt-sys/estithmarcom-ksa:latest
           build-args: |
             NEXT_PUBLIC_BASE_URL=https://test.api.estithmarcom.com/api/v1/website
+            CHAT_WIDGET_ORIGIN=https://chat-stage.estithmarcom.com
       - name: Deploy to Test Server
         uses: appleboy/ssh-action@v1
         with:
