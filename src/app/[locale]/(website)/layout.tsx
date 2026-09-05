@@ -4,7 +4,7 @@ import NavBar from "./_components/nav-bar";
 import Footer from "./_components/footer";
 import { getSettings } from "@/lib/apis/settings";
 import { getStaticPages } from "@/lib/apis/static-page";
-import Chatbot from "@/components/global/chatbot";
+import EmbeddedChat from "@/components/global/embedded-chat";
 
 export default async function LocaleLayout({
   children,
@@ -18,7 +18,7 @@ export default async function LocaleLayout({
       <NavBar settings={settings} />
       <main className="flex-1">{children}</main>
       <Footer settings={settings} pages={pages} />
-      <Chatbot />
+      <EmbeddedChat />
     </div>
   );
 }
