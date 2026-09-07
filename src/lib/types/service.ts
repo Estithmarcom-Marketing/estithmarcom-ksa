@@ -1,3 +1,4 @@
+import type { EmbeddedChatTargetType } from "../chat/embedded-chat-bridge"
 import { CountryType } from "./country"
 import { FAQType } from "./faq"
 import { PaginationType } from "./pagination"
@@ -16,6 +17,8 @@ export interface ServiceType{
   short_description: string
   long_description: string
   slug?: string
+  chat_target_type?: EmbeddedChatTargetType | null
+  chat_target_id?: string | null
   features_description?: string
   features?: ServiceFeatureType[]
   countries: CountryType[]
