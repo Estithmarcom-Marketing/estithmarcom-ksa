@@ -13,6 +13,8 @@ export interface EmbeddedChatOpenRequest {
   targetId: string;
   source?: string;
   websiteServiceId?: string | number;
+  serviceCountryId?: string | number;
+  serviceCountryName?: string;
   pageUrl?: string;
   locale?: EmbeddedChatLocale;
   requestId?: string;
@@ -72,6 +74,31 @@ export function isEmbeddedChatOpenRequest(
       (typeof value.websiteServiceId === "number" &&
         Number.isSafeInteger(value.websiteServiceId) &&
         value.websiteServiceId > 0)
+    )
+  ) {
+    return false;
+  }
+  if (
+    value.serviceCountryId !== undefined &&
+    !(
+      (typeof value.serviceCountryId === "string" &&
+        /^\d{1,32}$/.test(value.serviceCountryId)) ||
+      (typeof value.serviceCountryId === "number" &&
+        Number.isSafeInteger(value.serviceCountryId) &&
+        value.serviceCountryId > 0)
+    )
+  ) {
+    return false;
+  }
+  if (
+    value.serviceCountryName !== undefined &&
+    !(
+      typeof value.serviceCountryName === "string" &&
+      value.serviceCountryName.trim().length > 0 &&
+      value.serviceCountryName.trim().length <= 128 &&
+      /^[\p{L}\p{M}\p{N}\s&'’().-]+$/u.test(
+        value.serviceCountryName.trim(),
+      )
     )
   ) {
     return false;
