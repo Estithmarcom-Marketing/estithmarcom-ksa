@@ -8,7 +8,22 @@ import { CircleArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ServiceItem({ service }: { service: ServiceType }) {
+interface ServiceCountry {
+  id: number;
+  name: string;
+}
+
+interface ServiceItemProps {
+  service: ServiceType;
+  serviceCountry?: ServiceCountry;
+}
+
+const DEFAULT_SERVICE_COUNTRY_NAME = "السعودية";
+
+export default function ServiceItem({
+  service,
+  serviceCountry,
+}: ServiceItemProps) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
 
@@ -24,6 +39,9 @@ export default function ServiceItem({ service }: { service: ServiceType }) {
       targetId: service.chat_target_id,
       source: "service_card",
       websiteServiceId: service.id,
+      serviceCountryId: serviceCountry?.id,
+      serviceCountryName:
+        serviceCountry?.name ?? DEFAULT_SERVICE_COUNTRY_NAME,
       pageUrl: window.location.href,
       locale,
     });

@@ -111,6 +111,14 @@ export default function ServicesClient({
     pushParams({ country_id: value === "all" ? undefined : value, page: "1" });
   };
 
+  const selectedServiceCountry = useMemo(
+    () =>
+      countries.find(
+        (country) => String(country.id) === countryId,
+      ),
+    [countries, countryId],
+  );
+
   const hasNextPage =
     data?.meta && data.meta.current_page < data.meta.last_page;
 
@@ -161,7 +169,11 @@ export default function ServicesClient({
         <section className="pb-[30px]! mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {servicesToDisplay.length > 0 ? (
             servicesToDisplay.map((service) => (
-              <ServiceItem key={service.id} service={service} />
+              <ServiceItem
+                key={service.id}
+                service={service}
+                serviceCountry={selectedServiceCountry}
+              />
             ))
           ) : (
             <div className="md:col-span-2 lg:col-span-3 xl:col-span-4 text-center py-20">
