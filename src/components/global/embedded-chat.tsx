@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { useLocale } from "@/hooks/use-locale";
+
 import {
   EMBEDDED_CHAT_OPEN_EVENT,
   createEmbeddedChatOpenMessage,
@@ -16,6 +18,7 @@ const WIDGET_ENABLED =
   process.env.NEXT_PUBLIC_CHAT_WIDGET_ENABLED === "true";
 
 function EnabledEmbeddedChat() {
+  const locale = useLocale();
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const readyRef = useRef(false);
   const pendingRequestRef = useRef<EmbeddedChatOpenRequest | undefined>(undefined);
@@ -98,7 +101,8 @@ function EnabledEmbeddedChat() {
     <div
       data-chat-view-state={viewState}
       className={[
-        "fixed bottom-0 right-0 z-[2147483000] overflow-hidden bg-transparent",
+        "fixed bottom-0 z-[2147483000] overflow-hidden bg-transparent",
+        locale === "ar" ? "left-0" : "right-0",
         "transition-[width,height] duration-300 motion-reduce:transition-none",
         isExpanded
           ? "h-[100dvh] w-screen sm:h-[min(720px,calc(100dvh-16px))] sm:w-[420px]"
@@ -109,7 +113,7 @@ function EnabledEmbeddedChat() {
     >
       <iframe
         ref={iframeRef}
-        src="/chat-widget/index.html"
+        src={`/chat-widget/index.html?locale=${locale}`}
         title="محادثة استثماركوم"
         className="h-full w-full border-0 bg-transparent"
         loading="eager"
