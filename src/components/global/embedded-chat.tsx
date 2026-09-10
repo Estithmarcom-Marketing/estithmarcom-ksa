@@ -92,16 +92,19 @@ function EnabledEmbeddedChat() {
   }, [sendOpenRequest, updateViewState]);
 
   const isExpanded = viewState === "open";
+  const isClosed = viewState === "closed";
 
   return (
     <div
       data-chat-view-state={viewState}
       className={[
-        "fixed bottom-0 end-0 z-[2147483000] overflow-hidden bg-transparent",
+        "fixed bottom-0 right-0 z-[2147483000] overflow-hidden bg-transparent",
         "transition-[width,height] duration-300 motion-reduce:transition-none",
         isExpanded
           ? "h-[100dvh] w-screen sm:h-[min(720px,calc(100dvh-16px))] sm:w-[420px]"
-          : "h-[72px] w-[72px]",
+          : isClosed
+            ? "h-[160px] w-screen max-w-[340px]"
+            : "h-[96px] w-[96px]",
       ].join(" ")}
     >
       <iframe
