@@ -19,7 +19,6 @@ const nextConfig: NextConfig = {
   output: "standalone",
 
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "http",
