@@ -33,6 +33,7 @@ import {
 import { AxiosError } from "axios";
 import CustomLoader from "../global/custom-loader";
 import RichTextViewer from "../global/rich-text-viewer";
+import ServiceOrderCard from "./service-order-card";
 
 export default function ServiceShape4({ service }: { service: ServiceType }) {
   const locale = useLocale();
@@ -105,7 +106,7 @@ export default function ServiceShape4({ service }: { service: ServiceType }) {
         </div>
       </div>
 
-      <form
+      {/* <form
         id="serviceForm"
         onSubmit={formik.handleSubmit}
         noValidate
@@ -358,7 +359,8 @@ export default function ServiceShape4({ service }: { service: ServiceType }) {
             </Button>
           </div>
         </div>
-      </form>
+      </form> */}
+      <ServiceOrderCard service={service} />
     </div>
   );
 }
