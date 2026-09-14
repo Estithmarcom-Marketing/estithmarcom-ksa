@@ -82,7 +82,7 @@ export default function ServiceShape1({ service }: { service: ServiceType }) {
   };
 
   return (
-    <div className="py-10">
+    <div className="py-10 grid grid-cols-1 gap-y-10 gap-x-20 lg:grid-cols-2">
       <h1 className="text-2xl font-bold">{service.title}</h1>
       <div className="mt-5">
         <RichTextViewer content={service.long_description} />

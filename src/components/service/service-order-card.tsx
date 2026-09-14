@@ -46,15 +46,16 @@ export default function ServiceOrderCard({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-sm rounded-3xl border border-secondary/20 bg-white px-8 pt-14 pb-8 text-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]">
+    <div className="relative h-fit! mt-10! mx-auto w-full max-w-sm rounded-3xl bg-white px-8 pt-14 pb-8 text-center shadow-2xl">
       {/* top gold gradient bar */}
-      <span className="absolute inset-x-0 top-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-secondary via-yellow-200 to-secondary" />
+      <span className="absolute inset-x-0 top-3 h-1.5 bg-gradient-to-r from-secondary via-yellow-200 to-secondary" />
+      <span className="absolute inset-x-0 top-0 h-3 rounded-t-3xl bg-primary" />
 
       {/* icon badge */}
-      <div className="absolute left-1/2 -top-10 -translate-x-1/2">
+      <div className="absolute left-1/2 -top-8 -translate-x-1/2">
         <div className="rounded-full bg-gradient-to-br from-secondary via-yellow-200 to-secondary p-[3px] shadow-md">
           <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-primary">
-            <Headset className="h-7 w-7 text-secondary" strokeWidth={1.75} />
+            <Headset className="h-10 w-10 text-yellow-200" strokeWidth={2} />
           </div>
         </div>
       </div>
