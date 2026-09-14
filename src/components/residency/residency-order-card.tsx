@@ -10,22 +10,24 @@ interface ResidencyOrderCardProps {
   residency: ResidencyType;
 }
 
+const DEFAULT_CHAT_TARGET_TYPE = "category" as const;
+const DEFAULT_CHAT_TARGET_ID = "premium-residency";
+
 export default function ResidencyOrderCard({
   residency,
 }: ResidencyOrderCardProps) {
   const locale = useLocale();
   const { t } = getTranslator(locale);
 
-  const hasChatTarget = Boolean(
-    residency.chat_target_type && residency.chat_target_id,
-  );
-
   function handleOrderNow() {
-    if (!residency.chat_target_type || !residency.chat_target_id) return;
+    const targetType =
+      residency.chat_target_type ?? DEFAULT_CHAT_TARGET_TYPE;
+    const targetId =
+      residency.chat_target_id ?? DEFAULT_CHAT_TARGET_ID;
 
     openEmbeddedChat({
-      targetType: residency.chat_target_type,
-      targetId: residency.chat_target_id,
+      targetType,
+      targetId,
       source: "residency_order_card",
       websiteServiceId: residency.id,
       pageUrl: window.location.href,
@@ -58,8 +60,7 @@ export default function ResidencyOrderCard({
       <button
         type="button"
         onClick={handleOrderNow}
-        disabled={!hasChatTarget}
-        className="block w-full cursor-pointer rounded-full bg-gradient-to-r from-secondary via-yellow-200 to-secondary py-3.5 text-lg font-bold text-primary shadow-md transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="block w-full cursor-pointer rounded-full bg-gradient-to-r from-secondary via-yellow-200 to-secondary py-3.5 text-lg font-bold text-primary shadow-md transition hover:opacity-90"
       >
         {t("serviceDetails.orderCard.button")}
       </button>

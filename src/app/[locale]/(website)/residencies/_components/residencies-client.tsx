@@ -25,6 +25,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getResidenciesClient } from "@/lib/apis/residencyClient";
 import banner from "@/assets/residencies-banner.webp"
 
+const DEFAULT_CHAT_TARGET_TYPE = "category" as const;
+const DEFAULT_CHAT_TARGET_ID = "premium-residency";
+
 export default function ResidenciesClient({
   countries,
 }: {
@@ -97,11 +100,14 @@ export default function ResidenciesClient({
     data?.meta && data.meta.current_page < data.meta.last_page;
 
   function handleRequestResidency(residency: ResidencyType) {
-    if (!residency.chat_target_type || !residency.chat_target_id) return;
+    const targetType =
+      residency.chat_target_type ?? DEFAULT_CHAT_TARGET_TYPE;
+    const targetId =
+      residency.chat_target_id ?? DEFAULT_CHAT_TARGET_ID;
 
     openEmbeddedChat({
-      targetType: residency.chat_target_type,
-      targetId: residency.chat_target_id,
+      targetType,
+      targetId,
       source: "residency_card",
       websiteServiceId: residency.id,
       pageUrl: window.location.href,
@@ -185,10 +191,7 @@ export default function ResidenciesClient({
                   <button
                     type="button"
                     onClick={() => handleRequestResidency(residency)}
-                    disabled={
-                      !residency.chat_target_type || !residency.chat_target_id
-                    }
-                    className="flex hover:underline items-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex hover:underline items-center gap-2"
                   >
                     {t("residency.order")}
                     <ChevronLeft className={`ltr:rotate-180`} size={15} />
