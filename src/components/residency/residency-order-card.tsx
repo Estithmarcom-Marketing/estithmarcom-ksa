@@ -38,7 +38,8 @@ export default function ResidencyOrderCard({
   return (
     <div className="relative h-fit! mt-10! mx-auto w-full max-w-sm rounded-3xl border border-secondary/20 bg-white px-8 pt-14 pb-8 text-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]">
       {/* top gold gradient bar */}
-      <span className="absolute inset-x-0 top-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-secondary via-yellow-200 to-secondary" />
+      <span className="absolute inset-x-0 top-3 h-1.5 bg-gradient-to-r from-secondary via-yellow-200 to-secondary" />
+      <span className="absolute inset-x-0 top-0 h-3 rounded-t-3xl bg-primary" />
 
       {/* icon badge */}
       <div className="absolute left-1/2 -top-10 -translate-x-1/2">
