@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useLocale } from "@/hooks/use-locale";
+import { openEmbeddedChat } from "@/lib/chat/embedded-chat-bridge";
 import { getTranslator } from "@/lib/i18n";
 import { CountryType } from "@/lib/types/country";
 import { ResidencyResType, ResidencyType } from "@/lib/types/residency";
@@ -95,6 +96,19 @@ export default function ResidenciesClient({
   const hasNextPage =
     data?.meta && data.meta.current_page < data.meta.last_page;
 
+  function handleRequestResidency(residency: ResidencyType) {
+    if (!residency.chat_target_type || !residency.chat_target_id) return;
+
+    openEmbeddedChat({
+      targetType: residency.chat_target_type,
+      targetId: residency.chat_target_id,
+      source: "residency_card",
+      websiteServiceId: residency.id,
+      pageUrl: window.location.href,
+      locale,
+    });
+  }
+
   const residenciesToDisplay = page === 1 && data?.residencies ? data.residencies : mergedResidencies;
   return (
     <div>
@@ -168,13 +182,17 @@ export default function ResidenciesClient({
                     {t("details")}
                     <ExternalLink size={15} />
                   </Link>
-                  <Link
-                    href={`/residencies/${residency.slug}#residencyForm`}
-                    className="flex hover:underline items-center gap-2"
+                  <button
+                    type="button"
+                    onClick={() => handleRequestResidency(residency)}
+                    disabled={
+                      !residency.chat_target_type || !residency.chat_target_id
+                    }
+                    className="flex hover:underline items-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {t("residency.order")}
                     <ChevronLeft className={`ltr:rotate-180`} size={15} />
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))

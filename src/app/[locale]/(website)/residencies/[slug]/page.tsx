@@ -1,7 +1,6 @@
 import { getResidencyDetails } from "@/lib/apis/residency";
 import ResidencyDetailsClient from "./_components/residency-details-client";
 import { notFound } from "next/navigation";
-import { getCountries } from "@/lib/apis/country";
 import { Metadata } from "next";
 import { siteTitle } from "@/helper/site-title";
 import { Locale } from "@/lib/i18n";
@@ -42,14 +41,11 @@ export default async function residencyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [residency, countries] = await Promise.all([
-    getResidencyDetails(slug),
-    getCountries(),
-  ]);
+  const residency = await getResidencyDetails(slug);
 
   if(!residency) {
     notFound()
   }
 
-  return <ResidencyDetailsClient residency={residency} countries={countries} />;
+  return <ResidencyDetailsClient residency={residency} />;
 }

@@ -1,3 +1,4 @@
+import type { EmbeddedChatTargetType } from "../chat/embedded-chat-bridge";
 import { PaginationType } from "./pagination";
 
 export interface ResidencyType {
@@ -6,6 +7,8 @@ export interface ResidencyType {
   description: string;
   image: string;
   slug?: string;
+  chat_target_type?: EmbeddedChatTargetType | null
+  chat_target_id?: string | null
   meta_title?: string;
   meta_description?: string;
 }

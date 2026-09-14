@@ -51,7 +51,7 @@ export default function VideoItem({
         <p className="text-xs lg:text-sm lg:text-start lg:font-semibold text-gray-800 leading-snug lg:line-clamp-2">
           {video.title}
         </p>
-        <ul className="flex gap-1 py-px items-center">
+        <ul className="flex gap-1 py-px items-center justify-center lg:justify-start">
           <Star className="fill-yellow-500 text-yellow-500" size={12} />
           <Star className="fill-yellow-500 text-yellow-500" size={12} />
           <Star className="fill-yellow-500 text-yellow-500" size={12} />
