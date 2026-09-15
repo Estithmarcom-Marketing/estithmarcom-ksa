@@ -95,7 +95,6 @@ function EnabledEmbeddedChat() {
   }, [sendOpenRequest, updateViewState]);
 
   const isExpanded = viewState === "open";
-  const isClosed = viewState === "closed";
 
   return (
     <div
@@ -106,9 +105,7 @@ function EnabledEmbeddedChat() {
         "transition-[width,height] duration-300 motion-reduce:transition-none",
         isExpanded
           ? "h-[100dvh] w-screen sm:h-[min(720px,calc(100dvh-16px))] sm:w-[420px]"
-          : isClosed
-            ? "h-[160px] w-screen max-w-[340px]"
-            : "h-[96px] w-[96px]",
+          : "h-[96px] w-[96px]",
       ].join(" ")}
     >
       <iframe
