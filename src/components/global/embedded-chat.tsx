@@ -31,6 +31,11 @@ function EnabledEmbeddedChat() {
   const [viewState, setViewState] =
     useState<EmbeddedChatViewState>("closed");
 
+  const setIframeRef = useCallback((frame: HTMLIFrameElement | null) => {
+    iframeRef.current = frame;
+    readyRef.current = false;
+  }, []);
+
   const updateViewState = useCallback((state: EmbeddedChatViewState) => {
     viewStateRef.current = state;
     setViewState(state);
@@ -152,15 +157,13 @@ function EnabledEmbeddedChat() {
         ].join(" ")}
       >
         <iframe
-          ref={iframeRef}
+          key={locale}
+          ref={setIframeRef}
           src={`/chat-widget/index.html?locale=${locale}&launcher_greeting=0`}
           title="محادثة استثماركوم"
           className="h-full w-full border-0 bg-transparent"
           loading="eager"
           referrerPolicy="origin"
-          onLoad={() => {
-            readyRef.current = false;
-          }}
         />
       </div>
     </>
