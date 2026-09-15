@@ -1,5 +1,7 @@
 export const EMBEDDED_CHAT_OPEN_EVENT = "estithmarcom:chat-open";
 export const EMBEDDED_CHAT_OPEN_MESSAGE = "estithmarcom.chat.open";
+export const EMBEDDED_CHAT_LAUNCHER_OPEN_MESSAGE =
+  "estithmarcom.chat.launcher.open";
 export const EMBEDDED_CHAT_READY_MESSAGE = "estithmarcom.chat.ready";
 export const EMBEDDED_CHAT_STATE_MESSAGE = "estithmarcom.chat.state";
 export const EMBEDDED_CHAT_PROTOCOL_VERSION = 1;
@@ -140,6 +142,13 @@ export function isEmbeddedChatReadyMessage(value: unknown): boolean {
     value.type === EMBEDDED_CHAT_READY_MESSAGE &&
     value.version === EMBEDDED_CHAT_PROTOCOL_VERSION
   );
+}
+
+export function createEmbeddedChatLauncherOpenMessage() {
+  return {
+    type: EMBEDDED_CHAT_LAUNCHER_OPEN_MESSAGE,
+    version: EMBEDDED_CHAT_PROTOCOL_VERSION,
+  } as const;
 }
 
 export function createEmbeddedChatOpenMessage(request: EmbeddedChatOpenRequest) {
