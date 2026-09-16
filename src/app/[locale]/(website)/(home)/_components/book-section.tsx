@@ -2,12 +2,22 @@
 
 import { useLocale } from "@/hooks/use-locale";
 import { getTranslator } from "@/lib/i18n";
+import { openEmbeddedChat } from "@/lib/chat/embedded-chat-bridge";
 import { Building2, Factory } from "lucide-react";
-import Link from "next/link";
 
 export default function BookSection() {
   const locale = useLocale();
   const { t } = getTranslator(locale);
+
+  function handleBookWorkspace() {
+    openEmbeddedChat({
+      targetType: "category",
+      targetId: "ready-workspaces",
+      source: "home_book_workspace",
+      pageUrl: window.location.href,
+      locale,
+    });
+  }
   return (
     <div className="container">
       <div className="py-10 flex justify-between gap-5 flex-col md:flex-row md:items-center px-5 lg:px-20 text-white bg-primary rounded-lg">
@@ -16,12 +26,13 @@ export default function BookSection() {
             <h2 className="font-bold mb-4">{t("book.title")}</h2>
             <p className="text-sm">{t("book.desc")}</p>
           </div>
-          <Link
-            href={`/`}
+          <button
+            type="button"
+            onClick={handleBookWorkspace}
             className="bg-secondary font-bold hover:border-primary px-5 rounded-sm duration-300 text-sm text-center border border-secondary hover:text-white hover:bg-primary text-white py-1"
           >
             {t("clickHere")}
-          </Link>
+          </button>
         </div>
         <div className="flex flex-wrap sm:flex-nowrap gap-3">
           <div className="bg-[#68557d] flex flex-col gap-2 items-center p-5 rounded-md">
