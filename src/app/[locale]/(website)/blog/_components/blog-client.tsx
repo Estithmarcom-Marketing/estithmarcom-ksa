@@ -14,6 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getBlogsClient } from "@/lib/apis/blogClient";
 import { CategoryType } from "@/lib/types/category";
 import BlogSidebar from "@/components/blog/blog-sidebar";
+import banner from "@/assets/blog-banner.webp"
 
 export default function BlogClient({
   categories,
@@ -101,7 +102,7 @@ export default function BlogClient({
   const blogsToDisplay = page === 1 && data?.blogs ? data.blogs : mergedBlogs;
   return (
     <>
-      <PagesHero title={t("blog")} desc={t("blogpage.desc")} />
+      <PagesHero title={t("blog")} desc={t("blogpage.desc")} banner={banner} />
 
       <div className="container mx-auto px-4 py-10">
         <div className="flex flex-col lg:flex-row gap-10 py-[70px]! sm:py-[100px]">
