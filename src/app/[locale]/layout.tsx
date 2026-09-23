@@ -1,8 +1,13 @@
 import "@/app/globals.css";
 import React from "react";
+import type { Metadata } from "next";
 import { bukra } from "@/fonts/bukra";
 import NextTopLoader from "nextjs-toploader";
 import ClientProviders from "@/components/providers/client-providers";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://estithmarcom.com"),
+};
 
 export default async function LocaleLayout({
   children,
@@ -15,13 +20,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body 
-      className={bukra.variable}
-      suppressHydrationWarning>
+      <body
+        className={bukra.variable}
+        suppressHydrationWarning
+      >
         <NextTopLoader color="#c19a6b" showSpinner={false} />
-        <ClientProviders>
-          {children}
-        </ClientProviders>
+
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );
