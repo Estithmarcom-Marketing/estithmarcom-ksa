@@ -46,6 +46,31 @@ export default function ServiceDetailsClient({
 
         <ServiceOrderCard service={service} />
       </div>
+      {service.features && service.features.length > 0 && (
+        <section className="bg-[#f8f8fc] py-[70px]! sm:py-[100px]! rounded-lg">
+          <div className="grid lg:grid-cols-3 gap-x-15 2xl:gap-x-25 gap-y-10 container items-center">
+            <div>
+              <span className="font-bold text-sm text-secondary">
+                {t("serviceDetails.exclusiveBenefits")}
+              </span>
+              <h2 className="text-2xl font-bold mt-4 mb-6">
+                {t("serviceDetails.whatWeOffer")}
+              </h2>
+              <p className="text-sm mt-3">{service.features_description}</p>
+            </div>
+            <div className="lg:col-span-2 grid sm:grid-cols-2 gap-5">
+              {service.features.map((feature) => (
+                <FeatureItem key={feature.id} feature={feature} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+      {service.faqs && service.faqs.length > 0 && (
+        <section className="py-[70px]! sm:py-[100px]! container">
+          <FAQ faqs={service.faqs} />
+        </section>
+      )}
     </div>
   );
 }
