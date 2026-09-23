@@ -4,8 +4,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { useLocale } from "@/hooks/use-locale";
 
+import { EmbeddedChatGreeting } from "./embedded-chat-greeting";
+
 import {
   EMBEDDED_CHAT_OPEN_EVENT,
+  createEmbeddedChatLauncherOpenMessage,
   createEmbeddedChatOpenMessage,
   isEmbeddedChatOpenRequest,
   isEmbeddedChatReadyMessage,
@@ -22,10 +25,16 @@ function EnabledEmbeddedChat() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const readyRef = useRef(false);
   const pendingRequestRef = useRef<EmbeddedChatOpenRequest | undefined>(undefined);
+  const pendingLauncherOpenRef = useRef(false);
   const requestedOpenRef = useRef(false);
   const viewStateRef = useRef<EmbeddedChatViewState>("closed");
   const [viewState, setViewState] =
     useState<EmbeddedChatViewState>("closed");
+
+  const setIframeRef = useCallback((frame: HTMLIFrameElement | null) => {
+    iframeRef.current = frame;
+    readyRef.current = false;
+  }, []);
 
   const updateViewState = useCallback((state: EmbeddedChatViewState) => {
     viewStateRef.current = state;
@@ -43,11 +52,35 @@ function EnabledEmbeddedChat() {
     return true;
   }, []);
 
+  const sendLauncherOpen = useCallback(() => {
+    const targetWindow = iframeRef.current?.contentWindow;
+    if (!targetWindow) return false;
+
+    targetWindow.postMessage(
+      createEmbeddedChatLauncherOpenMessage(),
+      window.location.origin,
+    );
+    return true;
+  }, []);
+
+  const openFromGreeting = useCallback(() => {
+    requestedOpenRef.current =
+      viewStateRef.current !== "open";
+    updateViewState("open");
+
+    if (readyRef.current && sendLauncherOpen()) {
+      pendingLauncherOpenRef.current = false;
+    } else {
+      pendingLauncherOpenRef.current = true;
+    }
+  }, [sendLauncherOpen, updateViewState]);
+
   useEffect(() => {
     function handleChatCommand(event: Event) {
       if (!(event instanceof CustomEvent)) return;
       if (!isEmbeddedChatOpenRequest(event.detail)) return;
 
+      pendingLauncherOpenRef.current = false;
       requestedOpenRef.current = viewStateRef.current !== "open";
       updateViewState("open");
 
@@ -72,6 +105,14 @@ function EnabledEmbeddedChat() {
 
       if (isEmbeddedChatReadyMessage(event.data)) {
         readyRef.current = true;
+
+        if (
+          pendingLauncherOpenRef.current &&
+          sendLauncherOpen()
+        ) {
+          pendingLauncherOpenRef.current = false;
+        }
+
         const pendingRequest = pendingRequestRef.current;
         if (pendingRequest && sendOpenRequest(pendingRequest)) {
           pendingRequestRef.current = undefined;
@@ -92,37 +133,40 @@ function EnabledEmbeddedChat() {
 
     window.addEventListener("message", handleFrameMessage);
     return () => window.removeEventListener("message", handleFrameMessage);
-  }, [sendOpenRequest, updateViewState]);
+  }, [sendLauncherOpen, sendOpenRequest, updateViewState]);
 
   const isExpanded = viewState === "open";
-  const isClosed = viewState === "closed";
 
   return (
-    <div
-      data-chat-view-state={viewState}
-      className={[
-        "fixed bottom-0 z-[2147483000] overflow-hidden bg-transparent",
-        locale === "ar" ? "left-0" : "right-0",
-        "transition-[width,height] duration-300 motion-reduce:transition-none",
-        isExpanded
-          ? "h-[100dvh] w-screen sm:h-[min(720px,calc(100dvh-16px))] sm:w-[420px]"
-          : isClosed
-            ? "h-[160px] w-screen max-w-[340px]"
-            : "h-[96px] w-[96px]",
-      ].join(" ")}
-    >
-      <iframe
-        ref={iframeRef}
-        src={`/chat-widget/index.html?locale=${locale}`}
-        title="محادثة استثماركوم"
-        className="h-full w-full border-0 bg-transparent"
-        loading="eager"
-        referrerPolicy="origin"
-        onLoad={() => {
-          readyRef.current = false;
-        }}
+    <>
+      <EmbeddedChatGreeting
+        locale={locale}
+        visible={viewState === "closed"}
+        onOpen={openFromGreeting}
       />
-    </div>
+
+      <div
+        data-chat-view-state={viewState}
+        className={[
+          "fixed bottom-0 z-[2147483000] overflow-hidden bg-transparent",
+          locale === "ar" ? "left-0" : "right-0",
+          "transition-[width,height] duration-300 motion-reduce:transition-none",
+          isExpanded
+            ? "h-[100dvh] w-screen sm:h-[min(720px,calc(100dvh-16px))] sm:w-[420px]"
+            : "h-[96px] w-[96px]",
+        ].join(" ")}
+      >
+        <iframe
+          key={locale}
+          ref={setIframeRef}
+          src={`/chat-widget/index.html?locale=${locale}&launcher_greeting=0`}
+          title="محادثة استثماركوم"
+          className="h-full w-full border-0 bg-transparent"
+          loading="eager"
+          referrerPolicy="origin"
+        />
+      </div>
+    </>
   );
 }
 
