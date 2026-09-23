@@ -6,7 +6,9 @@ import NextTopLoader from "nextjs-toploader";
 import ClientProviders from "@/components/providers/client-providers";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://estithmarcom.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://estithmarcom.com"
+  ),
 };
 
 export default async function LocaleLayout({

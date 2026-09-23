@@ -18,6 +18,9 @@ ENV CHAT_WIDGET_ORIGIN=$CHAT_WIDGET_ORIGIN
 ARG NEXT_PUBLIC_CHAT_WIDGET_ENABLED=false
 ENV NEXT_PUBLIC_CHAT_WIDGET_ENABLED=$NEXT_PUBLIC_CHAT_WIDGET_ENABLED
 
+ARG NEXT_PUBLIC_SITE_URL=https://estithmarcom.com
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
 RUN npm run build
 
 # ── Final Stage ───────────────────────────────────────────────────────────────
